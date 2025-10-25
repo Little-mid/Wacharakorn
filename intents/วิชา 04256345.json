@@ -1,0 +1,151 @@
+{
+  "id": "cce6f9ec-5250-4694-a357-b568ef63d6dd",
+  "name": "วิชา 04256345",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256345-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "weight": "bold",
+                      "type": "text",
+                      "align": "center",
+                      "color": "#FFFFFF",
+                      "size": "xl",
+                      "text": "📚 แนะนำรายวิชา 🤖"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "margin": "lg",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "type": "text",
+                      "color": "#FFD700",
+                      "size": "md",
+                      "weight": "bold"
+                    },
+                    {
+                      "type": "box",
+                      "spacing": "sm",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "size": "sm",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี",
+                          "color": "#FFE4E1",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "size": "sm",
+                          "type": "text",
+                          "weight": "bold",
+                          "text": "🆔 รหัสวิชา: 04256345"
+                        },
+                        {
+                          "text": "🏷️ ชื่อวิชา: คลังข้อมูล (Data Warehouse)",
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "weight": "bold",
+                          "wrap": true
+                        },
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก"
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "text": "🎯 หน่วยกิต: 3"
+                        },
+                        {
+                          "type": "text",
+                          "text": "📖 เนื้อหา: ครอบคลุมสถาปัตยกรรม การสร้างแบบจำลองข้อมูลเชิงมิติ เช่น แบบสตาร์และสโนเฟค การสกัด แปลง และนำเข้าข้อมูล เมตาดาต้า การบำรุงรักษา การประมวลผลวิเคราะห์ออนไลน์ (OLAP) และแดชบอร์ด",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "wrap": true
+                        }
+                      ],
+                      "layout": "vertical",
+                      "margin": "sm"
+                    }
+                  ],
+                  "type": "box"
+                },
+                "size": "mega",
+                "type": "bubble"
+              },
+              "altText": "แนะนำรายวิชา",
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "text": "ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

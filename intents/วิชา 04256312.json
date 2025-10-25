@@ -1,0 +1,151 @@
+{
+  "id": "008d2bee-4400-4a71-8e71-3e5eda349ab0",
+  "name": "วิชา 04256312",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256312-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "altText": "แนะนำรายวิชา",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "contents": {
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "color": "#FFFFFF",
+                      "weight": "bold",
+                      "align": "center",
+                      "size": "xl",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "type": "text"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "weight": "bold",
+                      "margin": "lg",
+                      "color": "#FFD700",
+                      "type": "text",
+                      "size": "md"
+                    },
+                    {
+                      "spacing": "sm",
+                      "margin": "sm",
+                      "type": "box",
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "color": "#FFE4E1",
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี"
+                        },
+                        {
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "type": "text",
+                          "text": "🆔 รหัสวิชา: 04256312",
+                          "size": "sm"
+                        },
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "text": "🏷️ ชื่อวิชา: การวิเคราะห์ความเสี่ยงเบื้องต้น (Introduction to Risk Analysis)",
+                          "color": "#FFFFFF",
+                          "weight": "bold"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "wrap": true,
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก",
+                          "type": "text",
+                          "weight": "bold"
+                        },
+                        {
+                          "type": "text",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "text": "📖 เนื้อหา: ศึกษาแนวคิดพื้นฐานของความน่าจะเป็น ความเสี่ยง ความไม่แน่นอน การวัดความเสี่ยง ทฤษฎีอรรถประโยชน์และการประกันภัย ตัวแบบค่าคาดหมายอรรถประโยชน์ ชนิดของฟังก์ชันอรรถประโยชน์ ความผันผวน ความเสี่ยง และการแจกแจงค่าสินไหมทดแทน",
+                          "wrap": true
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "box"
+                },
+                "size": "mega",
+                "type": "bubble"
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

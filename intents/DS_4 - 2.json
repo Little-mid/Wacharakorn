@@ -1,0 +1,163 @@
+{
+  "id": "847f7936-8122-4d4d-bdae-7f5c982a3da6",
+  "name": "DS_4 - 2",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "DS_4-2-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "📗 แผนการเรียน ปี 4 ภาคปลาย",
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "text": "แผนการเรียนอื่นๆ"
+                    }
+                  },
+                  {
+                    "action": {
+                      "label": "ภาคต้น 📗",
+                      "type": "message",
+                      "text": "Ds ปี 4 เทอม 1"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "label": "รายละเอียดรายวิชาℹ️",
+                      "text": "รายละเอียดรายวิชา",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "contents": {
+                "body": {
+                  "type": "box",
+                  "contents": [
+                    {
+                      "cornerRadius": "lg",
+                      "backgroundColor": "#CCFFCC",
+                      "contents": [
+                        {
+                          "weight": "bold",
+                          "text": "📗 แผนการเรียน ปี 4 ภาคปลาย",
+                          "size": "lg",
+                          "type": "text",
+                          "color": "#333333"
+                        },
+                        {
+                          "margin": "sm",
+                          "type": "text",
+                          "size": "md",
+                          "text": "📊 สาขาวิทยาการข้อมูล",
+                          "color": "#333333"
+                        }
+                      ],
+                      "type": "box",
+                      "paddingAll": "md",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน",
+                      "margin": "md",
+                      "weight": "bold",
+                      "type": "text",
+                      "size": "md",
+                      "color": "#333333"
+                    },
+                    {
+                      "spacing": "sm",
+                      "type": "box",
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "size": "sm",
+                          "color": "#000000",
+                          "text": "1. สหกิจศึกษา 💼\n(Co-operative Education)",
+                          "type": "text",
+                          "wrap": true
+                        }
+                      ],
+                      "margin": "sm"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "📌 หน่วยกิตรวม: 6 หน่วยกิต",
+                          "color": "#FF4500",
+                          "size": "md",
+                          "weight": "bold"
+                        }
+                      ],
+                      "paddingAll": "md",
+                      "cornerRadius": "lg",
+                      "margin": "md",
+                      "layout": "vertical",
+                      "backgroundColor": "#FFF4E5",
+                      "type": "box"
+                    }
+                  ],
+                  "layout": "vertical"
+                },
+                "type": "bubble",
+                "size": "mega"
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

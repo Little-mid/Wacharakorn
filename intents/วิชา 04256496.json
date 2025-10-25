@@ -1,0 +1,151 @@
+{
+  "id": "44db6b77-a496-4991-9c77-1a65fcd8c18f",
+  "name": "วิชา 04256496",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256496-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "type": "bubble",
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "align": "center",
+                      "type": "text",
+                      "color": "#FFFFFF",
+                      "size": "xl",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "weight": "bold"
+                    },
+                    {
+                      "margin": "md",
+                      "color": "#FFFFFF",
+                      "type": "separator"
+                    },
+                    {
+                      "type": "text",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "size": "md",
+                      "color": "#FFD700",
+                      "margin": "lg",
+                      "weight": "bold"
+                    },
+                    {
+                      "type": "box",
+                      "contents": [
+                        {
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี",
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFE4E1",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "size": "sm",
+                          "text": "🆔 รหัสวิชา: 04256496",
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "text": "🏷️ ชื่อวิชา: เรื่องเฉพาะทางวิทยาการข้อมูล (Selected Topic in Data Science)",
+                          "size": "sm",
+                          "weight": "bold"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก",
+                          "type": "text",
+                          "weight": "bold",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "text": "🎯 หน่วยกิต: 1-3"
+                        },
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "text": "📖 เนื้อหา: เรื่องเฉพาะทางด้านวิทยาการข้อมูลในระดับปริญญาตรี",
+                          "type": "text",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "layout": "vertical",
+                      "margin": "sm",
+                      "spacing": "sm"
+                    }
+                  ],
+                  "type": "box"
+                },
+                "size": "mega",
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                }
+              },
+              "type": "flex",
+              "altText": "แนะนำรายวิชา",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

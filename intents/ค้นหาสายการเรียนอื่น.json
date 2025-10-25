@@ -1,0 +1,76 @@
+{
+  "id": "23bf9165-78e1-48ef-9812-4ab0de0dc22a",
+  "name": "ค้นหาสายการเรียนอื่น",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "-followup-9",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "text": "กรุณาเลือกสายการเรียนที่ต้องการทราบข้อมูลได้เลยครับ 💻📊🌐  ",
+              "type": "text",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "Developer 💻",
+                      "type": "message",
+                      "text": "Developer 💻",
+                      "imageBackgroundColor": "#FFEFD5"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "label": "Data Science 📊",
+                      "type": "message",
+                      "text": "Data Science 📊"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "label": "Network 🌐",
+                      "type": "message",
+                      "text": "Network 🌐"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

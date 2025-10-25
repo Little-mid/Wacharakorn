@@ -1,0 +1,151 @@
+{
+  "id": "29536601-573b-4f8e-ae68-12385064f92c",
+  "name": "วิชา 01418324",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418324-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "altText": "แนะนำรายวิชา",
+              "contents": {
+                "size": "mega",
+                "body": {
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "weight": "bold",
+                      "align": "center",
+                      "size": "xl",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "weight": "bold",
+                      "color": "#FFD700",
+                      "margin": "lg",
+                      "type": "text",
+                      "size": "md"
+                    },
+                    {
+                      "spacing": "sm",
+                      "contents": [
+                        {
+                          "color": "#FFE4E1",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418221",
+                          "wrap": true,
+                          "size": "sm",
+                          "type": "text"
+                        },
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "weight": "bold",
+                          "text": "🆔 รหัสวิชา: 01418324",
+                          "type": "text",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "weight": "bold",
+                          "type": "text",
+                          "text": "🏷️ ชื่อวิชา: ระบบสนับสนุนการตัดสินใจและอัจฉริยะทางธุรกิจ (Decision Support and Business Intelligent Systems)",
+                          "wrap": true
+                        },
+                        {
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก ",
+                          "wrap": true,
+                          "weight": "bold",
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "wrap": true,
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับแนวคิดและเทคโนโลยีของระบบสนับสนุนการตัดสินใจ เหมืองข้อมูลเพื่อธุรกิจอัจฉริยะ การทำงานร่วมกัน ระบบสนับสนุนกลุ่ม การจัดการความรู้ รวมถึง AI และระบบผู้เชี่ยวชาญ",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "type": "text"
+                        }
+                      ],
+                      "layout": "vertical",
+                      "margin": "sm",
+                      "type": "box"
+                    }
+                  ],
+                  "layout": "vertical",
+                  "type": "box"
+                },
+                "type": "bubble",
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                }
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "text": "ค้นหารายวิชาอื่นๆ"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

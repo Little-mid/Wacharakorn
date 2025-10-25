@@ -1,0 +1,195 @@
+{
+  "id": "f90b483f-b1e4-49ec-93be-44b3bf340048",
+  "parentId": "fb608289-e89b-4110-8b8d-9c750b8be314",
+  "rootParentId": "fb608289-e89b-4110-8b8d-9c750b8be314",
+  "name": "DS_3 - 2 - custom",
+  "auto": true,
+  "contexts": [
+    "DS_3-2-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "DS_3-2.DS_3-2-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "รายละเอียดรายวิชา ปี 3 ภาคปลาย",
+              "type": "flex",
+              "contents": {
+                "size": "mega",
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "backgroundColor": "#FFFFCC",
+                      "paddingAll": "md",
+                      "cornerRadius": "lg",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "✍️ รายละเอียดรายวิชา",
+                          "size": "lg",
+                          "color": "#333333",
+                          "weight": "bold"
+                        },
+                        {
+                          "text": "📊 สาขาวิทยาการข้อมูล",
+                          "size": "md",
+                          "type": "text",
+                          "margin": "sm",
+                          "color": "#333333"
+                        },
+                        {
+                          "type": "text",
+                          "size": "md",
+                          "margin": "sm",
+                          "color": "#333333",
+                          "weight": "bold",
+                          "text": "       ปี 3 ภาคปลาย"
+                        }
+                      ],
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "layout": "vertical",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "layout": "vertical",
+                          "type": "box",
+                          "backgroundColor": "#F9FBFF",
+                          "paddingAll": "md",
+                          "cornerRadius": "lg",
+                          "contents": [
+                            {
+                              "size": "sm",
+                              "weight": "bold",
+                              "type": "text",
+                              "wrap": true,
+                              "text": "04256332 การบริหารโครงการและสตาร์ทอัพดิจิทัล"
+                            },
+                            {
+                              "text": "📌 3 หน่วยกิต\n✏️ หมวดวิชาเฉพาะ วิชาเฉพาะบังคับ\n📖 เรียนเกี่ยวกับวัฏจักรและการจัดการโครงการ การกำหนดเวลา ค่าใช้จ่าย ขอบเขต คุณภาพ ความเสี่ยง ทรัพยากรบุคคล รวมถึงการสื่อสารโครงการ สตาร์ทอัพ การคิดเชิงออกแบบ และตัวแบบธุรกิจ  ",
+                              "type": "text",
+                              "wrap": true,
+                              "size": "sm",
+                              "margin": "sm"
+                            }
+                          ]
+                        },
+                        {
+                          "layout": "vertical",
+                          "contents": [
+                            {
+                              "type": "text",
+                              "weight": "bold",
+                              "wrap": true,
+                              "size": "sm",
+                              "text": "04256333 การโปรแกรมและการประยุกต์สำหรับวิทยาการข้อมูล"
+                            },
+                            {
+                              "margin": "sm",
+                              "wrap": true,
+                              "type": "text",
+                              "size": "sm",
+                              "text": "📌 3 หน่วยกิต \n✏️ หมวดวิชาเฉพาะ วิชาเฉพาะบังคับ\n📖 เรียนเกี่ยวกับการเขียนโปรแกรมและการประยุกต์เพื่อพัฒนาโมเดลด้านวิทยาการข้อมูล โดยใช้กรณีศึกษาองค์กรหรือข้อมูลสาธารณะ  "
+                            }
+                          ],
+                          "cornerRadius": "lg",
+                          "backgroundColor": "#F9FBFF",
+                          "paddingAll": "md",
+                          "type": "box"
+                        },
+                        {
+                          "type": "box",
+                          "backgroundColor": "#F9FBFF",
+                          "cornerRadius": "lg",
+                          "contents": [
+                            {
+                              "size": "sm",
+                              "text": "วิชาเฉพาะเลือก",
+                              "type": "text",
+                              "wrap": true,
+                              "weight": "bold"
+                            },
+                            {
+                              "size": "sm",
+                              "wrap": true,
+                              "margin": "sm",
+                              "text": "📌 6 หน่วยกิต",
+                              "type": "text"
+                            }
+                          ],
+                          "paddingAll": "md",
+                          "layout": "vertical"
+                        }
+                      ],
+                      "margin": "md",
+                      "spacing": "md"
+                    }
+                  ],
+                  "type": "box"
+                },
+                "type": "bubble"
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "แผนการเรียนอื่นๆ",
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "type": "message"
+                    }
+                  },
+                  {
+                    "action": {
+                      "text": "รายละเอียดรายวิชาDs ปี3 เทอม1",
+                      "type": "message",
+                      "label": "ภาคต้น 📒"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

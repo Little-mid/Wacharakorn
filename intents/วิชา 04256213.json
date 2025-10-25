@@ -1,0 +1,151 @@
+{
+  "id": "cf989123-b0e1-40b8-8e82-51433d6fe45b",
+  "name": "วิชา 04256213",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256213-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "contents": {
+                "size": "mega",
+                "type": "bubble",
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                },
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "color": "#FFFFFF",
+                      "size": "xl",
+                      "align": "center",
+                      "type": "text",
+                      "weight": "bold"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "size": "md",
+                      "color": "#FFD700",
+                      "margin": "lg",
+                      "type": "text",
+                      "weight": "bold",
+                      "text": "📝 รายละเอียดรายวิชา"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 04256111",
+                          "color": "#FFE4E1",
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "weight": "bold",
+                          "size": "sm",
+                          "type": "text",
+                          "text": "🆔 รหัสวิชา: 04256213"
+                        },
+                        {
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "text": "🏷️ ชื่อวิชา: กำหนดการเชิงเส้นและการประยุกต์ (Linear Programming and Applications)",
+                          "weight": "bold",
+                          "size": "sm"
+                        },
+                        {
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก",
+                          "wrap": true,
+                          "weight": "bold",
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "wrap": true
+                        },
+                        {
+                          "text": "📖 เนื้อหา: ครอบคลุมการสร้างตัวแบบกำหนดการเชิงเส้น การแก้ปัญหาด้วยวิธีกราฟและซิมเพล็กซ์ ภาวะคู่อกัน การวิเคราะห์ความไว รวมถึงปัญหาการขนส่ง มอบหมายงาน จัดลำดับงาน และจัดตาราง",
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "type": "text"
+                        }
+                      ],
+                      "layout": "vertical",
+                      "spacing": "sm",
+                      "type": "box",
+                      "margin": "sm"
+                    }
+                  ],
+                  "type": "box"
+                }
+              },
+              "altText": "แนะนำรายวิชา",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

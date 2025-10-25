@@ -1,0 +1,151 @@
+{
+  "id": "03c7c33f-9bb5-4fe4-bbf2-10d5df0f0daf",
+  "name": "วิชา 01418441",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418441-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "altText": "แนะนำรายวิชา",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "text": "ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              },
+              "contents": {
+                "type": "bubble",
+                "size": "mega",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "align": "center",
+                      "color": "#FFFFFF",
+                      "size": "xl",
+                      "type": "text",
+                      "weight": "bold"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "margin": "lg",
+                      "weight": "bold",
+                      "color": "#FFD700",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "size": "md",
+                      "type": "text"
+                    },
+                    {
+                      "spacing": "sm",
+                      "contents": [
+                        {
+                          "color": "#FFE4E1",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418211",
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "weight": "bold",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "text": "🆔 รหัสวิชา: 01418441",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "weight": "bold",
+                          "wrap": true,
+                          "size": "sm",
+                          "type": "text",
+                          "text": "🏷️ ชื่อวิชา: เว็บเทคโนโลยีและเว็บบริการ (Web Technology and Web Services)",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก ",
+                          "type": "text",
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับการศึกษาเว็บเทคโนโลยีและเว็บบริการ ครอบคลุมหลักการ ข้อกำหนดมาตรฐาน สถาปัตยกรรมและส่วนประกอบ ลักษณะการทำงานของระบบเว็บบริการ การพัฒนาโปรแกรมสำเร็จรูป และโครงแบบ API",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "size": "sm"
+                        }
+                      ],
+                      "margin": "sm",
+                      "type": "box",
+                      "layout": "vertical"
+                    }
+                  ]
+                },
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                }
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

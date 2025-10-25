@@ -1,0 +1,87 @@
+{
+  "id": "f0564bea-cd37-4b2c-8f9f-66446783241b",
+  "name": "CS_TEST2",
+  "auto": true,
+  "contexts": [
+    "-yes-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes._1-yes-custom",
+      "affectedContexts": [
+        {
+          "name": "CS_TEST2-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "text": "กรุณาเลือกชั้นปี ครับ💻",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "💻ปี 1 ",
+                      "type": "message",
+                      "imageBackgroundColor": "#FFEFD5",
+                      "text": "💻ปี 1 "
+                    }
+                  },
+                  {
+                    "action": {
+                      "type": "message",
+                      "text": "💻ปี 2 ",
+                      "label": "💻ปี 2 "
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "text": "💻ปี 3 ",
+                      "type": "message",
+                      "label": "💻ปี 3 "
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "label": "💻ปี 4 ",
+                      "type": "message",
+                      "text": "💻ปี 4 "
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "uri": "https://media.giphy.com/media/yourgif.gif",
+              "type": "text"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,158 @@
+{
+  "id": "b7f64090-9d1f-47d2-87f1-d676a9a1f024",
+  "parentId": "ed325500-9daa-4a82-ad66-aee5041b273e",
+  "rootParentId": "4461e597-4962-4561-a81e-33634d796c54",
+  "name": "CS ปี4 เทอม 2",
+  "auto": true,
+  "contexts": [
+    "_CS_4-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes.-yes-custom-2._1-custom._CS_4-custom-2",
+      "affectedContexts": [
+        {
+          "name": "CS42-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "รายละเอียดรายวิชา",
+                      "text": "รายละเอียดรายวิชา",
+                      "type": "message"
+                    }
+                  }
+                ]
+              },
+              "altText": "📗 แผนการเรียน ปี 4 ภาคปลาย",
+              "contents": {
+                "size": "mega",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "layout": "vertical",
+                      "backgroundColor": "#CCFFCC",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "color": "#333333",
+                          "weight": "bold",
+                          "text": "📗 แผนการเรียน ปี 4 ภาคปลาย",
+                          "size": "lg",
+                          "type": "text"
+                        },
+                        {
+                          "text": "🖥️ สาขาวิทยาการคอมพิวเตอร์",
+                          "color": "#333333",
+                          "size": "md",
+                          "type": "text",
+                          "margin": "sm"
+                        }
+                      ],
+                      "paddingAll": "md",
+                      "cornerRadius": "lg"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "size": "md",
+                      "weight": "bold",
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน",
+                      "type": "text",
+                      "color": "#333333",
+                      "margin": "md"
+                    },
+                    {
+                      "layout": "vertical",
+                      "spacing": "sm",
+                      "type": "box",
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "color": "#000000",
+                          "text": "1.โครงงานวิทยาการคอมพิวเตอร์📝 \n(Computer Science Project)",
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "text": "2.วิชาเฉพาะเลือก🎯",
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#000000"
+                        },
+                        {
+                          "color": "#000000",
+                          "text": "3.วิชาเลือกเสรี📚",
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "size": "md",
+                          "text": "📌 หน่วยกิตรวม: 9 หน่วยกิต",
+                          "type": "text",
+                          "color": "#FF4500",
+                          "weight": "bold"
+                        }
+                      ],
+                      "paddingAll": "md",
+                      "type": "box",
+                      "cornerRadius": "lg",
+                      "margin": "md",
+                      "layout": "vertical",
+                      "backgroundColor": "#FFF4E5"
+                    }
+                  ]
+                },
+                "type": "bubble"
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

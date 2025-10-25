@@ -1,0 +1,54 @@
+[
+  {
+    "id": "22480405-ea9c-4591-9683-0b6aafeda760",
+    "data": [
+      {
+        "text": "Data Science",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "655f0ef2-bea0-4a92-8999-63e305ee3cc6",
+    "data": [
+      {
+        "text": "วิทยาการข้อมูล",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "8ef54749-43b2-4e03-a4a1-63eca3bed8f8",
+    "data": [
+      {
+        "text": "วิทข้อมูล",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "4c2b2a61-768a-4592-b12a-81eeb9e0d83c",
+    "data": [
+      {
+        "text": "Ds",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

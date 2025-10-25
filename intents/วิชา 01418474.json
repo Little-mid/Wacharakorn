@@ -1,0 +1,151 @@
+{
+  "id": "383e370d-1927-4032-b7c1-1c7ce42833f5",
+  "name": "วิชา 01418474",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418474-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "size": "mega",
+                "body": {
+                  "contents": [
+                    {
+                      "align": "center",
+                      "type": "text",
+                      "size": "xl",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "color": "#FFFFFF",
+                      "weight": "bold"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "size": "md",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "weight": "bold",
+                      "color": "#FFD700",
+                      "margin": "lg",
+                      "type": "text"
+                    },
+                    {
+                      "layout": "vertical",
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "size": "sm",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418211",
+                          "wrap": true,
+                          "color": "#FFE4E1",
+                          "type": "text"
+                        },
+                        {
+                          "type": "text",
+                          "text": "🆔 รหัสวิชา: 01418474",
+                          "weight": "bold",
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "text": "🏷️ ชื่อวิชา: การทดสอบและทวนสอบซอฟต์แวร์ (Software Testing and Verification)",
+                          "weight": "bold",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก "
+                        },
+                        {
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "text": "🎯 หน่วยกิต: 3"
+                        },
+                        {
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "size": "sm",
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับแนวคิดพื้นฐานการทดสอบและทวนสอบซอฟต์แวร์ ครอบคลุมระดับและชนิดการทดสอบ เทคนิคและการตรวจสอบ การสร้างและใช้เครื่องมือทดสอบ การวางแผนและจัดการการทดสอบ วิธีเชิงรูปนัย และการวิเคราะห์คุณภาพซอฟต์แวร์"
+                        }
+                      ],
+                      "type": "box",
+                      "spacing": "sm"
+                    }
+                  ],
+                  "type": "box",
+                  "layout": "vertical"
+                },
+                "type": "bubble",
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                }
+              },
+              "altText": "แนะนำรายวิชา",
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

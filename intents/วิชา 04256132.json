@@ -1,0 +1,151 @@
+{
+  "id": "c0eef45d-01cd-43bc-8726-f55f0750bee4",
+  "name": "วิชา 04256132",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256132-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    }
+                  }
+                ]
+              },
+              "contents": {
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "body": {
+                  "layout": "vertical",
+                  "type": "box",
+                  "contents": [
+                    {
+                      "align": "center",
+                      "weight": "bold",
+                      "color": "#FFFFFF",
+                      "type": "text",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "size": "xl"
+                    },
+                    {
+                      "margin": "md",
+                      "color": "#FFFFFF",
+                      "type": "separator"
+                    },
+                    {
+                      "weight": "bold",
+                      "margin": "lg",
+                      "color": "#FFD700",
+                      "type": "text",
+                      "size": "md",
+                      "text": "📝 รายละเอียดรายวิชา"
+                    },
+                    {
+                      "spacing": "sm",
+                      "layout": "vertical",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี",
+                          "wrap": true,
+                          "color": "#FFE4E1",
+                          "size": "sm"
+                        },
+                        {
+                          "weight": "bold",
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "text": "🆔 รหัสวิชา: 04256132",
+                          "type": "text"
+                        },
+                        {
+                          "weight": "bold",
+                          "type": "text",
+                          "text": "🏷️ ชื่อวิชา: การเขียนโปรแกรมคอมพิวเตอร์สำหรับวิทยาการข้อมูล\n(Computer Programing for Data Science)",
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ",
+                          "size": "sm"
+                        },
+                        {
+                          "text": "🎯 หน่วยกิต: 3",
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "text": "📖 เนื้อหา: ศึกษาแนวคิดและการออกแบบขั้นตอนวิธี การเขียนโปรแกรมด้วยคำสั่งพื้นฐาน เงื่อนไข การวนซ้ำ การจัดการข้อมูลเข้า–ออก การเขียนโปรแกรมเชิงวัตถุ การใช้ไลบรารี/โมดูลประมวลผลข้อมูล และการใช้งานซอฟต์แวร์บริการ",
+                          "type": "text",
+                          "size": "sm"
+                        }
+                      ],
+                      "margin": "sm"
+                    }
+                  ]
+                },
+                "size": "mega",
+                "type": "bubble"
+              },
+              "type": "flex",
+              "altText": "แนะนำรายวิชา"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

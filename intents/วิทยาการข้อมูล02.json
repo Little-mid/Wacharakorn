@@ -1,0 +1,80 @@
+{
+  "id": "7e448022-afe1-4146-8cd9-1b6271702394",
+  "parentId": "8089820a-383e-4338-a9d1-1f793079d1e6",
+  "rootParentId": "e41e4e83-3119-4b85-a6ff-7089402f001c",
+  "name": "วิทยาการข้อมูล02",
+  "auto": true,
+  "contexts": [
+    "-followup-2"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-custom.-custom-2",
+      "affectedContexts": [
+        {
+          "name": "-followup-4",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "3",
+          "platform": "line",
+          "imageUrl": "https://firebasestorage.googleapis.com/v0/b/image-store-01.firebasestorage.app/o/02-Photoroom.png?alt\u003dmedia\u0026token\u003d234f44e0-2b48-46c2-ab6f-65a98c26dca0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "type": "message",
+                      "label": "รายละเอียดเพิ่มเติม 📊",
+                      "text": "รายละเอียดเพิ่มเติม 📊"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "type": "message",
+                      "label": "วิทยาการคอมพิวเตอร์💻",
+                      "text": "วิทยาการคอมพิวเตอร์ 💻"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "type": "text",
+              "text": "*หลักสูตรวิทยาการข้อมูล*\n\n📌 *เนื้อหาที่เรียนครอบคลุม:*\n- การจัดการข้อมูล (Data Management)\n- การวิเคราะห์ข้อมูล (Data Analysis)\n- การเรียนรู้ของเครื่อง (Machine Learning)\n- การแสดงผลข้อมูล (Data Visualization)\n- วิทยาการคอมพิวเตอร์พื้นฐาน (Basic Computer Science)\n\n💡 เน้นการใช้ข้อมูลในการตัดสินใจ การสร้างแบบจำลอง และการพัฒนาระบบอัจฉริยะที่สามารถเข้าใจและวิเคราะห์ข้อมูลขนาดใหญ่ได้อย่างมีประสิทธิภาพ 📊"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

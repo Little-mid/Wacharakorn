@@ -1,0 +1,191 @@
+{
+  "id": "3b034699-2f14-4a1b-b7b8-2d8808ca5f5b",
+  "name": "DS_2 - 2",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "DS_2-2-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "backgroundColor": "#FFCC99",
+                      "type": "box",
+                      "layout": "vertical",
+                      "cornerRadius": "lg",
+                      "paddingAll": "md",
+                      "contents": [
+                        {
+                          "text": "📙 แผนการเรียน ปี 2 ภาคปลาย",
+                          "weight": "bold",
+                          "size": "lg",
+                          "type": "text",
+                          "color": "#333333"
+                        },
+                        {
+                          "color": "#333333",
+                          "size": "md",
+                          "type": "text",
+                          "text": "📊 สาขาวิทยาการข้อมูล",
+                          "margin": "sm"
+                        }
+                      ]
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "size": "md",
+                      "color": "#333333",
+                      "margin": "md",
+                      "type": "text",
+                      "weight": "bold",
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน"
+                    },
+                    {
+                      "type": "box",
+                      "spacing": "sm",
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "text": "1.ทรัพย์สินทางปัญญาและจรรยาบรรณวิชาชีพ\n(Intellectual Properties and Professional Ethics) ⚖️",
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#000000"
+                        },
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#000000",
+                          "text": "2.แนวคิดและการออกแบบจินตทัศน์ข้อมูล\n(Concepts and Design of Data Visualization) 📊"
+                        },
+                        {
+                          "type": "text",
+                          "text": "3.วิชาเฉพาะเลือก 📘",
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#000000"
+                        },
+                        {
+                          "color": "#000000",
+                          "size": "sm",
+                          "wrap": true,
+                          "text": "4.วิชาศึกษาทั่วไปกลุ่มสุนทรียศาสตร์ 🎨",
+                          "type": "text"
+                        },
+                        {
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true,
+                          "text": "5.วิชาศึกษาทั่วไปกลุ่มสาระพลเมืองไทยและพลเมืองโลก 🌍",
+                          "color": "#000000"
+                        }
+                      ],
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "cornerRadius": "lg",
+                      "margin": "md",
+                      "backgroundColor": "#FFF4E5",
+                      "type": "box",
+                      "paddingAll": "md",
+                      "contents": [
+                        {
+                          "size": "md",
+                          "weight": "bold",
+                          "color": "#FF4500",
+                          "text": "📌 หน่วยกิตรวม: 18 หน่วยกิต",
+                          "type": "text"
+                        }
+                      ],
+                      "layout": "vertical"
+                    }
+                  ],
+                  "type": "box"
+                },
+                "size": "mega",
+                "type": "bubble"
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "text": "แผนการเรียนอื่นๆ",
+                      "type": "message"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "Ds ปี 2 เทอม 1",
+                      "type": "message",
+                      "label": "ภาคต้น 📙"
+                    }
+                  },
+                  {
+                    "action": {
+                      "type": "message",
+                      "label": "รายละเอียดรายวิชาℹ️",
+                      "text": "รายละเอียดรายวิชา"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "altText": "📙 แผนการเรียน ปี 2 ภาคปลาย",
+              "type": "flex"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

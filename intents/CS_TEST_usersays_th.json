@@ -1,0 +1,80 @@
+[
+  {
+    "id": "39e1a7ff-42ed-4906-a8e5-856c51ecbb65",
+    "data": [
+      {
+        "text": "คอม",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "ff48516c-0495-4cb3-bb88-df60692f880c",
+    "data": [
+      {
+        "text": "วิทคอม",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "cb5131db-7664-4b75-8e28-d89cb83d7c8e",
+    "data": [
+      {
+        "text": "วิทย์คอม",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "6a556ea8-9123-4a70-a4bc-2219d2bf9579",
+    "data": [
+      {
+        "text": "cs",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "39235a93-96e7-46b8-a419-a9fd9c4172cd",
+    "data": [
+      {
+        "text": "สาขา วิทยาการคอมพิวเตอร์💻",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "2e7b5bb5-7a46-4213-9d61-afc6554808f8",
+    "data": [
+      {
+        "text": "test",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

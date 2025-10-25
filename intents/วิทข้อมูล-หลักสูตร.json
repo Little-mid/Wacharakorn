@@ -1,0 +1,76 @@
+{
+  "id": "e74b0ceb-74ff-45c1-a1e6-b1ad4e28a1e2",
+  "name": "วิทข้อมูล-หลักสูตร",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "--followup-2",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "3",
+          "platform": "line",
+          "imageUrl": "https://firebasestorage.googleapis.com/v0/b/image-store-01.firebasestorage.app/o/02-Photoroom.png?alt\u003dmedia\u0026token\u003d234f44e0-2b48-46c2-ab6f-65a98c26dca0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "text",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "type": "message",
+                      "label": "รายละเอียดเพิ่มเติม 📊",
+                      "text": "รายละเอียดเพิ่มเติม 📊"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "วิทยาการคอมพิวเตอร์ 💻",
+                      "label": "วิทยาการคอมพิวเตอร์💻",
+                      "type": "message"
+                    }
+                  }
+                ]
+              },
+              "text": "*หลักสูตรวิทยาการข้อมูล*\n\n📌 *เนื้อหาที่เรียนครอบคลุม:*\n- การจัดการข้อมูล (Data Management)\n- การวิเคราะห์ข้อมูล (Data Analysis)\n- การเรียนรู้ของเครื่อง (Machine Learning)\n- การแสดงผลข้อมูล (Data Visualization)\n- วิทยาการคอมพิวเตอร์พื้นฐาน (Basic Computer Science)\n\n💡 เน้นการใช้ข้อมูลในการตัดสินใจ การสร้างแบบจำลอง และการพัฒนาระบบอัจฉริยะที่สามารถเข้าใจและวิเคราะห์ข้อมูลขนาดใหญ่ได้อย่างมีประสิทธิภาพ 📊"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

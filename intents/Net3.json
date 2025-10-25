@@ -1,0 +1,166 @@
+{
+  "id": "841338ae-7312-4d39-bc6b-5c2dceddaecb",
+  "parentId": "23bf9165-78e1-48ef-9812-4ab0de0dc22a",
+  "rootParentId": "23bf9165-78e1-48ef-9812-4ab0de0dc22a",
+  "name": "Net3",
+  "auto": true,
+  "contexts": [
+    "-followup-9"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-custom",
+      "affectedContexts": [
+        {
+          "name": "Net3-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "text": "ขอดูสายการเรียนอื่น",
+                      "label": "📚 ดูสายอื่น",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "text": "รายละเอียดรายวิชาสายการเรียน Network",
+                      "label": "ℹ️ รายละเอียดวิชา"
+                    }
+                  }
+                ]
+              },
+              "contents": {
+                "body": {
+                  "paddingAll": "20px",
+                  "backgroundColor": "#1274c7",
+                  "layout": "vertical",
+                  "type": "box",
+                  "contents": [
+                    {
+                      "weight": "bold",
+                      "text": "Network🌐",
+                      "type": "text",
+                      "align": "center",
+                      "color": "#FFFFFF",
+                      "size": "xxl"
+                    },
+                    {
+                      "margin": "lg",
+                      "color": "#feecc7",
+                      "type": "separator"
+                    },
+                    {
+                      "type": "text",
+                      "color": "#FFFFFF",
+                      "weight": "bold",
+                      "margin": "lg",
+                      "text": "📖 วิชาที่ควรลงเรียนในสายการเรียนนี้",
+                      "size": "md"
+                    },
+                    {
+                      "spacing": "sm",
+                      "paddingAll": "15px",
+                      "backgroundColor": "#FFFFFF",
+                      "margin": "md",
+                      "layout": "vertical",
+                      "cornerRadius": "lg",
+                      "contents": [
+                        {
+                          "text": "01418235 - ระบบปฏิบัติการยูนิกซ์และการโปรแกรมเปลือกระบบ (Unix Operating System and Shell Programming)",
+                          "color": "#111111",
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "type": "separator",
+                          "margin": "md"
+                        },
+                        {
+                          "text": "01418311 - การโปรแกรมเชิงคำนวณแบบท้าทาย (Challenging Computational Programming)",
+                          "color": "#111111",
+                          "wrap": true,
+                          "size": "sm",
+                          "type": "text"
+                        },
+                        {
+                          "type": "separator",
+                          "margin": "md"
+                        },
+                        {
+                          "color": "#111111",
+                          "wrap": true,
+                          "type": "text",
+                          "text": "01418352 - การสื่อสารข้อมูลและเครือข่าย (Data Communications and Networks)",
+                          "size": "sm"
+                        },
+                        {
+                          "margin": "md",
+                          "type": "separator"
+                        },
+                        {
+                          "color": "#111111",
+                          "type": "text",
+                          "wrap": true,
+                          "text": "01418451 - การออกแบบและการบริหารเครือข่าย (Network Design and Administration)",
+                          "size": "sm"
+                        },
+                        {
+                          "margin": "md",
+                          "type": "separator"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "01418353 - แนวคิดและบริการการคำนวณแบบคลาวด์ (Cloud Computing Concepts and Services)",
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#111111"
+                        }
+                      ],
+                      "type": "box"
+                    }
+                  ]
+                },
+                "type": "bubble",
+                "size": "mega"
+              },
+              "altText": "แนะนำสายการเรียน"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,151 @@
+{
+  "id": "e902accc-17df-4547-8e28-4eb430844c73",
+  "name": "วิชา 01418421",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418421-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "contents": {
+                "size": "mega",
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                },
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "contents": [
+                    {
+                      "weight": "bold",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "align": "center",
+                      "color": "#FFFFFF",
+                      "size": "xl",
+                      "type": "text"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "weight": "bold",
+                      "type": "text",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "color": "#FFD700",
+                      "margin": "lg",
+                      "size": "md"
+                    },
+                    {
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "size": "sm",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418221",
+                          "wrap": true,
+                          "type": "text",
+                          "color": "#FFE4E1"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "weight": "bold",
+                          "text": "🆔 รหัสวิชา: 01418421",
+                          "size": "sm",
+                          "type": "text"
+                        },
+                        {
+                          "weight": "bold",
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "text": "🏷️ ชื่อวิชา: การออกแบบประสบการณ์และส่วนเชื่อมประสานผู้ใช้\n(User Experience and User Interface Design)",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "weight": "bold",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก ",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "type": "text",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        },
+                        {
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับแนวคิดการออกแบบประสบการณ์ผู้ใช้ (UX) ครอบคลุมประวัติ แนวทางทำความเข้าใจผู้ใช้ แผนที่การเดินทางของผู้ใช้ การวิเคราะห์กิจกรรม สถาปัตยกรรมสารสนเทศ การออกแบบเชิงวิทัศน์ การสร้างต้นแบบ และการประเมินผล",
+                          "size": "sm",
+                          "type": "text"
+                        }
+                      ],
+                      "spacing": "sm",
+                      "margin": "sm",
+                      "type": "box"
+                    }
+                  ],
+                  "layout": "vertical"
+                }
+              },
+              "type": "flex",
+              "altText": "แนะนำรายวิชา"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,35 @@
+{
+  "id": "61edb55c-c974-4ab3-844f-b4001f163bfb",
+  "name": "วิชาเสรี",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "speech": [
+            "🎯: กลุ่มวิชาเลือกเสรีสามารถเลือกได้ทุกรายวิชาที่เปิดทั้งภาคต้นและภาคปลายของแต่ละปีการศึกษา และต้องเรียนอย่างน้อย 6 หน่วยกิตตลอดหลักสูตร"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

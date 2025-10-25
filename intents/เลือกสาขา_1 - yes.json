@@ -1,0 +1,76 @@
+{
+  "id": "1501d76a-60e7-4ae1-b880-2a516538824e",
+  "parentId": "4461e597-4962-4561-a81e-33634d796c54",
+  "rootParentId": "4461e597-4962-4561-a81e-33634d796c54",
+  "name": "เลือกสาขา_1 - yes",
+  "auto": true,
+  "contexts": [
+    "-followup-5"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes",
+      "affectedContexts": [
+        {
+          "name": "-yes-followup",
+          "lifespan": 2
+        },
+        {
+          "name": "_1-yes-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "text": "กรุณาเลือกสาขา💻📊 ครับ ",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "วิทยาการคอมพิวเตอร์ 💻",
+                      "type": "message",
+                      "imageBackgroundColor": "#FFEFD5",
+                      "text": "สาขา วิทยาการคอมพิวเตอร์ 💻"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "สาขา วิทยาการข้อมูล 📊",
+                      "type": "message",
+                      "label": "วิทยาการข้อมูล 📊"
+                    }
+                  }
+                ]
+              },
+              "type": "text"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

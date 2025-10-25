@@ -1,0 +1,170 @@
+{
+  "id": "0b0bbba8-47da-4ff9-adde-b594865ce87b",
+  "name": "DS_4 - 1",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "DS_4-1-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "cornerRadius": "lg",
+                      "paddingAll": "md",
+                      "type": "box",
+                      "backgroundColor": "#CCFFCC",
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "color": "#333333",
+                          "size": "lg",
+                          "type": "text",
+                          "text": "📗 แผนการเรียน ปี 4 ภาคต้น",
+                          "weight": "bold"
+                        },
+                        {
+                          "size": "md",
+                          "color": "#333333",
+                          "margin": "sm",
+                          "text": "📊 สาขาวิทยาการข้อมูล",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน",
+                      "size": "md",
+                      "weight": "bold",
+                      "color": "#333333",
+                      "type": "text",
+                      "margin": "md"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "text": "1. ธุรกิจอัจฉริยะ 📝\n(Business Intelligence)",
+                          "color": "#000000",
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "type": "text",
+                          "text": "2.วิชาเฉพาะเลือก🎯",
+                          "color": "#000000",
+                          "wrap": true,
+                          "size": "sm"
+                        }
+                      ],
+                      "margin": "sm",
+                      "spacing": "sm",
+                      "layout": "vertical",
+                      "type": "box"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "color": "#FF4500",
+                          "text": "📌 หน่วยกิตรวม: 12 หน่วยกิต",
+                          "weight": "bold",
+                          "size": "md",
+                          "type": "text"
+                        }
+                      ],
+                      "backgroundColor": "#FFF4E5",
+                      "type": "box",
+                      "cornerRadius": "lg",
+                      "margin": "md",
+                      "paddingAll": "md",
+                      "layout": "vertical"
+                    }
+                  ],
+                  "type": "box"
+                },
+                "type": "bubble",
+                "size": "mega"
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "type": "message",
+                      "text": "แผนการเรียนอื่นๆ"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "label": "ภาคปลาย 📗",
+                      "text": "Ds ปี 4 เทอม 2"
+                    }
+                  },
+                  {
+                    "action": {
+                      "type": "message",
+                      "text": "รายละเอียดรายวิชา",
+                      "label": "รายละเอียดรายวิชาℹ️"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "type": "flex",
+              "altText": "📗 แผนการเรียน ปี 4 ภาคต้น"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

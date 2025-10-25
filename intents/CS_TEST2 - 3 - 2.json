@@ -1,0 +1,195 @@
+{
+  "id": "c976113c-c234-4405-9c23-5a9f20135381",
+  "parentId": "89373d17-2188-4793-9c44-0111a9780f6a",
+  "rootParentId": "f0564bea-cd37-4b2c-8f9f-66446783241b",
+  "name": "CS_TEST2 - 3 - 2",
+  "auto": true,
+  "contexts": [
+    "CS_TEST2-3-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "CS_TEST2.CS_TEST2-custom-3.CS_TEST2-3-custom-2",
+      "affectedContexts": [
+        {
+          "name": "CS_TEST2-3-2-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "text": "แผนการเรียนอื่นๆ"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "Cs ปี 3 เทอม 1",
+                      "type": "message",
+                      "label": "ภาคต้น 📒"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "รายละเอียดรายวิชาℹ️",
+                      "text": "รายละเอียดรายวิชา",
+                      "type": "message"
+                    }
+                  }
+                ]
+              },
+              "contents": {
+                "body": {
+                  "type": "box",
+                  "contents": [
+                    {
+                      "contents": [
+                        {
+                          "size": "lg",
+                          "color": "#333333",
+                          "weight": "bold",
+                          "type": "text",
+                          "text": "📒 แผนการเรียน ปี 3 ภาคปลาย"
+                        },
+                        {
+                          "type": "text",
+                          "margin": "sm",
+                          "size": "md",
+                          "color": "#333333",
+                          "text": "🖥️ สาขาวิทยาการคอมพิวเตอร์"
+                        }
+                      ],
+                      "type": "box",
+                      "paddingAll": "md",
+                      "cornerRadius": "lg",
+                      "layout": "vertical",
+                      "backgroundColor": "#FFFFCC"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน",
+                      "weight": "bold",
+                      "color": "#333333",
+                      "type": "text",
+                      "margin": "md",
+                      "size": "md"
+                    },
+                    {
+                      "type": "box",
+                      "margin": "sm",
+                      "spacing": "sm",
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "text": "1.ความมั่นคงในระบบสารสนเทศ🛡️ \n(Information Systems Security)",
+                          "color": "#000000",
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#000000",
+                          "text": "2.การบริหารโครงการและสตาร์ทอัพดิจิทัล📈 \n(Project Management and Digital Startup)",
+                          "size": "sm"
+                        },
+                        {
+                          "color": "#000000",
+                          "type": "text",
+                          "size": "sm",
+                          "text": "3.สัมมนา (Seminar)🎤",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "text": "4.วิชาเฉพาะเลือก 📚",
+                          "size": "sm",
+                          "color": "#000000",
+                          "wrap": true
+                        },
+                        {
+                          "wrap": true,
+                          "text": "5.วิชาเลือกเสรี 🎯\n⚠️ กลุ่มวิชาเลือกเสรีต้องเรียนอย่างน้อย 6 หน่วยกิตตลอดหลักสูตร⚠️",
+                          "color": "#000000",
+                          "type": "text",
+                          "size": "sm"
+                        }
+                      ]
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "margin": "md",
+                      "cornerRadius": "lg",
+                      "backgroundColor": "#FFF4E5",
+                      "paddingAll": "md",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "weight": "bold",
+                          "size": "md",
+                          "text": "📌 หน่วยกิตรวม: 16 หน่วยกิต",
+                          "color": "#FF4500"
+                        }
+                      ],
+                      "layout": "vertical",
+                      "type": "box"
+                    }
+                  ],
+                  "layout": "vertical"
+                },
+                "size": "mega",
+                "type": "bubble"
+              },
+              "altText": "📒 แผนการเรียน ปี 3 ภาคปลาย"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

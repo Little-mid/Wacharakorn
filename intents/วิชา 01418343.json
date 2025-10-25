@@ -1,0 +1,151 @@
+{
+  "id": "f0f60192-41ec-454d-9b1d-4fadd52ded63",
+  "name": "วิชา 01418343",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418343-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "type": "message",
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "contents": {
+                "size": "mega",
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "size": "xl",
+                      "align": "center",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "color": "#FFFFFF",
+                      "type": "text",
+                      "weight": "bold"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "color": "#FFD700",
+                      "type": "text",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "weight": "bold",
+                      "margin": "lg",
+                      "size": "md"
+                    },
+                    {
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "color": "#FFE4E1",
+                          "type": "text",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418231",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "weight": "bold",
+                          "text": "🆔 รหัสวิชา: 01418343",
+                          "color": "#FFFFFF",
+                          "size": "sm"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "text": "🏷️ ชื่อวิชา: การคำนวณแบบขนานด้วยคูด้า (Parallel Computing with CUDA)",
+                          "type": "text",
+                          "weight": "bold",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก ",
+                          "weight": "bold",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "wrap": true,
+                          "type": "text",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับหลักการคำนวณแบบขนาน แบบจำลองและขั้นตอนวิธีแบบขนาน แพลตฟอร์ม CUDA การโปรแกรมด้วย CUDA C/C++ การจัดการเทรดและหน่วยความจำใน CUDA รวมถึงการประยุกต์ใช้งานจริง",
+                          "size": "sm",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "type": "box",
+                      "margin": "sm",
+                      "spacing": "sm"
+                    }
+                  ],
+                  "type": "box"
+                },
+                "type": "bubble",
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                }
+              },
+              "altText": "แนะนำรายวิชา"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

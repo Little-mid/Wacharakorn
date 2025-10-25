@@ -1,0 +1,38 @@
+{
+  "id": "5c6e91f1-f0c8-4c94-b19a-ddd92f54bbe5",
+  "parentId": "23e3eeee-6ee9-4d34-9ebc-9b45e0781e50",
+  "rootParentId": "23e3eeee-6ee9-4d34-9ebc-9b45e0781e50",
+  "name": "นอกหลักสูตร วิชา 01417322 - fallback",
+  "contexts": [
+    "01417322-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "01417322.01417322-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "speech": [
+            "⚠️รหัสวิชาไม่ถูกต้อง⚠️ \nตัวอย่าง รหัสวิชา \n01418325\n*กรุณาตรวจสอบและพิมพ์รหัสวิชาใหม่อีกครั้ง* ครับ"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

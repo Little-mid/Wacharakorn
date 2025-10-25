@@ -1,0 +1,151 @@
+{
+  "id": "144f0b0d-1c1e-4dec-a4ba-caede9587551",
+  "name": "วิชา 04256122",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256122-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "body": {
+                  "contents": [
+                    {
+                      "size": "xl",
+                      "align": "center",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "weight": "bold",
+                      "type": "text",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "type": "separator",
+                      "color": "#FFFFFF",
+                      "margin": "md"
+                    },
+                    {
+                      "size": "md",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "type": "text",
+                      "weight": "bold",
+                      "color": "#FFD700",
+                      "margin": "lg"
+                    },
+                    {
+                      "margin": "sm",
+                      "spacing": "sm",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 04256121",
+                          "color": "#FFE4E1",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "text": "🆔 รหัสวิชา: 04256122",
+                          "type": "text",
+                          "weight": "bold"
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "text": "🏷️ ชื่อวิชา: การวิเคราะห์ถดถอยประยุกต์ (Applied Regression Analysis)"
+                        },
+                        {
+                          "type": "text",
+                          "weight": "bold",
+                          "size": "sm",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ",
+                          "wrap": true,
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "text": "🎯 หน่วยกิต: 3",
+                          "wrap": true,
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "size": "sm"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "text": "📖 เนื้อหา: ครอบคลุม การวิเคราะห์สหสัมพันธ์ การถดถอยเชิงเส้นอย่างง่ายและพหุคูณ การประมาณค่าด้วยวิธีกำลังสองน้อยที่สุด การทดสอบสมมติฐานและช่วงความเชื่อมั่น การตรวจสอบความถูกต้องของตัวแบบ การถดถอยไม่เชิงเส้น การเลือกตัวแบบ และการประยุกต์กับข้อมูลจริง"
+                        }
+                      ],
+                      "layout": "vertical"
+                    }
+                  ],
+                  "type": "box",
+                  "layout": "vertical"
+                },
+                "type": "bubble",
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "size": "mega"
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "text": "ค้นหารายวิชาอื่นๆ"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "altText": "แนะนำรายวิชา",
+              "type": "flex"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

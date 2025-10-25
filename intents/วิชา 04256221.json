@@ -1,0 +1,151 @@
+{
+  "id": "e870e630-0685-479c-8fd1-7a2c5212ecb4",
+  "name": "วิชา 04256221",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256221-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "type": "bubble",
+                "size": "mega",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "type": "text",
+                      "align": "center",
+                      "weight": "bold",
+                      "color": "#FFFFFF",
+                      "size": "xl"
+                    },
+                    {
+                      "margin": "md",
+                      "color": "#FFFFFF",
+                      "type": "separator"
+                    },
+                    {
+                      "color": "#FFD700",
+                      "margin": "lg",
+                      "size": "md",
+                      "weight": "bold",
+                      "type": "text",
+                      "text": "📝 รายละเอียดรายวิชา"
+                    },
+                    {
+                      "type": "box",
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "color": "#FFE4E1",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 04256122",
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "type": "text",
+                          "text": "🆔 รหัสวิชา: 04256221",
+                          "weight": "bold",
+                          "wrap": true
+                        },
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "text": "🏷️ ชื่อวิชา: การพยากรณ์สำหรับวิทยาการข้อมูล (Forecasting for Data Science)",
+                          "weight": "bold"
+                        },
+                        {
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก",
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "weight": "bold"
+                        },
+                        {
+                          "text": "🎯 หน่วยกิต: 3",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "text": "📖 เนื้อหา: ศึกษาอนุกรมเวลา ตัวแบบถดถอย เทคนิคปรับเรียบ การแยกส่วนประกอบ ตัวแบบอริมา การประมาณค่าพารามิเตอร์ การวิเคราะห์ข้อมูลและพยากรณ์ด้วยอนุกรมเวลา การประเมินความคลาดเคลื่อน และการประยุกต์กับข้อมูลจริง",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm"
+                        }
+                      ],
+                      "spacing": "sm",
+                      "layout": "vertical"
+                    }
+                  ]
+                }
+              },
+              "type": "flex",
+              "altText": "แนะนำรายวิชา",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

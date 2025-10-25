@@ -1,0 +1,151 @@
+{
+  "id": "e937ffbd-0727-4bde-85e9-e4f9b4f3199a",
+  "name": "วิชา 04256333",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256333-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "แนะนำรายวิชา",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              },
+              "type": "flex",
+              "contents": {
+                "body": {
+                  "contents": [
+                    {
+                      "size": "xl",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "color": "#FFFFFF",
+                      "type": "text",
+                      "align": "center",
+                      "weight": "bold"
+                    },
+                    {
+                      "margin": "md",
+                      "color": "#FFFFFF",
+                      "type": "separator"
+                    },
+                    {
+                      "margin": "lg",
+                      "size": "md",
+                      "color": "#FFD700",
+                      "weight": "bold",
+                      "type": "text",
+                      "text": "📝 รายละเอียดรายวิชา"
+                    },
+                    {
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "color": "#FFE4E1",
+                          "wrap": true,
+                          "type": "text",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี",
+                          "size": "sm"
+                        },
+                        {
+                          "weight": "bold",
+                          "text": "🆔 รหัสวิชา: 04256333",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "text": "🏷️ ชื่อวิชา: การโปรแกรมและการประยุกต์สำหรับวิทยาการข้อมูล\n(Project Management and Digital Startup)"
+                        },
+                        {
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "type": "text",
+                          "weight": "bold",
+                          "wrap": true
+                        },
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "type": "text"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "text": "📖 เนื้อหา: การเขียนโปรแกรมคอมพิวเตอร์เพื่อพัฒนาโมเดลสำหรับวิทยาการข้อมูล ใช้กรณีศึกษาขององค์กรหรือข้อมูลสาธารณะสำหรับงานด้านวิทยาการข้อมูล",
+                          "wrap": true,
+                          "size": "sm"
+                        }
+                      ],
+                      "margin": "sm",
+                      "type": "box",
+                      "spacing": "sm"
+                    }
+                  ],
+                  "layout": "vertical",
+                  "type": "box"
+                },
+                "size": "mega",
+                "type": "bubble",
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                }
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

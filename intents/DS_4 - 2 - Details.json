@@ -1,0 +1,143 @@
+{
+  "id": "d0f58665-f020-44d3-b881-3307a3662c56",
+  "name": "DS_4 - 2 - Details",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "altText": "รายละเอียดรายวิชา ปี 4 ภาคปลาย",
+              "contents": {
+                "type": "bubble",
+                "body": {
+                  "layout": "vertical",
+                  "type": "box",
+                  "contents": [
+                    {
+                      "cornerRadius": "lg",
+                      "type": "box",
+                      "backgroundColor": "#CCFFCC",
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "color": "#333333",
+                          "weight": "bold",
+                          "size": "lg",
+                          "type": "text",
+                          "text": "✍️ รายละเอียดรายวิชา"
+                        },
+                        {
+                          "margin": "sm",
+                          "type": "text",
+                          "size": "md",
+                          "color": "#333333",
+                          "text": "📊 สาขาวิทยาการข้อมูล"
+                        },
+                        {
+                          "type": "text",
+                          "weight": "bold",
+                          "text": "       ปี 4 ภาคปลาย",
+                          "size": "md",
+                          "color": "#333333",
+                          "margin": "sm"
+                        }
+                      ],
+                      "paddingAll": "md"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "type": "box",
+                      "margin": "md",
+                      "contents": [
+                        {
+                          "contents": [
+                            {
+                              "type": "text",
+                              "wrap": true,
+                              "text": "04256490 สหกิจศึกษา 💼",
+                              "weight": "bold",
+                              "size": "sm"
+                            },
+                            {
+                              "margin": "sm",
+                              "size": "sm",
+                              "text": "📌 6 หน่วยกิต\n✏️ หมวดวิชาเฉพาะ วิชาเฉพาะบังคับ\n📖 เรียนเกี่ยวกับการปฏิบัติงานในลักษณะพนักงานชั่วคราว ตามโครงงานที่ได้รับมอบหมาย พร้อมการจัดทำรายงานและการนำเสนอ",
+                              "wrap": true,
+                              "type": "text"
+                            }
+                          ],
+                          "layout": "vertical",
+                          "type": "box",
+                          "backgroundColor": "#F9FBFF"
+                        }
+                      ],
+                      "layout": "vertical",
+                      "spacing": "md"
+                    }
+                  ]
+                },
+                "size": "mega"
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "text": "แผนการเรียนอื่นๆ",
+                      "type": "message"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "label": "ภาคต้น 📗",
+                      "text": "รายละเอียดรายวิชาDs ปี4 เทอม1"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

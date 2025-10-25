@@ -1,0 +1,143 @@
+{
+  "id": "c73090ef-f01a-48b5-aa35-f9f025713496",
+  "name": "วิชา 01418101",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "1234-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "altText": "แนะนำรายวิชา",
+              "type": "flex",
+              "contents": {
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "contents": [
+                    {
+                      "weight": "bold",
+                      "color": "#FFFFFF",
+                      "type": "text",
+                      "align": "center",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "size": "xl"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "margin": "lg",
+                      "color": "#FFD700",
+                      "type": "text",
+                      "size": "md",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "weight": "bold"
+                    },
+                    {
+                      "type": "box",
+                      "spacing": "sm",
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี",
+                          "wrap": true,
+                          "color": "#FFE4E1",
+                          "size": "sm",
+                          "type": "text"
+                        },
+                        {
+                          "type": "text",
+                          "weight": "bold",
+                          "size": "sm",
+                          "text": "🆔 รหัสวิชา: 01418101",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "text": "🏷️ ชื่อวิชา: การใช้งานคอมพิวเตอร์ (Computer Applications)",
+                          "wrap": true,
+                          "weight": "bold"
+                        },
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "text": "🎯 หน่วยกิต: 1"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "text": "📖 เนื้อหา: เรียนรู้โครงสร้างและส่วนประกอบของคอมพิวเตอร์, ฮาร์ดแวร์, ซอฟต์แวร์, ระบบปฏิบัติการ, โปรแกรมประมวลผลคำ และฐานข้อมูล",
+                          "wrap": true,
+                          "type": "text"
+                        }
+                      ],
+                      "margin": "sm"
+                    }
+                  ],
+                  "layout": "vertical"
+                },
+                "size": "mega",
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                }
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

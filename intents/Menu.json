@@ -1,0 +1,79 @@
+{
+  "id": "ab9d806a-35bf-478b-8d16-b38c8f61ed9f",
+  "name": "Menu",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "text",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "หลักสูตรในภาควิชา📚",
+                      "text": "หลักสูตรในภาควิชา",
+                      "imageBackgroundColor": "#FFEFD5",
+                      "type": "message"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "แนะนำลงทะเบียนเรียน📑",
+                      "type": "message",
+                      "text": "แนะนำการลงทะเบียนเรียน"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "สายการเรียนที่สนใจ",
+                      "type": "message",
+                      "label": "สายการเรียนที่สนใจ✍️"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "แนะนำรายวิชา📔",
+                      "text": "แนะนำรายวิชา",
+                      "type": "message"
+                    }
+                  }
+                ]
+              },
+              "text": "เลือกเมนูที่สนใจได้เลยครับ😊"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

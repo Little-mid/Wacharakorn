@@ -1,0 +1,151 @@
+{
+  "id": "485db898-6ba2-4ba9-a26d-c9ae5a56a2bb",
+  "name": "วิชา 01418363",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418363-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "altText": "แนะนำรายวิชา",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    }
+                  }
+                ]
+              },
+              "contents": {
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "color": "#FFFFFF",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "type": "text",
+                      "align": "center",
+                      "weight": "bold",
+                      "size": "xl"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "color": "#FFD700",
+                      "type": "text",
+                      "margin": "lg",
+                      "size": "md",
+                      "weight": "bold"
+                    },
+                    {
+                      "type": "box",
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true,
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418112",
+                          "color": "#FFE4E1"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "text": "🆔 รหัสวิชา: 01418363",
+                          "type": "text",
+                          "weight": "bold",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "text": "🏷️ ชื่อวิชา: การประมวลผลภาษาธรรมชาติ (Natural Language Processing)",
+                          "wrap": true,
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "type": "text"
+                        },
+                        {
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true,
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก ",
+                          "color": "#FFFFFF",
+                          "weight": "bold"
+                        },
+                        {
+                          "text": "🎯 หน่วยกิต: 3",
+                          "wrap": true,
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "size": "sm"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับแนวคิดการประมวลผลภาษาธรรมชาติ ครอบคลุมภาษาศาสตร์เชิงคำนวณ ทฤษฎีสารสนเทศ การวิเคราะห์หน่วยคำ ตัวแบบภาษา การแทนค่า การวิเคราะห์เชิงวากยสัมพันธ์และเชิงความหมาย รวมถึงการประยุกต์ใช้งานจริง",
+                          "type": "text",
+                          "size": "sm"
+                        }
+                      ],
+                      "layout": "vertical",
+                      "spacing": "sm"
+                    }
+                  ],
+                  "type": "box"
+                },
+                "size": "mega",
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "type": "bubble"
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

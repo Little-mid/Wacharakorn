@@ -1,0 +1,68 @@
+{
+  "id": "74d92e1a-4f59-4929-8a89-53268a0379da",
+  "name": "ค้นหา_แผนการเรียนอื่นๆ",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "_-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "วิทยาการคอมพิวเตอร์ 💻",
+                      "type": "message",
+                      "imageBackgroundColor": "#FFEFD5",
+                      "text": "สาขา วิทยาการคอมพิวเตอร์ 💻"
+                    }
+                  },
+                  {
+                    "action": {
+                      "label": "วิทยาการข้อมูล 📊",
+                      "text": "สาขา วิทยาการข้อมูล 📊",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "text": "กรุณาเลือกสาขาที่ต้องการทราบแผนการเรียน ครับ😌 ",
+              "type": "text"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

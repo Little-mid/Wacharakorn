@@ -1,0 +1,90 @@
+{
+  "id": "299a7262-5902-450d-a173-2e3b8674449c",
+  "parentId": "3e29772a-2bec-4373-b6f6-069848139f44",
+  "rootParentId": "74d92e1a-4f59-4929-8a89-53268a0379da",
+  "name": "ชั้นปีผิด-DS - fallback",
+  "contexts": [
+    "DS-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "_._-custom.DS-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "uri": "https://media.giphy.com/media/yourgif.gif",
+              "type": "text",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "imageBackgroundColor": "#FFEFD5",
+                      "text": "📊ปี 1 ",
+                      "label": "📊ปี 1 "
+                    }
+                  },
+                  {
+                    "action": {
+                      "label": "📊ปี 2 ",
+                      "text": "📊ปี 2 ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "text": "📊ปี 3 ",
+                      "label": "📊ปี 3 "
+                    }
+                  },
+                  {
+                    "action": {
+                      "text": "📊ปี 4 ",
+                      "label": "📊ปี 4 ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "text": "⚠️กรุณาเลือกชั้นปีให้ถูกต้องครับ⚠️"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

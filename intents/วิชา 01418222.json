@@ -1,0 +1,151 @@
+{
+  "id": "2ab7d462-277f-400d-9dfd-792a370b420d",
+  "name": "วิชา 01418222",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418222-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "type": "bubble",
+                "size": "mega",
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "weight": "bold",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "align": "center",
+                      "size": "xl",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "weight": "bold",
+                      "margin": "lg",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "size": "md",
+                      "type": "text",
+                      "color": "#FFD700"
+                    },
+                    {
+                      "spacing": "sm",
+                      "type": "box",
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "color": "#FFE4E1",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418112",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "weight": "bold",
+                          "text": "🆔 รหัสวิชา: 01418222"
+                        },
+                        {
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "size": "sm",
+                          "weight": "bold",
+                          "text": "🏷️ ชื่อวิชา: ระบบสารสนเทศวิสาหกิจ (Enterprise Information System)"
+                        },
+                        {
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "size": "sm",
+                          "weight": "bold",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก "
+                        },
+                        {
+                          "wrap": true,
+                          "text": "🎯 หน่วยกิต: 3",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "size": "sm"
+                        },
+                        {
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับแนวคิดของระบบสารสนเทศทางธุรกิจ ครอบคลุมธุรกิจอัจฉริยะ พาณิชย์อิเล็กทรอนิกส์และธุรกิจอิเล็กทรอนิกส์ การพัฒนาระบบสารสนเทศ รวมถึงการจัดการระบบสารสนเทศในระดับสากลเพื่อสนับสนุนการดำเนินธุรกิจอย่างมีประสิทธิภาพ",
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        }
+                      ],
+                      "layout": "vertical"
+                    }
+                  ],
+                  "type": "box"
+                }
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              },
+              "type": "flex",
+              "altText": "แนะนำรายวิชา"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

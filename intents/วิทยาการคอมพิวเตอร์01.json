@@ -1,0 +1,80 @@
+{
+  "id": "5e023c69-3ab1-4a98-89a8-b7152d780ee1",
+  "parentId": "8089820a-383e-4338-a9d1-1f793079d1e6",
+  "rootParentId": "e41e4e83-3119-4b85-a6ff-7089402f001c",
+  "name": "วิทยาการคอมพิวเตอร์01",
+  "auto": true,
+  "contexts": [
+    "-followup-2"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-custom.-custom",
+      "affectedContexts": [
+        {
+          "name": "-followup-3",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "3",
+          "platform": "line",
+          "imageUrl": "https://firebasestorage.googleapis.com/v0/b/image-store-01.firebasestorage.app/o/01-Photoroom.png?alt\u003dmedia\u0026token\u003d3c59a8a6-1d23-4ccb-892c-d8879d8e9972",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "text": "*หลักสูตรวิทยาการคอมพิวเตอร์*\n\n📌 *เนื้อหาที่เรียนครอบคลุม:*\n- การเขียนโปรแกรม (Programming)\n- โครงสร้างข้อมูล (Data Structures)\n- อัลกอริทึม (Algorithms)\n- ระบบคอมพิวเตอร์ (Computer Systems)\n- ปัญญาประดิษฐ์ (Artificial Intelligence)\n\n💡 เน้นการเรียนรู้พื้นฐานและแนวคิดเชิงลึกของคอมพิวเตอร์ เพื่อนำไปใช้แก้ปัญหาและพัฒนาซอฟต์แวร์อย่างมีประสิทธิภาพ 💻",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "รายละเอียดเพิ่มเติม 💻",
+                      "type": "message",
+                      "label": "รายละเอียดเพิ่มเติม 💻"
+                    }
+                  },
+                  {
+                    "action": {
+                      "type": "message",
+                      "text": "วิทยาการข้อมูล 📊",
+                      "label": "วิทยาการข้อมูล 📊"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "type": "text"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

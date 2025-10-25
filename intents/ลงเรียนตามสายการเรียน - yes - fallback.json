@@ -1,0 +1,81 @@
+{
+  "id": "b0cce56c-534a-447d-acef-091ea8106361",
+  "parentId": "1a81f242-98a1-49ef-8070-09526d00e91d",
+  "rootParentId": "dca3edf7-a886-4f9b-8dcd-dfffeb4d8985",
+  "name": "ลงเรียนตามสายการเรียน - yes - fallback",
+  "contexts": [
+    "-yes-followup-3"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes.-yes-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "Developer 💻",
+                      "imageBackgroundColor": "#FFEFD5",
+                      "text": "Developer 💻",
+                      "type": "message"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "Data Science 📊",
+                      "type": "message",
+                      "label": "Data Science 📊"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "Network 🌐",
+                      "type": "message",
+                      "label": "Network 🌐"
+                    }
+                  }
+                ]
+              },
+              "type": "text",
+              "text": "⚠️กรุณาเลือกสายการเรียน Developers, Data science หรือ Network ครับ⚠️"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

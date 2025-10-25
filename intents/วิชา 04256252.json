@@ -1,0 +1,151 @@
+{
+  "id": "ff3149d8-a282-452e-bbf1-4a7f3d79c414",
+  "name": "วิชา 04256252",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256252-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "type": "text",
+                      "align": "center",
+                      "size": "xl",
+                      "weight": "bold",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "size": "md",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "weight": "bold",
+                      "type": "text",
+                      "margin": "lg",
+                      "color": "#FFD700"
+                    },
+                    {
+                      "layout": "vertical",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "color": "#FFE4E1",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "🆔 รหัสวิชา: 04256252",
+                          "weight": "bold",
+                          "wrap": true,
+                          "type": "text",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "type": "text",
+                          "weight": "bold",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "text": "🏷️ ชื่อวิชา: จินตทัศน์ข้อมูลแบบพลวัต (Dynamic Data Visualization)",
+                          "size": "sm"
+                        },
+                        {
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ",
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "text": "🎯 หน่วยกิต: 3"
+                        },
+                        {
+                          "text": "📖 เนื้อหา: ศึกษาการเขียนโปรแกรมและการใช้ไลบรารี/โมดูลสำหรับจินตทัศน์ข้อมูล การเรียกดูและประมวลผลข้อมูล รวมถึงการจัดรูปแบบข้อมูลทั้งแบบคงที่และแบบพลวัตให้เหมาะสมกับข้อมูล",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text"
+                        }
+                      ],
+                      "margin": "sm",
+                      "spacing": "sm"
+                    }
+                  ]
+                },
+                "size": "mega",
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                }
+              },
+              "altText": "แนะนำรายวิชา",
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

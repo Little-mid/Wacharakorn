@@ -1,0 +1,89 @@
+{
+  "id": "3e29772a-2bec-4373-b6f6-069848139f44",
+  "parentId": "74d92e1a-4f59-4929-8a89-53268a0379da",
+  "rootParentId": "74d92e1a-4f59-4929-8a89-53268a0379da",
+  "name": "DS",
+  "auto": true,
+  "contexts": [
+    "_-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "_._-custom",
+      "affectedContexts": [
+        {
+          "name": "DS-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "text": "กรุณาเลือกชั้นปี ครับ📊",
+              "type": "text",
+              "uri": "https://media.giphy.com/media/yourgif.gif",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "text": "📊ปี 1 ",
+                      "type": "message",
+                      "imageBackgroundColor": "#FFEFD5",
+                      "label": "📊ปี 1 "
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "label": "📊ปี 2 ",
+                      "text": "📊ปี 2 "
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "📊ปี 3 ",
+                      "text": "📊ปี 3 ",
+                      "type": "message"
+                    }
+                  },
+                  {
+                    "action": {
+                      "type": "message",
+                      "text": "📊ปี 4 ",
+                      "label": "📊ปี 4 "
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

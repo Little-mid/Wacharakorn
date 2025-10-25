@@ -1,0 +1,217 @@
+{
+  "id": "a75a7212-77cb-48d2-95a0-8cff5cf31ae6",
+  "parentId": "5e81e38a-2d94-4a2c-b9a1-6ce14b52dd48",
+  "rootParentId": "74d92e1a-4f59-4929-8a89-53268a0379da",
+  "name": "DS_ปี1 - 1",
+  "auto": true,
+  "contexts": [
+    "DS_1-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "_._-custom.DS-custom-4.DS_1-custom",
+      "affectedContexts": [
+        {
+          "name": "DS_1-custom-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "356701cf-aa55-4bf5-9f5e-7ec7370c7303",
+          "name": "number",
+          "required": false,
+          "dataType": "@sys.number",
+          "value": "$number",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "type": "bubble",
+                "size": "mega",
+                "body": {
+                  "layout": "vertical",
+                  "type": "box",
+                  "contents": [
+                    {
+                      "contents": [
+                        {
+                          "color": "#1E90FF",
+                          "size": "lg",
+                          "text": "📘 แผนการเรียน ปี 1 ภาคต้น",
+                          "weight": "bold",
+                          "type": "text"
+                        },
+                        {
+                          "size": "md",
+                          "margin": "sm",
+                          "color": "#333333",
+                          "type": "text",
+                          "text": "📊 สาขาวิทยาการข้อมูล"
+                        }
+                      ],
+                      "type": "box",
+                      "paddingAll": "md",
+                      "layout": "vertical",
+                      "backgroundColor": "#E6F2FF",
+                      "cornerRadius": "lg"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "margin": "md",
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน",
+                      "color": "#333333",
+                      "type": "text",
+                      "weight": "bold",
+                      "size": "md"
+                    },
+                    {
+                      "type": "box",
+                      "margin": "sm",
+                      "layout": "vertical",
+                      "spacing": "sm",
+                      "contents": [
+                        {
+                          "text": "1.การใช้งานคอมพิวเตอร์ 💻 \n(Computer Applications)",
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#000000",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "text": "2.คณิตศาสตร์สำหรับวิทยาการข้อมูล ➗ (Mathematics for Data Science)",
+                          "type": "text",
+                          "color": "#000000",
+                          "wrap": true
+                        },
+                        {
+                          "wrap": true,
+                          "text": "3.การวิเคราะห์ข้อมูลเชิงสถิติ 📊 \n(Statistical Data Analysis)",
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#000000"
+                        },
+                        {
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text",
+                          "color": "#000000",
+                          "text": "4.โปรแกรมตารางทำการเบื้องต้น 📑 (Introduction to Spreadsheet Program)"
+                        },
+                        {
+                          "text": "5.การเขียนโปรแกรมคอมพิวเตอร์สำหรับวิทยาการข้อมูล 👨‍💻 \n(Computer Programing for Data Science)",
+                          "wrap": true,
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#000000"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "6.ศาสตร์แห่งแผ่นดิน 🌱 \n(Knowledge of the Land)",
+                          "color": "#000000",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "text": "7.ภาษาต่างประเทศ 1 ภาษา 🌍",
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#000000"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "color": "#FF4500",
+                          "type": "text",
+                          "size": "md",
+                          "weight": "bold",
+                          "text": "📌 หน่วยกิตรวม: 18 หน่วยกิต"
+                        }
+                      ],
+                      "margin": "md",
+                      "cornerRadius": "lg",
+                      "layout": "vertical",
+                      "type": "box",
+                      "paddingAll": "md",
+                      "backgroundColor": "#FFF4E5"
+                    }
+                  ]
+                }
+              },
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "แผนการเรียนอื่นๆ",
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "type": "message"
+                    }
+                  },
+                  {
+                    "action": {
+                      "label": "ภาคปลาย 📘",
+                      "text": "Ds ปี 1 เทอม 2",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "type": "message",
+                      "text": "รายละเอียดรายวิชา",
+                      "label": "รายละเอียดรายวิชาℹ️"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "altText": "📘 แผนการเรียน ปี 1 ภาคต้น"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

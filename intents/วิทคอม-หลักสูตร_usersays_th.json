@@ -1,0 +1,93 @@
+[
+  {
+    "id": "7fef7689-d826-4f0b-a4d0-092b2bd6fe68",
+    "data": [
+      {
+        "text": "คอม",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "5cefe24c-c93f-410a-a296-bef1cde2e0f8",
+    "data": [
+      {
+        "text": "วิทยาการคอมพิวเตอร์",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "d1da79d5-8203-41d9-9dab-c4a31a1c39c2",
+    "data": [
+      {
+        "text": "วิทย์คอม",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "815591e8-fbcf-4bcf-a16d-884b7853839e",
+    "data": [
+      {
+        "text": "วิทยาการคอม",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "713cc0c7-0b05-4f35-8af6-4356620b128b",
+    "data": [
+      {
+        "text": "วิทคอม",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "dd44ff5a-7485-46ab-a07f-1dae4a75a2b7",
+    "data": [
+      {
+        "text": "Computer Science",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "58bd708c-d947-490b-aba2-706d74bb9068",
+    "data": [
+      {
+        "text": "Cs",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

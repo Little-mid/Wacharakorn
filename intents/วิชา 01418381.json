@@ -1,0 +1,151 @@
+{
+  "id": "3b618c16-0606-41cd-8a2e-f06fb25c09ae",
+  "name": "วิชา 01418381",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418381-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "altText": "แนะนำรายวิชา",
+              "contents": {
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "size": "mega",
+                "body": {
+                  "contents": [
+                    {
+                      "color": "#FFFFFF",
+                      "size": "xl",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "align": "center",
+                      "weight": "bold",
+                      "type": "text"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "type": "text",
+                      "margin": "lg",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "size": "md",
+                      "weight": "bold",
+                      "color": "#FFD700"
+                    },
+                    {
+                      "margin": "sm",
+                      "layout": "vertical",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418112 หรือ 01418113",
+                          "color": "#FFE4E1",
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "text": "🆔 รหัสวิชา: 01418381",
+                          "size": "sm",
+                          "wrap": true,
+                          "weight": "bold",
+                          "type": "text"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "weight": "bold",
+                          "text": "🏷️ ชื่อวิชา: คอมพิวเตอร์กราฟิกส์เชิงโต้ตอบเบื้องต้น (Introduction to Interactive Computer Graphics)",
+                          "type": "text",
+                          "size": "sm"
+                        },
+                        {
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "weight": "bold",
+                          "type": "text",
+                          "size": "sm"
+                        },
+                        {
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "text": "🎯 หน่วยกิต: 3",
+                          "size": "sm"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับการพัฒนาโปรแกรมคอมพิวเตอร์กราฟิกส์แบบทันที ครอบคลุมตัวแบบเรขาคณิตด้วยรูปหลายเหลี่ยม การแปลง 2D/3D ส่วนต่อประสานกราฟิกกับผู้ใช้ การจัดแสงและการแรเงา ภาษาสำหรับควบคุมการแรเงา และการโปรแกรมหน่วยประมวลผลกราฟิกส์",
+                          "type": "text"
+                        }
+                      ],
+                      "spacing": "sm"
+                    }
+                  ],
+                  "layout": "vertical",
+                  "type": "box"
+                },
+                "type": "bubble"
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

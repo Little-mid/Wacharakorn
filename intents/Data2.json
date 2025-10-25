@@ -1,0 +1,199 @@
+{
+  "id": "83a4f7c8-83ae-4d93-9374-09815f5554e3",
+  "parentId": "23bf9165-78e1-48ef-9812-4ab0de0dc22a",
+  "rootParentId": "23bf9165-78e1-48ef-9812-4ab0de0dc22a",
+  "name": "Data2",
+  "auto": true,
+  "contexts": [
+    "-followup-9"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-custom-2",
+      "affectedContexts": [
+        {
+          "name": "Data2-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ขอดูสายการเรียนอื่น",
+                      "label": "📚 ดูสายอื่น",
+                      "type": "message"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "ℹ️ รายละเอียดวิชา",
+                      "text": "รายละเอียดรายวิชาสายการเรียน Data Science",
+                      "type": "message"
+                    }
+                  }
+                ]
+              },
+              "type": "flex",
+              "altText": "แนะนำสายการเรียน",
+              "contents": {
+                "type": "bubble",
+                "size": "mega",
+                "body": {
+                  "type": "box",
+                  "paddingAll": "20px",
+                  "backgroundColor": "#eed3af",
+                  "contents": [
+                    {
+                      "align": "center",
+                      "size": "xxl",
+                      "color": "#FFFFFF",
+                      "weight": "bold",
+                      "type": "text",
+                      "text": "Data Science📈"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "lg",
+                      "color": "#feecc7"
+                    },
+                    {
+                      "size": "md",
+                      "weight": "bold",
+                      "type": "text",
+                      "color": "#000000",
+                      "margin": "lg",
+                      "text": "📖 วิชาที่ควรลงเรียนในสายการเรียนนี้"
+                    },
+                    {
+                      "spacing": "sm",
+                      "cornerRadius": "lg",
+                      "margin": "md",
+                      "contents": [
+                        {
+                          "color": "#111111",
+                          "text": "01418223 - วิทยาการข้อมูลและโปรแกรมประยุกต์ (Data Science and Application Programs)",
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "type": "separator",
+                          "margin": "md"
+                        },
+                        {
+                          "text": "01418234 - การโปรแกรมอินเทอร์เน็ตของสรรพสิ่ง (Programming Internet of Things)",
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#111111"
+                        },
+                        {
+                          "type": "separator",
+                          "margin": "md"
+                        },
+                        {
+                          "text": "01418324 - ระบบสนับสนุนการตัดสินใจและอัจฉริยะทางธุรกิจ (Decision Support and Business Intelligent Systems)",
+                          "color": "#111111",
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "type": "separator",
+                          "margin": "md"
+                        },
+                        {
+                          "text": "01418325 - ข้อมูลจินตทัศน์ (Data Visualization)",
+                          "size": "sm",
+                          "color": "#111111",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "margin": "md",
+                          "type": "separator"
+                        },
+                        {
+                          "text": "01418344 - การจัดการมิติข้อมูลและรายงานทางธุรกิจ (Business Data Dimension and Report Management)",
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#111111",
+                          "type": "text"
+                        },
+                        {
+                          "type": "separator",
+                          "margin": "md"
+                        },
+                        {
+                          "text": "01418361 - คอมพิวเตอร์วิทัศน์เบื้องต้น (Introduction to Computer Vision)",
+                          "size": "sm",
+                          "color": "#111111",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "margin": "md",
+                          "type": "separator"
+                        },
+                        {
+                          "color": "#111111",
+                          "size": "sm",
+                          "wrap": true,
+                          "text": "01418362 - การเรียนรู้ของเครื่องเบื้องต้น (Introduction to Machine Learning)",
+                          "type": "text"
+                        },
+                        {
+                          "type": "separator",
+                          "margin": "md"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "01418363 - การประมวลผลภาษาธรรมชาติ (Natural Language Processing)",
+                          "color": "#111111",
+                          "wrap": true,
+                          "type": "text"
+                        }
+                      ],
+                      "type": "box",
+                      "paddingAll": "15px",
+                      "layout": "vertical",
+                      "backgroundColor": "#FFFFFF"
+                    }
+                  ],
+                  "layout": "vertical"
+                }
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "bc7f661f-60df-416c-a649-312045351f2b",
+    "data": [
+      {
+        "text": "วิชาเลือก",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "e83eee15-9025-45a2-81e4-4c4a4ef4c941",
+    "data": [
+      {
+        "text": "รายละเอียด",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "cf81b1e4-0c5c-4ce4-932e-ca57726151d0",
+    "data": [
+      {
+        "text": "รายละเอียดวิชา",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "916e16b2-22fc-498c-b256-05ee39d2ca19",
+    "data": [
+      {
+        "text": "หน่วยกิต",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "8cd00e2e-e265-4bd4-b3ee-8da002870365",
+    "data": [
+      {
+        "text": "หมวดวิชา",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "80761c12-cf57-4c8b-b559-d017ca130679",
+    "data": [
+      {
+        "text": "รายวิชา",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "4209ef81-aacc-4811-9776-0738800fb03f",
+    "data": [
+      {
+        "text": "วิชา",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "df29718f-d682-4821-9ade-715cf7c481dc",
+    "data": [
+      {
+        "text": "แนะนำรายวิชา",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

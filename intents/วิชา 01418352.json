@@ -1,0 +1,151 @@
+{
+  "id": "edde36a6-22ba-498c-8d18-db942bb45567",
+  "name": "วิชา 01418352",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418352-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                },
+                "size": "mega",
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "size": "xl",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "align": "center",
+                      "color": "#FFFFFF",
+                      "weight": "bold",
+                      "type": "text"
+                    },
+                    {
+                      "type": "separator",
+                      "color": "#FFFFFF",
+                      "margin": "md"
+                    },
+                    {
+                      "size": "md",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "margin": "lg",
+                      "type": "text",
+                      "color": "#FFD700",
+                      "weight": "bold"
+                    },
+                    {
+                      "spacing": "sm",
+                      "layout": "vertical",
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#FFE4E1",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418351",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "type": "text",
+                          "weight": "bold",
+                          "wrap": true,
+                          "text": "🆔 รหัสวิชา: 01418352"
+                        },
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "text": "🏷️ ชื่อวิชา: การสื่อสารข้อมูลและเครือข่าย (Data Communications and Networks)",
+                          "weight": "bold",
+                          "type": "text",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "weight": "bold",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก "
+                        },
+                        {
+                          "text": "🎯 หน่วยกิต: 3",
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับการศึกษาโครงสร้างชั้นเครือข่าย ไอพีเวอร์ชัน 4 และ 6 พร้อมโพรโทคอลที่เกี่ยวข้อง วิศวกรรมการจราจรด้วยเครือข่ายแบบกำหนดโดยซอฟต์แวร์ ชั้นเชื่อมโยงข้อมูล เครือข่ายส่วนบุคคลเสมือน และเครือข่ายการสื่อสารไร้สายและโทรคมนาคม",
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "type": "box"
+                    }
+                  ]
+                }
+              },
+              "altText": "แนะนำรายวิชา",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "type": "flex"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,75 @@
+{
+  "id": "e41e4e83-3119-4b85-a6ff-7089402f001c",
+  "name": "แนะนำหลักสูตร",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "text",
+              "text": "คุณต้องการทราบข้อมูล หลักสูตรหรือสาขาในภาควิชา ใช่หรือไม่🧐",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "ใช่แล้ว ✅",
+                      "text": "ใช่แล้ว",
+                      "type": "message",
+                      "imageBackgroundColor": "#FFEFD5"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "type": "message",
+                      "label": "ไม่ใช่ ❌",
+                      "text": "ไม่ใช่"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

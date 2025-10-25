@@ -1,0 +1,79 @@
+{
+  "id": "3773aeca-c2ef-4b79-978f-d6c78c138097",
+  "parentId": "f0564bea-cd37-4b2c-8f9f-66446783241b",
+  "rootParentId": "f0564bea-cd37-4b2c-8f9f-66446783241b",
+  "name": "CS_TEST2 - 2",
+  "auto": true,
+  "contexts": [
+    "CS_TEST2-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "CS_TEST2.CS_TEST2-custom-2",
+      "affectedContexts": [
+        {
+          "name": "CS_TEST2-2-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "text": "กรุณาเลือกภาคการศึกษา ครับ💻",
+              "type": "text",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "imageBackgroundColor": "#FFEFD5",
+                      "text": "ปี 2 ภาคการศึกษาที่1 💻 ",
+                      "type": "message",
+                      "label": "ภาคการศึกษาที่1 💻  "
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ปี 2 ภาคการศึกษาที่2 💻 ",
+                      "label": "ภาคการศึกษาที่2 💻 ",
+                      "type": "message"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,67 @@
+{
+  "id": "3b3e6745-27a1-49cb-9d15-c66d9644f893",
+  "parentId": "7e448022-afe1-4146-8cd9-1b6271702394",
+  "rootParentId": "e41e4e83-3119-4b85-a6ff-7089402f001c",
+  "name": "รายละเอียดเพิ่มเติมDS",
+  "auto": true,
+  "contexts": [
+    "-followup-4"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-custom.-custom-2.-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "3",
+          "platform": "line",
+          "imageUrl": "https://firebasestorage.googleapis.com/v0/b/image-store-01.firebasestorage.app/o/02-Photoroom.png?alt\u003dmedia\u0026token\u003d234f44e0-2b48-46c2-ab6f-65a98c26dca0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "text": "*รายละเอียดหลักสูตร*\n\n🎓 *หลักสูตร 4 ปี*\n\n📝 *ชื่อหลักสูตร:*\nหลักสูตรวิทยาศาสตรบัณฑิต สาขาวิชาวิทยาการข้อมูล\n(Bachelor of Science Program in Data Science)\n\n📄 *ชื่อปริญญาและสาขาวิชา:*\n- ชื่อเต็ม: วิทยาศาสตรบัณฑิต (วิทยาการข้อมูล)\n  Bachelor of Science (Data Science)\n- ชื่อย่อ: วท.บ. (วิทยาการข้อมูล)\n  B.S. (Data Science)\n\n*จำนวนหน่วยกิตรวมตลอดหลักสูตร:*\nไม่น้อยกว่า 120 หน่วยกิต",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "text": "วิทยาการคอมพิวเตอร์ 💻",
+                      "label": "วิทยาการคอมพิวเตอร์💻"
+                    }
+                  }
+                ]
+              },
+              "type": "text"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

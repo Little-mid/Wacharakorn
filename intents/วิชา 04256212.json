@@ -1,0 +1,151 @@
+{
+  "id": "c2fc3147-8ddb-4326-aabe-d11325ef6fb1",
+  "name": "วิชา 04256212",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256212-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "แนะนำรายวิชา",
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "text": "ค้นหารายวิชาอื่นๆ"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "contents": {
+                "type": "bubble",
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "size": "mega",
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "size": "xl",
+                      "color": "#FFFFFF",
+                      "weight": "bold",
+                      "align": "center"
+                    },
+                    {
+                      "margin": "md",
+                      "color": "#FFFFFF",
+                      "type": "separator"
+                    },
+                    {
+                      "type": "text",
+                      "color": "#FFD700",
+                      "weight": "bold",
+                      "size": "md",
+                      "margin": "lg",
+                      "text": "📝 รายละเอียดรายวิชา"
+                    },
+                    {
+                      "layout": "vertical",
+                      "margin": "sm",
+                      "spacing": "sm",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี",
+                          "color": "#FFE4E1",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "text": "🆔 รหัสวิชา: 04256212",
+                          "wrap": true,
+                          "weight": "bold",
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "type": "text"
+                        },
+                        {
+                          "wrap": true,
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "text": "🏷️ ชื่อวิชา: ความรู้ทั่วไปเกี่ยวกับการประกันภัย (General Principles of Insurance)",
+                          "type": "text"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "wrap": true,
+                          "weight": "bold",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ",
+                          "type": "text"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "text": "📖 เนื้อหา: ครอบคลุมหลักพื้นฐาน ประเภทของการประกันภัย กรมธรรม์ การจัดการความเสี่ยง การประกันวินาศภัย ประกันชีวิตและสุขภาพ การประกันภัยต่อ และประกันสังคม",
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "box"
+                }
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,151 @@
+{
+  "id": "5d8a2710-769a-40ce-8f4a-0c6f0a66e810",
+  "name": "วิชา 04256355",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256355-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "altText": "แนะนำรายวิชา",
+              "type": "flex",
+              "contents": {
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                },
+                "size": "mega",
+                "body": {
+                  "contents": [
+                    {
+                      "weight": "bold",
+                      "type": "text",
+                      "size": "xl",
+                      "color": "#FFFFFF",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "align": "center"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "margin": "lg",
+                      "size": "md",
+                      "color": "#FFD700",
+                      "weight": "bold",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "type": "text"
+                    },
+                    {
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "wrap": true,
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี",
+                          "type": "text",
+                          "color": "#FFE4E1",
+                          "size": "sm"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "text": "🆔 รหัสวิชา: 04256355",
+                          "wrap": true,
+                          "type": "text",
+                          "weight": "bold",
+                          "size": "sm"
+                        },
+                        {
+                          "text": "🏷️ ชื่อวิชา: โปรแกรมประยุกต์การเรียนรู้ของเครื่อง (Machine Learning Applications)",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "weight": "bold",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก",
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "size": "sm",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "text": "📖 เนื้อหา: เทคนิคการเรียนรู้แบบมีผู้สอน และแบบไม่มีผู้สอน การประมาณความน่าจะเป็น การถดถอยเชิงเส้นและโลจิสติก โครงข่ายประสาทเทียม และการเรียนรู้เชิงลึก",
+                          "color": "#FFFFFF",
+                          "size": "sm"
+                        }
+                      ],
+                      "spacing": "sm",
+                      "margin": "sm",
+                      "type": "box"
+                    }
+                  ],
+                  "type": "box",
+                  "layout": "vertical"
+                },
+                "type": "bubble"
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

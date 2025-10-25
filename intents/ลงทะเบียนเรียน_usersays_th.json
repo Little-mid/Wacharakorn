@@ -1,0 +1,145 @@
+[
+  {
+    "id": "bee138bf-0367-4ffb-98f6-04837079b46d",
+    "data": [
+      {
+        "text": "แผนการเรียน",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "1c581801-3342-4353-ba04-bcf8122d5c7e",
+    "data": [
+      {
+        "text": "ต้น",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "be39f293-e084-44eb-ad2b-ca239daa269d",
+    "data": [
+      {
+        "text": "เทอม",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "d4b20fe4-f48c-4922-99c0-78cb79d4cf86",
+    "data": [
+      {
+        "text": "ภาคเรียน",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "5bc1d16f-77f5-43d2-a91d-e2758f0e6170",
+    "data": [
+      {
+        "text": "ปี",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "95b8c5e1-8580-4469-a564-c78dea2c95a0",
+    "data": [
+      {
+        "text": "แนะนำลงทะเบียนเรียน",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "8c34f41f-231b-4e09-b750-44cfcadd57c4",
+    "data": [
+      {
+        "text": "แนะนำลงเรียน",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "82afa14d-ab6f-4bc1-96ce-c6b57a3f468e",
+    "data": [
+      {
+        "text": "ลงเรียน",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "341d28a1-e87e-422b-acc6-d744588037cf",
+    "data": [
+      {
+        "text": "ลงทะเบียนเรียน",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "14f056b1-da74-4995-b42f-57e045ffdc62",
+    "data": [
+      {
+        "text": "ลงทะเบียน",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "e993ce4a-ddd5-487c-92cf-cb495ac22b05",
+    "data": [
+      {
+        "text": "เรียน",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

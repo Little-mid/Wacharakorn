@@ -1,0 +1,36 @@
+{
+  "id": "ff421a59-3784-4685-bc1a-15bd1a2d9c67",
+  "parentId": "f6540b13-5d35-416a-b181-15054d7451de",
+  "rootParentId": "e7385f25-627e-4c88-bf30-34768af9080f",
+  "name": "กรอกรหัสวิชา - yes - custom",
+  "auto": true,
+  "contexts": [
+    "-yes-followup-2"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes.-yes-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

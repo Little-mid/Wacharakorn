@@ -1,0 +1,151 @@
+{
+  "id": "5d12504d-0515-4936-b900-51b15eaedd6e",
+  "name": "วิชา 01418362",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418362-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              },
+              "type": "flex",
+              "altText": "แนะนำรายวิชา",
+              "contents": {
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "body": {
+                  "contents": [
+                    {
+                      "align": "center",
+                      "type": "text",
+                      "weight": "bold",
+                      "color": "#FFFFFF",
+                      "size": "xl",
+                      "text": "📚 แนะนำรายวิชา 🤖"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "margin": "lg",
+                      "color": "#FFD700",
+                      "type": "text",
+                      "size": "md",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "weight": "bold"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418231",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#FFE4E1"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "text": "🆔 รหัสวิชา: 01418362",
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "text": "🏷️ ชื่อวิชา: การเรียนรู้ของเครื่องเบื้องต้น (Introduction to Machine Learning)",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก ",
+                          "weight": "bold",
+                          "size": "sm",
+                          "type": "text"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm",
+                          "text": "🎯 หน่วยกิต: 3"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "📖 เนื้อหา: เรียนรู้การเรียนรู้แบบมีผู้สอน ครอบคลุมเพื่อนบ้านที่ใกล้ที่สุด เพอร์เซปตรอน การประมาณความน่าจะเป็น การถดถอยเชิงเส้นและโลจิสติก การเรียนรู้แบบเบย์ โครงข่ายประสาทเทียม และการเรียนรู้เชิงลึก",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "type": "text"
+                        }
+                      ],
+                      "type": "box",
+                      "spacing": "sm",
+                      "margin": "sm",
+                      "layout": "vertical"
+                    }
+                  ],
+                  "layout": "vertical",
+                  "type": "box"
+                },
+                "type": "bubble",
+                "size": "mega"
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

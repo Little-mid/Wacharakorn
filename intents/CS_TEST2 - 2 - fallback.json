@@ -1,0 +1,73 @@
+{
+  "id": "58d06b9f-ce1a-43e0-99c7-ccf93359c628",
+  "parentId": "3773aeca-c2ef-4b79-978f-d6c78c138097",
+  "rootParentId": "f0564bea-cd37-4b2c-8f9f-66446783241b",
+  "name": "CS_TEST2 - 2 - fallback",
+  "contexts": [
+    "CS_TEST2-2-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "CS_TEST2.CS_TEST2-custom-2.CS_TEST2-2-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "text": "⚠️กรุณาเลือกภาคการศึกษาให้ถูกต้องครับ⚠️",
+              "type": "text",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ปี 2 ภาคการศึกษาที่1 💻 ",
+                      "imageBackgroundColor": "#FFEFD5",
+                      "type": "message",
+                      "label": "ภาคการศึกษาที่1 💻  "
+                    }
+                  },
+                  {
+                    "action": {
+                      "label": "ภาคการศึกษาที่2 💻 ",
+                      "type": "message",
+                      "text": "ปี 2 ภาคการศึกษาที่2 💻 "
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

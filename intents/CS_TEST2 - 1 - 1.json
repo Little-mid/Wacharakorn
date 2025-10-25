@@ -1,0 +1,217 @@
+{
+  "id": "7a5741a8-d438-4284-9f9a-f9145e914793",
+  "parentId": "0ff16ef5-2a62-4d1e-924a-b124e3b45438",
+  "rootParentId": "f0564bea-cd37-4b2c-8f9f-66446783241b",
+  "name": "CS_TEST2 - 1 - 1",
+  "auto": true,
+  "contexts": [
+    "CS_TEST2-custom-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "CS_TEST2.CS_TEST2-custom.CS_TEST2-custom-custom",
+      "affectedContexts": [
+        {
+          "name": "CS_TEST2-custom-custom-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "d88a4ab0-0b74-447b-93dd-bd70cdad61e9",
+          "name": "number",
+          "required": false,
+          "dataType": "@sys.number",
+          "value": "$number",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "size": "mega",
+                "type": "bubble",
+                "body": {
+                  "contents": [
+                    {
+                      "contents": [
+                        {
+                          "size": "lg",
+                          "text": "📘 แผนการเรียน ปี 1 ภาคต้น",
+                          "weight": "bold",
+                          "color": "#1E90FF",
+                          "type": "text"
+                        },
+                        {
+                          "color": "#333333",
+                          "size": "md",
+                          "margin": "sm",
+                          "type": "text",
+                          "text": "🖥️ สาขาวิทยาการคอมพิวเตอร์"
+                        }
+                      ],
+                      "type": "box",
+                      "paddingAll": "md",
+                      "backgroundColor": "#E6F2FF",
+                      "cornerRadius": "lg",
+                      "layout": "vertical"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "type": "text",
+                      "color": "#333333",
+                      "size": "md",
+                      "margin": "md",
+                      "weight": "bold",
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน"
+                    },
+                    {
+                      "spacing": "sm",
+                      "contents": [
+                        {
+                          "color": "#000000",
+                          "text": "1.แคลคูลัส I (Calculus I)➗",
+                          "wrap": true,
+                          "size": "sm",
+                          "type": "text"
+                        },
+                        {
+                          "text": "2.วิทยาการคอมพิวเตอร์เบื้องต้น🖥️\n(Introduction to Computer Science)",
+                          "type": "text",
+                          "color": "#000000",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "color": "#000000",
+                          "wrap": true,
+                          "text": "3.แนวคิดการโปรแกรมเบื้องต้น👨‍💻 \n(Fundamental Programming Concepts)",
+                          "type": "text",
+                          "size": "sm"
+                        },
+                        {
+                          "text": "4.ทรัพย์สินทางปัญญาและจรรยาบรรณวิชาชีพ\n(Intellectual Properties and Professional Ethics)📚",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#000000"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#000000",
+                          "wrap": true,
+                          "text": "5.ศาสตร์แห่งแผ่นดิน🌱\n(Knowledge of the Land)",
+                          "type": "text"
+                        },
+                        {
+                          "text": "6.ภาษาไทย📝",
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#000000"
+                        },
+                        {
+                          "type": "text",
+                          "color": "#000000",
+                          "text": "7.ภาษาต่างประเทศ 1 ภาษา🌍",
+                          "size": "sm",
+                          "wrap": true
+                        }
+                      ],
+                      "margin": "sm",
+                      "type": "box",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "type": "box",
+                      "backgroundColor": "#FFF4E5",
+                      "paddingAll": "md",
+                      "layout": "vertical",
+                      "cornerRadius": "lg",
+                      "margin": "md",
+                      "contents": [
+                        {
+                          "text": "📌 หน่วยกิตรวม: 19 หน่วยกิต",
+                          "type": "text",
+                          "color": "#FF4500",
+                          "size": "md",
+                          "weight": "bold"
+                        }
+                      ]
+                    }
+                  ],
+                  "layout": "vertical",
+                  "type": "box"
+                }
+              },
+              "altText": "📘 แผนการเรียน ปี 1 ภาคต้น",
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "แผนการเรียนอื่นๆ",
+                      "type": "message",
+                      "label": "แผนการเรียนอื่นๆ📚"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "text": "Cs ปี 1 เทอม 2",
+                      "label": "ภาคปลาย 📘"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "รายละเอียดรายวิชาℹ️",
+                      "type": "message",
+                      "text": "รายละเอียดรายวิชา"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

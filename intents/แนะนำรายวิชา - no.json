@@ -1,0 +1,83 @@
+{
+  "id": "999fbbc1-995a-4cc6-8c32-708e64edb2ed",
+  "parentId": "e7385f25-627e-4c88-bf30-34768af9080f",
+  "rootParentId": "e7385f25-627e-4c88-bf30-34768af9080f",
+  "name": "แนะนำรายวิชา - no",
+  "auto": true,
+  "contexts": [
+    "-followup-7"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-no",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "text",
+              "text": "กรุณาเลือกเมนูใหม่ ให้ตรงกับหัวข้อที่ต้องการทราบข้อมูลครับ🙏",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "หลักสูตรในภาควิชา📚",
+                      "imageBackgroundColor": "#FFEFD5",
+                      "type": "message",
+                      "text": "หลักสูตรในภาควิชา"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "label": "แนะนำลงทะเบียนเรียน📑",
+                      "text": "แนะนำการลงทะเบียนเรียน"
+                    }
+                  },
+                  {
+                    "action": {
+                      "label": "สายการเรียนที่สนใจ✍️",
+                      "text": "สายการเรียนที่สนใจ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "text": "แนะนำรายวิชา",
+                      "type": "message",
+                      "label": "แนะนำรายวิชา📔"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

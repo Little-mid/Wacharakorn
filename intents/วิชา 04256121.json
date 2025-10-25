@@ -1,0 +1,151 @@
+{
+  "id": "9391d0f0-80b0-4934-8a20-e71bda099bfd",
+  "name": "วิชา 04256121",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256121-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "แนะนำรายวิชา",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "contents": {
+                "size": "mega",
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "contents": [
+                    {
+                      "size": "xl",
+                      "color": "#FFFFFF",
+                      "type": "text",
+                      "weight": "bold",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "align": "center"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "weight": "bold",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "margin": "lg",
+                      "size": "md",
+                      "type": "text",
+                      "color": "#FFD700"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี",
+                          "wrap": true,
+                          "color": "#FFE4E1",
+                          "type": "text",
+                          "size": "sm"
+                        },
+                        {
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "weight": "bold",
+                          "text": "🆔 รหัสวิชา: 04256121",
+                          "size": "sm"
+                        },
+                        {
+                          "text": "🏷️ ชื่อวิชา: การวิเคราะห์ข้อมูลเชิงสถิติ (Statistical Data Analysis)",
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "weight": "bold"
+                        },
+                        {
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "weight": "bold",
+                          "size": "sm",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "text": "📖 เนื้อหา: ครอบคลุม การจัดการข้อมูลสถิติ ความน่าจะเป็นและการแจกแจง การสุ่มตัวอย่าง การประมาณค่า การทดสอบสมมติฐาน การถดถอย การวิเคราะห์ความแปรปรวน และการจำแนกประเภทข้อมูล",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "spacing": "sm",
+                      "layout": "vertical",
+                      "margin": "sm",
+                      "type": "box"
+                    }
+                  ],
+                  "layout": "vertical"
+                }
+              },
+              "type": "flex"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

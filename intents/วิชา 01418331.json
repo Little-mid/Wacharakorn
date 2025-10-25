@@ -1,0 +1,151 @@
+{
+  "id": "b133f33e-c507-486e-b6ed-1b47ecf3f78d",
+  "name": "วิชา 01418331",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418331-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "contents": {
+                "body": {
+                  "layout": "vertical",
+                  "type": "box",
+                  "contents": [
+                    {
+                      "align": "center",
+                      "size": "xl",
+                      "type": "text",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "weight": "bold",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "margin": "lg",
+                      "weight": "bold",
+                      "type": "text",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "size": "md",
+                      "color": "#FFD700"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418132",
+                          "type": "text",
+                          "color": "#FFE4E1"
+                        },
+                        {
+                          "weight": "bold",
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "text": "🆔 รหัสวิชา:  01418331"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true,
+                          "text": "🏷️ ชื่อวิชา: ทฤษฎีการคำนวณ (Theory of Computation)"
+                        },
+                        {
+                          "type": "text",
+                          "weight": "bold",
+                          "size": "sm",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ ",
+                          "wrap": true,
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "wrap": true,
+                          "text": "🎯 หน่วยกิต: 3",
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "size": "sm",
+                          "wrap": true,
+                          "text": "📖 เนื้อหา: ศึกษาออโตมาตาจำกัด ทั้งภาวะกำหนดและไม่กำหนด แนวคิดความเป็น/ไม่เป็นเรกูลาร์ พุชดาวน์ออโตมาตา เครื่องจักรทัวริง ความสามารถในการคำนวณ และความซับซ้อนเชิงการคำนวณ",
+                          "type": "text",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "layout": "vertical",
+                      "type": "box",
+                      "spacing": "sm",
+                      "margin": "sm"
+                    }
+                  ]
+                },
+                "type": "bubble",
+                "size": "mega",
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                }
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "altText": "แนะนำรายวิชา"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

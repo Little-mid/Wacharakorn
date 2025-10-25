@@ -1,0 +1,151 @@
+{
+  "id": "93778eec-74c4-4412-a1e9-9ae708e28f36",
+  "name": "วิชา 01418351",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418351-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    }
+                  }
+                ]
+              },
+              "altText": "แนะนำรายวิชา",
+              "type": "flex",
+              "contents": {
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "weight": "bold",
+                      "color": "#FFFFFF",
+                      "type": "text",
+                      "size": "xl",
+                      "align": "center",
+                      "text": "📚 แนะนำรายวิชา 🤖"
+                    },
+                    {
+                      "margin": "md",
+                      "color": "#FFFFFF",
+                      "type": "separator"
+                    },
+                    {
+                      "type": "text",
+                      "margin": "lg",
+                      "color": "#FFD700",
+                      "weight": "bold",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "size": "md"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "wrap": true,
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418236",
+                          "color": "#FFE4E1",
+                          "type": "text",
+                          "size": "sm"
+                        },
+                        {
+                          "weight": "bold",
+                          "text": "🆔 รหัสวิชา:01418351",
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "text": "🏷️ ชื่อวิชา: หลักการเครือข่ายคอมพิวเตอร์และการประมวลผลบนคลาวด\n(Computer Networks and Cloud Computing Principles)",
+                          "type": "text",
+                          "weight": "bold",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ ",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "weight": "bold"
+                        },
+                        {
+                          "text": "🎯 หน่วยกิต: 3",
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "type": "text"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับแนวคิดเครือข่ายการสื่อสารแบบมีสาย ไร้สาย และเซลลูลาร์ องค์ประกอบชนิดเครือข่าย มาตรฐานและโพรโทคอล ชั้นโปรแกรมประยุกต์และชั้นทรานสปอร์ต การกำหนดหมายเลข IP การประมวลผลบนคลาวด์ รวมถึงองค์ประกอบและบริการต่างๆ",
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true
+                        }
+                      ],
+                      "spacing": "sm",
+                      "layout": "vertical",
+                      "type": "box",
+                      "margin": "sm"
+                    }
+                  ]
+                },
+                "size": "mega"
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

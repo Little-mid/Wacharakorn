@@ -1,0 +1,193 @@
+{
+  "id": "010fdb73-347c-4131-acee-ce3da4c0029f",
+  "parentId": "ac21883c-7548-4639-a32a-def15cfea2fc",
+  "rootParentId": "4461e597-4962-4561-a81e-33634d796c54",
+  "name": "CS ปี3 เทอม 1",
+  "auto": true,
+  "contexts": [
+    "_CS_3-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes.-yes-custom-2._1-custom-2._CS_3-custom-2",
+      "affectedContexts": [
+        {
+          "name": "CS31-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "type": "bubble",
+                "size": "mega",
+                "body": {
+                  "contents": [
+                    {
+                      "type": "box",
+                      "contents": [
+                        {
+                          "size": "lg",
+                          "color": "#333333",
+                          "weight": "bold",
+                          "type": "text",
+                          "text": "📒 แผนการเรียน ปี 3 ภาคต้น"
+                        },
+                        {
+                          "margin": "sm",
+                          "type": "text",
+                          "text": "🖥️ สาขาวิทยาการคอมพิวเตอร์",
+                          "size": "md",
+                          "color": "#333333"
+                        }
+                      ],
+                      "paddingAll": "md",
+                      "cornerRadius": "lg",
+                      "backgroundColor": "#FFFFCC",
+                      "layout": "vertical"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "type": "text",
+                      "margin": "md",
+                      "size": "md",
+                      "weight": "bold",
+                      "color": "#333333",
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน"
+                    },
+                    {
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "text": "1.การวิเคราะห์และการออกแบบระบบ📝 \n(System Analysis and Design)",
+                          "type": "text",
+                          "color": "#000000"
+                        },
+                        {
+                          "type": "text",
+                          "text": "2.ทฤษฎีการคำนวณ (Theory of Computation)🔢",
+                          "color": "#000000",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "3.หลักการเครือข่ายคอมพิวเตอร์และการประมวลผลบนคลาวด์  \n(Computer Networks and Cloud Computing Principles)📶",
+                          "color": "#000000",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#000000",
+                          "text": "4.การเตรียมความพร้อมสหกิจศึกษา🎯 \n(Co-operative Education Preparation)",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#000000",
+                          "text": "5.วิชาเฉพาะเลือก📚",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#000000",
+                          "size": "sm",
+                          "text": "6.วิชาภาษาต่างประเทศ 1 ภาษา🌐"
+                        },
+                        {
+                          "text": "7.วิชาศึกษาทั่วไปกลุ่มสาระพลเมืองไทยพลเมืองโลก🏛️",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#000000"
+                        },
+                        {
+                          "type": "text",
+                          "text": "8.วิชาศึกษาทั่วไป 5 กลุ่มสาระ📖 ",
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#000000"
+                        }
+                      ],
+                      "spacing": "sm",
+                      "layout": "vertical",
+                      "type": "box"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "type": "box",
+                      "margin": "md",
+                      "backgroundColor": "#FFF4E5",
+                      "contents": [
+                        {
+                          "text": "📌 หน่วยกิตรวม: 19 หน่วยกิต",
+                          "type": "text",
+                          "size": "md",
+                          "color": "#FF4500",
+                          "weight": "bold"
+                        }
+                      ],
+                      "paddingAll": "md",
+                      "layout": "vertical",
+                      "cornerRadius": "lg"
+                    }
+                  ],
+                  "type": "box",
+                  "layout": "vertical"
+                }
+              },
+              "altText": "📒 แผนการเรียน ปี 3 ภาคต้น",
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "type": "message",
+                      "text": "รายละเอียดรายวิชา",
+                      "label": "รายละเอียดรายวิชา"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

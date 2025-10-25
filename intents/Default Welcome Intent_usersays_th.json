@@ -1,0 +1,119 @@
+[
+  {
+    "id": "82fa226b-04fc-4676-a03b-538ea78abd45",
+    "data": [
+      {
+        "text": "สวัสดีจ้ะ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "34a6d290-f689-4960-8656-83446225df85",
+    "data": [
+      {
+        "text": "หวัดดีคะ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "1a20bf6e-3e6e-48b9-9d40-aab1b5aecf6b",
+    "data": [
+      {
+        "text": "สวัสดี",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "997e099e-e0d7-4a46-8bb4-139221f9b54b",
+    "data": [
+      {
+        "text": "หวัดดีครับ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "04aed1e5-d301-4e0c-890e-20c291d9dfa9",
+    "data": [
+      {
+        "text": "สวัสดีน้า",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "8406d11f-0fc9-4e27-826e-4273078162c5",
+    "data": [
+      {
+        "text": "ว่าไง",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "55074f3c-2d07-405c-a5d8-451094597199",
+    "data": [
+      {
+        "text": "สวีดัส",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "8bc57ee4-94fa-4b7c-a7ce-bb379e042d9e",
+    "data": [
+      {
+        "text": "สวัสดีครับ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "7640d16f-7078-4669-920b-7b61db1f4288",
+    "data": [
+      {
+        "text": "หวัดดี",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

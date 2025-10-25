@@ -1,0 +1,174 @@
+{
+  "id": "a45602cb-dd17-4691-83c4-20d5256674d9",
+  "parentId": "8ef44617-cdc9-499a-a753-d1f1c572e71c",
+  "rootParentId": "74d92e1a-4f59-4929-8a89-53268a0379da",
+  "name": "DS_ปี3 - 2",
+  "auto": true,
+  "contexts": [
+    "DS_3-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "_._-custom.DS-custom.DS_3-custom-2",
+      "affectedContexts": [
+        {
+          "name": "DS_3-custom-2-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "📒 แผนการเรียน ปี 3 ภาคปลาย ",
+              "type": "flex",
+              "contents": {
+                "type": "bubble",
+                "body": {
+                  "layout": "vertical",
+                  "type": "box",
+                  "contents": [
+                    {
+                      "layout": "vertical",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "size": "lg",
+                          "text": "📒 แผนการเรียน ปี 3 ภาคปลาย",
+                          "type": "text",
+                          "weight": "bold",
+                          "color": "#333333"
+                        },
+                        {
+                          "text": "📊 สาขาวิทยาการข้อมูล",
+                          "color": "#333333",
+                          "size": "md",
+                          "type": "text",
+                          "margin": "sm"
+                        }
+                      ],
+                      "backgroundColor": "#FFFFCC",
+                      "paddingAll": "md",
+                      "cornerRadius": "lg"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "color": "#333333",
+                      "weight": "bold",
+                      "type": "text",
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน",
+                      "margin": "md",
+                      "size": "md"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "color": "#000000",
+                          "text": "1.การบริหารโครงการและสตาร์ทอัพดิจิทัล\n(Project Management and Digital Startup)📊",
+                          "size": "sm"
+                        },
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#000000",
+                          "text": "2.การโปรแกรมและการประยุกต์สำหรับวิทยาการข้อมูล \n(Programming and Application for Data Science)💾"
+                        },
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "text": "3.วิชาเฉพาะเลือก 🎯",
+                          "color": "#000000"
+                        }
+                      ],
+                      "type": "box",
+                      "layout": "vertical",
+                      "margin": "sm",
+                      "spacing": "sm"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "layout": "vertical",
+                      "type": "box",
+                      "cornerRadius": "lg",
+                      "backgroundColor": "#FFF4E5",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "color": "#FF4500",
+                          "size": "md",
+                          "text": "📌 หน่วยกิตรวม: 12 หน่วยกิต",
+                          "weight": "bold"
+                        }
+                      ],
+                      "margin": "md",
+                      "paddingAll": "md"
+                    }
+                  ]
+                },
+                "size": "mega"
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "text": "แผนการเรียนอื่นๆ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "text": "Cs ปี 3 เทอม 1",
+                      "label": "ภาคต้น 📒",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "text": "รายละเอียดรายวิชา",
+                      "type": "message",
+                      "label": "รายละเอียดรายวิชาℹ️"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "7a727ecf-b539-4ee8-a7c9-b186dd2479a0",
+    "data": [
+      {
+        "text": "ข้อมูล",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "597faa6f-54a8-4712-bc42-ccc9dd66e482",
+    "data": [
+      {
+        "text": "วิทยาการข้อมูล",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "896e5ec1-d365-43e4-b2f0-28b76ab1f19e",
+    "data": [
+      {
+        "text": "สาขา วิทยาการข้อมูล 📊",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

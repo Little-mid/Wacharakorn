@@ -1,0 +1,197 @@
+{
+  "id": "cd051fab-cfc8-48a0-937a-d4a013c49cd4",
+  "parentId": "93306b8b-c1d5-45e2-a009-762cf7624df1",
+  "rootParentId": "f0564bea-cd37-4b2c-8f9f-66446783241b",
+  "name": "CS_TEST2 - 4 -1 - Details",
+  "auto": true,
+  "contexts": [
+    "CS_TEST2-4-1-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "CS_TEST2.CS_TEST2-custom.CS_TEST2-4-custom.CS_TEST2-4-1-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "type": "message",
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "text": "แผนการเรียนอื่นๆ"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "รายละเอียดรายวิชาCs ปี4 เทอม2",
+                      "label": "ภาคปลาย 📗",
+                      "type": "message"
+                    }
+                  }
+                ]
+              },
+              "contents": {
+                "type": "bubble",
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "contents": [
+                        {
+                          "size": "lg",
+                          "color": "#333333",
+                          "weight": "bold",
+                          "type": "text",
+                          "text": "✍️ รายละเอียดรายวิชา"
+                        },
+                        {
+                          "type": "text",
+                          "text": "🖥️ สาขาวิทยาการคอมพิวเตอร์",
+                          "color": "#333333",
+                          "size": "md",
+                          "margin": "sm"
+                        },
+                        {
+                          "margin": "sm",
+                          "weight": "bold",
+                          "type": "text",
+                          "color": "#333333",
+                          "size": "md",
+                          "text": "       ปี 4 ภาคต้น"
+                        }
+                      ],
+                      "cornerRadius": "lg",
+                      "backgroundColor": "#CCFFCC",
+                      "type": "box",
+                      "paddingAll": "md",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "layout": "vertical",
+                      "margin": "md",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "layout": "vertical",
+                          "type": "box",
+                          "contents": [
+                            {
+                              "color": "#CC0000",
+                              "text": "⚠วิชาที่ต้องเรียนมาก่อน : 01418321",
+                              "size": "sm",
+                              "wrap": true,
+                              "weight": "bold",
+                              "type": "text"
+                            },
+                            {
+                              "weight": "bold",
+                              "wrap": true,
+                              "text": "01418499 โครงงานวิทยาการคอมพิวเตอร์",
+                              "type": "text",
+                              "size": "sm"
+                            },
+                            {
+                              "margin": "sm",
+                              "text": "📌 3 หน่วยกิต\n✏️ หมวดวิชาเฉพาะ วิชาเฉพาะบังคับ\n📖 วิชานี้เกี่ยวกับโครงงานที่น่าสนใจในแขนงต่างๆ ของวิทยาการคอมพิวเตอร์ เพื่อให้ผู้เรียนได้ฝึกปฏิบัติและประยุกต์ความรู้ในสาขาที่เรียนมา",
+                              "wrap": true,
+                              "type": "text",
+                              "size": "sm"
+                            }
+                          ],
+                          "backgroundColor": "#F9FBFF"
+                        },
+                        {
+                          "contents": [
+                            {
+                              "text": "วิชาเฉพาะเลือก",
+                              "weight": "bold",
+                              "type": "text",
+                              "wrap": true,
+                              "size": "sm"
+                            },
+                            {
+                              "size": "sm",
+                              "margin": "sm",
+                              "type": "text",
+                              "text": "📌 3 หน่วยกิต",
+                              "wrap": true
+                            }
+                          ],
+                          "backgroundColor": "#F9FBFF",
+                          "layout": "vertical",
+                          "type": "box"
+                        },
+                        {
+                          "type": "box",
+                          "contents": [
+                            {
+                              "text": "วิชาเลือกเสรี",
+                              "type": "text",
+                              "wrap": true,
+                              "weight": "bold",
+                              "size": "sm"
+                            },
+                            {
+                              "margin": "sm",
+                              "wrap": true,
+                              "text": "📌 3 หน่วยกิต\n❗ กลุ่มวิชาเลือกเสรีสามารถเลือกได้ทุกรายวิชาที่เปิดทั้งภาคต้นและภาคปลายของแต่ละปีการศึกษา",
+                              "type": "text",
+                              "size": "sm"
+                            }
+                          ],
+                          "backgroundColor": "#F9FBFF",
+                          "layout": "vertical"
+                        }
+                      ],
+                      "spacing": "md"
+                    }
+                  ],
+                  "type": "box"
+                },
+                "size": "mega"
+              },
+              "type": "flex",
+              "altText": "รายละเอียดรายวิชา ปี 4 ภาคต้น"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

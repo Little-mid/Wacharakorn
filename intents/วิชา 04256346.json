@@ -1,0 +1,151 @@
+{
+  "id": "85da14e2-2d67-47ab-835c-9faa60891e2f",
+  "name": "วิชา 04256346",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256346-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "body": {
+                  "contents": [
+                    {
+                      "size": "xl",
+                      "align": "center",
+                      "type": "text",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "color": "#FFFFFF",
+                      "weight": "bold"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "size": "md",
+                      "margin": "lg",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "color": "#FFD700",
+                      "weight": "bold",
+                      "type": "text"
+                    },
+                    {
+                      "type": "box",
+                      "layout": "vertical",
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "size": "sm",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี",
+                          "wrap": true,
+                          "color": "#FFE4E1",
+                          "type": "text"
+                        },
+                        {
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "text": "🆔 รหัสวิชา: 04256346",
+                          "type": "text"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "text": "🏷️ ชื่อวิชา: ฐานข้อมูลแบบโนเอสแอล (Practical NoSQL Database)",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm",
+                          "weight": "bold"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก",
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "text": "🎯 หน่วยกิต: 1",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "text": "📖 เนื้อหา: แนะนำระบบ NoSQL ข้อดี-ข้อเสีย ชนิดและโครงสร้าง เช่น แบบคอลัมน์, คีย์-แวลู, เอกสาร, กราฟ ตัวอย่างการออกแบบ การบันทึกข้อมูล แนะนำ JSON ไวยากรณ์ ชนิดข้อมูล และการใช้งาน JSON กับฝั่งเซิร์ฟเวอร์",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "spacing": "sm"
+                    }
+                  ],
+                  "type": "box",
+                  "layout": "vertical"
+                },
+                "type": "bubble",
+                "size": "mega"
+              },
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "altText": "แนะนำรายวิชา"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

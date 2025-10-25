@@ -1,0 +1,202 @@
+{
+  "id": "b392032c-ea5c-45bb-a324-fec053e4f429",
+  "parentId": "9b2620bc-4a3e-4c90-a931-43514fe6f5ac",
+  "rootParentId": "4461e597-4962-4561-a81e-33634d796c54",
+  "name": "DS ปี1 เทอม 2",
+  "auto": true,
+  "contexts": [
+    "_DS_1-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes.-yes-custom-3._1-custom-3._DS_1-custom-2",
+      "affectedContexts": [
+        {
+          "name": "DS12-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "แผนการเรียนอื่นๆ",
+                      "type": "message",
+                      "label": "แผนการเรียนอื่นๆ📚"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "text": "Ds ปี 1 เทอม 1",
+                      "label": "ภาคต้น 📘"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "รายละเอียดรายวิชาℹ️",
+                      "type": "message",
+                      "text": "รายละเอียดรายวิชา"
+                    }
+                  }
+                ]
+              },
+              "altText": "📘 แผนการเรียน ปี 1 ภาคปลาย",
+              "type": "flex",
+              "contents": {
+                "size": "mega",
+                "body": {
+                  "contents": [
+                    {
+                      "paddingAll": "md",
+                      "contents": [
+                        {
+                          "text": "📘 แผนการเรียน ปี 1 ภาคปลาย",
+                          "size": "lg",
+                          "weight": "bold",
+                          "type": "text",
+                          "color": "#1E90FF"
+                        },
+                        {
+                          "type": "text",
+                          "text": "📊 สาขาวิทยาการข้อมูล",
+                          "color": "#333333",
+                          "margin": "sm",
+                          "size": "md"
+                        }
+                      ],
+                      "layout": "vertical",
+                      "type": "box",
+                      "backgroundColor": "#E6F2FF",
+                      "cornerRadius": "lg"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "type": "text",
+                      "color": "#333333",
+                      "margin": "md",
+                      "weight": "bold",
+                      "size": "md",
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน"
+                    },
+                    {
+                      "type": "box",
+                      "contents": [
+                        {
+                          "color": "#000000",
+                          "wrap": true,
+                          "text": "1.วิทยาการข้อมูลและโปรแกรมประยุกต์ 💻 \n(Data Science and Application Programs)",
+                          "type": "text",
+                          "size": "sm"
+                        },
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#000000",
+                          "text": "2.หลักพื้นฐานของปัญญาประดิษฐ์ 🤖 \n(Fundamentals of Artificial Intelligence)"
+                        },
+                        {
+                          "color": "#000000",
+                          "type": "text",
+                          "text": "3.การวิเคราะห์ถดถอยประยุกต์ 📈 \n(Applied Regression Analysis)",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#000000",
+                          "text": "4.ระบบฐานข้อมูลและการประยุกต์ 🗄️ \n(Database Systems and Applications)",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "text": "5.กิจกรรมพลศึกษา 🏃‍♂️",
+                          "wrap": true,
+                          "color": "#000000",
+                          "type": "text"
+                        },
+                        {
+                          "text": "6.วิชาภาษาต่างประเทศ 1 🌐",
+                          "wrap": true,
+                          "type": "text",
+                          "color": "#000000",
+                          "size": "sm"
+                        },
+                        {
+                          "wrap": true,
+                          "color": "#000000",
+                          "size": "sm",
+                          "text": "7.วิชาศึกษาทั่วไปกลุ่มสาระอยู่ดีมีสุข 🌿",
+                          "type": "text"
+                        }
+                      ],
+                      "spacing": "sm",
+                      "layout": "vertical",
+                      "margin": "sm"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "paddingAll": "md",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "text": "📌 หน่วยกิตรวม: 18 หน่วยกิต",
+                          "size": "md",
+                          "type": "text",
+                          "weight": "bold",
+                          "color": "#FF4500"
+                        }
+                      ],
+                      "backgroundColor": "#FFF4E5",
+                      "cornerRadius": "lg",
+                      "layout": "vertical",
+                      "margin": "md"
+                    }
+                  ],
+                  "type": "box",
+                  "layout": "vertical"
+                },
+                "type": "bubble"
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

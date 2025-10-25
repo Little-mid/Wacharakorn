@@ -1,0 +1,164 @@
+{
+  "id": "8604d9bc-8314-4901-acba-6dc155db39dc",
+  "parentId": "fd6955ac-9751-4346-9100-8eb97b859b55",
+  "rootParentId": "4461e597-4962-4561-a81e-33634d796c54",
+  "name": "DS ปี4 เทอม 2",
+  "auto": true,
+  "contexts": [
+    "_DS_4-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes.-yes-custom-3._1-custom-2._DS_4-custom",
+      "affectedContexts": [
+        {
+          "name": "_DS_4-custom-followup",
+          "lifespan": 2
+        },
+        {
+          "name": "DS42-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "📗 แผนการเรียน ปี 4 ภาคปลาย",
+              "type": "flex",
+              "contents": {
+                "type": "bubble",
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "layout": "vertical",
+                      "backgroundColor": "#CCFFCC",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "color": "#333333",
+                          "type": "text",
+                          "weight": "bold",
+                          "text": "📗 แผนการเรียน ปี 4 ภาคปลาย",
+                          "size": "lg"
+                        },
+                        {
+                          "text": "📊 สาขาวิทยาการข้อมูล",
+                          "size": "md",
+                          "type": "text",
+                          "color": "#333333",
+                          "margin": "sm"
+                        }
+                      ],
+                      "cornerRadius": "lg",
+                      "paddingAll": "md"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "size": "md",
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน",
+                      "color": "#333333",
+                      "type": "text",
+                      "margin": "md",
+                      "weight": "bold"
+                    },
+                    {
+                      "spacing": "sm",
+                      "type": "box",
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "size": "sm",
+                          "color": "#000000",
+                          "text": "1. สหกิจศึกษา 💼\n(Co-operative Education)",
+                          "wrap": true,
+                          "type": "text"
+                        }
+                      ],
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "📌 หน่วยกิตรวม: 6 หน่วยกิต",
+                          "weight": "bold",
+                          "size": "md",
+                          "color": "#FF4500"
+                        }
+                      ],
+                      "type": "box",
+                      "layout": "vertical",
+                      "margin": "md",
+                      "cornerRadius": "lg",
+                      "backgroundColor": "#FFF4E5",
+                      "paddingAll": "md"
+                    }
+                  ],
+                  "type": "box"
+                },
+                "size": "mega"
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "type": "message",
+                      "text": "แผนการเรียนอื่นๆ",
+                      "label": "แผนการเรียนอื่นๆ📚"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "ภาคต้น 📗",
+                      "text": "Ds ปี 4 เทอม 1",
+                      "type": "message"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "รายละเอียดรายวิชา",
+                      "label": "รายละเอียดรายวิชาℹ️",
+                      "type": "message"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

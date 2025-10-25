@@ -1,0 +1,151 @@
+{
+  "id": "1314946a-3ae5-48be-81d6-56eda0b1ce67",
+  "name": "วิชา 01418344",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418344-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "contents": {
+                "body": {
+                  "layout": "vertical",
+                  "type": "box",
+                  "contents": [
+                    {
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "align": "center",
+                      "size": "xl",
+                      "type": "text",
+                      "weight": "bold",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "color": "#FFD700",
+                      "margin": "lg",
+                      "type": "text",
+                      "size": "md",
+                      "weight": "bold",
+                      "text": "📝 รายละเอียดรายวิชา"
+                    },
+                    {
+                      "spacing": "sm",
+                      "type": "box",
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "color": "#FFE4E1",
+                          "wrap": true,
+                          "size": "sm",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418221"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "text": "🆔 รหัสวิชา: 01418344",
+                          "weight": "bold",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "type": "text",
+                          "weight": "bold",
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "text": "🏷️ ชื่อวิชา: การจัดการมิติข้อมูลและรายงานทางธุรกิจ (Business Data Dimension and Report Management)"
+                        },
+                        {
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก ",
+                          "wrap": true,
+                          "size": "sm",
+                          "type": "text",
+                          "weight": "bold",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "text": "🎯 หน่วยกิต: 3"
+                        },
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับการศึกษาแนวคิดรายงานและกระบวนการทางธุรกิจ แนวคิดและพัฒนาการของมิติข้อมูล เครื่องมือและการสร้างตัวแบบสำหรับวิเคราะห์ข้อมูลทางธุรกิจ ปัจจัยความสำเร็จ ระบบขององค์กรชั้นนำ กรณีศึกษา และแนวโน้มเทคโนโลยี",
+                          "size": "sm",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "margin": "sm"
+                    }
+                  ]
+                },
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "type": "bubble",
+                "size": "mega"
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "text": "ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              },
+              "altText": "แนะนำรายวิชา"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

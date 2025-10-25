@@ -1,0 +1,151 @@
+{
+  "id": "20e5a34b-ad1b-4112-afc2-476f2d78b45b",
+  "name": "นอกหลักสูตร วิชา 01417111",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01417111-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "แนะนำรายวิชา",
+              "type": "flex",
+              "contents": {
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "type": "bubble",
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "align": "center",
+                      "size": "xl",
+                      "weight": "bold",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "color": "#FFD700",
+                      "size": "md",
+                      "type": "text",
+                      "weight": "bold",
+                      "margin": "lg"
+                    },
+                    {
+                      "spacing": "sm",
+                      "margin": "sm",
+                      "type": "box",
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#FFE4E1",
+                          "size": "sm",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี"
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "weight": "bold",
+                          "text": "🆔 รหัสวิชา: 01417111",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "text": "🏷️ ชื่อวิชา: แคลคูลัส I (Calculus I)",
+                          "wrap": true,
+                          "size": "sm",
+                          "weight": "bold"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "wrap": true,
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาแกน ",
+                          "type": "text",
+                          "weight": "bold"
+                        },
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "text": "🎯 หน่วยกิต: 3"
+                        },
+                        {
+                          "type": "text",
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับแนวคิดคณิตศาสตร์เบื้องต้น ครอบคลุมลิมิตและความต่อเนื่อง อนุพันธ์ของฟังก์ชันและการประยุกต์ ค่าเชิงอนุพันธ์ และปริพันธ์พร้อมการประยุกต์",
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "box"
+                },
+                "size": "mega"
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

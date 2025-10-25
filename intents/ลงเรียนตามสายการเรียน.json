@@ -1,0 +1,68 @@
+{
+  "id": "dca3edf7-a886-4f9b-8dcd-dfffeb4d8985",
+  "name": "ลงเรียนตามสายการเรียน",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "-followup-6",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "ใช่แล้ว ✅",
+                      "text": "ใช่แล้ว ",
+                      "type": "message",
+                      "imageBackgroundColor": "#FFEFD5"
+                    }
+                  },
+                  {
+                    "action": {
+                      "type": "message",
+                      "label": "ไม่ใช่ ❌",
+                      "text": "ไม่ใช่ "
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "type": "text",
+              "text": "คุณต้องการให้ผมแนะนำการลงเรียนในสายการเรียนที่คุณสนใจ ใช่หรือไม่ 🎓"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

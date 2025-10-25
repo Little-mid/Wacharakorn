@@ -1,0 +1,179 @@
+{
+  "id": "4fff0414-e970-42c4-a283-d01cd337d5a8",
+  "parentId": "41c731b5-8900-4361-9e16-379433f77ad2",
+  "rootParentId": "4461e597-4962-4561-a81e-33634d796c54",
+  "name": "CS ปี2 เทอม 2",
+  "auto": true,
+  "contexts": [
+    "_CS-custom-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes.-yes-custom-2._CS-custom._CS-custom-custom-2",
+      "affectedContexts": [
+        {
+          "name": "_CS-custom-custom-2-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "📙 แผนการเรียน ปี 2 ภาคปลาย",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "รายละเอียดรายวิชา",
+                      "text": "รายละเอียดรายวิชา",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "type": "flex",
+              "contents": {
+                "size": "mega",
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "layout": "vertical",
+                      "paddingAll": "md",
+                      "cornerRadius": "lg",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "weight": "bold",
+                          "size": "lg",
+                          "text": "📙 แผนการเรียน ปี 2 ภาคปลาย",
+                          "type": "text",
+                          "color": "#333333"
+                        },
+                        {
+                          "type": "text",
+                          "margin": "sm",
+                          "text": "🖥️ สาขาวิทยาการคอมพิวเตอร์",
+                          "color": "#333333",
+                          "size": "md"
+                        }
+                      ],
+                      "backgroundColor": "#FFCC99"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน",
+                      "color": "#333333",
+                      "size": "md",
+                      "margin": "md",
+                      "type": "text",
+                      "weight": "bold"
+                    },
+                    {
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "color": "#000000",
+                          "size": "sm",
+                          "text": "1.ระบบฐานข้อมูลเบื้องต้น🗄️ \n(Fundamentals of Database Systems)",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#000000",
+                          "text": "2.การออกแบบและวิเคราะห์ขั้นตอนวิธี📊 \n(Design and Analysis of Algorithms)",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "text": "3.ระบบปฎิบัติการ (Operating Systems)🖥️",
+                          "color": "#000000",
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "color": "#000000",
+                          "size": "sm",
+                          "text": "4.หลักพื้นฐานของปัญญาประดิษฐ์🤖 \n(Fundamentals of Artificial Intelligence)",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#000000",
+                          "type": "text",
+                          "text": "5.วิชาเฉพาะเลือก📖",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "text": "6.วิชาภาษาต่างประเทศ 1 ภาษา🌐",
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#000000",
+                          "size": "sm"
+                        }
+                      ],
+                      "margin": "sm",
+                      "spacing": "sm",
+                      "type": "box"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "margin": "md",
+                      "paddingAll": "md",
+                      "layout": "vertical",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "color": "#FF4500",
+                          "text": "📌 หน่วยกิตรวม: 18 หน่วยกิต",
+                          "weight": "bold",
+                          "size": "md",
+                          "type": "text"
+                        }
+                      ],
+                      "cornerRadius": "lg",
+                      "backgroundColor": "#FFF4E5"
+                    }
+                  ],
+                  "type": "box"
+                },
+                "type": "bubble"
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

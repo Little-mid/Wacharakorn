@@ -1,0 +1,119 @@
+[
+  {
+    "id": "3f409619-b10e-4882-a87d-806c1bcf3b36",
+    "data": [
+      {
+        "text": "Facebook",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "a4576563-f82a-4f38-95d9-2ffa68381ec9",
+    "data": [
+      {
+        "text": "เฟส",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "cde7ecf4-da4c-4324-9df6-4b1aa976a033",
+    "data": [
+      {
+        "text": "เฟสบุ๊ค",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "7527bafd-df87-4efa-afd1-6451390d985b",
+    "data": [
+      {
+        "text": "เว็บ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "a004bf1b-8215-45f5-8478-edd99a51eb12",
+    "data": [
+      {
+        "text": "เว็บไซต์",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "fa1b8750-d214-44ca-8aba-876c0ec6b3fa",
+    "data": [
+      {
+        "text": "Website",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "1cae4bfc-8eb1-4611-a4e9-52811c48240a",
+    "data": [
+      {
+        "text": "เพจ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "be1e4bda-1d00-4928-b423-1c00e4070d83",
+    "data": [
+      {
+        "text": "ช่องทางติดต่อ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "30e0a723-84c9-4706-b19f-66581539d0d6",
+    "data": [
+      {
+        "text": "ติดต่อ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

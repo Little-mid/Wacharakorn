@@ -1,0 +1,241 @@
+{
+  "id": "1b0057f9-6961-481e-b5e4-aa26d057ec59",
+  "parentId": "97983b39-9821-410f-b504-e1e8ba41731c",
+  "rootParentId": "97983b39-9821-410f-b504-e1e8ba41731c",
+  "name": "DS_3 - 1 - custom",
+  "auto": true,
+  "contexts": [
+    "DS_3-1-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "DS_3-1.DS_3-1-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "text": "แผนการเรียนอื่นๆ",
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "label": "ภาคปลาย 📒",
+                      "type": "message",
+                      "text": "รายละเอียดรายวิชาDs ปี3 เทอม2"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "contents": {
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "backgroundColor": "#FFFFCC",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "✍️ รายละเอียดรายวิชา",
+                          "size": "lg",
+                          "color": "#333333",
+                          "weight": "bold"
+                        },
+                        {
+                          "margin": "sm",
+                          "size": "md",
+                          "type": "text",
+                          "text": "📊 สาขาวิทยาการข้อมูล",
+                          "color": "#333333"
+                        },
+                        {
+                          "margin": "sm",
+                          "size": "md",
+                          "type": "text",
+                          "weight": "bold",
+                          "text": "       ปี 3 ภาคต้น",
+                          "color": "#333333"
+                        }
+                      ],
+                      "cornerRadius": "lg",
+                      "layout": "vertical",
+                      "paddingAll": "md",
+                      "type": "box"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "type": "box",
+                          "contents": [
+                            {
+                              "size": "sm",
+                              "wrap": true,
+                              "weight": "bold",
+                              "text": "04256252 จินตทัศน์ข้อมูลแบบพลวัต",
+                              "type": "text"
+                            },
+                            {
+                              "text": "📌 3 หน่วยกิต\n✏️ หมวดวิชาเฉพาะ วิชาเฉพาะบังคับ\n📖 เรียนเกี่ยวกับการใช้ภาษาโปรแกรม ไลบรารี และโมดูล เพื่อเรียกดู ประมวลผล และจัดรูปแบบข้อมูลคงที่และพลวัตสำหรับการทำจินตทัศน์ข้อมูล ",
+                              "size": "sm",
+                              "wrap": true,
+                              "type": "text",
+                              "margin": "sm"
+                            }
+                          ],
+                          "layout": "vertical",
+                          "paddingAll": "md",
+                          "cornerRadius": "lg",
+                          "backgroundColor": "#F9FBFF"
+                        },
+                        {
+                          "contents": [
+                            {
+                              "wrap": true,
+                              "type": "text",
+                              "text": "04256347 การประมวลผลข้อมูลขนาดใหญ่เบื้องต้น",
+                              "size": "sm",
+                              "weight": "bold"
+                            },
+                            {
+                              "margin": "sm",
+                              "wrap": true,
+                              "text": "📌 3 หน่วยกิต \n✏️ หมวดวิชาเฉพาะ วิชาเฉพาะบังคับ\n📖 เรียนเกี่ยวกับความรู้เบื้องต้นของข้อมูลขนาดใหญ่ แหล่งกำเนิดและการเพิ่มปริมาณข้อมูล ปัญหาที่เกิดจาก Big Data รวมถึงเครื่องมือและสถาปัตยกรรมในการจัดเก็บและจัดการข้อมูลขนาดใหญ่ ",
+                              "type": "text",
+                              "size": "sm"
+                            }
+                          ],
+                          "backgroundColor": "#F9FBFF",
+                          "paddingAll": "md",
+                          "cornerRadius": "lg",
+                          "type": "box",
+                          "layout": "vertical"
+                        },
+                        {
+                          "layout": "vertical",
+                          "type": "box",
+                          "paddingAll": "md",
+                          "contents": [
+                            {
+                              "type": "text",
+                              "wrap": true,
+                              "weight": "bold",
+                              "text": "วิชาเฉพาะเลือก",
+                              "size": "sm"
+                            },
+                            {
+                              "wrap": true,
+                              "text": "📌 3 หน่วยกิต",
+                              "type": "text",
+                              "margin": "sm",
+                              "size": "sm"
+                            }
+                          ],
+                          "cornerRadius": "lg",
+                          "backgroundColor": "#F9FBFF"
+                        },
+                        {
+                          "contents": [
+                            {
+                              "weight": "bold",
+                              "wrap": true,
+                              "size": "sm",
+                              "text": "วิชาเลือกเสรี",
+                              "type": "text"
+                            },
+                            {
+                              "type": "text",
+                              "wrap": true,
+                              "text": "📌 6 หน่วยกิต\n❗ กลุ่มวิชาเลือกเสรีสามารถเลือกได้ทุกรายวิชาที่เปิดทั้งภาคต้นและภาคปลายของแต่ละปีการศึกษา",
+                              "margin": "sm",
+                              "size": "sm"
+                            }
+                          ],
+                          "type": "box",
+                          "layout": "vertical",
+                          "cornerRadius": "lg",
+                          "paddingAll": "md",
+                          "backgroundColor": "#F9FBFF"
+                        },
+                        {
+                          "layout": "vertical",
+                          "paddingAll": "md",
+                          "cornerRadius": "lg",
+                          "type": "box",
+                          "contents": [
+                            {
+                              "weight": "bold",
+                              "type": "text",
+                              "size": "sm",
+                              "text": "วิชาศึกษาทั่วไปกลุ่มสาระศาสตร์แห่งผู้ประกอบการ",
+                              "wrap": true
+                            },
+                            {
+                              "text": "📌 3 หน่วยกิต ",
+                              "margin": "sm",
+                              "wrap": true,
+                              "size": "sm",
+                              "type": "text"
+                            }
+                          ],
+                          "backgroundColor": "#F9FBFF"
+                        }
+                      ],
+                      "layout": "vertical",
+                      "margin": "md",
+                      "type": "box",
+                      "spacing": "md"
+                    }
+                  ]
+                },
+                "size": "mega",
+                "type": "bubble"
+              },
+              "altText": "รายละเอียดรายวิชา ปี 3 ภาคต้น",
+              "type": "flex"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

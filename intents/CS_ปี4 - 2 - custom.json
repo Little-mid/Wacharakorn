@@ -1,0 +1,156 @@
+{
+  "id": "5da86808-3459-424c-b1b5-3b45827dcf64",
+  "parentId": "f4770b8a-473c-4823-801d-e0666e96e45b",
+  "rootParentId": "f4770b8a-473c-4823-801d-e0666e96e45b",
+  "name": "CS_ปี4 - 2 - custom",
+  "auto": true,
+  "contexts": [
+    "CS_4-custom-2-followup",
+    "CS_4-2-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "CS_4-2.CS_4-2-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "type": "message",
+                      "text": "แผนการเรียนอื่นๆ"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "type": "message",
+                      "text": "รายละเอียดรายวิชาCs ปี4 เทอม1",
+                      "label": "ภาคต้น 📗"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "contents": {
+                "size": "mega",
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "cornerRadius": "lg",
+                      "layout": "vertical",
+                      "backgroundColor": "#CCFFCC",
+                      "type": "box",
+                      "paddingAll": "md",
+                      "contents": [
+                        {
+                          "weight": "bold",
+                          "color": "#333333",
+                          "size": "lg",
+                          "type": "text",
+                          "text": "✍️ รายละเอียดรายวิชา"
+                        },
+                        {
+                          "size": "md",
+                          "text": "🖥️ สาขาวิทยาการคอมพิวเตอร์",
+                          "type": "text",
+                          "color": "#333333",
+                          "margin": "sm"
+                        },
+                        {
+                          "size": "md",
+                          "margin": "sm",
+                          "text": "       ปี 4 ภาคปลาย",
+                          "color": "#333333",
+                          "type": "text",
+                          "weight": "bold"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "contents": [
+                            {
+                              "text": "⚠วิชาที่ต้องเรียนมาก่อน : 01418390",
+                              "color": "#CC0000",
+                              "weight": "bold",
+                              "wrap": true,
+                              "type": "text",
+                              "size": "sm"
+                            },
+                            {
+                              "text": "01418490 สหกิจศึกษา",
+                              "weight": "bold",
+                              "wrap": true,
+                              "type": "text",
+                              "size": "sm"
+                            },
+                            {
+                              "margin": "sm",
+                              "text": "📌 6 หน่วยกิต\n✏️ หมวดวิชาเฉพาะ วิชาเฉพาะบังคับ\n📖 วิชานี้เน้นการปฏิบัติงานในลักษณะพนักงานชั่วคราวตามโครงงานที่ได้รับมอบหมาย รวมถึงการจัดทำรายงานและการนำเสนอผลการทำงาน",
+                              "type": "text",
+                              "wrap": true,
+                              "size": "sm"
+                            }
+                          ],
+                          "backgroundColor": "#F9FBFF",
+                          "layout": "vertical",
+                          "type": "box"
+                        }
+                      ],
+                      "layout": "vertical",
+                      "margin": "md",
+                      "type": "box",
+                      "spacing": "md"
+                    }
+                  ]
+                }
+              },
+              "altText": "รายละเอียดรายวิชา ปี 4 ภาคปลาย"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

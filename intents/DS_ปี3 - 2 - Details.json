@@ -1,0 +1,188 @@
+{
+  "id": "f73c5543-dcab-4a18-b09c-d619130459de",
+  "parentId": "a45602cb-dd17-4691-83c4-20d5256674d9",
+  "rootParentId": "74d92e1a-4f59-4929-8a89-53268a0379da",
+  "name": "DS_ปี3 - 2 - Details",
+  "auto": true,
+  "contexts": [
+    "DS_3-custom-2-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "_._-custom.DS-custom.DS_3-custom-2.DS_3-custom-2-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "รายละเอียดรายวิชา ปี 3 ภาคปลาย",
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "text": "แผนการเรียนอื่นๆ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "label": "ภาคต้น 📒",
+                      "text": "รายละเอียดรายวิชาDs ปี3 เทอม1"
+                    }
+                  }
+                ]
+              },
+              "contents": {
+                "type": "bubble",
+                "size": "mega",
+                "body": {
+                  "type": "box",
+                  "contents": [
+                    {
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "color": "#333333",
+                          "size": "lg",
+                          "weight": "bold",
+                          "text": "✍️ รายละเอียดรายวิชา",
+                          "type": "text"
+                        },
+                        {
+                          "color": "#333333",
+                          "type": "text",
+                          "size": "md",
+                          "margin": "sm",
+                          "text": "📊 สาขาวิทยาการข้อมูล"
+                        },
+                        {
+                          "color": "#333333",
+                          "type": "text",
+                          "text": "       ปี 3 ภาคปลาย",
+                          "size": "md",
+                          "weight": "bold",
+                          "margin": "sm"
+                        }
+                      ],
+                      "backgroundColor": "#FFFFCC",
+                      "paddingAll": "md",
+                      "cornerRadius": "lg",
+                      "type": "box"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "paddingAll": "md",
+                          "contents": [
+                            {
+                              "size": "sm",
+                              "type": "text",
+                              "weight": "bold",
+                              "text": "04256332 การบริหารโครงการและสตาร์ทอัพดิจิทัล",
+                              "wrap": true
+                            },
+                            {
+                              "type": "text",
+                              "size": "sm",
+                              "margin": "sm",
+                              "wrap": true,
+                              "text": "📌 3 หน่วยกิต\n✏️ หมวดวิชาเฉพาะ วิชาเฉพาะบังคับ\n📖 เรียนเกี่ยวกับวัฏจักรและการจัดการโครงการ การกำหนดเวลา ค่าใช้จ่าย ขอบเขต คุณภาพ ความเสี่ยง ทรัพยากรบุคคล รวมถึงการสื่อสารโครงการ สตาร์ทอัพ การคิดเชิงออกแบบ และตัวแบบธุรกิจ  "
+                            }
+                          ],
+                          "layout": "vertical",
+                          "backgroundColor": "#F9FBFF",
+                          "type": "box",
+                          "cornerRadius": "lg"
+                        },
+                        {
+                          "type": "box",
+                          "cornerRadius": "lg",
+                          "layout": "vertical",
+                          "paddingAll": "md",
+                          "contents": [
+                            {
+                              "wrap": true,
+                              "weight": "bold",
+                              "size": "sm",
+                              "type": "text",
+                              "text": "04256333 การโปรแกรมและการประยุกต์สำหรับวิทยาการข้อมูล"
+                            },
+                            {
+                              "wrap": true,
+                              "type": "text",
+                              "size": "sm",
+                              "margin": "sm",
+                              "text": "📌 3 หน่วยกิต \n✏️ หมวดวิชาเฉพาะ วิชาเฉพาะบังคับ\n📖 เรียนเกี่ยวกับการเขียนโปรแกรมและการประยุกต์เพื่อพัฒนาโมเดลด้านวิทยาการข้อมูล โดยใช้กรณีศึกษาองค์กรหรือข้อมูลสาธารณะ  "
+                            }
+                          ],
+                          "backgroundColor": "#F9FBFF"
+                        },
+                        {
+                          "contents": [
+                            {
+                              "weight": "bold",
+                              "wrap": true,
+                              "type": "text",
+                              "text": "วิชาเฉพาะเลือก",
+                              "size": "sm"
+                            },
+                            {
+                              "wrap": true,
+                              "type": "text",
+                              "size": "sm",
+                              "margin": "sm",
+                              "text": "📌 6 หน่วยกิต"
+                            }
+                          ],
+                          "paddingAll": "md",
+                          "layout": "vertical",
+                          "type": "box",
+                          "cornerRadius": "lg",
+                          "backgroundColor": "#F9FBFF"
+                        }
+                      ],
+                      "margin": "md",
+                      "type": "box",
+                      "spacing": "md"
+                    }
+                  ],
+                  "layout": "vertical"
+                }
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,151 @@
+{
+  "id": "cd2d3b74-47f2-4fe2-945c-f694851b28f4",
+  "name": "วิชา 01418361",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418361-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "type": "bubble",
+                "size": "mega",
+                "body": {
+                  "type": "box",
+                  "contents": [
+                    {
+                      "size": "xl",
+                      "weight": "bold",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "color": "#FFFFFF",
+                      "align": "center",
+                      "type": "text"
+                    },
+                    {
+                      "margin": "md",
+                      "color": "#FFFFFF",
+                      "type": "separator"
+                    },
+                    {
+                      "margin": "lg",
+                      "type": "text",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "weight": "bold",
+                      "size": "md",
+                      "color": "#FFD700"
+                    },
+                    {
+                      "layout": "vertical",
+                      "type": "box",
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "size": "sm",
+                          "color": "#FFE4E1",
+                          "type": "text",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418112 หรือ 01418113",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "wrap": true,
+                          "weight": "bold",
+                          "text": "🆔 รหัสวิชา: 01418361"
+                        },
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "text": "🏷️ ชื่อวิชา: คอมพิวเตอร์วิทัศน์เบื้องต้น (Introduction to Computer Vision)",
+                          "type": "text"
+                        },
+                        {
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก ",
+                          "type": "text",
+                          "size": "sm"
+                        },
+                        {
+                          "text": "🎯 หน่วยกิต: 3",
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "size": "sm"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับแนวคิดพื้นฐานของคอมพิวเตอร์วิทัศน์ ตั้งแต่กระบวนการถ่ายภาพดิจิทัล สี แสง การสร้างภาพ ระดับต่างๆ ของคอมพิวเตอร์วิทัศน์ การสกัดคุณลักษณะ โมเดลจำแนกรูปภาพ การจับคู่คุณลักษณะ การตรวจจับและรู้จำวัตถุ รวมถึงการเรียนรู้เชิงลึกและสาขาการประยุกต์หลัก",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "type": "text"
+                        }
+                      ],
+                      "spacing": "sm"
+                    }
+                  ],
+                  "layout": "vertical"
+                },
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                }
+              },
+              "altText": "แนะนำรายวิชา",
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

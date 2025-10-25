@@ -1,0 +1,74 @@
+{
+  "id": "df38b8e4-7efe-4328-bf3c-cd85c84abcad",
+  "parentId": "8089820a-383e-4338-a9d1-1f793079d1e6",
+  "rootParentId": "e41e4e83-3119-4b85-a6ff-7089402f001c",
+  "name": "เลือกสาขา - Yes - fallback",
+  "contexts": [
+    "-followup-2",
+    "-Yes-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-custom.-Yes-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "text": "กรุณาเลือกสาขาให้ถูกต้อง ครับ😊",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "type": "message",
+                      "imageBackgroundColor": "#FFEFD5",
+                      "text": "วิทยาการคอมพิวเตอร์ 💻",
+                      "label": "วิทยาการคอมพิวเตอร์ 💻"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "วิทยาการข้อมูล 📊",
+                      "label": "วิทยาการข้อมูล 📊",
+                      "type": "message"
+                    }
+                  }
+                ]
+              },
+              "type": "text"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
