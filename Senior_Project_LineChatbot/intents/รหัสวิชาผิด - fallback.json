@@ -1,0 +1,38 @@
+{
+  "id": "6f487964-cc3c-4ae2-9f93-7510d96646e1",
+  "parentId": "ea06a11e-40bf-4ef5-8a5c-691d19ae88f4",
+  "rootParentId": "ea06a11e-40bf-4ef5-8a5c-691d19ae88f4",
+  "name": "รหัสวิชาผิด - fallback",
+  "contexts": [
+    "-followup-8"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "speech": [
+            "⚠️รหัสวิชาไม่ถูกต้อง⚠️ \nตัวอย่าง รหัสวิชา \n01418325\n*กรุณาตรวจสอบและพิมพ์รหัสวิชาใหม่อีกครั้ง* ครับ"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

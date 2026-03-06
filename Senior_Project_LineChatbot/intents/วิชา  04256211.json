@@ -1,0 +1,151 @@
+{
+  "id": "ab9c7970-dac9-4e56-9b68-176e6f3abe12",
+  "name": "วิชา  04256211",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256211-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "แนะนำรายวิชา",
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "contents": {
+                "type": "bubble",
+                "body": {
+                  "contents": [
+                    {
+                      "color": "#FFFFFF",
+                      "align": "center",
+                      "size": "xl",
+                      "type": "text",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "weight": "bold"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "margin": "lg",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "size": "md",
+                      "weight": "bold",
+                      "color": "#FFD700",
+                      "type": "text"
+                    },
+                    {
+                      "spacing": "sm",
+                      "layout": "vertical",
+                      "margin": "sm",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#FFE4E1",
+                          "wrap": true,
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี"
+                        },
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "weight": "bold",
+                          "text": "🆔 รหัสวิชา: 04256211",
+                          "size": "sm",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "type": "text",
+                          "weight": "bold",
+                          "text": "🏷️ ชื่อวิชา: ความน่าจะเป็นสำหรับวิทยาการข้อมูล (Probability for Data Science)",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "size": "sm"
+                        },
+                        {
+                          "text": "🎯 หน่วยกิต: 3",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "type": "text",
+                          "text": "📖 เนื้อหา: ครอบคลุมคณิตศาสตร์เบื้องต้น ความน่าจะเป็นแบบมีเงื่อนไขและอิสระ ตัวแปรสุ่มและฟังก์ชันการแจกแจง ค่าคาดหวัง ความแปรปรวน การแจกแจงร่วมและมีเงื่อนไข รวมถึงการประยุกต์ด้านการวิเคราะห์ข้อมูล",
+                          "size": "sm"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "box",
+                  "layout": "vertical"
+                },
+                "size": "mega",
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                }
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

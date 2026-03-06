@@ -1,0 +1,191 @@
+{
+  "id": "97983b39-9821-410f-b504-e1e8ba41731c",
+  "name": "DS_3 - 1",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "DS_3-1-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "text": "แผนการเรียนอื่นๆ",
+                      "label": "แผนการเรียนอื่นๆ📚"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "Ds ปี 3 เทอม 2",
+                      "label": "ภาคปลาย 📒",
+                      "type": "message"
+                    }
+                  },
+                  {
+                    "action": {
+                      "text": "รายละเอียดรายวิชา",
+                      "label": "รายละเอียดรายวิชาℹ️",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "contents": {
+                "type": "bubble",
+                "body": {
+                  "contents": [
+                    {
+                      "paddingAll": "md",
+                      "cornerRadius": "lg",
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "size": "lg",
+                          "text": "📒 แผนการเรียน ปี 3 ภาคต้น",
+                          "type": "text",
+                          "weight": "bold",
+                          "color": "#333333"
+                        },
+                        {
+                          "text": "📊 สาขาวิทยาการข้อมูล",
+                          "type": "text",
+                          "size": "md",
+                          "color": "#333333",
+                          "margin": "sm"
+                        }
+                      ],
+                      "backgroundColor": "#FFFFCC",
+                      "type": "box"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน",
+                      "margin": "md",
+                      "weight": "bold",
+                      "type": "text",
+                      "color": "#333333",
+                      "size": "md"
+                    },
+                    {
+                      "type": "box",
+                      "spacing": "sm",
+                      "contents": [
+                        {
+                          "size": "sm",
+                          "color": "#000000",
+                          "type": "text",
+                          "wrap": true,
+                          "text": "1.จินตทัศน์ข้อมูลแบบพลวัต 📊\n(Dynamic Data Visualization)"
+                        },
+                        {
+                          "text": "2.การประมวลผลข้อมูลขนาดใหญ่เบื้องต้น \n(Introduction to Big Data Processing)💾",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#000000"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#000000",
+                          "type": "text",
+                          "wrap": true,
+                          "text": "3.วิชาเฉพาะเลือก 🎯"
+                        },
+                        {
+                          "color": "#000000",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm",
+                          "text": "4.วิชาเลือกเสรี 🌟\n⚠️ กลุ่มวิชาเลือกเสรีต้องเรียนอย่างน้อย 6 หน่วยกิตตลอดหลักสูตร⚠️"
+                        },
+                        {
+                          "wrap": true,
+                          "text": "5.วิชาศึกษาทั่วไปกลุ่มสาระศาสตร์แห่งผู้ประกอบการ 💼",
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#000000"
+                        }
+                      ],
+                      "margin": "sm",
+                      "layout": "vertical"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "margin": "md",
+                      "layout": "vertical",
+                      "paddingAll": "md",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "📌 หน่วยกิตรวม: 18 หน่วยกิต",
+                          "color": "#FF4500",
+                          "size": "md",
+                          "weight": "bold"
+                        }
+                      ],
+                      "cornerRadius": "lg",
+                      "backgroundColor": "#FFF4E5"
+                    }
+                  ],
+                  "layout": "vertical",
+                  "type": "box"
+                },
+                "size": "mega"
+              },
+              "type": "flex",
+              "altText": "📒 แผนการเรียน ปี 3 ภาคต้น"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

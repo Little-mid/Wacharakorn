@@ -1,0 +1,41 @@
+[
+  {
+    "id": "b7d0aacb-8b46-400c-9c6a-8984011481aa",
+    "data": [
+      {
+        "text": "ถูกต้อง",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "64b94c3b-8ce3-4001-983a-f0b13e8211a7",
+    "data": [
+      {
+        "text": "ใช่แล้ว",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "049b6079-24b4-4bc6-aa8c-c8e2a2dce682",
+    "data": [
+      {
+        "text": "ใช่",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

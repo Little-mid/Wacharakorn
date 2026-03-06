@@ -1,0 +1,188 @@
+{
+  "id": "5473470b-38f7-442e-98fe-e655cb90617a",
+  "parentId": "1a81f242-98a1-49ef-8070-09526d00e91d",
+  "rootParentId": "dca3edf7-a886-4f9b-8dcd-dfffeb4d8985",
+  "name": "Developers",
+  "auto": true,
+  "contexts": [
+    "-yes-followup-3"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes.-yes-custom-2",
+      "affectedContexts": [
+        {
+          "name": "Developers-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ขอดูสายการเรียนอื่น",
+                      "type": "message",
+                      "label": "📚 ดูสายอื่น"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "รายละเอียดรายวิชาสายการเรียน Developers",
+                      "label": "ℹ️ รายละเอียดวิชา",
+                      "type": "message"
+                    }
+                  }
+                ]
+              },
+              "contents": {
+                "type": "bubble",
+                "size": "mega",
+                "body": {
+                  "backgroundColor": "#D9B5A9",
+                  "contents": [
+                    {
+                      "text": "Developers🖥️",
+                      "align": "center",
+                      "size": "xxl",
+                      "type": "text",
+                      "color": "#FFFFFF",
+                      "weight": "bold"
+                    },
+                    {
+                      "margin": "lg",
+                      "type": "separator",
+                      "color": "#feecc7"
+                    },
+                    {
+                      "size": "md",
+                      "text": "📖 วิชาที่ควรลงเรียนในสายการเรียนนี้",
+                      "weight": "bold",
+                      "color": "#000000",
+                      "margin": "lg",
+                      "type": "text"
+                    },
+                    {
+                      "spacing": "sm",
+                      "cornerRadius": "lg",
+                      "backgroundColor": "#FFFFFF",
+                      "contents": [
+                        {
+                          "text": "01418214 - การฝึกปฏิบัติการพัฒนาซอฟต์แวร์ (Practicum in Software Development)",
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text",
+                          "color": "#111111"
+                        },
+                        {
+                          "type": "separator",
+                          "margin": "md"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#111111",
+                          "type": "text",
+                          "text": "01418333 - เทคนิคตัวแปลโปรแกรม (Compiler Techniques)",
+                          "wrap": true
+                        },
+                        {
+                          "type": "separator",
+                          "margin": "md"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#111111",
+                          "wrap": true,
+                          "text": "01418342 - การออกแบบและพัฒนาโปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่ (Mobile Application Design and Development)",
+                          "type": "text"
+                        },
+                        {
+                          "type": "separator",
+                          "margin": "md"
+                        },
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#111111",
+                          "text": "01418421 - การออกแบบประสบการณ์และส่วนเชื่อมประสานผู้ใช้ (User Experience and User Interface Design)",
+                          "size": "sm"
+                        },
+                        {
+                          "margin": "md",
+                          "type": "separator"
+                        },
+                        {
+                          "text": "01418441 - เว็บเทคโนโลยีและเว็บบริการ (Web Technology and Web Services)",
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#111111"
+                        },
+                        {
+                          "type": "separator",
+                          "margin": "md"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "01418471 - การออกแบบและพัฒนาซอฟต์แวร์ (Software Design and Development)",
+                          "color": "#111111",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "type": "separator",
+                          "margin": "md"
+                        },
+                        {
+                          "text": "01418472 - การบูรณาการกระบวนการเชิงอไจล์และเดฟอ็อปส์ (Integrated Agile Process and DevOps)",
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#111111"
+                        }
+                      ],
+                      "paddingAll": "15px",
+                      "layout": "vertical",
+                      "margin": "md",
+                      "type": "box"
+                    }
+                  ],
+                  "layout": "vertical",
+                  "paddingAll": "20px",
+                  "type": "box"
+                }
+              },
+              "type": "flex",
+              "altText": "แนะนำสายการเรียน"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

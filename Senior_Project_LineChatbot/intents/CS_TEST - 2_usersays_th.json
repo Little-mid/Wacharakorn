@@ -1,0 +1,41 @@
+[
+  {
+    "id": "ba1601ff-b964-4c64-b565-83ef62b0feee",
+    "data": [
+      {
+        "text": "2",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "4d3f57bb-8515-419d-afd9-38e6fc3fa5eb",
+    "data": [
+      {
+        "text": "ปี2",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "710a8373-0196-492f-a9c2-4774c89036c1",
+    "data": [
+      {
+        "text": "💻ปี 2",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

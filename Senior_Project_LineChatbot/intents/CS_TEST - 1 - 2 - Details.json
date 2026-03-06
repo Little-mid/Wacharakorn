@@ -1,0 +1,307 @@
+{
+  "id": "fb9d9097-b71c-4192-9383-4e521658e80b",
+  "parentId": "7a675a45-a6a6-46f1-981c-cb4f2d34b2f9",
+  "rootParentId": "74d92e1a-4f59-4929-8a89-53268a0379da",
+  "name": "CS_TEST - 1 - 2 - Details",
+  "auto": true,
+  "contexts": [
+    "CS_TEST-1-2-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "_._-custom.CS_TEST-custom.CS_TEST-custom-custom.CS_TEST-1-2-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "altText": "รายละเอียดรายวิชา ปี 1 ภาคปลาย",
+              "contents": {
+                "size": "mega",
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "paddingAll": "md",
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "size": "lg",
+                          "type": "text",
+                          "color": "#1E90FF",
+                          "text": "✍️ รายละเอียดรายวิชา",
+                          "weight": "bold"
+                        },
+                        {
+                          "type": "text",
+                          "text": "🖥️ สาขาวิทยาการคอมพิวเตอร์",
+                          "size": "md",
+                          "margin": "sm",
+                          "color": "#333333"
+                        },
+                        {
+                          "size": "md",
+                          "type": "text",
+                          "margin": "sm",
+                          "color": "#333333",
+                          "weight": "bold",
+                          "text": "       ปี 1 ภาคปลาย"
+                        }
+                      ],
+                      "backgroundColor": "#E6F2FF",
+                      "cornerRadius": "lg",
+                      "type": "box"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "contents": [
+                            {
+                              "text": "01417322 พีชคณิตเชิงเส้นพื้นฐาน",
+                              "weight": "bold",
+                              "size": "sm",
+                              "type": "text"
+                            },
+                            {
+                              "type": "text",
+                              "text": "📌 3 หน่วยกิต \n✏️ หมวดวิชาเฉพาะ วิชาแกน\n📖 ปริภูมิเวกเตอร์ เมตริกซ์ การแปลงเชิงเส้น ค่าลักษณะเฉพาะ และการใช้งานจริง",
+                              "margin": "sm",
+                              "size": "sm",
+                              "wrap": true
+                            }
+                          ],
+                          "layout": "vertical",
+                          "type": "box",
+                          "cornerRadius": "lg",
+                          "backgroundColor": "#F9FBFF",
+                          "paddingAll": "md"
+                        },
+                        {
+                          "paddingAll": "md",
+                          "type": "box",
+                          "contents": [
+                            {
+                              "size": "sm",
+                              "type": "text",
+                              "text": "01418113 การโปรแกรมคอมพิวเตอร์",
+                              "weight": "bold",
+                              "wrap": true
+                            },
+                            {
+                              "margin": "sm",
+                              "size": "sm",
+                              "type": "text",
+                              "wrap": true,
+                              "text": "📌 3 หน่วยกิต \n✏️ หมวดวิชาเฉพาะ วิชาเฉพาะบังคับ\n📖 การเขียนโปรแกรมเบื้องต้น การใช้ฟังก์ชัน เงื่อนไข วนซ้ำ โครงสร้างข้อมูลเบื้องต้น และแนวคิด OOP"
+                            }
+                          ],
+                          "backgroundColor": "#F9FBFF",
+                          "layout": "vertical",
+                          "cornerRadius": "lg"
+                        },
+                        {
+                          "paddingAll": "md",
+                          "cornerRadius": "lg",
+                          "type": "box",
+                          "backgroundColor": "#F9FBFF",
+                          "layout": "vertical",
+                          "contents": [
+                            {
+                              "size": "sm",
+                              "weight": "bold",
+                              "type": "text",
+                              "text": "01418131 การโปรแกรมทางสถิติ",
+                              "wrap": true
+                            },
+                            {
+                              "size": "sm",
+                              "type": "text",
+                              "margin": "sm",
+                              "text": "📌 3 หน่วยกิต\n✏️ หมวดวิชาเฉพาะ วิชาแกน\n📖 การคิดการใช้โปรแกรมสถิติเพื่อออกแบบการทดลอง วิเคราะห์ความแปรปรวน ถดถอย และการสร้างภาพข้อมูล",
+                              "wrap": true
+                            }
+                          ]
+                        },
+                        {
+                          "type": "box",
+                          "paddingAll": "md",
+                          "contents": [
+                            {
+                              "weight": "bold",
+                              "size": "sm",
+                              "type": "text",
+                              "wrap": true,
+                              "text": "01418132 หลักมูลการคณนา"
+                            },
+                            {
+                              "size": "sm",
+                              "text": "📌 3 หน่วยกิต\n✏️ หมวดวิชาเฉพาะ วิชาแกน\n📖  พื้นฐานตรรกะดิจิทัล ความน่าจะเป็น สถิติ และการประยุกต์ในคอมพิวเตอร์",
+                              "wrap": true,
+                              "type": "text",
+                              "margin": "sm"
+                            }
+                          ],
+                          "layout": "vertical",
+                          "cornerRadius": "lg",
+                          "backgroundColor": "#F9FBFF"
+                        },
+                        {
+                          "type": "box",
+                          "cornerRadius": "lg",
+                          "backgroundColor": "#F9FBFF",
+                          "layout": "vertical",
+                          "paddingAll": "md",
+                          "contents": [
+                            {
+                              "type": "text",
+                              "text": "01999111 ศาสตร์แห่งแผ่นดิน",
+                              "size": "sm",
+                              "wrap": true,
+                              "weight": "bold"
+                            },
+                            {
+                              "wrap": true,
+                              "size": "sm",
+                              "margin": "sm",
+                              "text": "📌 2 หน่วยกิต\n✏️ หมวดวิชาศึกษาทั่วไป\n📖 แนวคิดศาสตร์แห่งแผ่นดิน, ประวัติ มก., เอกลักษณ์ และบทบาทต่อสังคมไทยและโลก",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        {
+                          "layout": "vertical",
+                          "type": "box",
+                          "backgroundColor": "#F9FBFF",
+                          "paddingAll": "md",
+                          "contents": [
+                            {
+                              "text": "01175xxx กิจกรรมพลศึกษา",
+                              "type": "text",
+                              "weight": "bold",
+                              "size": "sm"
+                            },
+                            {
+                              "margin": "sm",
+                              "text": "📌 1 หน่วยกิต\n✏️ หมวดวิชาศึกษาทั่วไป  \n📚 กลุ่มสาระอยู่ดีมีสุข",
+                              "size": "sm",
+                              "wrap": true,
+                              "type": "text"
+                            }
+                          ],
+                          "cornerRadius": "lg"
+                        },
+                        {
+                          "paddingAll": "md",
+                          "type": "box",
+                          "contents": [
+                            {
+                              "size": "sm",
+                              "type": "text",
+                              "text": "กลุ่มสาระศาสตร์แห่งผู้ประกอบการ",
+                              "weight": "bold"
+                            },
+                            {
+                              "text": "📌 3 หน่วยกิต",
+                              "type": "text",
+                              "margin": "sm",
+                              "size": "sm",
+                              "wrap": true
+                            }
+                          ],
+                          "layout": "vertical",
+                          "cornerRadius": "lg",
+                          "backgroundColor": "#F9FBFF"
+                        },
+                        {
+                          "contents": [
+                            {
+                              "text": "กลุ่มสาระสุนทรียศาสตร์",
+                              "wrap": true,
+                              "type": "text",
+                              "weight": "bold",
+                              "size": "sm"
+                            },
+                            {
+                              "wrap": true,
+                              "margin": "sm",
+                              "size": "sm",
+                              "type": "text",
+                              "text": "📌 3 หน่วยกิต"
+                            }
+                          ],
+                          "layout": "vertical",
+                          "type": "box",
+                          "backgroundColor": "#F9FBFF",
+                          "paddingAll": "md",
+                          "cornerRadius": "lg"
+                        }
+                      ],
+                      "type": "box",
+                      "layout": "vertical",
+                      "spacing": "md",
+                      "margin": "md"
+                    }
+                  ],
+                  "type": "box"
+                },
+                "type": "bubble"
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "text": "แผนการเรียนอื่นๆ",
+                      "type": "message"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "text": "รายละเอียดรายวิชาCs ปี1 เทอม1",
+                      "label": "ภาคต้น 📘"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

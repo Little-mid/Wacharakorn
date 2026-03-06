@@ -1,0 +1,161 @@
+{
+  "id": "a0005034-8d96-4609-acbf-b43f5bac2cd4",
+  "parentId": "1e603f66-d5bc-4e85-9533-011f351cd17c",
+  "rootParentId": "74d92e1a-4f59-4929-8a89-53268a0379da",
+  "name": "DS_ปี4 - 1 - Details",
+  "auto": true,
+  "contexts": [
+    "DS_4-custom-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "_._-custom.DS-custom-3.DS_4-custom.DS_4-custom-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "รายละเอียดรายวิชา ปี 4 ภาคต้น",
+              "contents": {
+                "body": {
+                  "type": "box",
+                  "contents": [
+                    {
+                      "layout": "vertical",
+                      "backgroundColor": "#CCFFCC",
+                      "contents": [
+                        {
+                          "text": "✍️ รายละเอียดรายวิชา",
+                          "color": "#333333",
+                          "type": "text",
+                          "weight": "bold",
+                          "size": "lg"
+                        },
+                        {
+                          "text": "📊 สาขาวิทยาการข้อมูล",
+                          "type": "text",
+                          "margin": "sm",
+                          "size": "md",
+                          "color": "#333333"
+                        },
+                        {
+                          "size": "md",
+                          "color": "#333333",
+                          "margin": "sm",
+                          "type": "text",
+                          "weight": "bold",
+                          "text": "       ปี 4 ภาคต้น"
+                        }
+                      ],
+                      "type": "box",
+                      "cornerRadius": "lg",
+                      "paddingAll": "md"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "layout": "vertical",
+                          "backgroundColor": "#F9FBFF",
+                          "type": "box",
+                          "contents": [
+                            {
+                              "size": "sm",
+                              "type": "text",
+                              "weight": "bold",
+                              "text": "04256352 ธุรกิจอัจฉริยะ",
+                              "wrap": true
+                            },
+                            {
+                              "type": "text",
+                              "wrap": true,
+                              "text": "📌 3 หน่วยกิต\n✏️ หมวดวิชาเฉพาะ วิชาเฉพาะบังคับ\n📖 เรียนเกี่ยวกับรูปแบบและข้อมูลธุรกิจ หลักการและเครื่องมือของระบบธุรกิจอัจฉริยะ บทบาทนักวิทยาการข้อมูล การสำรวจ เตรียม และวิเคราะห์ข้อมูลทางธุรกิจ การจัดการความรู้ วิเคราะห์แนวโน้ม และกรณีศึกษา ",
+                              "size": "sm",
+                              "margin": "sm"
+                            }
+                          ]
+                        },
+                        {
+                          "contents": [
+                            {
+                              "wrap": true,
+                              "weight": "bold",
+                              "type": "text",
+                              "text": "วิชาเฉพาะเลือก",
+                              "size": "sm"
+                            },
+                            {
+                              "size": "sm",
+                              "margin": "sm",
+                              "text": "📌 9 หน่วยกิต ",
+                              "type": "text",
+                              "wrap": true
+                            }
+                          ],
+                          "backgroundColor": "#F9FBFF",
+                          "layout": "vertical",
+                          "type": "box"
+                        }
+                      ],
+                      "spacing": "md",
+                      "type": "box",
+                      "layout": "vertical",
+                      "margin": "md"
+                    }
+                  ],
+                  "layout": "vertical"
+                },
+                "size": "mega",
+                "type": "bubble"
+              },
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "text": "แผนการเรียนอื่นๆ",
+                      "type": "message"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "text": "รายละเอียดรายวิชาDs ปี4 เทอม2",
+                      "label": "ภาคปลาย 📗"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

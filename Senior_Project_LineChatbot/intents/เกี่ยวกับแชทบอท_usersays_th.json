@@ -1,0 +1,28 @@
+[
+  {
+    "id": "dc5c7860-3084-4241-944f-df2e59e3116f",
+    "data": [
+      {
+        "text": "ทำไรได้",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "612ead95-9c2d-44d2-b763-a5e73e77ee0c",
+    "data": [
+      {
+        "text": "คุณคือ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

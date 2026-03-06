@@ -1,0 +1,69 @@
+{
+  "id": "4461e597-4962-4561-a81e-33634d796c54",
+  "name": "ลงทะเบียนเรียน",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "-followup-5",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "wrap": true,
+              "text": "คุณต้องการให้ผมแนะนำแผนการเรียน ตามสาขา–ชั้นปี–ภาคการศึกษาของคุณ ใช่หรือไม่?📘 ",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ใช่แล้ว ",
+                      "label": "ใช่แล้ว ✅",
+                      "type": "message",
+                      "imageBackgroundColor": "#FFEFD5"
+                    }
+                  },
+                  {
+                    "action": {
+                      "text": "ไม่ใช่ ",
+                      "label": "ไม่ใช่ ❌",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "type": "text"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

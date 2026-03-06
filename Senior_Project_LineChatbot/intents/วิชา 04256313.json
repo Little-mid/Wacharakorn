@@ -1,0 +1,151 @@
+{
+  "id": "38fdcb6c-3428-428e-9784-aa581014cb80",
+  "name": "วิชา 04256313",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256313-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "size": "mega",
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "weight": "bold",
+                      "color": "#FFFFFF",
+                      "size": "xl",
+                      "align": "center",
+                      "type": "text"
+                    },
+                    {
+                      "type": "separator",
+                      "color": "#FFFFFF",
+                      "margin": "md"
+                    },
+                    {
+                      "weight": "bold",
+                      "color": "#FFD700",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "size": "md",
+                      "margin": "lg",
+                      "type": "text"
+                    },
+                    {
+                      "type": "box",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 04256121",
+                          "color": "#FFE4E1"
+                        },
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "text": "🆔 รหัสวิชา: 04256313",
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "size": "sm"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "text": "🏷️ ชื่อวิชา: การแจกแจงความสูญเสียเบื้องต้น (Introduction to loss distribution)",
+                          "type": "text",
+                          "weight": "bold",
+                          "wrap": true
+                        },
+                        {
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก",
+                          "weight": "bold",
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "size": "sm"
+                        },
+                        {
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "text": "📖 เนื้อหา: ศึกษาแนวคิดความน่าจะเป็นเกี่ยวกับความสูญเสีย การแจกแจงความสูญเสียในประกันภัย การประมาณค่าพารามิเตอร์ การทดสอบสมมติฐาน และการแจกแจงแบบผสมจำกัด",
+                          "wrap": true,
+                          "type": "text"
+                        }
+                      ],
+                      "spacing": "sm",
+                      "layout": "vertical",
+                      "margin": "sm"
+                    }
+                  ]
+                }
+              },
+              "altText": "แนะนำรายวิชา",
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "text": "ค้นหารายวิชาอื่นๆ"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

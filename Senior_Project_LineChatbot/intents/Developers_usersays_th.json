@@ -1,0 +1,80 @@
+[
+  {
+    "id": "81237656-af8f-4936-be3a-0e65fc699907",
+    "data": [
+      {
+        "text": "Developers",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "3c70b50c-0df9-43ba-8dcd-8bfc97624e59",
+    "data": [
+      {
+        "text": "Developer",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "e0d19aee-7f0b-4061-b812-6d5e2f6a9e51",
+    "data": [
+      {
+        "text": "Dev",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "f3793d55-6023-4cd8-8dc5-5e6207471a81",
+    "data": [
+      {
+        "text": "ผู้พัฒนา",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "aa4a1ba6-3252-4a30-968a-80be6d794338",
+    "data": [
+      {
+        "text": "สายพัฒนาระบบ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "39bcc18c-ca9b-41f7-8065-e039fcf26748",
+    "data": [
+      {
+        "text": "Developer 💻",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

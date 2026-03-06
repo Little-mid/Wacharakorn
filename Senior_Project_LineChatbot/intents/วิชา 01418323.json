@@ -1,0 +1,151 @@
+{
+  "id": "65beb5ac-8d1c-45a2-a394-fdf7a9d353df",
+  "name": "วิชา 01418323",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418323-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "contents": {
+                "type": "bubble",
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "body": {
+                  "layout": "vertical",
+                  "type": "box",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "weight": "bold",
+                      "color": "#FFFFFF",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "size": "xl",
+                      "align": "center"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "type": "text",
+                      "margin": "lg",
+                      "color": "#FFD700",
+                      "size": "md",
+                      "weight": "bold"
+                    },
+                    {
+                      "margin": "sm",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418221",
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#FFE4E1"
+                        },
+                        {
+                          "text": "🆔 รหัสวิชา: 01418323",
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "weight": "bold"
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "weight": "bold",
+                          "text": "🏷️ ชื่อวิชา: การจัดการคุณภาพข้อมูล (Data Quality Management)",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก ",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับหลักการของวงจรคุณภาพข้อมูล ปัญหาคุณภาพข้อมูลในองค์กร การประเมินค่าและการจัดการระบบข้อมูลขนาดใหญ่ รวมถึงตัวแบบและเทคนิคในการกำหนดมาตรฐานข้อมูล การจัดการข้อมูลเปิด การวัดผล การวิเคราะห์ และกระบวนการปรับปรุงคุณภาพข้อมูลอย่างต่อเนื่อง",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        }
+                      ],
+                      "spacing": "sm",
+                      "layout": "vertical"
+                    }
+                  ]
+                },
+                "size": "mega"
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "text": "ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              },
+              "altText": "แนะนำรายวิชา"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

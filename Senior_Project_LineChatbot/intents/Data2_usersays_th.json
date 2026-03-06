@@ -1,0 +1,80 @@
+[
+  {
+    "id": "21a303b7-56c7-4628-81ab-3b5249c4a86d",
+    "data": [
+      {
+        "text": "วิทย์ข้อมูล",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "7593bf57-ce4a-4ead-8878-9f84d30a3454",
+    "data": [
+      {
+        "text": "Data science",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "47616f67-d98c-4fe6-af2b-f016f59cb094",
+    "data": [
+      {
+        "text": "วิทข้อมูล",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "250cce34-5c0d-4e84-b55b-555f75dd7281",
+    "data": [
+      {
+        "text": "ข้อมูล",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "6b6bbda7-145f-459d-80db-70608013eb2d",
+    "data": [
+      {
+        "text": "data",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "eefb0f6c-cff1-4dd9-961b-0bd5964637de",
+    "data": [
+      {
+        "text": "Data Science 📊",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

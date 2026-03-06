@@ -1,0 +1,151 @@
+{
+  "id": "d94da6f9-365d-459e-8813-7d0c4c95d8e8",
+  "name": "วิชา 01418132",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418132-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "แนะนำรายวิชา",
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              },
+              "contents": {
+                "type": "bubble",
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "size": "mega",
+                "body": {
+                  "layout": "vertical",
+                  "type": "box",
+                  "contents": [
+                    {
+                      "color": "#FFFFFF",
+                      "align": "center",
+                      "type": "text",
+                      "weight": "bold",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "size": "xl"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "size": "md",
+                      "margin": "lg",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "color": "#FFD700",
+                      "weight": "bold",
+                      "type": "text"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "color": "#FFE4E1",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี",
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm"
+                        },
+                        {
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "text": "🆔 รหัสวิชา: 01418132",
+                          "type": "text"
+                        },
+                        {
+                          "weight": "bold",
+                          "size": "sm",
+                          "text": "🏷️ ชื่อวิชา: หลักมูลการคณนา (Fundamentals of Computing)",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาแกน ",
+                          "weight": "bold",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "type": "text",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับทฤษฎีการคำนวณเชิงวิยุท ความน่าจะเป็น และสถิติ รวมถึงการประยุกต์ใช้แนวคิดเหล่านี้ในวิทยาการคอมพิวเตอร์เพื่อวิเคราะห์ ปรับปรุง และแก้ปัญหาทางคอมพิวเตอร์อย่างเป็นระบบ",
+                          "wrap": true,
+                          "size": "sm",
+                          "type": "text"
+                        }
+                      ],
+                      "layout": "vertical",
+                      "margin": "sm",
+                      "spacing": "sm",
+                      "type": "box"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

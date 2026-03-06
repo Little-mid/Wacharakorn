@@ -1,0 +1,74 @@
+{
+  "id": "e65e7b5a-49bd-4744-9be7-60575edca843",
+  "parentId": "08a5fe98-8df3-47e3-983e-2ee21e1deb49",
+  "rootParentId": "74d92e1a-4f59-4929-8a89-53268a0379da",
+  "name": "CS_TEST - 1 - fallback",
+  "contexts": [
+    "CS_TEST-custom-followup",
+    "CS_TEST-1-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "_._-custom.CS_TEST-custom.CS_TEST-1-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "text": "⚠️กรุณาเลือกภาคการศึกษาให้ถูกต้องครับ⚠️",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "imageBackgroundColor": "#FFEFD5",
+                      "label": "ภาคการศึกษาที่ 1💻 ",
+                      "text": "ปี 1 ภาคการศึกษาที่ 1💻",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "label": "ภาคการศึกษาที่ 2💻",
+                      "text": "ปี 1 ภาคการศึกษาที่ 2💻",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "type": "text"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

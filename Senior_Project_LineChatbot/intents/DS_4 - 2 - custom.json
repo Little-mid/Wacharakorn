@@ -1,0 +1,147 @@
+{
+  "id": "9278b686-73b5-4fac-9257-d7cd22c5bfef",
+  "parentId": "847f7936-8122-4d4d-bdae-7f5c982a3da6",
+  "rootParentId": "847f7936-8122-4d4d-bdae-7f5c982a3da6",
+  "name": "DS_4 - 2 - custom",
+  "auto": true,
+  "contexts": [
+    "DS_4-2-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "DS_4-2.DS_4-2-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "size": "mega",
+                "type": "bubble",
+                "body": {
+                  "contents": [
+                    {
+                      "paddingAll": "md",
+                      "layout": "vertical",
+                      "type": "box",
+                      "backgroundColor": "#CCFFCC",
+                      "cornerRadius": "lg",
+                      "contents": [
+                        {
+                          "color": "#333333",
+                          "text": "✍️ รายละเอียดรายวิชา",
+                          "size": "lg",
+                          "weight": "bold",
+                          "type": "text"
+                        },
+                        {
+                          "color": "#333333",
+                          "size": "md",
+                          "margin": "sm",
+                          "type": "text",
+                          "text": "📊 สาขาวิทยาการข้อมูล"
+                        },
+                        {
+                          "weight": "bold",
+                          "text": "       ปี 4 ภาคปลาย",
+                          "type": "text",
+                          "color": "#333333",
+                          "margin": "sm",
+                          "size": "md"
+                        }
+                      ]
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "backgroundColor": "#F9FBFF",
+                          "layout": "vertical",
+                          "contents": [
+                            {
+                              "text": "04256490 สหกิจศึกษา 💼",
+                              "type": "text",
+                              "wrap": true,
+                              "weight": "bold",
+                              "size": "sm"
+                            },
+                            {
+                              "type": "text",
+                              "text": "📌 6 หน่วยกิต\n✏️ หมวดวิชาเฉพาะ วิชาเฉพาะบังคับ\n📖 เรียนเกี่ยวกับการปฏิบัติงานในลักษณะพนักงานชั่วคราว ตามโครงงานที่ได้รับมอบหมาย พร้อมการจัดทำรายงานและการนำเสนอ",
+                              "wrap": true,
+                              "size": "sm",
+                              "margin": "sm"
+                            }
+                          ],
+                          "type": "box"
+                        }
+                      ],
+                      "type": "box",
+                      "margin": "md",
+                      "layout": "vertical",
+                      "spacing": "md"
+                    }
+                  ],
+                  "type": "box",
+                  "layout": "vertical"
+                }
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "text": "แผนการเรียนอื่นๆ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "type": "message",
+                      "text": "รายละเอียดรายวิชาDs ปี4 เทอม1",
+                      "label": "ภาคต้น 📗"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "altText": "รายละเอียดรายวิชา ปี 4 ภาคปลาย",
+              "type": "flex"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

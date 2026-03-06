@@ -1,0 +1,151 @@
+{
+  "id": "93446063-a092-4cbe-9aee-2829a342a88e",
+  "name": "วิชา 01418341",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418341-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "แนะนำรายวิชา",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "text": "ค้นหารายวิชาอื่นๆ"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "type": "flex",
+              "contents": {
+                "body": {
+                  "type": "box",
+                  "contents": [
+                    {
+                      "size": "xl",
+                      "type": "text",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "color": "#FFFFFF",
+                      "align": "center",
+                      "weight": "bold"
+                    },
+                    {
+                      "margin": "md",
+                      "color": "#FFFFFF",
+                      "type": "separator"
+                    },
+                    {
+                      "weight": "bold",
+                      "size": "md",
+                      "margin": "lg",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "color": "#FFD700",
+                      "type": "text"
+                    },
+                    {
+                      "type": "box",
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "wrap": true,
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418221",
+                          "size": "sm",
+                          "color": "#FFE4E1",
+                          "type": "text"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "weight": "bold",
+                          "type": "text",
+                          "text": "🆔 รหัสวิชา: 01418341",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "text": "🏷️ ชื่อวิชา: การออกแบบและการพัฒนาระบบการวางแผนทรัพยากรองค์กร\n(Enterprise Resource Planning System Design and Development)",
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "size": "sm",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก ",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับแนวคิดและพัฒนาการของระบบ ERP กรอบงานและสถาปัตยกรรม การสร้างตัวแบบและวิเคราะห์ ระเบียบวิธีและกระบวนการพัฒนา ปัจจัยความสำเร็จ ระบบขององค์กรชั้นนำ พร้อมกรณีศึกษาและแนวโน้มเทคโนโลยี",
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        }
+                      ],
+                      "spacing": "sm",
+                      "layout": "vertical"
+                    }
+                  ],
+                  "layout": "vertical"
+                },
+                "size": "mega",
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                },
+                "type": "bubble"
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

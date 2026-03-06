@@ -1,0 +1,151 @@
+{
+  "id": "e8f38dd6-73d8-4d0a-a669-f5135b108df8",
+  "name": "วิชา 01418213",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418213-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    }
+                  }
+                ]
+              },
+              "contents": {
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "weight": "bold",
+                      "color": "#FFFFFF",
+                      "align": "center",
+                      "size": "xl",
+                      "text": "📚 แนะนำรายวิชา 🤖"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "weight": "bold",
+                      "color": "#FFD700",
+                      "size": "md",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "type": "text",
+                      "margin": "lg"
+                    },
+                    {
+                      "layout": "vertical",
+                      "spacing": "sm",
+                      "margin": "sm",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "wrap": true,
+                          "color": "#FFE4E1",
+                          "size": "sm",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน:  01418111 หรือ 01418112",
+                          "type": "text"
+                        },
+                        {
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "text": "🆔 รหัสวิชา: 01418213",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "text": "🏷️ ชื่อวิชา: การโปรแกรมภาษาโคบอล (COBOL Programming)",
+                          "type": "text"
+                        },
+                        {
+                          "wrap": true,
+                          "weight": "bold",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก "
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "size": "sm",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "wrap": true,
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับโครงสร้างและส่วนย่อยของภาษาโคบอล หลักการเขียนโปรแกรมด้วยโคบอล และการประยุกต์ใช้ภาษาโคบอลในการพัฒนาระบบคอมพิวเตอร์ต่างๆ อย่างมีประสิทธิภาพ"
+                        }
+                      ]
+                    }
+                  ],
+                  "layout": "vertical"
+                },
+                "size": "mega"
+              },
+              "altText": "แนะนำรายวิชา",
+              "type": "flex"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

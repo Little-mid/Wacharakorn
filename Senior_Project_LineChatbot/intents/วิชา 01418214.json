@@ -1,0 +1,151 @@
+{
+  "id": "53fdfa3f-d7b6-4a7e-af41-4ca66261b245",
+  "name": "วิชา 01418214",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418214-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "text": "ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              },
+              "altText": "แนะนำรายวิชา",
+              "type": "flex",
+              "contents": {
+                "type": "bubble",
+                "body": {
+                  "contents": [
+                    {
+                      "size": "xl",
+                      "type": "text",
+                      "weight": "bold",
+                      "color": "#FFFFFF",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "align": "center"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "size": "md",
+                      "type": "text",
+                      "weight": "bold",
+                      "color": "#FFD700",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "margin": "lg"
+                    },
+                    {
+                      "type": "box",
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน:  01418113",
+                          "wrap": true,
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#FFE4E1"
+                        },
+                        {
+                          "wrap": true,
+                          "text": "🆔 รหัสวิชา: 01418214",
+                          "weight": "bold",
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "text": "🏷️ ชื่อวิชา: การฝึกปฏิบัติการพัฒนาซอฟต์แวร (Practicum in Software Development)"
+                        },
+                        {
+                          "weight": "bold",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก ",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "text": "🎯 หน่วยกิต: 1",
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับเทคนิคการโปรแกรมและการพัฒนาซอฟต์แวร์ ครอบคลุมเครื่องมือและกระบวนการพัฒนา การบ่มเพาะความคิดสร้างสรรค์ การสร้างซอฟต์แวร์ต้นแบบ และการทำงานร่วมกันในสภาพแวดล้อมแบบกลุ่มเพื่อให้การพัฒนาซอฟต์แวร์มีประสิทธิภาพ",
+                          "wrap": true
+                        }
+                      ],
+                      "spacing": "sm",
+                      "layout": "vertical"
+                    }
+                  ],
+                  "layout": "vertical",
+                  "type": "box"
+                },
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                },
+                "size": "mega"
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

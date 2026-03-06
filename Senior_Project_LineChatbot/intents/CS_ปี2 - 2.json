@@ -1,0 +1,195 @@
+{
+  "id": "f8e8d5b8-9656-446e-ad26-59068ae1e748",
+  "name": "CS_ปี2 - 2",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "_._-custom.CS-custom-4.CS_2-custom",
+      "affectedContexts": [
+        {
+          "name": "CS_2-custom-followup",
+          "lifespan": 2
+        },
+        {
+          "name": "CS_2-2-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "type": "message",
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "text": "แผนการเรียนอื่นๆ"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "Cs ปี 2 เทอม 1",
+                      "label": "ภาคต้น 📙",
+                      "type": "message"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "รายละเอียดรายวิชา",
+                      "type": "message",
+                      "label": "รายละเอียดรายวิชาℹ️"
+                    }
+                  }
+                ]
+              },
+              "altText": "📙 แผนการเรียน ปี 2 ภาคปลาย",
+              "type": "flex",
+              "contents": {
+                "size": "mega",
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "layout": "vertical",
+                      "backgroundColor": "#FFCC99",
+                      "paddingAll": "md",
+                      "cornerRadius": "lg",
+                      "contents": [
+                        {
+                          "weight": "bold",
+                          "type": "text",
+                          "text": "📙 แผนการเรียน ปี 2 ภาคปลาย",
+                          "color": "#333333",
+                          "size": "lg"
+                        },
+                        {
+                          "text": "🖥️ สาขาวิทยาการคอมพิวเตอร์",
+                          "type": "text",
+                          "color": "#333333",
+                          "margin": "sm",
+                          "size": "md"
+                        }
+                      ],
+                      "type": "box"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "type": "text",
+                      "margin": "md",
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน",
+                      "color": "#333333",
+                      "size": "md",
+                      "weight": "bold"
+                    },
+                    {
+                      "margin": "sm",
+                      "type": "box",
+                      "layout": "vertical",
+                      "spacing": "sm",
+                      "contents": [
+                        {
+                          "size": "sm",
+                          "text": "1.ระบบฐานข้อมูลเบื้องต้น🗄️ \n(Fundamentals of Database Systems)",
+                          "type": "text",
+                          "color": "#000000",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#000000",
+                          "size": "sm",
+                          "text": "2.การออกแบบและวิเคราะห์ขั้นตอนวิธี📊 \n(Design and Analysis of Algorithms)",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm",
+                          "text": "3.ระบบปฎิบัติการ (Operating Systems)🖥️",
+                          "color": "#000000"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "4.หลักพื้นฐานของปัญญาประดิษฐ์🤖 \n(Fundamentals of Artificial Intelligence)",
+                          "color": "#000000",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "5.วิชาเฉพาะเลือก📖",
+                          "color": "#000000",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "text": "6.วิชาภาษาต่างประเทศ 1 ภาษา🌐",
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#000000",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "backgroundColor": "#FFF4E5",
+                      "layout": "vertical",
+                      "type": "box",
+                      "paddingAll": "md",
+                      "contents": [
+                        {
+                          "text": "📌 หน่วยกิตรวม: 18 หน่วยกิต",
+                          "weight": "bold",
+                          "color": "#FF4500",
+                          "type": "text",
+                          "size": "md"
+                        }
+                      ],
+                      "margin": "md",
+                      "cornerRadius": "lg"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

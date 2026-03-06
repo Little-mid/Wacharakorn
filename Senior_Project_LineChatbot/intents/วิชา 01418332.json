@@ -1,0 +1,151 @@
+{
+  "id": "e115ac40-4a95-4205-83a3-b4368193b057",
+  "name": "วิชา 01418332",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418332-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "แนะนำรายวิชา",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "type": "flex",
+              "contents": {
+                "type": "bubble",
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                },
+                "size": "mega",
+                "body": {
+                  "contents": [
+                    {
+                      "align": "center",
+                      "weight": "bold",
+                      "color": "#FFFFFF",
+                      "type": "text",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "size": "xl"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "type": "text",
+                      "margin": "lg",
+                      "weight": "bold",
+                      "color": "#FFD700",
+                      "size": "md"
+                    },
+                    {
+                      "type": "box",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "color": "#FFE4E1",
+                          "size": "sm",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418236",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "weight": "bold",
+                          "text": "🆔 รหัสวิชา: 01418332",
+                          "type": "text"
+                        },
+                        {
+                          "size": "sm",
+                          "wrap": true,
+                          "text": "🏷️ ชื่อวิชา: ความมั่นคงในระบบสารสนเทศ (Information System Security)",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "weight": "bold"
+                        },
+                        {
+                          "weight": "bold",
+                          "size": "sm",
+                          "type": "text",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ ",
+                          "wrap": true,
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "type": "text",
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับพื้นฐานความมั่นคงดิจิทัล ครอบคลุมการตรวจสอบ นโยบายและความรับผิดชอบ การเข้ารหัสลับ ความมั่นคงของการดำเนินการ กายภาพ เครือข่าย ระบบปฏิบัติการ ไปจนถึงความมั่นคงของโปรแกรม เว็บ และ IoT",
+                          "size": "sm"
+                        }
+                      ],
+                      "margin": "sm",
+                      "layout": "vertical",
+                      "spacing": "sm"
+                    }
+                  ],
+                  "layout": "vertical",
+                  "type": "box"
+                }
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

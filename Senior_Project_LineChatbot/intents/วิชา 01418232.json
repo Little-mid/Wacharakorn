@@ -1,0 +1,151 @@
+{
+  "id": "0f52a002-82e5-48d0-804f-7bf6706359fa",
+  "name": "วิชา 01418232",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418232-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "แนะนำรายวิชา",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    }
+                  }
+                ]
+              },
+              "contents": {
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "align": "center",
+                      "color": "#FFFFFF",
+                      "weight": "bold",
+                      "size": "xl",
+                      "type": "text"
+                    },
+                    {
+                      "margin": "md",
+                      "color": "#FFFFFF",
+                      "type": "separator"
+                    },
+                    {
+                      "type": "text",
+                      "size": "md",
+                      "weight": "bold",
+                      "margin": "lg",
+                      "color": "#FFD700",
+                      "text": "📝 รายละเอียดรายวิชา"
+                    },
+                    {
+                      "layout": "vertical",
+                      "margin": "sm",
+                      "spacing": "sm",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#FFE4E1",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418231",
+                          "type": "text"
+                        },
+                        {
+                          "text": "🆔 รหัสวิชา: 01418232",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "wrap": true,
+                          "weight": "bold",
+                          "size": "sm"
+                        },
+                        {
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "text": "🏷️ ชื่อวิชา: การออกแบบและวิเคราะห์ขั้นตอนวิธ (Algorithm Design and Analysis)",
+                          "wrap": true,
+                          "weight": "bold",
+                          "size": "sm"
+                        },
+                        {
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "size": "sm",
+                          "wrap": true,
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ "
+                        },
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "text": "🎯 หน่วยกิต: 3",
+                          "color": "#FFFFFF",
+                          "size": "sm"
+                        },
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm",
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับแนวคิดพื้นฐานของขั้นตอนวิธี ความถูกต้องของขั้นตอนวิธี การวิเคราะห์ความซับซ้อนเชิงเส้น เทคนิคการแบ่งแยกเพื่อแก้ปัญหา การโปรแกรมเชิงพลวัต ขั้นตอนวิธีเชิงละโมบ การย้อนรอย ขั้นตอนวิธีบนกราฟ และการแก้ปัญหาประเภท NP-Complete",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "type": "bubble",
+                "size": "mega",
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                }
+              },
+              "type": "flex"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

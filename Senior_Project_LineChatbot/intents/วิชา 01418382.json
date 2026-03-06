@@ -1,0 +1,151 @@
+{
+  "id": "ed75c269-3001-49af-bd40-ebec427af1c8",
+  "name": "วิชา 01418382",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418382-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "แนะนำรายวิชา",
+              "type": "flex",
+              "contents": {
+                "body": {
+                  "contents": [
+                    {
+                      "size": "xl",
+                      "type": "text",
+                      "color": "#FFFFFF",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "weight": "bold",
+                      "align": "center"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "weight": "bold",
+                      "type": "text",
+                      "size": "md",
+                      "margin": "lg",
+                      "color": "#FFD700"
+                    },
+                    {
+                      "spacing": "sm",
+                      "layout": "vertical",
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418113",
+                          "color": "#FFE4E1",
+                          "wrap": true
+                        },
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "text": "🆔 รหัสวิชา: 01418382",
+                          "size": "sm",
+                          "weight": "bold"
+                        },
+                        {
+                          "wrap": true,
+                          "text": "🏷️ ชื่อวิชา: วิชวลเอฟเฟกส์ (Visual Effects)",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "type": "text",
+                          "weight": "bold"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก ",
+                          "weight": "bold",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับแนวคิดการจำลองการเคลื่อนไหว ครอบคลุมการจำลองเชิงกายภาพ อนุภาค มวลและสปริง วัตถุแข็งเกร็ง ของไหล ไฟและควัน การผสมภาพ และการติดตามการเคลื่อนไหว",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "box"
+                    }
+                  ],
+                  "layout": "vertical",
+                  "type": "box"
+                },
+                "size": "mega",
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                },
+                "type": "bubble"
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "text": "ค้นหารายวิชาอื่นๆ"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

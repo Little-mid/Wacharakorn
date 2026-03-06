@@ -1,0 +1,74 @@
+{
+  "id": "aec9e61a-4752-4e44-a172-b407597794b7",
+  "parentId": "23bf9165-78e1-48ef-9812-4ab0de0dc22a",
+  "rootParentId": "23bf9165-78e1-48ef-9812-4ab0de0dc22a",
+  "name": "ค้นหาสายการเรียนอื่น - fallback",
+  "contexts": [
+    "-followup-9"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "label": "Developer 💻",
+                      "imageBackgroundColor": "#FFEFD5",
+                      "text": "Developer 💻"
+                    }
+                  },
+                  {
+                    "action": {
+                      "label": "Data Science 📊",
+                      "type": "message",
+                      "text": "Data Science 📊"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "text": "Network 🌐",
+                      "label": "Network 🌐"
+                    }
+                  }
+                ]
+              },
+              "type": "text",
+              "text": "⚠️กรุณาเลือกสายการเรียน Developers, Data science หรือ Network ครับ⚠️"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

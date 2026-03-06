@@ -1,0 +1,151 @@
+{
+  "id": "d742a02b-a205-404f-999f-a89ed60748f2",
+  "name": "วิชา 04256131",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256131-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "altText": "แนะนำรายวิชา",
+              "contents": {
+                "type": "bubble",
+                "size": "mega",
+                "body": {
+                  "contents": [
+                    {
+                      "size": "xl",
+                      "weight": "bold",
+                      "align": "center",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "color": "#FFFFFF",
+                      "type": "text"
+                    },
+                    {
+                      "type": "separator",
+                      "color": "#FFFFFF",
+                      "margin": "md"
+                    },
+                    {
+                      "color": "#FFD700",
+                      "weight": "bold",
+                      "size": "md",
+                      "type": "text",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "margin": "lg"
+                    },
+                    {
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี",
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFE4E1"
+                        },
+                        {
+                          "weight": "bold",
+                          "type": "text",
+                          "wrap": true,
+                          "text": "🆔 รหัสวิชา: 04256131",
+                          "color": "#FFFFFF",
+                          "size": "sm"
+                        },
+                        {
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "text": "🏷️ ชื่อวิชา: โปรแกรมตารางทำการเบื้องต้น (Introduction to Spreadsheet Program)",
+                          "size": "sm",
+                          "weight": "bold"
+                        },
+                        {
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ",
+                          "type": "text"
+                        },
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "size": "sm"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "text": "📖 เนื้อหา: ศึกษาและปฏิบัติการใช้งาน ตั้งแต่นำเข้าและจัดการข้อมูล การใช้สูตรและฟังก์ชัน การสร้างแผนภูมิ ไปจนถึงการวิเคราะห์และนำเสนอข้อมูลเบื้องต้น",
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text"
+                        }
+                      ],
+                      "margin": "sm",
+                      "type": "box",
+                      "spacing": "sm"
+                    }
+                  ],
+                  "layout": "vertical",
+                  "type": "box"
+                },
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                }
+              },
+              "type": "flex"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

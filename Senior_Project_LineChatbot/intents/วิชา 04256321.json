@@ -1,0 +1,151 @@
+{
+  "id": "9adaa1d2-0db7-4714-8e0f-e6b2042199d3",
+  "name": "วิชา 04256321",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256321-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "แนะนำรายวิชา",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    }
+                  }
+                ]
+              },
+              "contents": {
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "align": "center",
+                      "weight": "bold",
+                      "type": "text",
+                      "size": "xl",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "weight": "bold",
+                      "size": "md",
+                      "margin": "lg",
+                      "type": "text",
+                      "color": "#FFD700",
+                      "text": "📝 รายละเอียดรายวิชา"
+                    },
+                    {
+                      "type": "box",
+                      "layout": "vertical",
+                      "spacing": "sm",
+                      "contents": [
+                        {
+                          "size": "sm",
+                          "color": "#FFE4E1",
+                          "type": "text",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 04256122",
+                          "wrap": true
+                        },
+                        {
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "weight": "bold",
+                          "text": "🆔 รหัสวิชา: 04256321",
+                          "type": "text"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "type": "text",
+                          "text": "🏷️ ชื่อวิชา: สถิติและการคำนวณด้วยโปรแกรมสำเร็จรูป\n(Statistics and Computing with Software Packages)",
+                          "wrap": true
+                        },
+                        {
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก",
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "size": "sm",
+                          "text": "🎯 หน่วยกิต: 3"
+                        },
+                        {
+                          "wrap": true,
+                          "text": "📖 เนื้อหา: ประยุกต์คำนวณค่าสถิติเชิงพรรณนา ค่ากลาง การกระจาย สถิติเชิงอนุมาน การทดสอบสมมติฐาน การวิเคราะห์ความแปรปรวน การวิเคราะห์ไคกำลังสอง การถดถอย และสถิติสำหรับวิจัย",
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "type": "text"
+                        }
+                      ],
+                      "margin": "sm"
+                    }
+                  ]
+                },
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                },
+                "size": "mega"
+              },
+              "type": "flex"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

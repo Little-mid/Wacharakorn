@@ -1,0 +1,28 @@
+[
+  {
+    "id": "aec69091-c59b-480a-bb47-e4d28db044d0",
+    "data": [
+      {
+        "text": "menu",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "c28fe43f-56ec-4f63-b3d3-076fcda31acb",
+    "data": [
+      {
+        "text": "เมนู",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

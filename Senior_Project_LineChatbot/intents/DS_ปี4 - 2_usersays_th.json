@@ -1,0 +1,80 @@
+[
+  {
+    "id": "a1a3fd30-8924-486c-b341-c6cc79e01dff",
+    "data": [
+      {
+        "text": "2",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "8759a5fe-8d17-4199-bbca-be576c1dd320",
+    "data": [
+      {
+        "text": "ภาคเรียนที่2",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "3c17c4c4-21bc-4e9a-b9ba-70eb5d0790c1",
+    "data": [
+      {
+        "text": "เทอมที่2",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "fb18a353-790e-4535-be07-581b0f1c0253",
+    "data": [
+      {
+        "text": "เทอม2",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "14416360-87ef-439f-888f-99d3f40b60de",
+    "data": [
+      {
+        "text": "ภาคปลาย",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "e82ed513-078d-4e0c-bdfb-ed9b7e117cef",
+    "data": [
+      {
+        "text": "ปี 4 ภาคการศึกษาที่2 📊",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

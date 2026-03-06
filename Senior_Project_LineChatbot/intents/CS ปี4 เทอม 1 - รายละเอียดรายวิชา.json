@@ -1,0 +1,128 @@
+{
+  "id": "0809a8f2-c667-4413-a333-19a3c221b2bf",
+  "parentId": "8b5ae73c-00e2-48c3-9802-fbd27df9c75c",
+  "rootParentId": "4461e597-4962-4561-a81e-33634d796c54",
+  "name": "CS ปี4 เทอม 1 - รายละเอียดรายวิชา",
+  "auto": true,
+  "contexts": [
+    "CS41-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes.-yes-custom-2._1-custom._CS_4-custom.CS41-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "size": "mega",
+                "type": "bubble",
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "contents": [
+                        {
+                          "text": "✍️ รายละเอียดรายวิชา",
+                          "color": "#333333",
+                          "size": "lg",
+                          "type": "text",
+                          "weight": "bold"
+                        },
+                        {
+                          "margin": "sm",
+                          "size": "md",
+                          "type": "text",
+                          "color": "#333333",
+                          "text": "🖥️ สาขาวิทยาการคอมพิวเตอร์"
+                        },
+                        {
+                          "margin": "sm",
+                          "size": "md",
+                          "type": "text",
+                          "weight": "bold",
+                          "color": "#333333",
+                          "text": "       ปี 4 ภาคต้น"
+                        }
+                      ],
+                      "cornerRadius": "lg",
+                      "type": "box",
+                      "backgroundColor": "#CCFFCC",
+                      "layout": "vertical",
+                      "paddingAll": "md"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "contents": [
+                            {
+                              "weight": "bold",
+                              "text": "⚠วิชาที่ต้องเรียนมาก่อน : 01418390",
+                              "color": "#CC0000",
+                              "type": "text",
+                              "size": "sm",
+                              "wrap": true
+                            },
+                            {
+                              "weight": "bold",
+                              "size": "sm",
+                              "type": "text",
+                              "text": "01418490 สหกิจศึกษา",
+                              "wrap": true
+                            },
+                            {
+                              "type": "text",
+                              "wrap": true,
+                              "size": "sm",
+                              "margin": "sm",
+                              "text": "📌 6 หน่วยกิต\n✏️ หมวดวิชาเฉพาะ วิชาเฉพาะบังคับ\n📖 วิชานี้เน้นการปฏิบัติงานในลักษณะพนักงานชั่วคราวตามโครงงานที่ได้รับมอบหมาย รวมถึงการจัดทำรายงานและการนำเสนอผลการทำงาน"
+                            }
+                          ],
+                          "backgroundColor": "#F9FBFF",
+                          "type": "box",
+                          "layout": "vertical"
+                        }
+                      ],
+                      "layout": "vertical",
+                      "spacing": "md"
+                    }
+                  ],
+                  "type": "box"
+                }
+              },
+              "type": "flex",
+              "altText": "รายละเอียดรายวิชา ปี 4 ภาคต้น"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

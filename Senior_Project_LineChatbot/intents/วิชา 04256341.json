@@ -1,0 +1,151 @@
+{
+  "id": "acbe8f9e-aca4-4c93-9399-3deb871305c4",
+  "name": "วิชา 04256341",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256341-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              },
+              "contents": {
+                "size": "mega",
+                "body": {
+                  "contents": [
+                    {
+                      "type": "text",
+                      "color": "#FFFFFF",
+                      "size": "xl",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "weight": "bold",
+                      "align": "center"
+                    },
+                    {
+                      "margin": "md",
+                      "color": "#FFFFFF",
+                      "type": "separator"
+                    },
+                    {
+                      "size": "md",
+                      "weight": "bold",
+                      "type": "text",
+                      "margin": "lg",
+                      "color": "#FFD700",
+                      "text": "📝 รายละเอียดรายวิชา"
+                    },
+                    {
+                      "type": "box",
+                      "margin": "sm",
+                      "layout": "vertical",
+                      "spacing": "sm",
+                      "contents": [
+                        {
+                          "size": "sm",
+                          "color": "#FFE4E1",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "wrap": true,
+                          "text": "🆔 รหัสวิชา: 04256341",
+                          "size": "sm"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "type": "text",
+                          "weight": "bold",
+                          "size": "sm",
+                          "text": "🏷️ ชื่อวิชา: การประมวลผลข้อมูล (Data Processing)"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก",
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "text": "🎯 หน่วยกิต: 3",
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "text": "📖 เนื้อหา: การเขียนโปรแกรมคอมพิวเตอร์สำหรับนักวิทยาการข้อมูล ครอบคลุมภาพรวมการประมวลผลข้อความ ภาษาธรรมชาติ และภาพ รวมถึงขั้นตอนพื้นฐาน การสกัดคุณลักษณะ และตัวอย่างการประมวลผลข้อมูลแต่ละประเภท",
+                          "size": "sm",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ],
+                  "layout": "vertical",
+                  "type": "box"
+                },
+                "type": "bubble",
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                }
+              },
+              "type": "flex",
+              "altText": "แนะนำรายวิชา"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

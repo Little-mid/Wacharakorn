@@ -1,0 +1,87 @@
+{
+  "id": "fd6955ac-9751-4346-9100-8eb97b859b55",
+  "parentId": "41c710ea-25f1-4cd0-a276-842e2ac05296",
+  "rootParentId": "4461e597-4962-4561-a81e-33634d796c54",
+  "name": "เลือกภาคเรียน_DS_4",
+  "auto": true,
+  "contexts": [
+    "_1-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes.-yes-custom-3._1-custom-2",
+      "affectedContexts": [
+        {
+          "name": "_DS_4-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "73215932-4d9c-4b38-b573-1f71694c47f9",
+          "name": "number",
+          "required": false,
+          "dataType": "@sys.number",
+          "value": "$number",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "ภาคการศึกษาที่1 📊  ",
+                      "imageBackgroundColor": "#FFEFD5",
+                      "type": "message",
+                      "text": "ปี 4 ภาคการศึกษาที่1 📊 "
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "label": "ภาคการศึกษาที่2 📊 ",
+                      "text": "ปี 4 ภาคการศึกษาที่2 📊 "
+                    }
+                  }
+                ]
+              },
+              "type": "text",
+              "text": "กรุณาเลือกภาคการศึกษา ครับ📊"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

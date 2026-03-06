@@ -1,0 +1,80 @@
+{
+  "id": "1a81f242-98a1-49ef-8070-09526d00e91d",
+  "parentId": "dca3edf7-a886-4f9b-8dcd-dfffeb4d8985",
+  "rootParentId": "dca3edf7-a886-4f9b-8dcd-dfffeb4d8985",
+  "name": "ลงเรียนตามสายการเรียน - yes",
+  "auto": true,
+  "contexts": [
+    "-followup-6"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes",
+      "affectedContexts": [
+        {
+          "name": "-yes-followup-3",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "text": "กรุณาเลือกสายการเรียนที่สนใจได้เลยครับ 💻📊🌐  ",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "text": "Developer 💻",
+                      "imageBackgroundColor": "#FFEFD5",
+                      "label": "Developer 💻"
+                    }
+                  },
+                  {
+                    "action": {
+                      "label": "Data Science 📊",
+                      "text": "Data Science 📊",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "label": "Network 🌐",
+                      "type": "message",
+                      "text": "Network 🌐"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "type": "text"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

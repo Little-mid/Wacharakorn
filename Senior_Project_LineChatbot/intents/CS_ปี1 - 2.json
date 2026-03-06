@@ -1,0 +1,198 @@
+{
+  "id": "89dee38d-90d0-4a57-a589-990bbd121d6d",
+  "name": "CS_ปี1 - 2",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "_._-custom.CS-custom-3.CS_1-custom-2",
+      "affectedContexts": [
+        {
+          "name": "CS_1-2-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "contents": {
+                "size": "mega",
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "contents": [
+                        {
+                          "weight": "bold",
+                          "text": "📘 แผนการเรียน ปี 1 ภาคปลาย",
+                          "type": "text",
+                          "color": "#1E90FF",
+                          "size": "lg"
+                        },
+                        {
+                          "type": "text",
+                          "text": "🖥️ สาขาวิทยาการคอมพิวเตอร์",
+                          "margin": "sm",
+                          "size": "md",
+                          "color": "#333333"
+                        }
+                      ],
+                      "paddingAll": "md",
+                      "backgroundColor": "#E6F2FF",
+                      "type": "box",
+                      "layout": "vertical",
+                      "cornerRadius": "lg"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน",
+                      "type": "text",
+                      "weight": "bold",
+                      "size": "md",
+                      "color": "#333333",
+                      "margin": "md"
+                    },
+                    {
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "text": "1.พีชคณิตเชิงเส้นพื้นฐาน🧮 \n(Basic Linear Algebra)",
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#000000"
+                        },
+                        {
+                          "type": "text",
+                          "text": "2.การโปรแกรมคอมพิวเตอร์💻 \n(Computer Programming)",
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#000000"
+                        },
+                        {
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#000000",
+                          "text": "3.การโปรแกรมทางสถิติ📊 \n(Statistical Programming)",
+                          "type": "text"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "4.หลักมูลการคณนา🧠 \n(Fundamentals of Computing)",
+                          "color": "#000000",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "type": "text",
+                          "text": "5.กิจกรรมพลศึกษา🏃‍♂️",
+                          "color": "#000000",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#000000",
+                          "text": "6.วิชาศึกษาทั่วไปกลุ่มสาระศาสตร์แห่งผู้ประกอบการ💼"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "7.วิชาศึกษาทั่วไปกลุ่มสาระสุนทรียศาสตร์🎨",
+                          "wrap": true,
+                          "type": "text",
+                          "color": "#000000"
+                        }
+                      ],
+                      "margin": "sm",
+                      "spacing": "sm",
+                      "type": "box"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "cornerRadius": "lg",
+                      "paddingAll": "md",
+                      "layout": "vertical",
+                      "margin": "md",
+                      "type": "box",
+                      "backgroundColor": "#FFF4E5",
+                      "contents": [
+                        {
+                          "size": "md",
+                          "color": "#FF4500",
+                          "weight": "bold",
+                          "text": "📌 หน่วยกิตรวม: 19 หน่วยกิต",
+                          "type": "text"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "altText": "📘 แผนการเรียน ปี 1 ภาคปลาย",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "text": "แผนการเรียนอื่นๆ",
+                      "label": "แผนการเรียนอื่นๆ📚"
+                    }
+                  },
+                  {
+                    "action": {
+                      "type": "message",
+                      "label": "ภาคต้น 📘",
+                      "text": "Cs ปี 1 เทอม 1"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "type": "message",
+                      "label": "รายละเอียดรายวิชาℹ️",
+                      "text": "รายละเอียดรายวิชา"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,151 @@
+{
+  "id": "0bafbe14-d116-403f-82c5-b48cd99ad249",
+  "name": "วิชา 01418490",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418490-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "contents": {
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "body": {
+                  "layout": "vertical",
+                  "type": "box",
+                  "contents": [
+                    {
+                      "size": "xl",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "weight": "bold",
+                      "color": "#FFFFFF",
+                      "type": "text",
+                      "align": "center"
+                    },
+                    {
+                      "margin": "md",
+                      "color": "#FFFFFF",
+                      "type": "separator"
+                    },
+                    {
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "type": "text",
+                      "size": "md",
+                      "color": "#FFD700",
+                      "weight": "bold",
+                      "margin": "lg"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "type": "text",
+                          "size": "sm",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418390",
+                          "color": "#FFE4E1",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "text": "🆔 รหัสวิชา: 01418490",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "weight": "bold",
+                          "type": "text"
+                        },
+                        {
+                          "weight": "bold",
+                          "text": "🏷️ ชื่อวิชา: สหกิจศึกษา (Cooperative Education)",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ ",
+                          "wrap": true,
+                          "weight": "bold",
+                          "type": "text"
+                        },
+                        {
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "text": "🎯 หน่วยกิต: 6",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "text": "📖 เนื้อหา: ปฏิบัติงานเป็นพนักงานชั่วคราวตามโครงงานที่ได้รับมอบหมาย พร้อมจัดทำรายงานและนำเสนอผลการทำงาน",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm"
+                        }
+                      ],
+                      "spacing": "sm",
+                      "type": "box",
+                      "layout": "vertical",
+                      "margin": "sm"
+                    }
+                  ]
+                },
+                "type": "bubble",
+                "size": "mega"
+              },
+              "altText": "แนะนำรายวิชา"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

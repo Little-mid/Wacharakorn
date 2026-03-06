@@ -1,0 +1,176 @@
+{
+  "id": "13033c39-8a61-4488-832d-82df1fb205b6",
+  "parentId": "ac21883c-7548-4639-a32a-def15cfea2fc",
+  "rootParentId": "4461e597-4962-4561-a81e-33634d796c54",
+  "name": "CS ปี3 เทอม 2",
+  "auto": true,
+  "contexts": [
+    "_CS_3-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes.-yes-custom-2._1-custom-2._CS_3-custom",
+      "affectedContexts": [
+        {
+          "name": "_CS_3-custom-followup",
+          "lifespan": 2
+        },
+        {
+          "name": "CS32-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "📒 แผนการเรียน ปี 3 ภาคปลาย",
+              "contents": {
+                "size": "mega",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "cornerRadius": "lg",
+                      "layout": "vertical",
+                      "backgroundColor": "#FFFFCC",
+                      "paddingAll": "md",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "color": "#333333",
+                          "text": "📒 แผนการเรียน ปี 3 ภาคปลาย",
+                          "size": "lg",
+                          "weight": "bold"
+                        },
+                        {
+                          "text": "🖥️ สาขาวิทยาการคอมพิวเตอร์",
+                          "size": "md",
+                          "color": "#333333",
+                          "margin": "sm",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน",
+                      "size": "md",
+                      "weight": "bold",
+                      "type": "text",
+                      "color": "#333333",
+                      "margin": "md"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "type": "text",
+                          "color": "#000000",
+                          "wrap": true,
+                          "size": "sm",
+                          "text": "1.ความมั่นคงในระบบสารสนเทศ🛡️ \n(Information Systems Security)"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#000000",
+                          "type": "text",
+                          "text": "2.การบริหารโครงการและสตาร์ทอัพดิจิทัล📈 \n(Project Management and Digital Startup)",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "color": "#000000",
+                          "text": "3.สัมมนา (Seminar)🎤",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "text": "4.วิชาเฉพาะเลือก 📚",
+                          "type": "text",
+                          "color": "#000000",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "wrap": true,
+                          "text": "5.วิชาเลือกเสรี 🎯",
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#000000"
+                        }
+                      ],
+                      "layout": "vertical",
+                      "type": "box",
+                      "spacing": "sm",
+                      "margin": "sm"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "type": "box",
+                      "paddingAll": "md",
+                      "layout": "vertical",
+                      "margin": "md",
+                      "cornerRadius": "lg",
+                      "contents": [
+                        {
+                          "weight": "bold",
+                          "text": "📌 หน่วยกิตรวม: 16 หน่วยกิต",
+                          "type": "text",
+                          "size": "md",
+                          "color": "#FF4500"
+                        }
+                      ],
+                      "backgroundColor": "#FFF4E5"
+                    }
+                  ]
+                },
+                "type": "bubble"
+              },
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "type": "message",
+                      "label": "รายละเอียดรายวิชา",
+                      "text": "รายละเอียดรายวิชา"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

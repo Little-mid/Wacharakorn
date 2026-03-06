@@ -1,0 +1,151 @@
+{
+  "id": "778f5fe7-e6a3-4c0e-a4d4-4a6fd58e08f7",
+  "name": "วิชา 04256352",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256352-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "altText": "แนะนำรายวิชา",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    }
+                  }
+                ]
+              },
+              "contents": {
+                "size": "mega",
+                "body": {
+                  "contents": [
+                    {
+                      "align": "center",
+                      "weight": "bold",
+                      "size": "xl",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "color": "#FFFFFF",
+                      "type": "text"
+                    },
+                    {
+                      "type": "separator",
+                      "color": "#FFFFFF",
+                      "margin": "md"
+                    },
+                    {
+                      "size": "md",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "weight": "bold",
+                      "color": "#FFD700",
+                      "type": "text",
+                      "margin": "lg"
+                    },
+                    {
+                      "margin": "sm",
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี",
+                          "size": "sm",
+                          "color": "#FFE4E1",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "wrap": true,
+                          "text": "🆔 รหัสวิชา: 04256352",
+                          "type": "text",
+                          "weight": "bold"
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "text": "🏷️ ชื่อวิชา: ธุรกิจอัจฉริยะ (Business Intelligence)"
+                        },
+                        {
+                          "type": "text",
+                          "weight": "bold",
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ"
+                        },
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "text": "🎯 หน่วยกิต: 3"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "type": "text",
+                          "text": "📖 เนื้อหา: รูปแบบธุรกิจและข้อมูลธุรกิจ หลักการของระบบธุรกิจอัจฉริยะ เครื่องมือธุรกิจอัจฉริยะ บทบาทนักวิทยาการข้อมูล การสำรวจและเตรียมข้อมูลทางธุรกิจ การวิเคราะห์ข้อมูล การจัดการความรู้ การวิเคราะห์แนวโน้มธุรกิจ และกรณีศึกษา"
+                        }
+                      ],
+                      "type": "box",
+                      "spacing": "sm"
+                    }
+                  ],
+                  "type": "box",
+                  "layout": "vertical"
+                },
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                },
+                "type": "bubble"
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

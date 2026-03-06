@@ -1,0 +1,67 @@
+{
+  "id": "83b28e96-9ac1-404f-a916-533fa2b21e57",
+  "parentId": "5e023c69-3ab1-4a98-89a8-b7152d780ee1",
+  "rootParentId": "e41e4e83-3119-4b85-a6ff-7089402f001c",
+  "name": "รายละเอียดเพิ่มเติมCS",
+  "auto": true,
+  "contexts": [
+    "-followup-3"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-custom.-custom.-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "3",
+          "platform": "line",
+          "imageUrl": "https://firebasestorage.googleapis.com/v0/b/image-store-01.firebasestorage.app/o/01-Photoroom.png?alt\u003dmedia\u0026token\u003d3c59a8a6-1d23-4ccb-892c-d8879d8e9972",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "text": "*รายละเอียดหลักสูตร*\n\n🎓 *หลักสูตร 4 ปี*\n\n📝 *ชื่อหลักสูตร:*\nหลักสูตรวิทยาศาสตรบัณฑิต สาขาวิชาวิทยาการคอมพิวเตอร์\n(Bachelor of Science Program in Computer Science)\n\n📄 *ชื่อปริญญาและสาขาวิชา:*\n- ชื่อเต็ม: วิทยาศาสตรบัณฑิต (วิทยาการคอมพิวเตอร์)\n  Bachelor of Science (Computer Science)\n- ชื่อย่อ: วท.บ. (วิทยาการคอมพิวเตอร์)\n  B.S. (Computer Science)\n\n*จำนวนหน่วยกิตรวมตลอดหลักสูตร:*\nไม่น้อยกว่า 124 หน่วยกิต",
+              "type": "text",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "วิทยาการข้อมูล 📊",
+                      "type": "message",
+                      "text": "วิทยาการข้อมูล 📊"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

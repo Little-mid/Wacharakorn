@@ -1,0 +1,80 @@
+[
+  {
+    "id": "650ed1c8-8070-44aa-bec5-d3c64882cba9",
+    "data": [
+      {
+        "text": "1",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "28ba5ee9-7867-4a89-be83-b69bb1e4527d",
+    "data": [
+      {
+        "text": "ภาคต้น",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "b573612a-e229-4887-9614-1748fcb6bd88",
+    "data": [
+      {
+        "text": "เทอม1",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "a763f321-bf18-4910-a5a5-d7a92a4e4679",
+    "data": [
+      {
+        "text": "เทอมที่1",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "48b3ac17-be12-4be8-bcc1-7925bd755ae9",
+    "data": [
+      {
+        "text": "ภาคเรียนที่1",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "30e44bb3-f43d-4a34-918f-8bb11c4d8bce",
+    "data": [
+      {
+        "text": "ปี 3 ภาคการศึกษาที่1 💻",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

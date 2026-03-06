@@ -1,0 +1,151 @@
+{
+  "id": "e5588fd7-c0ad-44a0-8790-cddba05849a4",
+  "name": "วิชา 01418322",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418322-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "altText": "แนะนำรายวิชา",
+              "contents": {
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                },
+                "size": "mega",
+                "body": {
+                  "layout": "vertical",
+                  "type": "box",
+                  "contents": [
+                    {
+                      "align": "center",
+                      "size": "xl",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "type": "text",
+                      "color": "#FFFFFF",
+                      "weight": "bold"
+                    },
+                    {
+                      "type": "separator",
+                      "color": "#FFFFFF",
+                      "margin": "md"
+                    },
+                    {
+                      "size": "md",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "weight": "bold",
+                      "margin": "lg",
+                      "color": "#FFD700",
+                      "type": "text"
+                    },
+                    {
+                      "spacing": "sm",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "color": "#FFE4E1",
+                          "size": "sm",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418112",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "text": "🆔 รหัสวิชา: 01418322",
+                          "size": "sm",
+                          "wrap": true,
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "type": "text"
+                        },
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "text": "🏷️ ชื่อวิชา: วิทยาการข้อมูลเบื้องต้น (Introduction to Data Science)",
+                          "weight": "bold",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก "
+                        },
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "color": "#FFFFFF",
+                          "type": "text"
+                        },
+                        {
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับข้อมูลและแหล่งข้อมูล ครอบคลุมกระบวนการและเครื่องมือทางวิทยาการข้อมูล ตั้งแต่การได้มา จัดระเบียบและทำความสะอาด การประมวลผลเบื้องต้น การวิเคราะห์และสร้างโมเดล รวมถึงการนำเสนอด้วยแผนภาพข้อมูล การจัดการข้อมูลขนาดใหญ่ ตลอดจนประเด็นด้านจริยธรรมข้อมูล",
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "margin": "sm",
+                      "layout": "vertical"
+                    }
+                  ]
+                },
+                "type": "bubble"
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "text": "ค้นหารายวิชาอื่นๆ"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

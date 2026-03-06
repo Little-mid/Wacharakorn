@@ -1,0 +1,151 @@
+{
+  "id": "26d76748-214a-4cd0-b335-0c6fb4e815c9",
+  "name": "วิชา 01418499",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418499-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "type": "bubble",
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "size": "mega",
+                "body": {
+                  "type": "box",
+                  "contents": [
+                    {
+                      "align": "center",
+                      "type": "text",
+                      "weight": "bold",
+                      "color": "#FFFFFF",
+                      "size": "xl",
+                      "text": "📚 แนะนำรายวิชา 🤖"
+                    },
+                    {
+                      "margin": "md",
+                      "color": "#FFFFFF",
+                      "type": "separator"
+                    },
+                    {
+                      "margin": "lg",
+                      "size": "md",
+                      "color": "#FFD700",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "type": "text",
+                      "weight": "bold"
+                    },
+                    {
+                      "type": "box",
+                      "spacing": "sm",
+                      "contents": [
+                        {
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418321",
+                          "color": "#FFE4E1",
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "text": "🆔 รหัสวิชา: 01418499",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "text": "🏷️ ชื่อวิชา: โครงงานวิทยาการคอมพิวเตอร์ (Computer Science Project)",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "weight": "bold",
+                          "size": "sm"
+                        },
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ"
+                        },
+                        {
+                          "text": "🎯 หน่วยกิต: 3",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "type": "text"
+                        },
+                        {
+                          "type": "text",
+                          "size": "sm",
+                          "text": "📖 เนื้อหา: ศึกษาและทำโครงงานที่น่าสนใจในแขนงต่างๆ ของวิทยาการคอมพิวเตอร์",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        }
+                      ],
+                      "margin": "sm",
+                      "layout": "vertical"
+                    }
+                  ],
+                  "layout": "vertical"
+                }
+              },
+              "altText": "แนะนำรายวิชา",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "type": "flex"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,53 @@
+{
+  "id": "f6540b13-5d35-416a-b181-15054d7451de",
+  "parentId": "e7385f25-627e-4c88-bf30-34768af9080f",
+  "rootParentId": "e7385f25-627e-4c88-bf30-34768af9080f",
+  "name": "กรอกรหัสวิชา - yes",
+  "auto": true,
+  "contexts": [
+    "-followup-7"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes",
+      "affectedContexts": [
+        {
+          "name": "-yes-followup-2",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "wrap": true,
+              "text": "✍️ พิมพ์รหัสวิชา ที่ต้องการทราบข้อมูลได้เลยครับ \nตัวอย่างเช่น 01418325 \n⚠️*แชทบอทสามารถบอกรายละเอียดของรายวิชาที่อยู่ในภาควิชาวิทยาการคอมพิวเตอร์ เท่านั้น!!*⚠️",
+              "type": "text",
+              "size": "sm"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

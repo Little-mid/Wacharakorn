@@ -1,0 +1,67 @@
+[
+  {
+    "id": "57cf7ba2-6170-465d-aea0-e435e5f4e71b",
+    "data": [
+      {
+        "text": "เน็ต",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "c2ef7860-326a-4076-ba96-519c22199fd7",
+    "data": [
+      {
+        "text": "net",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "885be1dc-82fe-47e3-80ba-56816a68cc57",
+    "data": [
+      {
+        "text": "เน็ตเวิร์ค",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "6e76bf90-6b10-4571-a22d-c32fc8cb0b20",
+    "data": [
+      {
+        "text": "เน็ตเวิค",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "85f1feb3-adca-450d-9556-3350b3787b01",
+    "data": [
+      {
+        "text": "Network 🌐",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

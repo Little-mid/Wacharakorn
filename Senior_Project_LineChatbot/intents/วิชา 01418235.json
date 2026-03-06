@@ -1,0 +1,151 @@
+{
+  "id": "c95ab7f9-7cba-41bf-85bc-3330d72d0352",
+  "name": "วิชา 01418235",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418235-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "type": "flex",
+              "altText": "แนะนำรายวิชา",
+              "contents": {
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "size": "mega",
+                "type": "bubble",
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "size": "xl",
+                      "type": "text",
+                      "color": "#FFFFFF",
+                      "align": "center",
+                      "weight": "bold",
+                      "text": "📚 แนะนำรายวิชา 🤖"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "weight": "bold",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "color": "#FFD700",
+                      "size": "md",
+                      "margin": "lg",
+                      "type": "text"
+                    },
+                    {
+                      "layout": "vertical",
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418113",
+                          "color": "#FFE4E1",
+                          "size": "sm"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "text": "🆔 รหัสวิชา: 01418235",
+                          "wrap": true,
+                          "type": "text",
+                          "weight": "bold"
+                        },
+                        {
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "size": "sm",
+                          "weight": "bold",
+                          "text": "🏷️ ชื่อวิชา: ระบบปฏิบัติการยูนิกซ์และการโปรแกรมเปลือกระบบ (Unix Operating System and Shell Programming)"
+                        },
+                        {
+                          "size": "sm",
+                          "weight": "bold",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก "
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "type": "text",
+                          "text": "🎯 หน่วยกิต: 3"
+                        },
+                        {
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับองค์ประกอบของระบบปฏิบัติการยูนิกซ์ ลักษณะการทำงานและส่วนต่อประสานรายคำสั่ง การบริหารและจัดการระบบ โปรแกรมบรรณาธิการและอรรถประโยชน์ การเขียนโปรแกรมเปลือกระบบ และความแปรผันต่างๆ ของระบบปฏิบัติการยูนิกซ์",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "box",
+                      "spacing": "sm"
+                    }
+                  ],
+                  "type": "box"
+                }
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

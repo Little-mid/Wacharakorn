@@ -1,0 +1,151 @@
+{
+  "id": "82632428-4831-43d9-83ff-ce7b93d93aa1",
+  "name": "วิชา 01418371",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418371-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "altText": "แนะนำรายวิชา",
+              "contents": {
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                },
+                "size": "mega",
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "weight": "bold",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "type": "text",
+                      "size": "xl",
+                      "color": "#FFFFFF",
+                      "align": "center"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "color": "#FFD700",
+                      "type": "text",
+                      "weight": "bold",
+                      "margin": "lg",
+                      "size": "md",
+                      "text": "📝 รายละเอียดรายวิชา"
+                    },
+                    {
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418221",
+                          "color": "#FFE4E1",
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "wrap": true,
+                          "text": "🆔 รหัสวิชา: 01418371",
+                          "size": "sm",
+                          "type": "text"
+                        },
+                        {
+                          "weight": "bold",
+                          "wrap": true,
+                          "text": "🏷️ ชื่อวิชา: การบริหารโครงการและสตาร์ทอัพดิจิทัล (Project Management and Digital Startup)",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "size": "sm"
+                        },
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก ",
+                          "type": "text"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "type": "text",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "size": "sm"
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับแนวคิดการบริหารโครงการ ครอบคลุมวัฏจักรโครงการ การกำหนดเวลา การจัดองค์กรและค่าใช้จ่าย การควบคุมและประเมินความก้าวหน้า การจัดการขอบเขตและคุณภาพโครงการ การบริหารความเสี่ยง การสื่อสารและทรัพยากรบุคคล รวมถึงสตาร์ทอัพ การคิดเชิงออกแบบ และตัวแบบธุรกิจ"
+                        }
+                      ],
+                      "type": "box",
+                      "spacing": "sm",
+                      "margin": "sm"
+                    }
+                  ]
+                }
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "type": "message",
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

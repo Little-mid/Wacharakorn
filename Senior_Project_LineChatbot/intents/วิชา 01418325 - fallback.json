@@ -1,0 +1,38 @@
+{
+  "id": "f85e42fd-ed6c-4f7d-aeae-ab8f92354b1c",
+  "parentId": "b0988c75-f271-4d47-9101-9585d953e9c2",
+  "rootParentId": "b0988c75-f271-4d47-9101-9585d953e9c2",
+  "name": "วิชา 01418325 - fallback",
+  "contexts": [
+    "01418325-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "01418325.01418325-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "speech": [
+            "⚠️รหัสวิชาไม่ถูกต้อง⚠️ \nตัวอย่าง รหัสวิชา \n01418325\n*กรุณาตรวจสอบและพิมพ์รหัสวิชาใหม่อีกครั้ง* ครับ"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

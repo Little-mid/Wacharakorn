@@ -1,0 +1,151 @@
+{
+  "id": "e7ee75da-4d93-4001-bd43-14eee600d7ba",
+  "name": "วิชา 01418212",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418212-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              },
+              "altText": "แนะนำรายวิชา",
+              "contents": {
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "align": "center",
+                      "weight": "bold",
+                      "color": "#FFFFFF",
+                      "size": "xl"
+                    },
+                    {
+                      "margin": "md",
+                      "color": "#FFFFFF",
+                      "type": "separator"
+                    },
+                    {
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "size": "md",
+                      "weight": "bold",
+                      "type": "text",
+                      "color": "#FFD700",
+                      "margin": "lg"
+                    },
+                    {
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#FFE4E1",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418111 หรือ 01418112",
+                          "type": "text"
+                        },
+                        {
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "text": "🆔 รหัสวิชา: 01418212",
+                          "wrap": true,
+                          "size": "sm",
+                          "type": "text"
+                        },
+                        {
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "text": "🏷️ ชื่อวิชา: การโปรแกรมภาษาซี (C Programming)",
+                          "wrap": true
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก ",
+                          "wrap": true,
+                          "weight": "bold",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "wrap": true,
+                          "text": "🎯 หน่วยกิต: 3"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับโครงสร้างและส่วนย่อยของภาษาซี หลักการเขียนโปรแกรมภาษาซี รวมถึงการประยุกต์ใช้ภาษาซีในการแก้ปัญหาและพัฒนาซอฟต์แวร์ต่างๆ อย่างมีประสิทธิภาพ",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        }
+                      ],
+                      "spacing": "sm",
+                      "type": "box",
+                      "margin": "sm"
+                    }
+                  ],
+                  "type": "box"
+                },
+                "size": "mega",
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                },
+                "type": "bubble"
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,166 @@
+{
+  "id": "b3bab873-7c67-4c38-9a91-726e83c1990c",
+  "parentId": "1a81f242-98a1-49ef-8070-09526d00e91d",
+  "rootParentId": "dca3edf7-a886-4f9b-8dcd-dfffeb4d8985",
+  "name": "Network",
+  "auto": true,
+  "contexts": [
+    "-yes-followup-3"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes.-yes-custom-3",
+      "affectedContexts": [
+        {
+          "name": "Network-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "type": "flex",
+              "altText": "แนะนำสายการเรียน",
+              "contents": {
+                "type": "bubble",
+                "body": {
+                  "backgroundColor": "#1274c7",
+                  "layout": "vertical",
+                  "paddingAll": "20px",
+                  "contents": [
+                    {
+                      "align": "center",
+                      "type": "text",
+                      "weight": "bold",
+                      "color": "#FFFFFF",
+                      "text": "Network🌐",
+                      "size": "xxl"
+                    },
+                    {
+                      "color": "#feecc7",
+                      "type": "separator",
+                      "margin": "lg"
+                    },
+                    {
+                      "type": "text",
+                      "color": "#FFFFFF",
+                      "size": "md",
+                      "margin": "lg",
+                      "weight": "bold",
+                      "text": "📖 วิชาที่ควรลงเรียนในสายการเรียนนี้"
+                    },
+                    {
+                      "backgroundColor": "#FFFFFF",
+                      "margin": "md",
+                      "layout": "vertical",
+                      "paddingAll": "15px",
+                      "contents": [
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "text": "01418235 - ระบบปฏิบัติการยูนิกซ์และการโปรแกรมเปลือกระบบ (Unix Operating System and Shell Programming)",
+                          "color": "#111111",
+                          "wrap": true
+                        },
+                        {
+                          "margin": "md",
+                          "type": "separator"
+                        },
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "color": "#111111",
+                          "text": "01418311 - การโปรแกรมเชิงคำนวณแบบท้าทาย (Challenging Computational Programming)",
+                          "size": "sm"
+                        },
+                        {
+                          "margin": "md",
+                          "type": "separator"
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#111111",
+                          "text": "01418352 - การสื่อสารข้อมูลและเครือข่าย (Data Communications and Networks)",
+                          "wrap": true
+                        },
+                        {
+                          "margin": "md",
+                          "type": "separator"
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "text": "01418451 - การออกแบบและการบริหารเครือข่าย (Network Design and Administration)",
+                          "wrap": true,
+                          "color": "#111111"
+                        },
+                        {
+                          "type": "separator",
+                          "margin": "md"
+                        },
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "text": "01418353 - แนวคิดและบริการการคำนวณแบบคลาวด์ (Cloud Computing Concepts and Services)",
+                          "color": "#111111"
+                        }
+                      ],
+                      "spacing": "sm",
+                      "cornerRadius": "lg",
+                      "type": "box"
+                    }
+                  ],
+                  "type": "box"
+                },
+                "size": "mega"
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "📚 ดูสายอื่น",
+                      "text": "ขอดูสายการเรียนอื่น",
+                      "type": "message"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "ℹ️ รายละเอียดวิชา",
+                      "text": "รายละเอียดรายวิชาสายการเรียน Network",
+                      "type": "message"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,204 @@
+{
+  "id": "f0539dcb-0d02-4e5b-b8c7-d21e948d5aa9",
+  "parentId": "f76eacac-6eb9-4fb5-9243-e136cfcc61eb",
+  "rootParentId": "f76eacac-6eb9-4fb5-9243-e136cfcc61eb",
+  "name": "DS_1 - 2 - custom",
+  "auto": true,
+  "contexts": [
+    "DS_1-2-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "DS_1-2.DS_1-2-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "type": "bubble",
+                "size": "mega",
+                "body": {
+                  "contents": [
+                    {
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "📘 แผนการเรียน ปี 1 ภาคปลาย",
+                          "color": "#1E90FF",
+                          "size": "lg",
+                          "weight": "bold"
+                        },
+                        {
+                          "text": "📊 สาขาวิทยาการข้อมูล",
+                          "color": "#333333",
+                          "margin": "sm",
+                          "size": "md",
+                          "type": "text"
+                        }
+                      ],
+                      "cornerRadius": "lg",
+                      "type": "box",
+                      "backgroundColor": "#E6F2FF",
+                      "paddingAll": "md",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "type": "text",
+                      "weight": "bold",
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน",
+                      "color": "#333333",
+                      "size": "md",
+                      "margin": "md"
+                    },
+                    {
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "wrap": true,
+                          "text": "1.วิทยาการข้อมูลและโปรแกรมประยุกต์ 💻 \n(Data Science and Application Programs)",
+                          "color": "#000000",
+                          "size": "sm",
+                          "type": "text"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "2.หลักพื้นฐานของปัญญาประดิษฐ์ 🤖 \n(Fundamentals of Artificial Intelligence)",
+                          "type": "text",
+                          "color": "#000000",
+                          "wrap": true
+                        },
+                        {
+                          "text": "3.การวิเคราะห์ถดถอยประยุกต์ 📈 \n(Applied Regression Analysis)",
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#000000",
+                          "type": "text"
+                        },
+                        {
+                          "size": "sm",
+                          "wrap": true,
+                          "text": "4.ระบบฐานข้อมูลและการประยุกต์ 🗄️ \n(Database Systems and Applications)",
+                          "color": "#000000",
+                          "type": "text"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "5.กิจกรรมพลศึกษา 🏃‍♂️",
+                          "wrap": true,
+                          "color": "#000000",
+                          "type": "text"
+                        },
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "type": "text",
+                          "text": "6.วิชาภาษาต่างประเทศ 1 🌐",
+                          "color": "#000000"
+                        },
+                        {
+                          "wrap": true,
+                          "text": "7.วิชาศึกษาทั่วไปกลุ่มสาระอยู่ดีมีสุข 🌿",
+                          "color": "#000000",
+                          "type": "text",
+                          "size": "sm"
+                        }
+                      ],
+                      "spacing": "sm",
+                      "type": "box",
+                      "layout": "vertical"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "paddingAll": "md",
+                      "contents": [
+                        {
+                          "size": "md",
+                          "type": "text",
+                          "color": "#FF4500",
+                          "weight": "bold",
+                          "text": "📌 หน่วยกิตรวม: 18 หน่วยกิต"
+                        }
+                      ],
+                      "backgroundColor": "#FFF4E5",
+                      "cornerRadius": "lg",
+                      "type": "box",
+                      "margin": "md",
+                      "layout": "vertical"
+                    }
+                  ],
+                  "layout": "vertical",
+                  "type": "box"
+                }
+              },
+              "type": "flex",
+              "altText": "📘 แผนการเรียน ปี 1 ภาคปลาย",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "type": "message",
+                      "text": "แผนการเรียนอื่นๆ"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "Ds ปี 1 เทอม 1",
+                      "type": "message",
+                      "label": "ภาคต้น 📘"
+                    }
+                  },
+                  {
+                    "action": {
+                      "label": "รายละเอียดรายวิชาℹ️",
+                      "type": "message",
+                      "text": "รายละเอียดรายวิชา"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

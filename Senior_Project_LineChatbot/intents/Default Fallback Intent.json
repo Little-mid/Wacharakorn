@@ -1,0 +1,79 @@
+{
+  "id": "90c5bba6-808d-43a1-a4a5-01a0ab57d8b8",
+  "name": "Default Fallback Intent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "input.unknown",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "text": "หลักสูตรในภาควิชา",
+                      "label": "หลักสูตรในภาควิชา📚",
+                      "imageBackgroundColor": "#FFEFD5",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "text": "แนะนำการลงทะเบียนเรียน",
+                      "label": "แนะนำลงทะเบียนเรียน📑",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "label": "สายการเรียนที่สนใจ✍️",
+                      "text": "สายการเรียนที่สนใจ"
+                    }
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "แนะนำรายวิชา📔",
+                      "type": "message",
+                      "text": "แนะนำรายวิชา"
+                    }
+                  }
+                ]
+              },
+              "type": "text",
+              "text": "ขออภัยครับคำถามของคุณอาจอยู่นอกเหนือขอบเขตการทำงานของแชทบอท โปรดเลือกเมนูใหม่ให้ตรงกับหัวข้อที่ต้องการทราบข้อมูลครับ 😅🙏"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

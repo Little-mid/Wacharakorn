@@ -1,0 +1,28 @@
+[
+  {
+    "id": "71a63bc3-cd1f-434f-9e8a-95a4be37270c",
+    "data": [
+      {
+        "text": "วิชาเสรี",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "0f679f60-c4b0-4d5f-ab63-0d4d25164c14",
+    "data": [
+      {
+        "text": "เสรี",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

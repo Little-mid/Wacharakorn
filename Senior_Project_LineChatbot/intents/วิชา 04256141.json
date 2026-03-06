@@ -1,0 +1,151 @@
+{
+  "id": "3595431f-2d8a-4da1-a16c-06d1976f4930",
+  "name": "วิชา 04256141",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256141-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "type": "bubble",
+                "size": "mega",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "align": "center",
+                      "type": "text",
+                      "color": "#FFFFFF",
+                      "size": "xl",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "weight": "bold"
+                    },
+                    {
+                      "margin": "md",
+                      "color": "#FFFFFF",
+                      "type": "separator"
+                    },
+                    {
+                      "size": "md",
+                      "color": "#FFD700",
+                      "weight": "bold",
+                      "margin": "lg",
+                      "type": "text",
+                      "text": "📝 รายละเอียดรายวิชา"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFE4E1",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "size": "sm",
+                          "weight": "bold",
+                          "text": "🆔 รหัสวิชา: 04256141",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "size": "sm",
+                          "text": "🏷️ ชื่อวิชา: ระบบฐานข้อมูลและการประยุกต์ (Database Systems and Applications)",
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        },
+                        {
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ",
+                          "wrap": true,
+                          "weight": "bold",
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "text": "🎯 หน่วยกิต: 3",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "text": "📖 เนื้อหา: ครอบคลุมระบบฐานข้อมูลและการจัดการ แนวคิดฐานข้อมูลเชิงสัมพันธ์ ความซ้ำซ้อน ข้อมูลแบบจำลองและพจนานุกรม การทำให้เป็นบรรทัดฐาน การวิเคราะห์และออกแบบฐานข้อมูลเชิงสัมพันธ์ การสร้างฐานข้อมูลด้วย SQL และการใช้ภาษากำหนดและจัดการข้อมูล",
+                          "wrap": true
+                        }
+                      ],
+                      "margin": "sm",
+                      "layout": "vertical",
+                      "type": "box",
+                      "spacing": "sm"
+                    }
+                  ]
+                },
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                }
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    }
+                  }
+                ]
+              },
+              "type": "flex",
+              "altText": "แนะนำรายวิชา"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

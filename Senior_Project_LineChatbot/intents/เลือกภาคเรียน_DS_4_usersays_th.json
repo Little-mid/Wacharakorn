@@ -1,0 +1,43 @@
+[
+  {
+    "id": "c18c7fb4-2737-4bff-b561-544cec47176a",
+    "data": [
+      {
+        "text": "4",
+        "meta": "@sys.number",
+        "alias": "number",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "156bdc3e-8296-4609-8c62-883b9d35270f",
+    "data": [
+      {
+        "text": "ปี4",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "d9f4c911-ee17-4d74-a785-c2c333951794",
+    "data": [
+      {
+        "text": "📊ปี 4",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

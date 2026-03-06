@@ -1,0 +1,144 @@
+{
+  "id": "8b5ae73c-00e2-48c3-9802-fbd27df9c75c",
+  "parentId": "ed325500-9daa-4a82-ad66-aee5041b273e",
+  "rootParentId": "4461e597-4962-4561-a81e-33634d796c54",
+  "name": "CS ปี4 เทอม 1",
+  "auto": true,
+  "contexts": [
+    "_CS_4-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes.-yes-custom-2._1-custom._CS_4-custom",
+      "affectedContexts": [
+        {
+          "name": "CS41-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "รายละเอียดรายวิชา",
+                      "text": "รายละเอียดรายวิชา",
+                      "type": "message"
+                    }
+                  }
+                ]
+              },
+              "type": "flex",
+              "contents": {
+                "type": "bubble",
+                "size": "mega",
+                "body": {
+                  "layout": "vertical",
+                  "type": "box",
+                  "contents": [
+                    {
+                      "contents": [
+                        {
+                          "size": "lg",
+                          "text": "📗 แผนการเรียน ปี 4 ภาคต้น",
+                          "weight": "bold",
+                          "color": "#333333",
+                          "type": "text"
+                        },
+                        {
+                          "text": "🖥️ สาขาวิทยาการคอมพิวเตอร์",
+                          "size": "md",
+                          "color": "#333333",
+                          "margin": "sm",
+                          "type": "text"
+                        }
+                      ],
+                      "backgroundColor": "#CCFFCC",
+                      "type": "box",
+                      "layout": "vertical",
+                      "paddingAll": "md",
+                      "cornerRadius": "lg"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "margin": "md",
+                      "size": "md",
+                      "weight": "bold",
+                      "type": "text",
+                      "color": "#333333",
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน"
+                    },
+                    {
+                      "layout": "vertical",
+                      "spacing": "sm",
+                      "type": "box",
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "size": "sm",
+                          "text": "1.สหกิจศึกษา 📝\n(Co-operative Education)",
+                          "color": "#000000",
+                          "type": "text",
+                          "wrap": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "margin": "md",
+                      "cornerRadius": "lg",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "color": "#FF4500",
+                          "weight": "bold",
+                          "text": "📌 หน่วยกิตรวม: 6 หน่วยกิต",
+                          "size": "md"
+                        }
+                      ],
+                      "type": "box",
+                      "layout": "vertical",
+                      "backgroundColor": "#FFF4E5",
+                      "paddingAll": "md"
+                    }
+                  ]
+                }
+              },
+              "altText": "📗 แผนการเรียน ปี 4 ภาคต้น"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

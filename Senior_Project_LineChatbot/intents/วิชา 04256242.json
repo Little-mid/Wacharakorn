@@ -1,0 +1,151 @@
+{
+  "id": "23ee6730-8b33-4b4e-a925-7ae99f131616",
+  "name": "วิชา 04256242",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256242-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "แนะนำรายวิชา",
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "contents": {
+                "size": "mega",
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "body": {
+                  "type": "box",
+                  "contents": [
+                    {
+                      "weight": "bold",
+                      "align": "center",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "size": "xl",
+                      "type": "text",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "margin": "lg",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "weight": "bold",
+                      "type": "text",
+                      "color": "#FFD700",
+                      "size": "md"
+                    },
+                    {
+                      "spacing": "sm",
+                      "contents": [
+                        {
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี",
+                          "wrap": true,
+                          "color": "#FFE4E1",
+                          "type": "text",
+                          "size": "sm"
+                        },
+                        {
+                          "wrap": true,
+                          "size": "sm",
+                          "text": "🆔 รหัสวิชา: 04256242",
+                          "color": "#FFFFFF",
+                          "weight": "bold",
+                          "type": "text"
+                        },
+                        {
+                          "weight": "bold",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "text": "🏷️ ชื่อวิชา: การเตรียมข้อมูล (Data Preparation)",
+                          "size": "sm"
+                        },
+                        {
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "weight": "bold",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ",
+                          "size": "sm"
+                        },
+                        {
+                          "type": "text",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "text": "📖 เนื้อหา: ศึกษาความรู้เกี่ยวกับการเตรียมข้อมูล รูปแบบและโครงสร้าง การนำเข้าและจัดเก็บข้อมูล การแสดงภาพรวม รวมถึงการประมวลผลข้อมูลให้อยู่ในรูปแบบที่พร้อมใช้งานอย่างเหมาะสมและมีประสิทธิภาพ",
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text"
+                        }
+                      ],
+                      "layout": "vertical",
+                      "type": "box",
+                      "margin": "sm"
+                    }
+                  ],
+                  "layout": "vertical"
+                },
+                "type": "bubble"
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

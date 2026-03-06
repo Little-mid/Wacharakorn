@@ -1,0 +1,151 @@
+{
+  "id": "b1185351-b513-447a-9f93-f2aeeceb209d",
+  "name": "วิชา 01418383",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418383-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "แนะนำรายวิชา",
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "text": "ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              },
+              "contents": {
+                "type": "bubble",
+                "body": {
+                  "contents": [
+                    {
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "type": "text",
+                      "weight": "bold",
+                      "size": "xl",
+                      "align": "center",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "color": "#FFD700",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "margin": "lg",
+                      "type": "text",
+                      "size": "md",
+                      "weight": "bold"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418113",
+                          "color": "#FFE4E1"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "size": "sm",
+                          "weight": "bold",
+                          "wrap": true,
+                          "text": "🆔 รหัสวิชา: 01418383"
+                        },
+                        {
+                          "size": "sm",
+                          "text": "🏷️ ชื่อวิชา: ความจริงขยาย (Extended Reality)",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "type": "text",
+                          "weight": "bold"
+                        },
+                        {
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก ",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "text": "🎯 หน่วยกิต: 3",
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "type": "text",
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับเทคโนโลยีสร้างสรรค์ ครอบคลุมคอมพิวเตอร์กราฟิกส์ การรับรู้ทางภาพ เกมเอนจิน ความจริงเสมือน ความจริงเสริม ปัญญาประดิษฐ์ และเทคโนโลยีอุบัติใหม่",
+                          "wrap": true
+                        }
+                      ],
+                      "layout": "vertical",
+                      "margin": "sm",
+                      "type": "box",
+                      "spacing": "sm"
+                    }
+                  ],
+                  "layout": "vertical",
+                  "type": "box"
+                },
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "size": "mega"
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

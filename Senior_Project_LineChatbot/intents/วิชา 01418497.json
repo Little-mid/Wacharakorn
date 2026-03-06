@@ -1,0 +1,151 @@
+{
+  "id": "46f9bcb2-f5b9-4b85-b8e3-9fefea49c7e0",
+  "name": "วิชา 01418497",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418497-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "แนะนำรายวิชา",
+              "type": "flex",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              },
+              "contents": {
+                "body": {
+                  "contents": [
+                    {
+                      "align": "center",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "weight": "bold",
+                      "color": "#FFFFFF",
+                      "type": "text",
+                      "size": "xl"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "size": "md",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "margin": "lg",
+                      "weight": "bold",
+                      "type": "text",
+                      "color": "#FFD700"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี",
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFE4E1",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "text": "🆔 รหัสวิชา: 01418497",
+                          "type": "text",
+                          "wrap": true,
+                          "size": "sm",
+                          "weight": "bold"
+                        },
+                        {
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "text": "🏷️ ชื่อวิชา: สัมมนา (Seminar)"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "type": "text",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ ",
+                          "size": "sm",
+                          "weight": "bold"
+                        },
+                        {
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "text": "🎯 หน่วยกิต: 1",
+                          "wrap": true
+                        },
+                        {
+                          "text": "📖 เนื้อหา: เรียนรู้การนำเสนอและอภิปรายหัวข้อที่น่าสนใจทางวิทยาการคอมพิวเตอร์ในระดับปริญญาตรี",
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        }
+                      ],
+                      "spacing": "sm",
+                      "layout": "vertical",
+                      "margin": "sm",
+                      "type": "box"
+                    }
+                  ],
+                  "layout": "vertical",
+                  "type": "box"
+                },
+                "type": "bubble",
+                "size": "mega",
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                }
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

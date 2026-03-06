@@ -1,0 +1,151 @@
+{
+  "id": "5d4a7ed6-7646-4728-b443-5f21e3431508",
+  "name": "วิชา 04256231",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256231-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "แนะนำรายวิชา",
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "type": "flex",
+              "contents": {
+                "type": "bubble",
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                },
+                "body": {
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "color": "#FFFFFF",
+                      "type": "text",
+                      "align": "center",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "weight": "bold",
+                      "size": "xl"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "type": "text",
+                      "size": "md",
+                      "margin": "lg",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "weight": "bold",
+                      "color": "#FFD700"
+                    },
+                    {
+                      "margin": "sm",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 04256131",
+                          "color": "#FFE4E1",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "type": "text",
+                          "text": "🆔 รหัสวิชา: 04256231",
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "text": "🏷️ ชื่อวิชา: การวิเคราะห์ข้อมูลด้วยโปรแกรมตารางทำการสำหรับนักวิทยาการข้อมูล\n(Data Analytics Using Spreadsheet Program for Data Scientists)",
+                          "weight": "bold",
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "weight": "bold",
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ"
+                        },
+                        {
+                          "text": "🎯 หน่วยกิต: 3",
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "text": "📖 เนื้อหา: ครอบคลุมการนำเข้าข้อมูลจากแหล่งต่าง ๆ การคัดกรองและจัดการข้อมูล การสร้างแบบจำลอง การคำนวณสถิติ การวิเคราะห์และสรุปข้อมูล การนำเสนอด้วยแผนภูมิและกราฟ พร้อมการประยุกต์ด้านวิทยาการข้อมูล",
+                          "wrap": true,
+                          "type": "text",
+                          "size": "sm",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "type": "box",
+                      "layout": "vertical",
+                      "spacing": "sm"
+                    }
+                  ],
+                  "type": "box"
+                },
+                "size": "mega"
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

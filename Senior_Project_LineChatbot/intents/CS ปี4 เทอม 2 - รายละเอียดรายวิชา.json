@@ -1,0 +1,170 @@
+{
+  "id": "353a74d8-bd50-4f64-ad81-84ba16e03962",
+  "parentId": "b7f64090-9d1f-47d2-87f1-d676a9a1f024",
+  "rootParentId": "4461e597-4962-4561-a81e-33634d796c54",
+  "name": "CS ปี4 เทอม 2 - รายละเอียดรายวิชา",
+  "auto": true,
+  "contexts": [
+    "CS42-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes.-yes-custom-2._1-custom._CS_4-custom-2.CS42-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "type": "bubble",
+                "body": {
+                  "layout": "vertical",
+                  "type": "box",
+                  "contents": [
+                    {
+                      "contents": [
+                        {
+                          "type": "text",
+                          "size": "lg",
+                          "text": "✍️ รายละเอียดรายวิชา",
+                          "color": "#333333",
+                          "weight": "bold"
+                        },
+                        {
+                          "margin": "sm",
+                          "color": "#333333",
+                          "type": "text",
+                          "size": "md",
+                          "text": "🖥️ สาขาวิทยาการคอมพิวเตอร์"
+                        },
+                        {
+                          "size": "md",
+                          "type": "text",
+                          "color": "#333333",
+                          "text": "       ปี 4 ภาคปลาย",
+                          "margin": "sm",
+                          "weight": "bold"
+                        }
+                      ],
+                      "backgroundColor": "#CCFFCC",
+                      "paddingAll": "md",
+                      "type": "box",
+                      "layout": "vertical",
+                      "cornerRadius": "lg"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "spacing": "md",
+                      "margin": "md",
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "type": "box",
+                          "layout": "vertical",
+                          "backgroundColor": "#F9FBFF",
+                          "contents": [
+                            {
+                              "weight": "bold",
+                              "text": "⚠วิชาที่ต้องเรียนมาก่อน : 01418321",
+                              "size": "sm",
+                              "wrap": true,
+                              "type": "text",
+                              "color": "#CC0000"
+                            },
+                            {
+                              "type": "text",
+                              "text": "01418499 โครงงานวิทยาการคอมพิวเตอร์",
+                              "weight": "bold",
+                              "size": "sm",
+                              "wrap": true
+                            },
+                            {
+                              "wrap": true,
+                              "size": "sm",
+                              "text": "📌 3 หน่วยกิต\n✏️ หมวดวิชาเฉพาะ วิชาเฉพาะบังคับ\n📖 วิชานี้เกี่ยวกับโครงงานที่น่าสนใจในแขนงต่างๆ ของวิทยาการคอมพิวเตอร์ เพื่อให้ผู้เรียนได้ฝึกปฏิบัติและประยุกต์ความรู้ในสาขาที่เรียนมา",
+                              "type": "text",
+                              "margin": "sm"
+                            }
+                          ]
+                        },
+                        {
+                          "layout": "vertical",
+                          "contents": [
+                            {
+                              "weight": "bold",
+                              "wrap": true,
+                              "type": "text",
+                              "size": "sm",
+                              "text": "วิชาเฉพาะเลือก"
+                            },
+                            {
+                              "text": "📌 3 หน่วยกิต",
+                              "margin": "sm",
+                              "wrap": true,
+                              "type": "text",
+                              "size": "sm"
+                            }
+                          ],
+                          "type": "box",
+                          "backgroundColor": "#F9FBFF"
+                        },
+                        {
+                          "layout": "vertical",
+                          "backgroundColor": "#F9FBFF",
+                          "contents": [
+                            {
+                              "text": "วิชาเลือกเสรี",
+                              "weight": "bold",
+                              "type": "text",
+                              "wrap": true,
+                              "size": "sm"
+                            },
+                            {
+                              "type": "text",
+                              "wrap": true,
+                              "size": "sm",
+                              "text": "📌 3 หน่วยกิต",
+                              "margin": "sm"
+                            }
+                          ],
+                          "type": "box"
+                        }
+                      ],
+                      "type": "box"
+                    }
+                  ]
+                },
+                "size": "mega"
+              },
+              "altText": "รายละเอียดรายวิชา ปี 4 ภาคปลาย",
+              "type": "flex"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

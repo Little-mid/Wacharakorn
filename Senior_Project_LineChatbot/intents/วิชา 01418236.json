@@ -1,0 +1,151 @@
+{
+  "id": "353b46ad-8568-4245-9e77-ae73e4b56b05",
+  "name": "วิชา 01418236",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418236-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "text": "ค้นหารายวิชาอื่นๆ",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              },
+              "contents": {
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                },
+                "body": {
+                  "contents": [
+                    {
+                      "weight": "bold",
+                      "align": "center",
+                      "color": "#FFFFFF",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "type": "text",
+                      "size": "xl"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "weight": "bold",
+                      "size": "md",
+                      "margin": "lg",
+                      "type": "text",
+                      "color": "#FFD700"
+                    },
+                    {
+                      "margin": "sm",
+                      "layout": "vertical",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418233",
+                          "wrap": true,
+                          "color": "#FFE4E1",
+                          "type": "text",
+                          "size": "sm"
+                        },
+                        {
+                          "size": "sm",
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "text": "🆔 รหัสวิชา: 01418236",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "text": "🏷️ ชื่อวิชา: ระบบปฏิบัติการ (Operating Systems)",
+                          "wrap": true,
+                          "size": "sm",
+                          "weight": "bold"
+                        },
+                        {
+                          "type": "text",
+                          "wrap": true,
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ ",
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "weight": "bold"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "type": "text",
+                          "text": "🎯 หน่วยกิต: 3"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับสถาปัตยกรรมคอมพิวเตอร์และระบบปฏิบัติการ ครอบคลุมโครงสร้างระบบปฏิบัติการ กระบวนการและสายโยงใย การจัดกำหนดการ การจัดการการติดตาย การจัดการหน่วยความจำทั้งจริงและเสมือน การจัดการระบบแฟ้ม ระบบรับเข้า/ส่งออก รวมถึงความมั่นคงและการป้องกันของระบบ"
+                        }
+                      ],
+                      "spacing": "sm"
+                    }
+                  ],
+                  "layout": "vertical",
+                  "type": "box"
+                },
+                "size": "mega",
+                "type": "bubble"
+              },
+              "type": "flex",
+              "altText": "แนะนำรายวิชา"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

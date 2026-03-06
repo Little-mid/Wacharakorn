@@ -1,0 +1,151 @@
+{
+  "id": "b6e1e6f8-f8f2-4a0a-90ec-22064d2b5ebb",
+  "name": "วิชา 01418473",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "01418473-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "altText": "แนะนำรายวิชา",
+              "contents": {
+                "styles": {
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  },
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  }
+                },
+                "size": "mega",
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "color": "#FFFFFF",
+                      "type": "text",
+                      "size": "xl",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "align": "center",
+                      "weight": "bold"
+                    },
+                    {
+                      "color": "#FFFFFF",
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "color": "#FFD700",
+                      "weight": "bold",
+                      "margin": "lg",
+                      "size": "md",
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "type": "text"
+                    },
+                    {
+                      "contents": [
+                        {
+                          "color": "#FFE4E1",
+                          "type": "text",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: 01418321",
+                          "size": "sm",
+                          "wrap": true
+                        },
+                        {
+                          "weight": "bold",
+                          "size": "sm",
+                          "wrap": true,
+                          "text": "🆔 รหัสวิชา: 01418473",
+                          "type": "text",
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "weight": "bold",
+                          "text": "🏷️ ชื่อวิชา: การควบคุมและการตรวจสอบงานคอมพิวเตอร์ (Computer Control and Audit)",
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "weight": "bold",
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "wrap": true,
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะเลือก "
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "wrap": true,
+                          "text": "🎯 หน่วยกิต: 3",
+                          "size": "sm"
+                        },
+                        {
+                          "size": "sm",
+                          "wrap": true,
+                          "color": "#FFFFFF",
+                          "text": "📖 เนื้อหา: วิชานี้เรียนเกี่ยวกับแนวคิดการตรวจสอบงานคอมพิวเตอร์ ครอบคลุมสภาวะแวดล้อมการตรวจสอบ การควบคุมเบื้องต้น การควบคุมบริหาร การควบคุมการดำเนินงาน การควบคุมเอกสาร ความมั่นคง การวิเคราะห์ต้นทุน-ประสิทธิผล และเทคนิคการตรวจสอบงานคอมพิวเตอร์",
+                          "type": "text"
+                        }
+                      ],
+                      "layout": "vertical",
+                      "margin": "sm",
+                      "spacing": "sm",
+                      "type": "box"
+                    }
+                  ]
+                }
+              },
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "type": "message",
+                      "text": "ค้นหารายวิชาอื่นๆ"
+                    }
+                  }
+                ]
+              },
+              "type": "flex"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

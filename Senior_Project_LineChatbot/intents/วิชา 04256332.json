@@ -1,0 +1,151 @@
+{
+  "id": "e2c85b51-1d35-46df-9fe1-a610e6dab1c5",
+  "name": "วิชา 04256332",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "04256332-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "type": "message",
+                      "label": "🔍 ค้นหารายวิชาอื่นๆ",
+                      "text": "ค้นหารายวิชาอื่นๆ"
+                    },
+                    "type": "action"
+                  }
+                ]
+              },
+              "type": "flex",
+              "altText": "แนะนำรายวิชา",
+              "contents": {
+                "styles": {
+                  "header": {
+                    "backgroundColor": "#004aad"
+                  },
+                  "body": {
+                    "backgroundColor": "#4c5e88"
+                  }
+                },
+                "size": "mega",
+                "body": {
+                  "contents": [
+                    {
+                      "size": "xl",
+                      "type": "text",
+                      "text": "📚 แนะนำรายวิชา 🤖",
+                      "weight": "bold",
+                      "align": "center",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator",
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "text": "📝 รายละเอียดรายวิชา",
+                      "size": "md",
+                      "color": "#FFD700",
+                      "margin": "lg",
+                      "weight": "bold",
+                      "type": "text"
+                    },
+                    {
+                      "layout": "vertical",
+                      "type": "box",
+                      "contents": [
+                        {
+                          "color": "#FFE4E1",
+                          "type": "text",
+                          "text": "📌 วิชาที่ต้องเรียนมาก่อน: ไม่มี",
+                          "wrap": true,
+                          "size": "sm"
+                        },
+                        {
+                          "color": "#FFFFFF",
+                          "type": "text",
+                          "weight": "bold",
+                          "wrap": true,
+                          "text": "🆔 รหัสวิชา: 04256332",
+                          "size": "sm"
+                        },
+                        {
+                          "text": "🏷️ ชื่อวิชา: การบริหารโครงการและสตาร์ทอัพดิจิทัล (Project Management and Digital Startup)",
+                          "type": "text",
+                          "size": "sm",
+                          "weight": "bold",
+                          "color": "#FFFFFF",
+                          "wrap": true
+                        },
+                        {
+                          "text": "🧠 หมวดวิชา: เฉพาะ วิชาเฉพาะบังคับ",
+                          "wrap": true,
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#FFFFFF",
+                          "weight": "bold"
+                        },
+                        {
+                          "text": "🎯 หน่วยกิต: 3",
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true,
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "text": "📖 เนื้อหา: วัฏจักรโครงการ กำหนดเวลา จัดองค์กรและค่าใช้จ่าย ควบคุมและประเมินความก้าวหน้า จัดการขอบเขต คุณภาพ ความเสี่ยง การสื่อสารและทรัพยากรบุคคล รวมถึงสตาร์ทอัพ การคิดเชิงออกแบบ และตัวแบบธุรกิจ",
+                          "wrap": true,
+                          "size": "sm",
+                          "color": "#FFFFFF",
+                          "type": "text"
+                        }
+                      ],
+                      "margin": "sm",
+                      "spacing": "sm"
+                    }
+                  ],
+                  "layout": "vertical",
+                  "type": "box"
+                },
+                "type": "bubble"
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

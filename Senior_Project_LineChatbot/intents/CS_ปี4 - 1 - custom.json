@@ -1,0 +1,198 @@
+{
+  "id": "c4332d24-ed1c-463e-baee-1a68840c698a",
+  "parentId": "bab70935-de23-4e7d-953d-6fccf975316c",
+  "rootParentId": "bab70935-de23-4e7d-953d-6fccf975316c",
+  "name": "CS_ปี4 - 1 - custom",
+  "auto": true,
+  "contexts": [
+    "CS_4-custom-followup",
+    "CS_4-1-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "CS_4-1.CS_4-1-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "quickReply": {
+                "items": [
+                  {
+                    "action": {
+                      "type": "message",
+                      "text": "แผนการเรียนอื่นๆ",
+                      "label": "แผนการเรียนอื่นๆ📚"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "type": "action",
+                    "action": {
+                      "type": "message",
+                      "label": "ภาคปลาย 📗",
+                      "text": "รายละเอียดรายวิชาCs ปี4 เทอม2"
+                    }
+                  }
+                ]
+              },
+              "type": "flex",
+              "contents": {
+                "body": {
+                  "contents": [
+                    {
+                      "type": "box",
+                      "contents": [
+                        {
+                          "weight": "bold",
+                          "size": "lg",
+                          "type": "text",
+                          "color": "#333333",
+                          "text": "✍️ รายละเอียดรายวิชา"
+                        },
+                        {
+                          "type": "text",
+                          "size": "md",
+                          "color": "#333333",
+                          "margin": "sm",
+                          "text": "🖥️ สาขาวิทยาการคอมพิวเตอร์"
+                        },
+                        {
+                          "type": "text",
+                          "size": "md",
+                          "color": "#333333",
+                          "margin": "sm",
+                          "text": "       ปี 4 ภาคต้น",
+                          "weight": "bold"
+                        }
+                      ],
+                      "cornerRadius": "lg",
+                      "layout": "vertical",
+                      "paddingAll": "md",
+                      "backgroundColor": "#CCFFCC"
+                    },
+                    {
+                      "type": "separator",
+                      "margin": "md"
+                    },
+                    {
+                      "margin": "md",
+                      "contents": [
+                        {
+                          "type": "box",
+                          "contents": [
+                            {
+                              "weight": "bold",
+                              "color": "#CC0000",
+                              "size": "sm",
+                              "wrap": true,
+                              "type": "text",
+                              "text": "⚠วิชาที่ต้องเรียนมาก่อน : 01418321"
+                            },
+                            {
+                              "weight": "bold",
+                              "wrap": true,
+                              "type": "text",
+                              "size": "sm",
+                              "text": "01418499 โครงงานวิทยาการคอมพิวเตอร์"
+                            },
+                            {
+                              "wrap": true,
+                              "type": "text",
+                              "margin": "sm",
+                              "size": "sm",
+                              "text": "📌 3 หน่วยกิต\n✏️ หมวดวิชาเฉพาะ วิชาเฉพาะบังคับ\n📖 วิชานี้เกี่ยวกับโครงงานที่น่าสนใจในแขนงต่างๆ ของวิทยาการคอมพิวเตอร์ เพื่อให้ผู้เรียนได้ฝึกปฏิบัติและประยุกต์ความรู้ในสาขาที่เรียนมา"
+                            }
+                          ],
+                          "backgroundColor": "#F9FBFF",
+                          "layout": "vertical"
+                        },
+                        {
+                          "backgroundColor": "#F9FBFF",
+                          "contents": [
+                            {
+                              "size": "sm",
+                              "weight": "bold",
+                              "type": "text",
+                              "wrap": true,
+                              "text": "วิชาเฉพาะเลือก"
+                            },
+                            {
+                              "type": "text",
+                              "margin": "sm",
+                              "text": "📌 3 หน่วยกิต",
+                              "size": "sm",
+                              "wrap": true
+                            }
+                          ],
+                          "layout": "vertical",
+                          "type": "box"
+                        },
+                        {
+                          "contents": [
+                            {
+                              "size": "sm",
+                              "wrap": true,
+                              "type": "text",
+                              "text": "วิชาเลือกเสรี",
+                              "weight": "bold"
+                            },
+                            {
+                              "margin": "sm",
+                              "wrap": true,
+                              "size": "sm",
+                              "type": "text",
+                              "text": "📌 3 หน่วยกิต\n❗ กลุ่มวิชาเลือกเสรีสามารถเลือกได้ทุกรายวิชาที่เปิดทั้งภาคต้นและภาคปลายของแต่ละปีการศึกษา"
+                            }
+                          ],
+                          "layout": "vertical",
+                          "type": "box",
+                          "backgroundColor": "#F9FBFF"
+                        }
+                      ],
+                      "spacing": "md",
+                      "type": "box",
+                      "layout": "vertical"
+                    }
+                  ],
+                  "layout": "vertical",
+                  "type": "box"
+                },
+                "type": "bubble",
+                "size": "mega"
+              },
+              "altText": "รายละเอียดรายวิชา ปี 4 ภาคต้น"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

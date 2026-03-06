@@ -1,0 +1,119 @@
+[
+  {
+    "id": "2c7903cb-a9ee-4789-9402-dd68bb3f8cc5",
+    "data": [
+      {
+        "text": "ไม่ใช่",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "185aeb1d-0789-4474-8eb0-a66ba2ab509e",
+    "data": [
+      {
+        "text": "ฉันไม่เห็นด้วย",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "2899e3f5-a0a3-486e-9c7c-0305dc896e02",
+    "data": [
+      {
+        "text": "ฉันไม่อยากทำ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "99ee4e58-ccc7-49fd-816b-7599fd7b341d",
+    "data": [
+      {
+        "text": "ไม่เอา",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "e7fe85ed-ea29-4bf0-8417-86185885f55e",
+    "data": [
+      {
+        "text": "ไม่",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "57c18f0c-8a8d-41cf-882f-6fa18fda3163",
+    "data": [
+      {
+        "text": "ไม่สนใจ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "b94a0a45-b654-488f-8f1b-f67cf1cb5ee7",
+    "data": [
+      {
+        "text": "ไม่เอานะ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "efe83fad-c5bc-4c06-acab-41d55db7f3fe",
+    "data": [
+      {
+        "text": "ไม่ล่ะ ขอบคุณ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  },
+  {
+    "id": "71c1bc5f-50bb-432b-b6be-10066b70c9b2",
+    "data": [
+      {
+        "text": "ไม่ทำนะ",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "th",
+    "updated": 0
+  }
+]

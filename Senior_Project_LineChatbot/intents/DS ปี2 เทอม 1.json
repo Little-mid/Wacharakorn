@@ -1,0 +1,195 @@
+{
+  "id": "13b6b863-c907-4e92-873a-c23deafb20af",
+  "parentId": "a1a1d683-c572-4aa8-92ff-593638bb3515",
+  "rootParentId": "4461e597-4962-4561-a81e-33634d796c54",
+  "name": "DS ปี2 เทอม 1",
+  "auto": true,
+  "contexts": [
+    "_DS_2-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": ".-yes.-yes-custom-3._1-custom._DS_2-custom-2",
+      "affectedContexts": [
+        {
+          "name": "DS21-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "line",
+          "title": "",
+          "payload": {
+            "line": {
+              "contents": {
+                "body": {
+                  "contents": [
+                    {
+                      "paddingAll": "md",
+                      "type": "box",
+                      "cornerRadius": "lg",
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "color": "#333333",
+                          "size": "lg",
+                          "text": "📙 แผนการเรียน ปี 2 ภาคต้น",
+                          "weight": "bold",
+                          "type": "text"
+                        },
+                        {
+                          "type": "text",
+                          "color": "#333333",
+                          "size": "md",
+                          "margin": "sm",
+                          "text": "📊 สาขาวิทยาการข้อมูล"
+                        }
+                      ],
+                      "backgroundColor": "#FFCC99"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "margin": "md",
+                      "color": "#333333",
+                      "text": "🔴 รายวิชาที่ต้องลงเรียน",
+                      "size": "md",
+                      "type": "text",
+                      "weight": "bold"
+                    },
+                    {
+                      "spacing": "sm",
+                      "contents": [
+                        {
+                          "color": "#000000",
+                          "wrap": true,
+                          "size": "sm",
+                          "type": "text",
+                          "text": "1.ความรู้เกี่ยวกับการประกันภัย 🛡️\n(General Principles of Insurance)"
+                        },
+                        {
+                          "color": "#000000",
+                          "text": "2.การวิเคราะห์ข้อมูลด้วยโปรแกรมตารางทำการสำหรับนักวิทยาการข้อมูล \n(Data Analytics Using Spreadsheet Program for Data Scientists)📈",
+                          "size": "sm",
+                          "wrap": true,
+                          "type": "text"
+                        },
+                        {
+                          "color": "#000000",
+                          "text": "3.การเตรียมข้อมูล (Data Preparation) 🗂️",
+                          "size": "sm",
+                          "type": "text",
+                          "wrap": true
+                        },
+                        {
+                          "color": "#000000",
+                          "type": "text",
+                          "size": "sm",
+                          "wrap": true,
+                          "text": "4.วิชาภาษาต่างประเทศ 1 ภาษา 🌐"
+                        },
+                        {
+                          "size": "sm",
+                          "color": "#000000",
+                          "type": "text",
+                          "wrap": true,
+                          "text": "5.วิชาภาษาไทย ✍️"
+                        },
+                        {
+                          "wrap": true,
+                          "text": "6.วิชาศึกษาทั่วไปกลุ่มสาระศาสตร์แห่งผู้ประกอบการ 💡",
+                          "size": "sm",
+                          "type": "text",
+                          "color": "#000000"
+                        }
+                      ],
+                      "type": "box",
+                      "margin": "sm",
+                      "layout": "vertical"
+                    },
+                    {
+                      "margin": "md",
+                      "type": "separator"
+                    },
+                    {
+                      "backgroundColor": "#FFF4E5",
+                      "cornerRadius": "lg",
+                      "type": "box",
+                      "margin": "md",
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "text": "📌 หน่วยกิตรวม: 18 หน่วยกิต",
+                          "size": "md",
+                          "weight": "bold",
+                          "color": "#FF4500",
+                          "type": "text"
+                        }
+                      ],
+                      "paddingAll": "md"
+                    }
+                  ],
+                  "type": "box",
+                  "layout": "vertical"
+                },
+                "type": "bubble",
+                "size": "mega"
+              },
+              "type": "flex",
+              "altText": "📙 แผนการเรียน ปี 2 ภาคต้น",
+              "quickReply": {
+                "items": [
+                  {
+                    "type": "action",
+                    "action": {
+                      "label": "แผนการเรียนอื่นๆ📚",
+                      "text": "แผนการเรียนอื่นๆ",
+                      "type": "message"
+                    }
+                  },
+                  {
+                    "action": {
+                      "text": "Ds ปี 2 เทอม 2",
+                      "type": "message",
+                      "label": "ภาคปลาย 📙"
+                    },
+                    "type": "action"
+                  },
+                  {
+                    "action": {
+                      "label": "รายละเอียดรายวิชาℹ️",
+                      "type": "message",
+                      "text": "รายละเอียดรายวิชา"
+                    },
+                    "type": "action"
+                  }
+                ]
+              }
+            }
+          },
+          "textToSpeech": "",
+          "lang": "th",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "line": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
