@@ -43,7 +43,7 @@ const wacharakorn = {
   school  : "Kasetsart University — Chalermphrakiat Sakon Nakhon Province Campus",
   faculty : "Faculty of Science and Engineering",
   skills  : ["React Native (studied)", "AI Image Processing", "NLP"],
-  intern  : "Kumphawapi Hospital · Web Developer · 4 months",
+  intern  : "Kumphawapi Hospital · IT Support & Web Developer · 4 months",
   contact : "wacharakorn8247@gmail.com",
 };
 ```
