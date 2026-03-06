@@ -21,7 +21,7 @@ const wacharakorn = {
   name    : "Wacharakorn Krueanet",
   age     : 22,
   degree  : "B.Sc. Computer Science",
-  school  : "Kasetsart University — Kamphaeng Saen Campus",
+  school  : "Kasetsart University — chalermphrakiat sakon nakhon province campus",
   faculty : "Faculty of Science and Engineering",
   intern  : "Kumphawapi Hospital · Web Developer · 4 months",
   contact : "wacharakorn8247@gmail.com",
