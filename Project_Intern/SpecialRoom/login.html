@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ระบบจองห้องพิเศษ | โรงพยาบาลกุมภวาปี</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="login.css" />
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+  <main class="shell">
+    <div class="layout">
+
+      <section class="hero">
+        <div class="pill">
+          <i class="fa-regular fa-hospital"></i>
+          <span>ระบบสารสนเทศโรงพยาบาลกุมภวาปี</span>
+        </div>
+
+        <h1 class="hero-title">
+          ระบบจองเตียงผู้ป่วย<br>
+          <span class="hero-accent">ห้องพิเศษทั้งหมด</span>
+        </h1>
+
+        <p class="hero-sub">
+          ช่วยให้แพทย์พยาบาลบริหารเตียงได้รวดเร็ว แม่นยำ และปลอดภัยยิ่งขึ้น
+        </p>
+
+        <div class="hero-chips">
+          <div class="chip"><i class="fa-solid fa-shield-heart"></i> มาตรฐานความปลอดภัย</div>
+          <div class="chip"><i class="fa-solid fa-bolt"></i> อัปเดตแบบ Real-Time</div>
+        </div>
+
+        <div class="hero-card">
+          <div class="check"><i class="fa-solid fa-circle-check"></i>
+            <span>จัดสรรเตียงตามความเร่งด่วนอย่างถูกต้อง</span>
+          </div>
+          <div class="check"><i class="fa-solid fa-circle-check"></i> <span>เช็กสถานะเตียงได้ตลอด 24 ชั่วโมง</span>
+          </div>
+          <div class="check"><i class="fa-solid fa-circle-check"></i> <span>เร่งกระบวนการรับผู้ป่วยให้เร็วขึ้น</span>
+          </div>
+        </div>
+
+        <div class="mini-stats">
+          <div class="mini">
+            <div class="mini-label">จำนวนเตียงทั้งหมด</div>
+            <div class="mini-value"><span>20</span> เตียง</div>
+          </div>
+          <div class="mini">
+            <div class="mini-label">เตียงว่าง</div>
+            <div class="mini-value"><span>15</span> เตียง</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel-stack">
+
+        <div id="viewChoose" class="view-container">
+          <a href="index.html" class="btn-back-top"><i class="fa-solid fa-arrow-left"></i> ย้อนกลับหน้าหลัก</a>
+
+          <div class="main-card">
+            <div class="logo-ring">
+              <div class="logo-core">K</div>
+            </div>
+            <div class="hos-info">
+              <div class="th">โรงพยาบาลกุมภวาปี</div>
+              <div class="en">Kumpawapi Hospital</div>
+            </div>
+            <h2 style="margin:0; font-size: 1.5rem;">ระบบจองเตียงผู้ป่วย</h2>
+            <div class="panel-hint">✦ เลือกประเภทผู้ใช้งานเพื่อเข้าสู่ระบบ ✦</div>
+          </div>
+
+          <div class="role-grid">
+            <button class="role-card-btn" onclick="showLogin('admin')">
+              <div class="role-icon-box bg-blue"><i class="fa-solid fa-user-shield"></i></div>
+              <div>
+                <div class="role-name">ผู้ดูแลระบบ</div>
+                <div class="role-sub-text">Administrator</div>
+              </div>
+            </button>
+
+            <button class="role-card-btn" onclick="showLogin('staff')">
+              <div class="role-icon-box bg-teal"><i class="fa-solid fa-user-nurse"></i></div>
+              <div>
+                <div class="role-name">พยาบาล / เจ้าหน้าที่</div>
+                <div class="role-sub-text">Nurse / Staff</div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div id="viewLogin" class="view-container is-active">
+          <a href="javascript:void(0)" class="btn-back-top" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i>
+            กลับไปหน้าเลือกประเภท</a>
+
+          <div class="login-card">
+            <h2 id="loginTitle" style="margin-top:0; color: var(--primary-blue);">เข้าสู่ระบบ</h2>
+            <p id="loginSub" style="color: var(--text-muted); margin-bottom: 30px;">กรุณาระบุข้อมูลเพื่อยืนยันตัวตน</p>
+
+            <form id="loginForm" action="login_process.php" method="POST" novalidate>
+              <input type="hidden" name="role" id="loginRole" value="staff">
+              <div class="form-group">
+                <label>ชื่อผู้ใช้งาน</label>
+                <input name="email" type="text" class="input-box" placeholder="Username" required>
+              </div>
+              <div class="form-group">
+                <label>รหัสผ่าน</label>
+                <input name="password" type="password" class="input-box" placeholder="••••••••" required>
+              </div>
+              <button type="submit" id="submitBtn" class="btn-submit bg-blue">เข้าสู่ระบบ</button>
+            </form>
+            <script>
+              (function () {
+                const form = document.getElementById('loginForm');
+                form.addEventListener('submit', async (e) => {
+                  e.preventDefault();
+                  const btn = document.getElementById('submitBtn');
+                  btn.disabled = true;
+                  try {
+                    const fd = new FormData(form);
+                    const res = await fetch(form.action, { method: 'POST', body: fd, credentials: 'same-origin' });
+                    const text = await res.text();
+                    let json;
+                    try { json = JSON.parse(text); } catch (err) { throw new Error('Invalid server response'); }
+                    if (json && json.success) {
+                      // store local identity per-tab to avoid being overwritten by other tab logins
+                      try {
+                        const roleVal = (json.role || '').toString().trim().toLowerCase();
+                        const emailVal = fd.get('email') ? String(fd.get('email')) : (json.email || '');
+                        sessionStorage.setItem('icu_local_user_email', emailVal || '');
+                        sessionStorage.setItem('icu_local_user_fullname', json.fullname || '');
+                        sessionStorage.setItem('icu_local_user_role', roleVal || (json.role || ''));
+                        // accept either auth_token or token
+                        const serverToken = (json.token || json.auth_token || json.authToken || '');
+                        if (serverToken) sessionStorage.setItem('auth_token', serverToken);
+                      } catch (e) { /* ignore */ }
+
+                      // redirect based on server role/redirect (do not trust UI role field)
+                      const serverRole = (json.role || '').toString().trim().toLowerCase();
+                      let dest = json.redirect || '';
+                      if (!dest) {
+                        // fallback mapping (keep old behavior)
+                        if (serverRole === 'staff') dest = 'nurse_reserve.html';
+                        else if (serverRole === 'super_admin') dest = 'permissions.html';
+                        else dest = 'bed_reservation.html';
+                      }
+                      window.location.replace(dest);
+                      return;
+
+                    } else {
+                      // show server message if available using SweetAlert2 if present
+                      const msg = json?.message || 'อีเมลหรือรหัสผ่านไม่ถูกต้อง';
+                      if (window.Swal) {
+                        Swal.fire({ icon: 'error', title: 'ล็อกอินไม่สำเร็จ', text: msg, confirmButtonText: 'ตกลง' });
+                      } else {
+                        alert(msg);
+                      }
+                    }
+                  } catch (err) {
+                    console.error(err);
+                    const msg = 'เกิดข้อผิดพลาดการเชื่อมต่อ';
+                    if (window.Swal) {
+                      Swal.fire({ icon: 'error', title: 'ข้อผิดพลาด', text: msg, confirmButtonText: 'ตกลง' });
+                    } else {
+                      alert(msg);
+                    }
+                  } finally {
+                    btn.disabled = false;
+                  }
+                });
+              })();
+            </script>
+          </div>
+
+          <div class="copyright">
+            © 2024 โรงพยาบาลกุมภวาปี - ระบบจัดการเตียงห้องพิเศษ
+          </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    // Unified single-form login (no role selection UI)
+    // Keep function names so existing onclick handlers won't break.
+    function showLogin() {
+      const choose = document.getElementById('viewChoose');
+      const login = document.getElementById('viewLogin');
+      if (choose) choose.classList.remove('is-active');
+      if (login) login.classList.add('is-active');
+
+      // Do NOT force role from UI; let server resolve role from DB/hosxp.
+      const roleField = document.getElementById('loginRole');
+      if (roleField) roleField.value = 'staff'; // safe default if server cannot resolve
+    }
+
+    function goBack() {
+      // Optional: keep for compatibility, but we hide back button in unified mode.
+      const choose = document.getElementById('viewChoose');
+      const login = document.getElementById('viewLogin');
+      if (login) login.classList.remove('is-active');
+      if (choose) choose.classList.add('is-active');
+    }
+
+    // Auto-open the unified login form
+    document.addEventListener('DOMContentLoaded', function () {
+      try {
+        showLogin();
+        const backBtn = document.querySelector('.btn-back-top');
+        if (backBtn) backBtn.style.display = 'none';
+      } catch (e) { }
+    });
+  </script>
+
+  <script>
+    // Single-form login mode: no role selection
+    function showLogin() {
+      const choose = document.getElementById('viewChoose');
+      const login = document.getElementById('viewLogin');
+      if (choose) choose.classList.remove('is-active');
+      if (login) login.classList.add('is-active');
+      // keep hidden role field for backward compatibility, but server will ignore it
+      const roleField = document.getElementById('loginRole');
+      if (roleField) roleField.value = '';
+    }
+
+    function goBack() {
+      // keep compatibility if any old button calls it; go back to index
+      window.location.href = 'index.html';
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      try { showLogin(); } catch (e) { }
+    });
+  </script>
+
+</body>
+
+</html>

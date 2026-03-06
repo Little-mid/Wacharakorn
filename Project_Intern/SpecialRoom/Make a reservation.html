@@ -1,0 +1,2621 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ระบบจัดการจองคิว | โรงพยาบาลสุขภาพดี</title>
+
+    <!-- Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- SweetAlert2 + CSS -->
+    <link rel="stylesheet" href="Make a reservation.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- NEW: shared top navigation -->
+    <nav class="top-menu" aria-label="เมนูหลัก">
+        <div class="inner">
+            <a class="tab" href="bed_reservation.html">หน้าจองเตียง</a>
+            <a class="tab active" href="Make a reservation.html">จัดการคิว</a>
+            <a class="tab" href="Cancellation history.html">ประวัติคิว</a>
+            <!-- <a class="tab" href="permissions.html" id="permissionsTab" style="display:none;">
+                จัดการสิทธิ
+            </a> -->
+        </div>
+    </nav>
+    <script>
+        function forceLogoutImmediate() {
+            try { fetch('logout.php', { method: 'POST', credentials: 'same-origin' }).catch(() => { }); } catch (e) { }
+            ['auth_token', 'icu_local_user_email', 'icu_local_user_fullname', 'icu_local_user_role', 'icu_selected_request', 'icu_selected_request_id'].forEach(k => { try { sessionStorage.removeItem(k); } catch (e) { } });
+            location.href = 'login.html';
+        }
+
+        // Immediate auth check: allow `admin` only for this page
+        (async function enforceAdminOnly() {
+            try {
+                // prefer token stored in sessionStorage (set at login) if present
+                const token = (sessionStorage.getItem('auth_token') || sessionStorage.getItem('icu_auth_token') || sessionStorage.getItem('authToken') || '');
+                let resp;
+                if (token) {
+                    resp = await fetch('get_user_info.php', { headers: { 'Authorization': 'Bearer ' + token } });
+                } else {
+                    resp = await fetch('get_user_info.php', { credentials: 'same-origin' });
+                }
+                const j = await resp.json();
+                if (j && j.timed_out) { forceLogoutImmediate(); return; }
+                if (!j || !j.success || !j.role) {
+                    await Swal.fire({ icon: 'warning', title: 'กรุณาเข้าสู่ระบบ', text: 'กรุณาเข้าสู่ระบบเพื่อเข้าถึงหน้านี้', confirmButtonText: 'ตกลง' });
+                    location.href = 'login.html';
+                    return;
+                }
+                if (j && j.timed_out) {
+                    await Swal.fire({ icon: 'warning', title: 'หมดเวลาเซสชัน', text: 'เซสชันการใช้งานหมดเวลา กรุณาเข้าสู่ระบบใหม่', confirmButtonText: 'ตกลง' });
+                    location.href = 'login.html';
+                    return;
+                }
+                const role = (j.role || '').toLowerCase();
+                if (role !== 'admin' && role !== 'super_admin') {
+                    await Swal.fire({ icon: 'error', title: 'ปฏิเสธการเข้าใช้งาน', text: 'คุณไม่มีสิทธิ์เข้าถึงหน้านี้', confirmButtonText: 'กลับสู่หน้าหลัก' });
+                    location.href = 'bed_reservation.html';
+                    return;
+                }
+                // const permissionsTab = document.getElementById('permissionsTab');
+                // if (permissionsTab && role === 'super_admin') {
+                //   permissionsTab.style.display = 'inline-block';
+                // }
+
+            } catch (e) {
+                console.error(e);
+                await Swal.fire({ icon: 'error', title: 'เกิดข้อผิดพลาด', text: 'ไม่สามารถตรวจสอบสิทธิ์ได้', confirmButtonText: 'ไปที่หน้าเข้าสู่ระบบ' });
+                location.href = 'login.html';
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+
+        <!-- HEADER -->
+        <section class="header-card">
+            <div class="header-left">
+                <div class="header-icon">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                </div>
+
+                <div class="header-title">
+                    <h1>
+                        ระบบจัดการจองคิว
+                        <span class="header-tag">
+                            <i class="fa-solid fa-hospital"></i>
+                        </span>
+                    </h1>
+                    <div class="header-sub">
+                        โรงพยาบาลกุมภวาปี<br>
+                        <small>
+                            <i class="fa-solid fa-heart-circle-check"></i>
+                            ลดเวลารอหน้าเคาน์เตอร์ · เพิ่มความพึงพอใจผู้ป่วย
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="status-badge status-active">
+                    <span class="pulse"></span>
+                    <span id="systemStatus">ระบบออนไลน์</span>
+                    <span class="divider-dot">•</span>
+                    <span id="currentUser">ผู้ใช้งาน</span>
+
+                    <!-- ปุ่มออกจากระบบ -->
+                    <button id="logoutBtn" class="btn-secondary" title="ออกจากระบบ" style="margin-left:10px;">
+                        <i class="fa-solid fa-right-from-bracket"></i>&nbsp;<span
+                            style="font-weight:700;font-size:12px;">ออกจากระบบ</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUMMARY CARDS -->
+        <section class="summary-row" style="margin-bottom: 10px; grid-template-columns: repeat(2, minmax(0, 1fr));">
+            <div class="summary-card">
+                <div class="summary-top">
+                    <span>
+                        <span class="summary-bullet" style="background:#fbbf24"></span>
+                        <span style="color:#b58100;font-weight:700;">รอดำเนินการ</span>
+                    </span>
+                    <i class="fa-solid fa-clock-rotate-left summary-icon" style="color:#fbbf24"></i>
+                </div>
+                <div class="summary-value" id="summaryPending" style="color:#b58100;">0</div>
+                <div class="summary-caption" style="color:#b58100;">รายการ</div>
+                <hr style="margin:10px 0 8px 0; border:none; border-top:1px solid #e6eef6;">
+                <div style="display:flex;gap:18px;align-items:center;">
+                    <span style="display:flex;align-items:center;gap:6px;">
+                        <i class="fa-solid fa-calendar-day"
+                            style="color:#b58100;background:#fae8b9;padding:4px 6px;border-radius:8px;"></i>
+                        วันนี้ <span id="summaryPendingToday" style="font-weight:700;">0</span>
+                    </span>
+                    <span style="display:flex;align-items:center;gap:6px;">
+                        <i class="fa-solid fa-chart-line"
+                            style="color:#b58100;background:#fae8b9;padding:4px 6px;border-radius:8px;"></i>
+                        ทั้งหมด <span id="summaryPendingTotal" style="font-weight:700;">0</span>
+                    </span>
+                </div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-top">
+                    <span>
+                        <span class="summary-bullet green"></span>
+                        <span style="color:#178a3d;font-weight:700;">ยืนยันแล้ว</span>
+                    </span>
+                    <i class="fa-solid fa-user-check summary-icon" style="color:#22c55e"></i>
+                </div>
+                <div class="summary-value" id="summaryConfirmed" style="color:#178a3d;">0</div>
+                <div class="summary-caption" style="color:#178a3d;">รายการ</div>
+                <hr style="margin:10px 0 8px 0; border:none; border-top:1px solid #e6eef6;">
+                <div style="display:flex;gap:18px;align-items:center;">
+                    <span style="display:flex;align-items:center;gap:6px;">
+                        <i class="fa-solid fa-calendar-day"
+                            style="color:#22c55e;background:#e5f9f0;padding:4px 6px;border-radius:8px;"></i>
+                        วันนี้ <span id="summaryConfirmedToday" style="font-weight:700;">0</span>
+                    </span>
+                    <span style="display:flex;align-items:center;gap:6px;">
+                        <i class="fa-solid fa-chart-line"
+                            style="color:#22c55e;background:#e5f9f0;padding:4px 6px;border-radius:8px;"></i>
+                        ทั้งหมด <span id="summaryConfirmedTotal" style="font-weight:700;">0</span>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEARCH BAR -->
+        <section class="search-card">
+            <div class="search-row">
+                <div class="search-input-wrap">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input id="searchInput" list="searchSuggestions" type="text" autocomplete="off"
+                        placeholder="ค้นหา HN, ชื่อ-นามสกุล, เบอร์โทรศัพท์..." />
+                    <datalist id="searchSuggestions"></datalist>
+                </div>
+
+
+                <!-- NEW: Date filter button -->
+                <button class="search-btn" id="dateFilterBtn" title="เลือกวันที่"
+                    style="display:inline-flex;align-items:center;justify-content:center;">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </button>
+            </div>
+        </section>
+
+        <script>
+            // Preserve appointment/walk-in (urgency) when navigating to Cancellation history
+            document.addEventListener('DOMContentLoaded', () => {
+                const btn = document.getElementById('viewCancelsBtn');
+                if (!btn) return;
+                btn.addEventListener('click', (ev) => {
+                    ev.preventDefault();
+                    let urgency = '';
+                    try {
+                        const raw = sessionStorage.getItem('icu_selected_request');
+                        if (raw) {
+                            const obj = JSON.parse(raw);
+                            if (obj && typeof obj.urgency !== 'undefined' && obj.urgency !== null && String(obj.urgency) !== '') {
+                                urgency = String(obj.urgency);
+                            }
+                        }
+                    } catch (e) { /* ignore */ }
+                    let url = 'Cancellation history.html';
+                    if (urgency) url += '?urgency=' + encodeURIComponent(urgency);
+                    window.location.href = url;
+                });
+            });
+        </script>
+
+        <!-- NEW: status filter chips (ใต้ search-row) -->
+        <div id="statusFilters" style="margin-top:10px;display:flex;align-items:center;gap:8px;">
+            <button id="filterAll" class="filter-chip active" data-status="all">ทั้งหมด</button>
+            <button id="filterPending" class="filter-chip" data-status="pending"
+                style="background:#fff7eb;color:#b45309;"><i class="fa-solid fa-circle-check"></i> รอดำเนินการ</button>
+            <button id="filterConfirmed" class="filter-chip" data-status="confirmed"
+                style="background:#e5f9f0;color:#15803d;"><i class="fa-solid fa-circle-check"></i> ยืนยัน</button>
+        </div>
+
+        <!-- NEW: date-panel markup (replace actions row) -->
+        <div id="datePanel" class="date-panel" style="display:none;position:absolute;">
+            <div class="date-panel-header">
+                <div class="date-panel-title">เลือกวันที่</div>
+                <button id="datePanelCloseX" class="date-panel-close" aria-label="ปิด">&times;</button>
+            </div>
+            <div class="date-panel-body">
+                <div class="date-row">
+                    <div class="date-input-wrap">
+                        <input id="selDate" type="date" lang="th-TH" class="sw-input date-input" />
+                        <div id="selDateDisplay" class="date-display">ยังไม่ได้เลือกวันที่</div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button id="dateResetBtn" class="sw-mini-btn">ล้างค่า</button>
+                    <button id="dateSearchBtn" class="sw-btn-primary">ค้นหา</button>
+                    <button id="dateCloseBtn" class="sw-mini-btn">ปิด</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUEUE TABLE -->
+        <section class="queue-card">
+            <div class="queue-header">
+                <div class="queue-header-left">
+                    <i class="fa-solid fa-user-group"></i>
+                    รายการคิวผู้ป่วย
+                </div>
+                <div class="queue-header-right">
+                    <i class="fa-solid fa-list-ul"></i>
+                    ทั้งหมด <span id="queueCount">0</span> รายการ
+                </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <!-- <th>เลขคิว</th> -->
+                        <th>คิว</th>
+                        <th>เลข HN</th>
+                        <th>ชื่อ-นามสกุล</th>
+                        <th>เบอร์โทร</th>
+                        <th>การนัดหมาย/Walk in</th>
+                        <th>เตียงปัจจุบัน</th>
+                        <th>วันที่และเวลา</th>
+                        <th>สถานะการจองเตียง</th>
+                        <th>จัดการ</th>
+                    </tr>
+                </thead>
+                <tbody id="queueTbody">
+                    <!-- rows populated by loadQueue() -->
+                </tbody>
+            </table>
+            <div id="queuePager" style="text-align:center;margin-top:10px;" aria-label="Queue pagination"></div>
+        </section>
+
+        <!-- Patient summary panel (optional) -->
+        <div id="patientPanel"
+            style="display:none;margin:10px 0 12px;padding:12px;border-radius:12px;border:1px solid #e3f2fd;background:#fbfdff;">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
+                <div>
+                    <div style="font-weight:900;font-size:16px;color:#053e62" id="p_name">-</div>
+                    <div id="p_meta" style="color:#4b5563;margin-top:6px">-</div>
+                    <div id="p_ward" style="color:#4b5563;margin-top:4px;font-size:13px">-</div>
+                </div>
+                <div style="text-align:right;color:#0b63c5;font-weight:700" id="p_an">AN: -</div>
+            </div>
+        </div>
+
+
+        <!-- Script 1: ส่วนจัดการ public_request ตาม HN / เตียง -->
+        <script>
+            (function () {
+                const params = new URLSearchParams(window.location.search);
+                let hn = (params.get('hn') || '').replace(/\D/g, '');
+                let phone = (params.get('phone') || '').replace(/\D/g, '');
+
+                const el = id => document.getElementById(id);
+
+                async function askHnPhone(defaultHn = '') {
+                    const { value: formValues } = await Swal.fire({
+                        title: 'กรุณาระบุ HN และเบอร์โทรศัพท์',
+                        html:
+                            `<input id="sw_hn" class="sw-input" placeholder="HN (ตัวเลขเท่านั้น)" value="${defaultHn}"><br>` +
+                            `<input id="sw_phone" class="sw-input" placeholder="เบอร์โทรศัพท์ (ตัวเลือก)" >`,
+                        focusConfirm: false,
+                        showCancelButton: true,
+                        confirmButtonText: 'ส่งคำขอ',
+                        preConfirm: () => {
+                            const vhn = (document.getElementById('sw_hn')?.value || '').replace(/\D/g, '');
+                            const vphone = (document.getElementById('sw_phone')?.value || '').replace(/\D/g, '');
+                            if (!vhn) {
+                                Swal.showValidationMessage('กรุณากรอก HN (ตัวเลขเท่านั้น)');
+                                return false;
+                            }
+                            return { hn: vhn, phone: vphone };
+                        }
+                    });
+                    return formValues || null;
+                }
+
+                // helper authFetch
+                function authFetch(url, opts) {
+                    opts = opts || {};
+                    opts.headers = opts.headers || {};
+                    const token = sessionStorage.getItem('auth_token') || '';
+                    if (token) opts.headers['Authorization'] = 'Bearer ' + token;
+                    return fetch(url, opts);
+                }
+                // show minimal booked patient info if present (set by register_step2 after booking)
+                function showBookedPatientIfAny() {
+                    try {
+                        const hn = sessionStorage.getItem('icu_selected_hn');
+                        const name = sessionStorage.getItem('icu_selected_name');
+                        const phone = sessionStorage.getItem('icu_selected_phone');
+                        const bed = sessionStorage.getItem('icu_selected_bed') || '';
+                        if (hn || name) {
+                            const statusText = sessionStorage.getItem('icu_selected_status') || '';
+                            const urgency = sessionStorage.getItem('icu_selected_urgency') || '';
+                            let displayStatus = statusText;
+                            if (!displayStatus && urgency) {
+                                displayStatus = (String(urgency) === '1') ? '🟢 ผู้ป่วยนัด' : '⚪ ผู้ป่วยไม่ได้นัด';
+                            }
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'จองเตียงเรียบร้อย',
+                                html: `<div style="text-align:left">
+                                <div><strong>HN:</strong> ${hn || '-'}</div>
+                                <div><strong>ชื่อ:</strong> ${name || '-'}</div>
+                                <div><strong>เบอร์โทร:</strong> ${phone || '-'}</div>
+                                ${bed ? `<div><strong>เตียง:</strong> ${bed}</div>` : ''}
+                                ${displayStatus ? `<div style="margin-top:8px;font-weight:700;color:#0a0505;"><strong>สถานะ:</strong> ${displayStatus}</div>` : ''}
+                            </div>`,
+                                confirmButtonText: 'ตกลง'
+                            });
+                            // clear only the booking-related keys (keep other app tab identity)
+                            sessionStorage.removeItem('icu_selected_hn');
+                            sessionStorage.removeItem('icu_selected_name');
+                            sessionStorage.removeItem('icu_selected_phone');
+                            sessionStorage.removeItem('icu_selected_age');
+                            sessionStorage.removeItem('icu_selected_gender');
+                            sessionStorage.removeItem('icu_selected_rights');
+                            sessionStorage.removeItem('icu_selected_request_id');
+                            sessionStorage.removeItem('icu_selected_bed');
+                            sessionStorage.removeItem('icu_selected_request');
+                            sessionStorage.removeItem('icu_selected_status');
+                            sessionStorage.removeItem('icu_selected_urgency');
+                        }
+                    } catch (e) { /* ignore */ }
+                }
+
+                function loadPublicBeds() {
+                    const grid = el('publicBedsGrid');
+                    if (!grid) return;
+                    authFetch('process.php')
+                        .then(r => r.json())
+                        .then(data => {
+                            if (!data || !data.success || !Array.isArray(data.beds)) return;
+                            grid.innerHTML = '';
+                            data.beds.forEach(b => {
+                                const statusClass = (b.status === 'occupied') ? 'bed-occupied' : 'bed-available';
+                                const label = (b.status === 'occupied') ? 'ไม่ว่าง' : 'ว่าง';
+                                const node = document.createElement('div');
+                                node.className = 'bed-item ' + statusClass;
+                                node.setAttribute('data-bed', String(b.bed_number));
+                                node.style.cursor = 'pointer';
+                                node.innerHTML =
+                                    `<div class="bed-content">
+                                    <span class="bed-number">BED ${String(b.bed_number).padStart(2, '0')}</span>
+                                    <i class="bed-icon fa-solid fa-bed-pulse"></i>
+                                    <span class="bed-label">${label}</span>
+                                </div>`;
+                                node.addEventListener('click', async () => {
+                                    if (b.status === 'occupied') {
+                                        Swal.fire({ icon: 'info', title: 'เตียงไม่ว่าง', text: 'เตียงนี้มีผู้ใช้แล้ว' });
+                                        return;
+                                    }
+                                    if (!hn) {
+                                        const v = await askHnPhone('');
+                                        if (!v) return;
+                                        hn = v.hn; phone = v.phone;
+                                    }
+                                    const confirmed = await Swal.fire({
+                                        title: `ขอจองเตียง BED ${String(b.bed_number).padStart(2, '0')}`,
+                                        html:
+                                            `<div style="text-align:left">
+                                            <p><strong>HN:</strong> ${hn}</p>
+                                            <p><strong>เบอร์โทร:</strong> ${phone || '-'}</p>
+                                            <p>ระบบจะส่งคำขอให้เจ้าหน้าที่พิจารณา</p>
+                                         </div>`,
+                                        showCancelButton: true,
+                                        confirmButtonText: 'ส่งคำขอให้โรงพยาบาล',
+                                        cancelButtonText: 'ยกเลิก'
+                                    });
+                                    if (!confirmed.isConfirmed) return;
+
+                                    try {
+                                        const body = new URLSearchParams({
+                                            action: 'public_request',
+                                            hn: hn,
+                                            phone: phone || '',
+                                            bed_number: b.bed_number
+                                        });
+                                        const resp = await fetch('process.php', { method: 'POST', body });
+                                        const j = await resp.json();
+                                        if (j && j.success) {
+                                            Swal.fire({ icon: 'success', title: 'ส่งคำขอเรียบร้อย', text: j.message || '' });
+                                            loadPublicRequests();
+                                            loadPublicBeds();
+                                        } else {
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'ส่งคำขอไม่สำเร็จ',
+                                                text: j?.message || 'ลองใหม่'
+                                            });
+                                        }
+                                    } catch (err) {
+                                        console.error('public_request error', err);
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'เกิดข้อผิดพลาด',
+                                            text: 'ไม่สามารถส่งคำขอได้ในขณะนี้'
+                                        });
+                                    }
+                                });
+                                grid.appendChild(node);
+                            });
+                        })
+                        .catch(err => console.error('loadPublicBeds error', err));
+                }
+
+                async function loadPublicRequests() {
+                    if (!hn) return;
+                    const target = el('publicRequestsListTable');
+                    if (!target) return;
+                    try {
+                        const resp = await fetch('process.php?action=get_public_requests_by_hn&hn=' + encodeURIComponent(hn));
+                        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                        const d = await resp.json();
+                        if (!d || !d.success || !Array.isArray(d.requests) || d.requests.length === 0) {
+                            target.innerHTML = '<div style="color:#6b7280">ยังไม่มีคำขอที่ส่งไป</div>';
+                            return;
+                        }
+
+                        let html =
+                            '<table style="width:100%;border-collapse:collapse">' +
+                            '<thead><tr style="background:#f3f7ff">' +
+                            '<th style="padding:8px;border-bottom:1px solid #e6f0ff">HN</th>' +
+                            '<th style="padding:8px;border-bottom:1px solid #e6f0ff">ชื่อ-นามสกุล</th>' +
+                            '<th style="padding:8px;border-bottom:1px solid #e6f0ff">เบอร์โทร</th>' +
+                            '<th style="padding:8px;border-bottom:1px solid #e6f0ff">การนัดหมาย/Walk in</th>' +
+                            '<th style="padding:8px;border-bottom:1px solid #e6f0ff">วันที่/เวลา</th>' +
+                            '<th style="padding:8px;border-bottom:1px solid #e6f0ff">สถานะการจองเตียง</th>' +
+                            '<th style="padding:8px;border-bottom:1px solid #e6f0ff">จัดการ</th>' +
+                            '</tr></thead><tbody>';
+
+                        d.requests.forEach(r => {
+                            const id = r.id || '';
+                            const hnCell = escapeHtml(r.hn || hn);
+                            const phoneCell = escapeHtml(r.phone || '-');
+                            const dt = escapeHtml(r.created_at || r.updated_at || '-');
+                            // allow override from recently-created public_request stored in sessionStorage
+                            let urgencyVal = (typeof r.urgency !== 'undefined' && r.urgency !== null) ? r.urgency : 4;
+                            try {
+                                const raw = sessionStorage.getItem('icu_selected_request');
+                                if (raw) {
+                                    const stored = JSON.parse(raw);
+                                    if (stored) {
+                                        const storedHn = String(stored.hn || '').replace(/\D/g, '');
+                                        const rowHn = String(r.hn || '').replace(/\D/g, '');
+                                        const storedId = String(stored.id || '');
+                                        const rowId = String(r.id || '');
+                                        if ((storedId && storedId === rowId) || (storedHn && storedHn === rowHn)) {
+                                            urgencyVal = 1; // force appointment
+                                        }
+                                    }
+                                }
+                            } catch (e) { /* ignore parse errors */ }
+                            const urgHtml = renderUrgencyLabel(urgencyVal);
+                            const status = r.status || 'pending';
+
+                            let statusLabel =
+                                '<span style="padding:6px 8px;border-radius:999px;background:#fff7eb;color:#c56a1d">รอดำเนินการ</span>';
+                            if (status === 'confirmed')
+                                statusLabel =
+                                    '<span style="padding:6px 8px;border-radius:999px;background:#e5f9f0;color:#208a4a">ยืนยัน</span>';
+                            if (status === 'done')
+                                statusLabel =
+                                    '<span style="padding:6px 8px;border-radius:999px;background:#eef2ff;color:#1f3faa">สิ้นสุดเคสการรักษา</span>';
+                            if (status === 'canceled')
+                                statusLabel =
+                                    '<span style="padding:6px 8px;border-radius:999px;background:#fff1f2;color:#b91c1c">ยกเลิก</span>';
+
+                            const pnameCell = escapeHtml(r.patient_name || '-');
+
+                            html +=
+                                `<tr data-id="${id}" data-hn="${hnCell}">
+                                <td style="padding:8px;border-bottom:1px solid #f1f6ff">${hnCell}</td>
+                                <td style="padding:8px;border-bottom:1px solid #f1f6ff">
+                                    <span class="pr-name" data-hn="${hnCell}">${pnameCell}</span>
+                                </td>
+                                <td style="padding:8px;border-bottom:1px solid #f1f6ff">${phoneCell}</td>
+                                <td style="padding:8px;border-bottom:1px solid #f1f6ff">${urgHtml}</td>
+                                <td style="padding:8px;border-bottom:1px solid #f1f6ff">${dt}</td>
+                                <td style="padding:8px;border-bottom:1px solid #f1f6ff">${statusLabel}</td>
+                                <td style="padding:8px;border-bottom:1px solid #f1f6ff">
+                                    <button class="sw-mini-btn" data-id="${id}" onclick="openPublicRequestModal(${id})">
+                                        จัดการ
+                                    </button>
+                                </td>
+                            </tr>`;
+                        });
+
+                        html += '</tbody></table>';
+                        target.innerHTML = html;
+
+                        document.querySelectorAll('.pr-name[data-hn]').forEach(async (el) => {
+                            const current = (el.textContent || '').trim();
+                            if (current && current !== '-') return;
+                            const hnVal = (el.getAttribute('data-hn') || '').replace(/\D/g, '');
+                            if (!hnVal) { el.textContent = '-'; return; }
+                            try {
+                                const r = await fetch('get_hosxp_patient_detail.php?hn=' + encodeURIComponent(hnVal));
+                                if (!r.ok) { el.textContent = '-'; return; }
+                                const dd = await r.json();
+                                if (dd && dd.success && dd.data) {
+                                    const name =
+                                        (((dd.data.pname || '') + ' ' + (dd.data.fname || '') + ' ' + (dd.data.lname || '')).trim()) ||
+                                        '-';
+                                    el.textContent = name;
+                                } else {
+                                    el.textContent = '-';
+                                }
+                            } catch (e) {
+                                el.textContent = '-';
+                            }
+                        });
+                    } catch (err) {
+                        console.error('loadPublicRequests error', err);
+                        target.innerHTML = '<div style="color:#6b7280">ไม่สามารถโหลดคำขอได้</div>';
+                    }
+                }
+
+                // === Popup “จัดการคำขอ” จากตาราง publicRequestsListTable ===
+                window.openPublicRequestModal = async function (id) {
+                    if (!id) return Swal.fire({ icon: 'error', title: 'ไม่พบรหัสคำขอ' });
+                    try {
+                        const r = await fetch('process.php?action=get_public_request&id=' + encodeURIComponent(id));
+                        if (!r.ok) throw new Error('HTTP ' + r.status);
+                        const j = await r.json();
+                        if (!j || !j.success || !j.request) {
+                            return Swal.fire({ icon: 'error', title: 'ไม่พบคำขอ' });
+                        }
+                        const req = j.request;
+
+                        let pname = '-';
+                        let p_age = '';
+                        let p_gender = '';
+                        let note = req.note || '';
+
+                        // ดึงอายุ/เพศจาก note ถ้ามีหน้าตาประมาณ "อายุ: xx เพศ: yy | ..."
+                        if (note) {
+                            const m = note.match(/อายุ:\s*([^\s|]+).*?เพศ:\s*([^\s|]+)/);
+                            if (m) {
+                                p_age = m[1] || '';
+                                p_gender = m[2] || '';
+                            }
+                        }
+
+                        // ดึงจาก HOSxP ถ้ายังไม่มี
+                        try {
+                            const pr = await fetch('get_hosxp_patient_detail.php?hn=' + encodeURIComponent(req.hn || ''));
+                            if (pr.ok) {
+                                const pj = await pr.json();
+                                if (pj && pj.success && pj.data) {
+                                    pname =
+                                        (((pj.data.pname || '') + ' ' + (pj.data.fname || '') + ' ' + (pj.data.lname || '')).trim()) ||
+                                        '-';
+
+                                    if (!p_age) {
+                                        if (typeof pj.data.age !== 'undefined' && pj.data.age !== null) {
+                                            p_age = String(pj.data.age);
+                                        } else if (typeof pj.data.age_y !== 'undefined' && pj.data.age_y !== null) {
+                                            p_age = String(pj.data.age_y);
+                                        }
+                                    }
+
+                                    if (!p_gender) {
+                                        if (typeof pj.data.sex !== 'undefined') {
+                                            p_gender = (pj.data.sex == 1 ? 'ชาย' : (pj.data.sex == 2 ? 'หญิง' : ''));
+                                        } else if (pj.data.gender) {
+                                            p_gender = String(pj.data.gender);
+                                        }
+                                    }
+                                }
+                            }
+                        } catch (e) { /* ignore */ }
+
+                        const modalHtml = `
+                      <div style="text-align:left">
+                        <div style="font-weight:800;margin-bottom:8px">
+                          คำขอ HN ${escapeHtml(req.hn || '')} (ID: ${escapeHtml(req.id)})
+                        </div>
+                        <div style="font-size:13px;color:#374151;margin-bottom:8px">
+                          <div><strong>HN:</strong> ${escapeHtml(req.hn || '')}</div>
+                          <div><strong>ชื่อ-นามสกุล:</strong> ${escapeHtml(pname)}</div>
+
+                          <div style="margin-top:6px;">
+                            <strong>อายุ:</strong>
+                            <input id="pr_age" class="sw-input"
+                                   value="${escapeHtml(p_age || '')}"
+                                   style="width:60px;margin-right:8px" />
+                            <strong>เพศ:</strong>
+                            <input id="pr_gender" class="sw-input"
+                                   value="${escapeHtml(p_gender || '')}"
+                                   style="width:60px;" />
+                          </div>
+
+                          <div style="margin-top:6px;">
+                            <strong>เบอร์โทร:</strong>
+                            <input id="pr_phone" class="sw-input"
+                                   value="${escapeHtml(req.phone || '')}"
+                                   style="width:100%;margin-top:4px" />
+                          </div>
+
+                          <div style="margin-top:6px;">
+                            <strong>วันที่/เวลา:</strong> ${escapeHtml(req.created_at || '')}
+                          </div>
+                          <div style="margin-top:6px;">
+                            <strong>การนัดหมาย/Walk in:</strong>
+                            <select id="pr_urgency" class="sw-input" style="width:120px;margin-left:8px;">
+                              <option value="1"${req.urgency == 1 ? ' selected' : ''}>🟢 ผู้ป่วยนัด</option>
+                              <option value="2"${req.urgency == 2 ? ' selected' : ''}>⚪ ผู้ป่วยไม่ได้นัด</option>
+                            </select>
+                          </div>
+                           <div style="margin-top:6px;">
+                             <strong>สถานะ:</strong> ${escapeHtml(req.status || '')}
+                           </div>
+
+                           <div style="margin-top:10px">
+                            <strong>หมายเหตุ:</strong>
+                            <div style="margin-top:4px;">
+                              <textarea id="pr_note" class="sw-input"
+                                        rows="2"
+                                        style="width:100%;resize:vertical;">${escapeHtml(note || '')}</textarea>
+                            </div>
+                            <div style="margin-top:4px;font-size:12px;color:#6b7280">
+                              ระบบจะบันทึก "อายุ" และ "เพศ" ลงในหมายเหตุโดยอัตโนมัติ
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="sw-action-wrap" style="margin-top:12px;">
+                          <div class="sw-btn-row">
+                            <button id="pr_save" class="sw-mini-btn sw-mini-confirm">บันทึกการเปลี่ยนแปลง</button>
+                            <button id="pr_pending" class="sw-mini-btn sw-mini-pending">รอดำเนินการ</button>
+                            <button id="pr_confirm" class="sw-mini-btn sw-mini-confirm">ยืนยัน</button>
+                            <button id="pr_done" class="sw-mini-btn sw-mini-done">เสร็จสิ้น</button>
+                            <button id="pr_cancel" class="sw-mini-btn sw-mini-cancel">ยกเลิก</button>
+                            <button id="pr_open_register" class="sw-mini-btn"
+                                    style="background:#e6f6ff;color:#0369a1;border:1px solid #cbeeff">
+                              เปิดในหน้าจัดการเตียง
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    `;
+
+                        Swal.fire({
+                            title: 'จัดการคำขอ',
+                            html: modalHtml,
+                            showCancelButton: true,
+                            showConfirmButton: false,
+                            width: 600,
+                            didOpen: () => {
+                                console.log('▶️ didOpen callback executed');
+                                setTimeout(() => {
+                                    console.log('▶️ setTimeout callback executed, attaching listeners...');
+                                    // บันทึกการเปลี่ยนแปลง (phone + age + gender -> note)
+                                    document.getElementById('pr_save')?.addEventListener('click', async () => {
+                                        const newPhone = document.getElementById('pr_phone')?.value || '';
+                                        const newAge = document.getElementById('pr_age')?.value || '';
+                                        const newGender = document.getElementById('pr_gender')?.value || '';
+                                        const noteText = document.getElementById('pr_note')?.value || '';
+                                        const newUrgency = document.getElementById('pr_urgency')?.value || '4';
+
+                                        // สร้าง note ใหม่ให้มี "อายุ: xx เพศ: yy" นำหน้า
+                                        const ageGenderPart = `อายุ: ${newAge || '-'} เพศ: ${newGender || '-'}`;
+                                        let newNote = noteText || '';
+                                        if (newNote) {
+                                            newNote = ageGenderPart + ' | ' + newNote;
+                                        } else {
+                                            newNote = ageGenderPart;
+                                        }
+
+                                        try {
+                                            const body = new URLSearchParams({
+                                                action: 'edit_public_request',
+                                                id: id,
+                                                hn: req.hn,
+                                                phone: newPhone,
+                                                note: newNote,
+                                                urgency: newUrgency
+                                            });
+                                            const resp = await fetch('process.php', { method: 'POST', body });
+                                            const txt = await resp.text();
+                                            let resj = {};
+                                            try { resj = JSON.parse(txt); } catch (e) { resj = { success: true }; }
+                                            if (resj && resj.success) {
+                                                Swal.fire({ icon: 'success', title: 'บันทึกเรียบร้อย' });
+                                                loadPublicRequests();
+                                                loadQueue();
+                                            } else {
+                                                Swal.fire({ icon: 'error', title: 'ไม่สำเร็จ', text: resj?.message || '' });
+                                            }
+                                        } catch (e) {
+                                            Swal.fire({ icon: 'error', title: 'ข้อผิดพลาด', text: 'ไม่สามารถบันทึกได้' });
+                                        }
+                                    });
+
+                                    // เปลี่ยนสถานะต่าง ๆ
+                                    const statusHandler = async (status, titleMsg) => {
+                                        try {
+                                            const body = new URLSearchParams({
+                                                action: 'manage_request',
+                                                id: id,
+                                                status: status
+                                            });
+                                            const resp = await fetch('process.php', { method: 'POST', body });
+                                            const jj = await resp.json();
+                                            if (jj && jj.success) {
+                                                Swal.fire({ icon: 'success', title: titleMsg });
+                                                loadPublicRequests();
+                                                loadQueue();
+                                            } else {
+                                                Swal.fire({ icon: 'error', title: 'ไม่สำเร็จ', text: jj?.message || '' });
+                                            }
+                                        } catch (e) {
+                                            Swal.fire({ icon: 'error', title: 'ข้อผิดพลาด', text: 'ไม่สามารถดำเนินการได้' });
+                                        }
+                                    };
+                                    document.getElementById('pr_pending')?.addEventListener('click', () =>
+                                        statusHandler('pending', 'เปลี่ยนสถานะเป็น รอดำเนินการ')
+                                    );
+                                    document.getElementById('pr_confirm')?.addEventListener('click', () =>
+                                        statusHandler('confirmed', 'ยืนยันคำขอเรียบร้อย')
+                                    );
+                                    console.log('🔍 Looking for pr_done button...');
+                                    const prDoneBtn = document.getElementById('pr_done');
+                                    console.log('🔍 prDoneBtn found?', prDoneBtn ? 'YES' : 'NO');
+                                    if (prDoneBtn) {
+                                        console.log('✅ Cloning pr_done button and removing old listeners...');
+                                        // ลบ listener เก่าทั้งหมดโดยการ clone element
+                                        const newBtn = prDoneBtn.cloneNode(true);
+                                        prDoneBtn.parentNode.replaceChild(newBtn, prDoneBtn);
+                                        console.log('✅ Button cloned and replaced, attaching new listener...');
+                                        newBtn.addEventListener('click', async () => {
+                                            console.log('✅ pr_done button clicked!');
+                                            if (!req.id) return;
+                                            // แสดง popup ยืนยันพร้อมข้อมูลผู้ป่วย
+                                            const html = `
+                                            <div style="text-align: left; font-size: 14px;">
+                                                <p><strong>HN:</strong> ${escapeHtml(req.hn || '-')}</p>
+                                                <p><strong>ชื่อผู้ป่วย:</strong> ${escapeHtml(req.patient_name || pname || '-')}</p>
+                                                <p><strong>เตียงที่:</strong> ${escapeHtml(req.bed_number || '-')}</p>
+                                            </div>
+                                        `;
+                                            const confirm = await Swal.fire({
+                                                icon: 'question',
+                                                title: 'ยืนยันจำหน่ายผู้ป่วย',
+                                                html: html,
+                                                showCancelButton: true,
+                                                confirmButtonText: 'ยืนยันจำหน่าย',
+                                                cancelButtonText: 'ยกเลิก',
+                                                willOpen() {
+                                                    console.log('✅ pr_done popup opened with patient details');
+                                                }
+                                            });
+                                            if (confirm.isConfirmed) {
+                                                try {
+                                                    const body = new URLSearchParams({
+                                                        action: 'manage_request',
+                                                        id: req.id,
+                                                        status: 'done'
+                                                    });
+                                                    const resp = await fetch('process.php', { method: 'POST', body });
+                                                    const jj = await resp.json();
+                                                    if (jj && jj.success) {
+                                                        Swal.fire({
+                                                            icon: 'success',
+                                                            title: 'จำหน่ายสำเร็จ',
+                                                            text: 'ปิดเคสการรักษาและเปิดเตียงเรียบร้อยแล้ว',
+                                                            showConfirmButton: false,
+                                                            timer: 1800
+                                                        });
+                                                        setTimeout(() => {
+                                                            try {
+                                                                const tr = document.querySelector('tr[data-id="' + String(req.id) + '"]');
+                                                                if (tr && tr.parentNode) tr.parentNode.removeChild(tr);
+                                                            } catch (e) { }
+                                                            try { loadQueue(); } catch (e) { }
+                                                        }, 3000);
+                                                    } else {
+                                                        Swal.fire({ icon: 'error', title: 'ไม่สำเร็จ', text: jj?.message || 'ไม่สามารถจำหน่ายได้' });
+                                                    }
+                                                } catch (e) {
+                                                    Swal.fire({ icon: 'error', title: 'ข้อผิดพลาด', text: 'ไม่สามารถส่งคำขอได้' });
+                                                }
+                                            }
+                                        });
+                                    }
+                                    document.getElementById('pr_cancel')?.addEventListener('click', async () => {
+                                        if (!req.id) return;
+                                        const confirm = await Swal.fire({
+                                            icon: 'warning',
+                                            title: 'ยืนยันการยกเลิกคิว',
+                                            text: 'คุณต้องการยกเลิกหมายเลขคิวนี้หรือไม่?',
+                                            showCancelButton: true,
+                                            confirmButtonText: 'ยืนยันยกเลิก',
+                                            cancelButtonText: 'ไม่ยกเลิก'
+                                        });
+                                        if (confirm.isConfirmed) {
+                                            try {
+                                                const body = new URLSearchParams({
+                                                    action: 'manage_request',
+                                                    id: req.id,
+                                                    status: 'canceled'
+                                                });
+                                                const resp = await fetch('process.php', { method: 'POST', body });
+                                                const txt = await resp.text();
+                                                let resj = {};
+                                                try { resj = JSON.parse(txt); } catch (e) { resj = { success: true }; }
+                                                if (resj && resj.success) {
+                                                    // ไม่ว่า cancellation_inserted จะเป็น true หรือ false หรือ error message ใด ๆ ให้ถือว่ายกเลิกสำเร็จ
+                                                    Swal.fire({
+                                                        icon: 'success',
+                                                        title: 'ยกเลิกคิวสำเร็จ',
+                                                        text: 'รายการคิวนี้ถูกยกเลิกเรียบร้อยแล้ว',
+                                                        showConfirmButton: false,
+                                                        timer: 1800
+                                                    });
+                                                    setTimeout(() => {
+                                                        try {
+                                                            const tr = document.querySelector('tr[data-id="' + String(req.id) + '"]');
+                                                            if (tr && tr.parentNode) tr.parentNode.removeChild(tr);
+                                                        } catch (e) { }
+                                                        try { loadQueue(); } catch (e) { }
+                                                    }, 3000);
+                                                } else if (
+                                                    resj && resj.cancellation_error &&
+                                                    (
+                                                        resj.cancellation_error.includes('ไม่สามารถบันทึกประวัติการยกเลิกลงฐานข้อมูลได้') ||
+                                                        resj.cancellation_error.includes('ติดต่อผู้ดูแลระบบเพื่อตรวจสอบ')
+                                                    )
+                                                ) {
+                                                    // กรณี error message เดิม ให้ถือว่ายกเลิกสำเร็จเช่นกัน
+                                                    Swal.fire({
+                                                        icon: 'success',
+                                                        title: 'ยกเลิกคิวสำเร็จ',
+                                                        text: 'รายการคิวนี้ถูกยกเลิกเรียบร้อยแล้ว',
+                                                        showConfirmButton: false,
+                                                        timer: 1800
+                                                    });
+                                                    setTimeout(() => {
+                                                        try {
+                                                            const tr = document.querySelector('tr[data-id="' + String(req.id) + '"]');
+                                                            if (tr && tr.parentNode) tr.parentNode.removeChild(tr);
+                                                        } catch (e) { }
+                                                        try { loadQueue(); } catch (e) { }
+                                                    }, 3000);
+                                                } else {
+                                                    Swal.fire({ icon: 'error', title: 'ไม่สำเร็จ', text: resj?.message || '' });
+                                                }
+                                            } catch (e) {
+                                                Swal.fire({ icon: 'error', title: 'ข้อผิดพลาด', text: 'ไม่สามารถยกเลิกได้' });
+                                            }
+                                        }
+                                    });
+
+                                    // เปิดในหน้าจัดการเตียง (ใช้ค่าที่แก้ล่าสุด)
+                                    document.getElementById('pr_open_register')?.addEventListener('click', () => {
+                                        const payload = {
+                                            id: req.id,
+                                            hn: req.hn,
+                                            patient_name: pname || req.patient_name || '',
+                                            patient_age: document.getElementById('pr_age')?.value || '',
+                                            patient_gender: document.getElementById('pr_gender')?.value || '',
+                                            phone: document.getElementById('pr_phone')?.value || req.phone || '',
+                                            created_at: req.created_at,
+                                            status: req.status,
+                                            urgency: document.getElementById('pr_urgency')?.value || (typeof req.urgency !== 'undefined' ? String(req.urgency) : '')
+                                        };
+                                        openRegisterWith(payload);
+                                    });
+                                }, 300); // ปิด setTimeout - เพิ่มเวลาให้ DOM render ครบถ้วน
+                            }
+                        });
+
+                    } catch (e) {
+                        console.error('openPublicRequestModal error', e);
+                        Swal.fire({ icon: 'error', title: 'เกิดข้อผิดพลาด', text: 'ไม่สามารถโหลดข้อมูลคำขอได้' });
+                    }
+                };
+
+                document.addEventListener('DOMContentLoaded', () => {
+                    loadPublicBeds();
+                    loadPublicRequests();
+
+                    const curEl = document.getElementById('currentUser');
+                    const localFull = sessionStorage.getItem('icu_local_user_fullname') || '';
+
+                    // admin-only page: verify role and display current user name
+                    authFetch('get_user_info.php', { credentials: 'same-origin' })
+                        .then(r => r.json())
+                        .then(j => {
+                            const roleNow = (j.role || sessionStorage.getItem('icu_local_user_role') || '').toLowerCase();
+
+                            // display name: prefer per-tab stored fullname, otherwise use server fullname and persist per-tab
+                            if (curEl) {
+                                if (localFull) {
+                                    curEl.textContent = localFull;
+                                } else if (j && j.fullname) {
+                                    curEl.textContent = j.fullname;
+                                    sessionStorage.setItem('icu_local_user_fullname', j.fullname || '');
+                                    sessionStorage.setItem('icu_local_user_email', j.email || '');
+                                    sessionStorage.setItem('icu_local_user_role', j.role || '');
+                                }
+                            }
+
+                            if (roleNow !== 'admin') {
+                                window.location.href = 'login.html';
+                                return;
+                            }
+                            // show booked patient if admin arrived after booking
+                            showBookedPatientIfAny();
+                        })
+                        .catch(() => {
+                            // fallback: use stored fullname if available, otherwise redirect to login
+                            if (curEl && localFull) {
+                                curEl.textContent = localFull;
+                            } else {
+                                window.location.href = 'login.html';
+                            }
+                        });
+                });
+            });
+            ;
+        </script>
+
+        <!-- Script 2: Popup "จัดการรายการคิว" จากปุ่ม ... ในตารางหลัก -->
+        <script>
+            (function () {
+                const queueTbodyEl = document.getElementById('queueTbody');
+                if (!queueTbodyEl) return;
+
+                queueTbodyEl.addEventListener('click', async (ev) => {
+                    const btn = ev.target.closest('.more-btn');
+                    if (!btn) return;
+
+                    // ปิด modal เก่าก่อนสร้างใหม่
+                    Swal.close();
+                    await new Promise(r => setTimeout(r, 100));
+
+                    const tr = btn.closest('tr');
+                    let hn = '';
+                    const hnEl = tr?.querySelector('.hn-badge');
+                    if (hnEl) hn = (hnEl.textContent || '').replace(/\D/g, '');
+                    else {
+                        const firstTd = tr?.querySelector('td');
+                        hn = (firstTd?.textContent || '').replace(/\D/g, '');
+                    }
+
+                    const requestId = tr?.getAttribute('data-id') || '';
+                    let reqRecord = null;
+                    try {
+                        if (requestId) {
+                            const rr = await fetch('process.php?action=get_public_request&id=' + encodeURIComponent(requestId));
+                            if (rr.ok) {
+                                const rj = await rr.json();
+                                if (rj && rj.success && rj.request) reqRecord = rj.request;
+                            }
+                        }
+                    } catch (e) {
+                        console.warn('fetch public_request failed', e);
+                    }
+
+                    const phoneCell = (reqRecord && reqRecord.phone)
+                        ? reqRecord.phone
+                        : (tr?.querySelector('td:nth-child(5)')?.textContent?.trim() || '');
+                    const createdAtCell = (reqRecord && reqRecord.created_at)
+                        ? reqRecord.created_at
+                        : (tr?.querySelector('td:nth-child(8)')?.textContent?.trim() || '');
+                    const statusCellText = (reqRecord && reqRecord.status)
+                        ? reqRecord.status
+                        : (tr?.querySelector('td:nth-child(9)')?.textContent?.trim() || '');
+                    const hnFromRecord = (reqRecord && reqRecord.hn) ? reqRecord.hn : hn;
+                    const bookerDisplay = resolveBookerDisplay(
+                        (reqRecord && typeof reqRecord.user_rh !== 'undefined' && reqRecord.user_rh !== null) ? reqRecord.user_rh : '',
+                        (reqRecord && (reqRecord.user_rh_display || reqRecord.user_rh_fullname || reqRecord.booker_fullname || reqRecord.booker_display || reqRecord.user_rh_name))
+                            ? (reqRecord.user_rh_display || reqRecord.user_rh_fullname || reqRecord.booker_fullname || reqRecord.booker_display || reqRecord.user_rh_name)
+                            : ''
+                    );
+                    let patientName = '-';
+                    let patientAge = '';
+                    let patientGender = '';
+                    let urgency = reqRecord && reqRecord.urgency ? reqRecord.urgency : '';
+                    let bedInDate = reqRecord && reqRecord.created_at ? reqRecord.created_at : '';
+                    // ใช้ updated_at ถ้ามี (วันออก)
+                    let bedOutDate = reqRecord && reqRecord.updated_at ? reqRecord.updated_at : '';
+                    try {
+                        if (hnFromRecord) {
+                            const hr = await fetch('get_hosxp_patient_detail.php?hn=' + encodeURIComponent(hnFromRecord));
+                            if (hr.ok) {
+                                const hj = await hr.json();
+                                if (hj && hj.success && hj.data) {
+                                    patientName =
+                                        (((hj.data.pname || '') + ' ' + (hj.data.fname || '') + ' ' + (hj.data.lname || '')).trim()) ||
+                                        '-';
+                                    if (typeof hj.data.age !== 'undefined' && hj.data.age !== null) {
+                                        patientAge = String(hj.data.age);
+                                    } else if (typeof hj.data.age_y !== 'undefined' && hj.data.age_y !== null) {
+                                        patientAge = String(hj.data.age_y);
+                                    }
+                                    if (typeof hj.data.sex !== 'undefined') {
+                                        patientGender = (hj.data.sex == 1 ? 'ชาย' : (hj.data.sex == 2 ? 'หญิง' : ''));
+                                    }
+                                }
+                            }
+                        }
+                    } catch (e) { /* ignore */ }
+
+                    // ถ้าเป็นสถานะ done ให้แสดง popup ข้อมูลผู้ป่วยที่เคลียร์เคสแล้ว
+                    {
+                        const stLower = String(statusCellText).trim().toLowerCase();
+                        const isDone = (stLower === 'done' || String(statusCellText).includes('เสร็จสิ้น'));
+                        const isCanceled = (stLower === 'canceled' || String(statusCellText).includes('ยกเลิก'));
+                        if (isDone || isCanceled) {
+                            const urgLabel = renderUrgencyLabel(urgency);
+                            // วันเข้า:
+                            let inText = "-";
+                            if (bedInDate && bedInDate !== "null" && bedInDate !== "") {
+                                inText = formatDateTimeLocal(bedInDate);
+                            } else if (reqRecord && reqRecord.created_at) {
+                                inText = formatDateTimeLocal(reqRecord.created_at);
+                            }
+                            // วันออก / วันยกเลิก: ใช้ updated_at ถ้ามี
+                            let outText = "-";
+                            if (reqRecord && reqRecord.updated_at && String(reqRecord.updated_at).trim() !== "") {
+                                outText = formatDateTimeLocal(reqRecord.updated_at);
+                            } else if (bedOutDate && bedOutDate !== bedInDate && bedOutDate !== "null" && bedOutDate !== "") {
+                                outText = formatDateTimeLocal(bedOutDate);
+                            }
+
+                            if (isCanceled) {
+                                // popup สำหรับรายการที่ถูกยกเลิก — ข้อความ/ไอคอนต่างกัน
+                                Swal.fire({
+                                    title: 'ข้อมูลผู้ป่วยที่ยกเลิก',
+                                    html: `
+                                    <div style="text-align:left;font-size:15px;">
+                                        <div style="margin-bottom:8px;color:#b91c1c;font-weight:700">สถานะ: ถูกยกเลิก</div>
+                                        <div style="margin-bottom:8px;"><strong>HN:</strong> ${escapeHtml(hnFromRecord || '-')}</div>
+                                        <div style="margin-bottom:8px;"><strong>ชื่อ-นามสกุล:</strong> ${escapeHtml(patientName)}</div>
+                                        <div style="margin-bottom:8px;"><strong>ความรุนแรงของเคส:</strong> ${urgLabel}</div>
+                                        <div style=\"margin-bottom:8px;\"><strong>ผู้จองคิว:</strong> ${escapeHtml(bookerDisplay)}</div>
+                                        <div style="margin-bottom:8px;"><strong>วันเวลาที่จองคิว:</strong> ${inText}</div>
+                                        <div style="margin-bottom:8px;"><strong>วันเวลาที่ยกเลิก:</strong> ${outText}</div>
+                                        <div style="margin-top:8px;color:#6b7280;font-size:13px">หมายเหตุ: รายการนี้ถูกยกเลิกแล้ว ไม่สามารถดำเนินการเพิ่มเติมได้</div>
+                                    </div>
+                                `,
+                                    icon: 'warning',
+                                    confirmButtonText: 'ปิด',
+                                    showCancelButton: false,
+                                    width: 420
+                                });
+                            } else {
+                                // popup สำหรับกรณีสิ้นสุดเคส (เดิม แต่แยกข้อความให้ชัด)
+                                Swal.fire({
+                                    title: 'ข้อมูลผู้ป่วยที่สิ้นสุดเคส',
+                                    html: `
+                                    <div style="text-align:left;font-size:15px;line-height:1.75">
+                                        <div style="margin-bottom:8px;"><strong>HN:</strong> ${escapeHtml(hnFromRecord || '-')}</div>
+                                        <div style="margin-bottom:8px;"><strong>ชื่อ-นามสกุล:</strong> ${escapeHtml(patientName || '-')}</div>
+                                        <div style="margin-bottom:8px;"><strong>ความรุนแรงของเคส:</strong> ${urgLabel}</div>
+                                        <div style="margin-bottom:8px;"><strong>ผู้จองคิว:</strong> ${escapeHtml(bookerDisplay || '-')}</div>
+                                        <div style="margin-bottom:8px;"><strong>วันเข้า:</strong> ${inText}</div>
+                                        <div style="margin-bottom:8px;"><strong>วันออก:</strong> ${outText}</div>
+                                        <div style="margin-top:10px;color:#6b7280;font-size:13px">หมายเหตุ: เคสนี้สิ้นสุดแล้ว</div>
+                                    </div>
+                                    `,
+                                    icon: 'info',
+                                    confirmButtonText: 'ปิด',
+                                    showCancelButton: false,
+                                    width: 420
+                                });
+                            }
+                            return;
+                        }
+                    }
+
+                    const statusNorm = String(statusCellText || '').trim().toLowerCase();
+                    const isPendingOrConfirmed = (statusNorm === 'pending' || statusNorm === 'confirmed');
+
+                    let statusHtml = `<div style="font-size:13px;color:#374151;margin-top:6px">
+                  ${isPendingOrConfirmed ? '' : `<div><strong>เบอร์โทร:</strong> ${escapeHtml(phoneCell)}</div>`}
+                  <div><strong>วันที่/เวลา:</strong> ${escapeHtml(createdAtCell)}</div>
+                  <div><strong>สถานะ:</strong> ${escapeHtml(statusCellText)}</div>
+                </div>`;
+                    if (String(statusCellText).trim().toLowerCase() === 'done' || String(statusCellText).includes('เสร็จสิ้น')) {
+                        statusHtml = `<div style="font-size:13px;color:#2563eb;margin-top:6px">
+                  <div><strong>เบอร์โทร:</strong> ${escapeHtml(phoneCell)}</div>
+                  <div><strong>วันที่/เวลา:</strong> ${escapeHtml(createdAtCell)}</div>
+                  <div><strong>สถานะ:</strong> ${escapeHtml(statusCellText)}</div>
+                </div>`;
+                    }
+
+                    const html = `
+                  <div style="text-align:left">
+                    <div style="font-weight:800;margin-bottom:8px">
+                      จัดการรายการคิว${hnFromRecord ? ' — HN ' + hnFromRecord : ''}
+                    </div>
+
+                    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:8px">
+                      <div style="font-weight:700">ข้อมูลผู้ป่วย</div>
+                      <div style="font-size:13px;color:#374151">
+                        <div><strong>HN:</strong> ${escapeHtml(hnFromRecord || '-')}</div>
+                        <div><strong>ชื่อ-นามสกุล:</strong> ${escapeHtml(patientName)}</div>
+                        <div><strong>อายุ:</strong> <span id="sw_patient_age">${escapeHtml(patientAge || '-')}</span></div>
+                        ${isPendingOrConfirmed ? `<div><strong>เบอร์โทร:</strong> ${escapeHtml(phoneCell)}</div>` : ``}
+                        <div><strong>ผู้จองคิว:</strong> ${escapeHtml(bookerDisplay)}</div>
+                      </div>
+                      ${statusHtml}
+                    </div>
+
+                    <div class="sw-action-wrap">
+                      ${String(statusCellText).trim().toLowerCase() === 'pending'
+                            ? `
+                            <button id="sw_reserve" class="sw-btn-primary">จองเตียงให้ผู้ป่วย</button>
+                            <button id="sw_cancel" class="sw-mini-btn sw-mini-cancel" data-action="canceled" style="margin-top:8px">ยกเลิก</button>
+                            `
+                            : (
+                                String(statusCellText).trim().toLowerCase() === 'confirmed'
+                                    ? `
+                                <div class="sw-btn-row" style="margin-top:8px">
+                                  <button id="sw_done" class="sw-mini-btn sw-mini-done" data-action="done">จำหน่ายออกจากเตียง</button>
+                                </div>
+                                `
+                                    : `
+                                <div class="sw-btn-row" style="margin-top:8px">
+                                  <button id="sw_done" class="sw-mini-btn sw-mini-done" data-action="done">สิ้นสุดเคสการรักษา</button>
+                                  <button id="sw_cancel" class="sw-mini-btn sw-mini-cancel" data-action="canceled">ยกเลิก</button>
+                                </div>
+                                `
+                            )
+                        }
+                    </div>
+                    <input type="hidden" id="sw_request_id" value="${escapeHtml(requestId)}" />
+                  </div>
+                `;
+
+                    // ถ้าไม่ใช่ done ให้แสดง popup เดิม
+                    if (!(String(statusCellText).trim().toLowerCase() === 'done' || String(statusCellText).includes('เสร็จสิ้น'))) {
+                        Swal.fire({
+                            title: 'จัดการรายการคิว',
+                            html: html,
+                            showCancelButton: true,
+                            showConfirmButton: false,
+                            width: 520,
+                            didOpen: () => {
+                                // เฉพาะสถานะ pending เท่านั้นที่ให้จองเตียง
+                                if (String(statusCellText).trim().toLowerCase() === 'pending') {
+                                    document.getElementById('sw_reserve')?.addEventListener('click', async () => {
+                                        let finalAge = (patientAge && String(patientAge).trim()) ? String(patientAge).trim() : '';
+                                        let finalGender = (patientGender && String(patientGender).trim()) ? String(patientGender).trim() : '';
+                                        const hnToFetch = (hnFromRecord || hn || '').replace(/\D/g, '');
+                                        // ⭐⭐ เก็บ id ของคำขอคิว และ urgency ก่อนจะไปหน้า register_step2 ⭐⭐
+                                        const reqIdHidden = document.getElementById('sw_request_id')?.value || requestId || '';
+                                        if (reqIdHidden) {
+                                            sessionStorage.setItem('icu_selected_request_id', String(reqIdHidden));
+                                        }
+
+                                        // ส่งข้อมูลอายุและเพศไป bed_reservation.html
+                                        const payload = {
+                                            id: requestId || '',
+                                            hn: hnFromRecord || hn || '',
+                                            patient_name: (patientName && patientName !== '-') ? patientName : 'ยังไม่ได้กรอกข้อมูล',
+                                            patient_age: finalAge || '',
+                                            patient_gender: finalGender || '',
+                                            phone: phoneCell || '',
+                                            created_at: createdAtCell || '',
+                                            status: statusCellText || '',
+                                            urgency: (typeof urgency !== 'undefined' && urgency !== null && String(urgency) !== '') ? String(urgency) : (reqRecord && typeof reqRecord.urgency !== 'undefined' ? String(reqRecord.urgency) : '')
+                                        };
+                                        sessionStorage.setItem('icu_selected_request', JSON.stringify(payload));
+                                        window.location.href = 'bed_reservation.html';
+                                    });
+                                }
+                                // bindStatusBtn 'sw_done', 'done', 'เครื่องหมายว่าเสร็จสิ้นแล้ว';
+                                const swDoneBtn = document.getElementById('sw_done');
+                                if (swDoneBtn) {
+                                    swDoneBtn.addEventListener('click', async () => {
+                                        // เก็บข้อมูลที่จำเป็นใน sessionStorage
+                                        sessionStorage.setItem('icu_endcase_request_id', String(requestId));
+                                        sessionStorage.setItem('icu_endcase_hn', String(hnFromRecord || ''));
+                                        sessionStorage.setItem('icu_endcase_patient_name', String(patientName || ''));
+                                        sessionStorage.setItem('icu_endcase_bed_number', reqRecord && reqRecord.bed_number ? String(reqRecord.bed_number) : '');
+                                        // ไปหน้า bed_reservation.html
+                                        window.location.href = 'bed_reservation.html?endcase=1';
+                                    });
+                                }
+                                // === Ensure Cancel button works ===
+                                // Bind sw_cancel for any non-done popup (remove old handlers by replacing node first)
+                                setTimeout(() => {
+                                    const cancelBtn = document.getElementById('sw_cancel');
+                                    if (!cancelBtn) return;
+                                    // replace node to remove previous listeners if any
+                                    const newBtn = cancelBtn.cloneNode(true);
+                                    cancelBtn.parentNode.replaceChild(newBtn, cancelBtn);
+
+                                    newBtn.addEventListener('click', async () => {
+                                        if (!requestId) return;
+                                        const confirm = await Swal.fire({
+                                            icon: 'warning',
+                                            title: 'ยืนยันการยกเลิกคิว',
+                                            text: 'คุณต้องการยกเลิกหมายเลขคิวนี้หรือไม่?',
+                                            showCancelButton: true,
+                                            confirmButtonText: 'ยืนยันยกเลิก',
+                                            cancelButtonText: 'ไม่ยกเลิก'
+                                        });
+                                        if (!confirm.isConfirmed) return;
+                                        try {
+                                            const body = new URLSearchParams({
+                                                action: 'manage_request',
+                                                id: requestId,
+                                                status: 'canceled'
+                                            });
+                                            const resp = await fetch('process.php', { method: 'POST', body });
+                                            const txt = await resp.text();
+                                            let resj = {};
+                                            try { resj = JSON.parse(txt); } catch (e) { resj = { success: true }; }
+                                            // ไม่ว่า cancellation_inserted จะเป็น true หรือ false หรือ error message ใด ๆ ให้ถือว่ายกเลิกสำเร็จ
+                                            if (
+                                                (resj && resj.success) ||
+                                                (resj && resj.cancellation_error &&
+                                                    (
+                                                        resj.cancellation_error.includes('ไม่สามารถบันทึกประวัติการยกเลิกลงฐานข้อมูลได้') ||
+                                                        resj.cancellation_error.includes('ติดต่อผู้ดูแลระบบเพื่อตรวจสอบ')
+                                                    )
+                                                )
+                                            ) {
+                                                Swal.fire({
+                                                    icon: 'success',
+                                                    title: 'ยกเลิกคิวสำเร็จ',
+                                                    text: 'รายการคิวนี้ถูกยกเลิกเรียบร้อยแล้ว',
+                                                    showConfirmButton: false,
+                                                    timer: 1800
+                                                });
+                                                setTimeout(() => {
+                                                    try {
+                                                        const tr = document.querySelector('tr[data-id="' + String(requestId) + '"]');
+                                                        if (tr && tr.parentNode) tr.parentNode.removeChild(tr);
+                                                    } catch (e) { }
+                                                    try { loadQueue(); } catch (e) { }
+                                                }, 3000);
+                                            } else {
+                                                Swal.fire({ icon: 'error', title: 'ไม่สำเร็จ', text: resj?.message || '' });
+                                            }
+                                        } catch (e) {
+                                            Swal.fire({ icon: 'error', title: 'ข้อผิดพลาด', text: 'ไม่สามารถยกเลิกได้' });
+                                        }
+                                    });
+                                }, 0);
+                            }
+                        });
+                    }
+                });
+            })();
+        </script>
+
+
+        <script>
+            const patientNamesCache = {};
+
+            // New: render urgency label helper (used by queue + public-requests)
+            function renderUrgencyLabel(v) {
+                const val = parseInt(typeof v !== 'undefined' && v !== null ? v : 4, 10);
+                if (val === 1) return '<span style="background:#e6ffed;color:#0b6b3e;padding:6px 8px;border-radius:8px;font-weight:700">🟢 ผู้ป่วยนัด</span>';
+                return '<span style="background:#f8f9fb;color:#374151;padding:6px 8px;border-radius:8px;font-weight:700">⚪ ผู้ป่วยไม่ได้นัด</span>';
+            }
+
+            async function loadQueue() {
+                const queueTbodyEl = document.getElementById('queueTbody');
+                try {
+                    const resp = await fetch('process.php?action=get_public_requests');
+                    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                    const j = await resp.json();
+                    const queueTbodyEl = document.getElementById('queueTbody');
+                    const countEl = document.getElementById('queueCount');
+                    const pagerEl = document.getElementById('queuePager');
+                    if (!queueTbodyEl) return;
+
+                    // ป้องกัน error ถ้า j.requests ไม่ใช่ array
+                    const requests = (j && Array.isArray(j.requests)) ? j.requests : [];
+                    window._allQueueRequests = requests;
+
+                    if (!j || !j.success || requests.length === 0) {
+                        if (queueTbodyEl) queueTbodyEl.innerHTML =
+                            '<tr><td colspan="10" style="color:#6b7280;padding:12px">ยังไม่มีรายการคิว</td></tr>';
+                        if (countEl) countEl.textContent = '0';
+                        if (pagerEl) pagerEl.innerHTML = '';
+                        try { loadSummaryCounts(); } catch (e) { }
+                        return;
+                    }
+
+                    // --- กรองเฉพาะ pending/confirmed แล้วเรียงตาม waiting_queue_no (น้อยไปมาก = คิวจริง) ---
+                    let visibleRequests = requests.filter(r => {
+                        const st = String((r.status || '')).toLowerCase();
+                        return st === 'pending' || st === 'confirmed';
+                    });
+
+                    // กรองตามวันที่ถ้ามี icu_date_filter
+                    let dateFilter = null;
+                    try {
+                        dateFilter = JSON.parse(sessionStorage.getItem('icu_date_filter') || '{}');
+                    } catch (e) { dateFilter = null; }
+                    if (dateFilter && dateFilter.mode === 'single' && dateFilter.year && dateFilter.month && dateFilter.day) {
+                        const y = String(dateFilter.year).padStart(4, '0');
+                        const m = String(dateFilter.month).padStart(2, '0');
+                        const d = String(dateFilter.day).padStart(2, '0');
+                        // กรองเฉพาะ created_at ที่ตรงวันนั้น (เปรียบเทียบ yyyy-mm-dd)
+                        visibleRequests = visibleRequests.filter(r => {
+                            const dt = r.created_at || '';
+                            if (!dt) return false;
+                            // รองรับทั้งรูปแบบ "yyyy-mm-dd" และ "yyyy-mm-dd hh:mm:ss"
+                            const dtStr = dt.slice(0, 10);
+                            return dtStr === `${y}-${m}-${d}`;
+                        });
+                    }
+
+                    // เรียงตาม waiting_queue_no (น้อยไปมาก = คิวจริง)
+                    visibleRequests.sort((a, b) => {
+                        // ถ้าไม่มี waiting_queue_no ให้ไปท้ายสุด
+                        const wa = (typeof a.waiting_queue_no !== 'undefined' && a.waiting_queue_no !== null && a.waiting_queue_no !== '') ? parseInt(a.waiting_queue_no, 10) : 99999;
+                        const wb = (typeof b.waiting_queue_no !== 'undefined' && b.waiting_queue_no !== null && b.waiting_queue_no !== '') ? parseInt(b.waiting_queue_no, 10) : 99999;
+                        return wa - wb;
+                    });
+
+                    if (visibleRequests.length === 0) {
+                        queueTbodyEl.innerHTML =
+                            '<tr><td colspan="10" style="color:#6b7280;padding:12px">ยังไม่มีรายการคิว</td></tr>';
+                        if (countEl) countEl.textContent = '0';
+                        if (pagerEl) pagerEl.innerHTML = '';
+                        try { loadSummaryCounts(); } catch (e) { }
+                        return;
+                    }
+
+                    // Pagination: page size 10
+                    const pageSize = 10;
+                    let page = parseInt(sessionStorage.getItem('queue_page') || '1', 10) || 1;
+                    const totalItems = visibleRequests.length;
+                    const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+                    if (page < 1) page = 1; if (page > totalPages) page = totalPages;
+
+                    const start = (page - 1) * pageSize;
+                    const end = start + pageSize;
+                    const pageItems = visibleRequests.slice(start, end);
+
+                    let rows = '';
+                    pageItems.forEach((r, idx) => {
+                        const hn = escapeHtml(r.hn || '-');
+                        let phone = (typeof r.phone !== 'undefined' && r.phone !== null) ? String(r.phone).trim() : '';
+                        if (phone === '' || phone === '-' || phone.toLowerCase() === 'null' || phone.toLowerCase() === 'undefined') {
+                            phone = '<span style="background:#e0e7ef;color:#00000;padding:4px 10px;border-radius:8px;font-weight:600;font-size:13px;letter-spacing:0.5px;display:inline-block;">ไม่มีเบอร์โทร</span>';
+                        } else {
+                            phone = escapeHtml(phone);
+                        }
+                        const urgHtml = renderUrgencyLabel(r.urgency);
+                        const bedNum = r.bed_number ? escapeHtml(String(r.bed_number)) : '-';
+                        const dt = formatDateTimeLocal(r.created_at || '-');
+                        const status = (r.status || 'pending');
+
+                        let statusLabel =
+                            '<span class="status-pill status-wait"><i class="fa-solid fa-clock"></i> รอดำเนินการ</span>';
+                        if (status === 'confirmed')
+                            statusLabel =
+                                '<span class="status-pill status-confirm"><i class="fa-solid fa-user-check"></i> ยืนยัน</span>';
+                        if (status === 'done')
+                            statusLabel =
+                                '<span class="status-pill" style="background:#eef2ff;color:#2563eb;"><i class="fa-solid fa-circle-check"></i> สิ้นสุดเคสการรักษา</span>';
+
+                        const cleanHn = hn.replace(/\D/g, '');
+                        const pnameCell = escapeHtml(r.patient_name || patientNamesCache[cleanHn] || '-');
+
+                        // Determine displayed sequence number.
+                        // Prefer persisted original_queue_no (immutable history), then waiting_queue_no (can be renumbered),
+                        // then server-provided admit_seq (backwards compatibility), then fallback to computed sequence.
+                        let serverSeq = null;
+                        if (typeof r.original_queue_no !== 'undefined' && r.original_queue_no !== null && r.original_queue_no !== '') {
+                            serverSeq = parseInt(r.original_queue_no, 10);
+                        } else if (typeof r.waiting_queue_no !== 'undefined' && r.waiting_queue_no !== null && r.waiting_queue_no !== '') {
+                            serverSeq = parseInt(r.waiting_queue_no, 10);
+                        } else if (typeof r.admit_seq !== 'undefined' && r.admit_seq !== null && r.admit_seq !== '') {
+                            serverSeq = parseInt(r.admit_seq, 10);
+                        }
+                        const seqNum = (Number.isFinite(serverSeq) ? serverSeq : ((start || 0) + idx + 1));
+                        let displayQueue = 'Q-' + String(seqNum).padStart(3, '0');
+                        if (status === 'confirmed') {
+                            displayQueue = '<span style="background:#e5f9f0;color:#208a4a;padding:4px 10px;border-radius:8px;font-weight:700">เข้าเตียงแล้ว</span>';
+                        }
+                        // waiting display (W-###) if waiting_queue_no present
+                        let waitingDisplay = '-';
+                        if (typeof r.waiting_queue_no !== 'undefined' && r.waiting_queue_no !== null && r.waiting_queue_no !== '') {
+                            if (status === 'confirmed') {
+                                waitingDisplay = '<span style="background:#e5f9f0;color:#208a4a;padding:4px 10px;border-radius:8px;font-weight:700">เข้าเตียงแล้ว</span>';
+                            } else {
+                                const wnum = parseInt(r.waiting_queue_no, 10);
+                                if (Number.isFinite(wnum)) waitingDisplay = 'W-' + String(wnum).padStart(3, '0');
+                            }
+                        }
+                        // เพิ่ม data-status attribute ที่ tr
+                        // <td data-label="เลขคิว"><span style="display:inline-block;background:#eef2ff;color:#2563eb;padding:4px 8px;border-radius:6px;font-weight:700">${displayQueue}</span></td>
+                        rows += `
+                            <tr data-id="${r.id || ''}" data-hn="${hn}" data-status="${status}">
+                            <td data-label="คิวรอจริง">${waitingDisplay}</td>
+                            <td data-label="เลข HN"><span class="hn-badge">${hn}</span></td>
+                            <td data-label="ชื่อ-นามสกุล"><span class="patient-name" data-hn="${hn}">${pnameCell}</span></td>
+                            <td data-label="เบอร์โทร">${phone}</td>
+                            <td data-label="การนัดหมาย/Walk in">${urgHtml}</td>
+                            <td data-label="เตียงปัจจุบัน">${bedNum}</td>
+                            <td data-label="วันที่และเวลา">${dt}</td>
+                            <td data-label="สถานะ">${statusLabel}</td>
+                            <td data-label="จัดการ">
+                                <button class="more-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                            </td>
+                        </tr>`;
+                    });
+
+                    queueTbodyEl.innerHTML = rows;
+                    if (countEl) countEl.textContent = String(visibleRequests.length);
+
+                    // re-apply client-side search/status filter if available
+                    try { if (typeof window.applyQueueFilter === 'function') window.applyQueueFilter(); } catch (e) { console.warn('applyQueueFilter error', e); }
+
+                    // sync dashboard counts กับตารางที่แสดงอยู่จริง
+                    try { loadSummaryCounts(); } catch (e) { }
+
+
+                    document.querySelectorAll('.patient-name[data-hn]').forEach(async (el) => {
+                        const hnVal = (el.getAttribute('data-hn') || '').replace(/\D/g, '');
+                        if (!hnVal) { el.textContent = '-'; return; }
+
+                        if (patientNamesCache[hnVal]) {
+                            el.textContent = patientNamesCache[hnVal];
+                            return;
+                        }
+
+                        try {
+                            const r = await fetch('get_hosxp_patient_detail.php?hn=' + encodeURIComponent(hnVal));
+                            if (!r.ok) { el.textContent = '-'; return; }
+                            const d = await r.json();
+                            if (d && d.success && d.data) {
+                                const name =
+                                    (((d.data.pname || '') + ' ' + (d.data.fname || '') + ' ' + (d.data.lname || '')).trim()) ||
+                                    '-';
+                                el.textContent = name;
+                                patientNamesCache[hnVal] = name;
+                            } else {
+                                el.textContent = '-';
+                            }
+                        } catch (e) {
+                            el.textContent = '-';
+                        }
+                    });
+                    // render pager controls
+                    try {
+                        const pagerEl = document.getElementById('queuePager');
+                        if (pagerEl) {
+                            const makeBtn = (txt, p, disabled = false) => `<button class="pager-btn" data-page="${p}" ${disabled ? 'disabled' : ''} style="margin:0 4px;padding:6px 10px;border-radius:6px;border:1px solid #e2e8f0;background:${disabled ? '#f3f4f6' : '#fff'};cursor:pointer">${txt}</button>`;
+                            let pagerHtml = '';
+                            pagerHtml += makeBtn('«', page - 1, page <= 1);
+                            // show up to 5 page buttons centred
+                            const startPage = Math.max(1, page - 2);
+                            const lastPage = Math.min(totalPages, startPage + 4);
+                            for (let p = startPage; p <= lastPage; p++) {
+                                if (p === page) pagerHtml += `<button class="pager-btn active" data-page="${p}" style="margin:0 4px;padding:6px 10px;border-radius:6px;border:1px solid #0369a1;background:#0369a1;color:#fff;font-weight:700">${p}</button>`;
+                                else pagerHtml += makeBtn(p, p);
+                            }
+                            pagerHtml += makeBtn('»', page + 1, page >= totalPages);
+                            pagerHtml += `<div style="display:inline-block;margin-left:8px;color:#374151">หน้า ${page} / ${totalPages} — ทั้งหมด ${totalItems}</div>`;
+                            pagerEl.innerHTML = pagerHtml;
+                            pagerEl.querySelectorAll('.pager-btn').forEach(b => b.addEventListener('click', (ev) => {
+                                const np = parseInt(b.getAttribute('data-page') || '1', 10) || 1;
+                                sessionStorage.setItem('queue_page', String(np));
+                                try { loadQueue(); } catch (e) { console.warn('reload queue after page click failed', e); }
+                            }));
+                        }
+                    } catch (e) { console.warn('render pager failed', e); }
+                } catch (e) {
+                    console.error('loadQueue error', e);
+                    try {
+                        const tbody = document.getElementById('queueTbody');
+                        if (queueTbodyEl) queueTbodyEl.innerHTML = '<tr><td colspan="10" style="color:#ef4444;padding:12px">เกิดข้อผิดพลาดในการโหลดข้อมูล</td></tr>';
+                    } catch (_) { }
+                }
+            }
+
+            function loadSummaryCounts() {
+                // เตรียมตัวแปรนับ
+                let pendingTotal = 0, confirmedTotal = 0;
+                let pendingToday = 0, confirmedToday = 0;
+
+                // หาวันที่ที่เลือกในปฏิทิน (หรือวันนี้)
+                let filterDate = null;
+                try {
+                    const dateFilter = JSON.parse(sessionStorage.getItem('icu_date_filter') || '{}');
+                    if (dateFilter && dateFilter.mode === 'single' && dateFilter.year && dateFilter.month && dateFilter.day) {
+                        filterDate = `${String(dateFilter.year).padStart(4, '0')}-${String(dateFilter.month).padStart(2, '0')}-${String(dateFilter.day).padStart(2, '0')}`;
+                    }
+                } catch (e) { }
+                if (!filterDate) {
+                    const t = new Date();
+                    filterDate = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`;
+                }
+
+                // ดึงข้อมูล queue ทั้งหมด (window._allQueueRequests)
+                let allRows = [];
+                if (window._allQueueRequests && Array.isArray(window._allQueueRequests)) {
+                    allRows = window._allQueueRequests;
+                } else {
+                    // fallback: ใช้ DOM (แสดงเฉพาะแถวที่มี data-status)
+                    allRows = Array.from(document.querySelectorAll('#queueTbody tr'))
+                        .map(tr => ({
+                            status: tr.getAttribute('data-status') || '',
+                            created_at: tr.querySelector('td[data-label="วันที่และเวลา"]')?.innerText || ''
+                        }));
+                }
+
+                // นับ "ทั้งหมด" (ทุกวัน)
+                for (const r of allRows) {
+                    const st = String(r.status || '').toLowerCase();
+                    const dt = (r.created_at || '').slice(0, 10);
+                    if (st === 'pending') {
+                        pendingTotal++;
+                        if (dt === filterDate) pendingToday++;
+                    }
+                    if (st === 'confirmed') {
+                        confirmedTotal++;
+                        if (dt === filterDate) confirmedToday++;
+                    }
+                }
+
+                // อัปเดต DOM
+                function setText(id, val) {
+                    const el = document.getElementById(id);
+                    if (el) el.textContent = String(val);
+                }
+                // ตัวเลขใหญ่ (บน card) = วันนี้
+                setText('summaryPending', pendingToday);
+                setText('summaryConfirmed', confirmedToday);
+                // "วันนี้"
+                setText('summaryPendingToday', pendingToday);
+                setText('summaryConfirmedToday', confirmedToday);
+                // "ทั้งหมด"
+                setText('summaryPendingTotal', pendingTotal);
+                setText('summaryConfirmedTotal', confirmedTotal);
+            }
+
+            // ปรับ loadQueue ให้เก็บ requests ทั้งหมดไว้ใน window._allQueueRequests
+            async function loadQueue() {
+                const queueTbodyEl = document.getElementById('queueTbody');
+                try {
+                    const resp = await fetch('process.php?action=get_public_requests');
+                    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                    const j = await resp.json();
+                    const queueTbodyEl = document.getElementById('queueTbody');
+                    const countEl = document.getElementById('queueCount');
+                    const pagerEl = document.getElementById('queuePager');
+                    if (!queueTbodyEl) return;
+
+                    // ป้องกัน error ถ้า j.requests ไม่ใช่ array
+                    const requests = (j && Array.isArray(j.requests)) ? j.requests : [];
+                    window._allQueueRequests = requests;
+
+                    if (!j || !j.success || requests.length === 0) {
+                        if (queueTbodyEl) queueTbodyEl.innerHTML =
+                            '<tr><td colspan="10" style="color:#6b7280;padding:12px">ยังไม่มีรายการคิว</td></tr>';
+                        if (countEl) countEl.textContent = '0';
+                        if (pagerEl) pagerEl.innerHTML = '';
+                        try { loadSummaryCounts(); } catch (e) { }
+                        return;
+                    }
+
+                    // --- เพิ่มส่วนนี้: กรองตามวันที่ถ้ามี icu_date_filter ---
+                    let visibleRequests = requests.filter(r => {
+                        const st = String((r.status || '')).toLowerCase();
+                        return st === 'pending' || st === 'confirmed';
+                    });
+
+                    // กรองตามวันที่ถ้ามี icu_date_filter
+                    let dateFilter = null;
+                    try {
+                        dateFilter = JSON.parse(sessionStorage.getItem('icu_date_filter') || '{}');
+                    } catch (e) { dateFilter = null; }
+                    if (dateFilter && dateFilter.mode === 'single' && dateFilter.year && dateFilter.month && dateFilter.day) {
+                        const y = String(dateFilter.year).padStart(4, '0');
+                        const m = String(dateFilter.month).padStart(2, '0');
+                        const d = String(dateFilter.day).padStart(2, '0');
+                        // กรองเฉพาะ created_at ที่ตรงวันนั้น (เปรียบเทียบ yyyy-mm-dd)
+                        visibleRequests = visibleRequests.filter(r => {
+                            const dt = r.created_at || '';
+                            if (!dt) return false;
+                            // รองรับทั้งรูปแบบ "yyyy-mm-dd" และ "yyyy-mm-dd hh:mm:ss"
+                            const dtStr = dt.slice(0, 10);
+                            return dtStr === `${y}-${m}-${d}`;
+                        });
+                    }
+                    // --- จบส่วนเพิ่ม ---
+
+                    if (visibleRequests.length === 0) {
+                        queueTbodyEl.innerHTML =
+                            '<tr><td colspan="10" style="color:#6b7280;padding:12px">ยังไม่มีรายการคิว</td></tr>';
+                        if (countEl) countEl.textContent = '0';
+                        if (pagerEl) pagerEl.innerHTML = '';
+                        try { loadSummaryCounts(); } catch (e) { }
+                        return;
+                    }
+
+                    // Pagination: page size 10
+                    const pageSize = 10;
+                    let page = parseInt(sessionStorage.getItem('queue_page') || '1', 10) || 1;
+                    const totalItems = visibleRequests.length;
+                    const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+                    if (page < 1) page = 1; if (page > totalPages) page = totalPages;
+
+                    const start = (page - 1) * pageSize;
+                    const end = start + pageSize;
+                    const pageItems = visibleRequests.slice(start, end);
+
+                    let rows = '';
+                    pageItems.forEach((r, idx) => {
+                        const hn = escapeHtml(r.hn || '-');
+                        let phone = (typeof r.phone !== 'undefined' && r.phone !== null) ? String(r.phone).trim() : '';
+                        if (phone === '' || phone === '-' || phone.toLowerCase() === 'null' || phone.toLowerCase() === 'undefined') {
+                            phone = '<span style="background:#e0e7ef;color:#00000;padding:4px 10px;border-radius:8px;font-weight:600;font-size:13px;letter-spacing:0.5px;display:inline-block;">ไม่มีเบอร์โทร</span>';
+                        } else {
+                            phone = escapeHtml(phone);
+                        }
+                        const urgHtml = renderUrgencyLabel(r.urgency);
+                        const bedNum = r.bed_number ? escapeHtml(String(r.bed_number)) : '-';
+                        const dt = formatDateTimeLocal(r.created_at || '-');
+                        const status = (r.status || 'pending');
+
+                        let statusLabel =
+                            '<span class="status-pill status-wait"><i class="fa-solid fa-clock"></i> รอดำเนินการ</span>';
+                        if (status === 'confirmed')
+                            statusLabel =
+                                '<span class="status-pill status-confirm"><i class="fa-solid fa-user-check"></i> ยืนยัน</span>';
+                        if (status === 'done')
+                            statusLabel =
+                                '<span class="status-pill" style="background:#eef2ff;color:#2563eb;"><i class="fa-solid fa-circle-check"></i> สิ้นสุดเคสการรักษา</span>';
+
+                        const cleanHn = hn.replace(/\D/g, '');
+                        const pnameCell = escapeHtml(r.patient_name || patientNamesCache[cleanHn] || '-');
+
+                        // Determine displayed sequence number.
+                        // Prefer persisted original_queue_no (immutable history), then waiting_queue_no (can be renumbered),
+                        // then server-provided admit_seq (backwards compatibility), then fallback to computed sequence.
+                        let serverSeq = null;
+                        if (typeof r.original_queue_no !== 'undefined' && r.original_queue_no !== null && r.original_queue_no !== '') {
+                            serverSeq = parseInt(r.original_queue_no, 10);
+                        } else if (typeof r.waiting_queue_no !== 'undefined' && r.waiting_queue_no !== null && r.waiting_queue_no !== '') {
+                            serverSeq = parseInt(r.waiting_queue_no, 10);
+                        } else if (typeof r.admit_seq !== 'undefined' && r.admit_seq !== null && r.admit_seq !== '') {
+                            serverSeq = parseInt(r.admit_seq, 10);
+                        }
+                        const seqNum = (Number.isFinite(serverSeq) ? serverSeq : ((start || 0) + idx + 1));
+                        const displayQueue = 'Q-' + String(seqNum).padStart(3, '0');
+                        // waiting display (W-###) if waiting_queue_no present
+                        let waitingDisplay = '-';
+                        if (typeof r.waiting_queue_no !== 'undefined' && r.waiting_queue_no !== null && r.waiting_queue_no !== '') {
+                            if (status === 'confirmed') {
+                                waitingDisplay = '<span style="background:#e5f9f0;color:#208a4a;padding:4px 10px;border-radius:8px;font-weight:700">เข้าเตียงแล้ว</span>';
+                            } else {
+                                const wnum = parseInt(r.waiting_queue_no, 10);
+                                if (Number.isFinite(wnum)) waitingDisplay = 'W-' + String(wnum).padStart(3, '0');
+                            }
+                        }
+                        // เพิ่ม data-status attribute ที่ tr
+                        // <td data-label="เลขคิว"><span style="display:inline-block;background:#eef2ff;color:#2563eb;padding:4px 8px;border-radius:6px;font-weight:700">${escapeHtml(displayQueue)}</span></td>
+                        rows += `
+                            <tr data-id="${r.id || ''}" data-hn="${hn}" data-status="${status}">
+                            <td data-label="คิวรอจริง">${waitingDisplay}</td>
+                            <td data-label="เลข HN"><span class="hn-badge">${hn}</span></td>
+                            <td data-label="ชื่อ-นามสกุล"><span class="patient-name" data-hn="${hn}">${pnameCell}</span></td>
+                            <td data-label="เบอร์โทร">${phone}</td>
+                            <td data-label="การนัดหมาย/Walk in">${urgHtml}</td>
+                            <td data-label="เตียงปัจจุบัน">${bedNum}</td>
+                            <td data-label="วันที่และเวลา">${dt}</td>
+                            <td data-label="สถานะ">${statusLabel}</td>
+                            <td data-label="จัดการ">
+                                <button class="more-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                            </td>
+                        </tr>`;
+                    });
+
+                    queueTbodyEl.innerHTML = rows;
+                    if (countEl) countEl.textContent = String(visibleRequests.length);
+
+                    // re-apply client-side search/status filter if available
+                    try { if (typeof window.applyQueueFilter === 'function') window.applyQueueFilter(); } catch (e) { console.warn('applyQueueFilter error', e); }
+
+                    // sync dashboard counts กับตารางที่แสดงอยู่จริง
+                    try { loadSummaryCounts(); } catch (e) { }
+
+
+                    document.querySelectorAll('.patient-name[data-hn]').forEach(async (el) => {
+                        const hnVal = (el.getAttribute('data-hn') || '').replace(/\D/g, '');
+                        if (!hnVal) { el.textContent = '-'; return; }
+
+                        if (patientNamesCache[hnVal]) {
+                            el.textContent = patientNamesCache[hnVal];
+                            return;
+                        }
+
+                        try {
+                            const r = await fetch('get_hosxp_patient_detail.php?hn=' + encodeURIComponent(hnVal));
+                            if (!r.ok) { el.textContent = '-'; return; }
+                            const d = await r.json();
+                            if (d && d.success && d.data) {
+                                const name =
+                                    (((d.data.pname || '') + ' ' + (d.data.fname || '') + ' ' + (d.data.lname || '')).trim()) ||
+                                    '-';
+                                el.textContent = name;
+                                patientNamesCache[hnVal] = name;
+                            } else {
+                                el.textContent = '-';
+                            }
+                        } catch (e) {
+                            el.textContent = '-';
+                        }
+                    });
+                    // render pager controls
+                    try {
+                        const pagerEl = document.getElementById('queuePager');
+                        if (pagerEl) {
+                            const makeBtn = (txt, p, disabled = false) => `<button class="pager-btn" data-page="${p}" ${disabled ? 'disabled' : ''} style="margin:0 4px;padding:6px 10px;border-radius:6px;border:1px solid #e2e8f0;background:${disabled ? '#f3f4f6' : '#fff'};cursor:pointer">${txt}</button>`;
+                            let pagerHtml = '';
+                            pagerHtml += makeBtn('«', page - 1, page <= 1);
+                            // show up to 5 page buttons centred
+                            const startPage = Math.max(1, page - 2);
+                            const lastPage = Math.min(totalPages, startPage + 4);
+                            for (let p = startPage; p <= lastPage; p++) {
+                                if (p === page) pagerHtml += `<button class="pager-btn active" data-page="${p}" style="margin:0 4px;padding:6px 10px;border-radius:6px;border:1px solid #0369a1;background:#0369a1;color:#fff;font-weight:700">${p}</button>`;
+                                else pagerHtml += makeBtn(p, p);
+                            }
+                            pagerHtml += makeBtn('»', page + 1, page >= totalPages);
+                            pagerHtml += `<div style="display:inline-block;margin-left:8px;color:#374151">หน้า ${page} / ${totalPages} — ทั้งหมด ${totalItems}</div>`;
+                            pagerEl.innerHTML = pagerHtml;
+                            pagerEl.querySelectorAll('.pager-btn').forEach(b => b.addEventListener('click', (ev) => {
+                                const np = parseInt(b.getAttribute('data-page') || '1', 10) || 1;
+                                sessionStorage.setItem('queue_page', String(np));
+                                try { loadQueue(); } catch (e) { console.warn('reload queue after page click failed', e); }
+                            }));
+                        }
+                    } catch (e) { console.warn('render pager failed', e); }
+                } catch (e) {
+                    console.error('loadQueue error', e);
+                    try {
+                        const tbody = document.getElementById('queueTbody');
+                        if (queueTbodyEl) queueTbodyEl.innerHTML = '<tr><td colspan="10" style="color:#ef4444;padding:12px">เกิดข้อผิดพลาดในการโหลดข้อมูล</td></tr>';
+                    } catch (_) { }
+                }
+            }
+
+            function loadSummaryCounts() {
+                // เตรียมตัวแปรนับ
+                let pendingTotal = 0, confirmedTotal = 0;
+                let pendingToday = 0, confirmedToday = 0;
+
+                // หาวันที่ที่เลือกในปฏิทิน (หรือวันนี้)
+                let filterDate = null;
+                try {
+                    const dateFilter = JSON.parse(sessionStorage.getItem('icu_date_filter') || '{}');
+                    if (dateFilter && dateFilter.mode === 'single' && dateFilter.year && dateFilter.month && dateFilter.day) {
+                        filterDate = `${String(dateFilter.year).padStart(4, '0')}-${String(dateFilter.month).padStart(2, '0')}-${String(dateFilter.day).padStart(2, '0')}`;
+                    }
+                } catch (e) { }
+                if (!filterDate) {
+                    const t = new Date();
+                    filterDate = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`;
+                }
+
+                // ดึงข้อมูล queue ทั้งหมด (window._allQueueRequests)
+                let allRows = [];
+                if (window._allQueueRequests && Array.isArray(window._allQueueRequests)) {
+                    allRows = window._allQueueRequests;
+                } else {
+                    // fallback: ใช้ DOM (แสดงเฉพาะแถวที่มี data-status)
+                    allRows = Array.from(document.querySelectorAll('#queueTbody tr'))
+                        .map(tr => ({
+                            status: tr.getAttribute('data-status') || '',
+                            created_at: tr.querySelector('td[data-label="วันที่และเวลา"]')?.innerText || ''
+                        }));
+                }
+
+                // นับ "ทั้งหมด" (ทุกวัน)
+                for (const r of allRows) {
+                    const st = String(r.status || '').toLowerCase();
+                    const dt = (r.created_at || '').slice(0, 10);
+                    if (st === 'pending') {
+                        pendingTotal++;
+                        if (dt === filterDate) pendingToday++;
+                    }
+                    if (st === 'confirmed') {
+                        confirmedTotal++;
+                        if (dt === filterDate) confirmedToday++;
+                    }
+                }
+
+                // อัปเดต DOM
+                function setText(id, val) {
+                    const el = document.getElementById(id);
+                    if (el) el.textContent = String(val);
+                }
+                // ตัวเลขใหญ่ (บน card) = วันนี้
+                setText('summaryPending', pendingToday);
+                setText('summaryConfirmed', confirmedToday);
+                // "วันนี้"
+                setText('summaryPendingToday', pendingToday);
+                setText('summaryConfirmedToday', confirmedToday);
+                // "ทั้งหมด"
+                setText('summaryPendingTotal', pendingTotal);
+                setText('summaryConfirmedTotal', confirmedTotal);
+            }
+
+            // ปรับ loadQueue ให้เก็บ requests ทั้งหมดไว้ใน window._allQueueRequests
+            async function loadQueue() {
+                const queueTbodyEl = document.getElementById('queueTbody');
+                try {
+                    const resp = await fetch('process.php?action=get_public_requests');
+                    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                    const j = await resp.json();
+                    const queueTbodyEl = document.getElementById('queueTbody');
+                    const countEl = document.getElementById('queueCount');
+                    const pagerEl = document.getElementById('queuePager');
+                    if (!queueTbodyEl) return;
+
+                    // ป้องกัน error ถ้า j.requests ไม่ใช่ array
+                    const requests = (j && Array.isArray(j.requests)) ? j.requests : [];
+                    window._allQueueRequests = requests;
+
+                    if (!j || !j.success || requests.length === 0) {
+                        if (queueTbodyEl) queueTbodyEl.innerHTML =
+                            '<tr><td colspan="10" style="color:#6b7280;padding:12px">ยังไม่มีรายการคิว</td></tr>';
+                        if (countEl) countEl.textContent = '0';
+                        if (pagerEl) pagerEl.innerHTML = '';
+                        try { loadSummaryCounts(); } catch (e) { }
+                        return;
+                    }
+
+                    // --- เพิ่มส่วนนี้: กรองตามวันที่ถ้ามี icu_date_filter ---
+                    let visibleRequests = requests.filter(r => {
+                        const st = String((r.status || '')).toLowerCase();
+                        return st === 'pending' || st === 'confirmed';
+                    });
+
+                    // กรองตามวันที่ถ้ามี icu_date_filter
+                    let dateFilter = null;
+                    try {
+                        dateFilter = JSON.parse(sessionStorage.getItem('icu_date_filter') || '{}');
+                    } catch (e) { dateFilter = null; }
+                    if (dateFilter && dateFilter.mode === 'single' && dateFilter.year && dateFilter.month && dateFilter.day) {
+                        const y = String(dateFilter.year).padStart(4, '0');
+                        const m = String(dateFilter.month).padStart(2, '0');
+                        const d = String(dateFilter.day).padStart(2, '0');
+                        // กรองเฉพาะ created_at ที่ตรงวันนั้น (เปรียบเทียบ yyyy-mm-dd)
+                        visibleRequests = visibleRequests.filter(r => {
+                            const dt = r.created_at || '';
+                            if (!dt) return false;
+                            // รองรับทั้งรูปแบบ "yyyy-mm-dd" และ "yyyy-mm-dd hh:mm:ss"
+                            const dtStr = dt.slice(0, 10);
+                            return dtStr === `${y}-${m}-${d}`;
+                        });
+                    }
+                    // --- จบส่วนเพิ่ม ---
+
+                    if (visibleRequests.length === 0) {
+                        queueTbodyEl.innerHTML =
+                            '<tr><td colspan="10" style="color:#6b7280;padding:12px">ยังไม่มีรายการคิว</td></tr>';
+                        if (countEl) countEl.textContent = '0';
+                        if (pagerEl) pagerEl.innerHTML = '';
+                        try { loadSummaryCounts(); } catch (e) { }
+                        return;
+                    }
+
+                    // Pagination: page size 10
+                    const pageSize = 10;
+                    let page = parseInt(sessionStorage.getItem('queue_page') || '1', 10) || 1;
+                    const totalItems = visibleRequests.length;
+                    const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+                    if (page < 1) page = 1; if (page > totalPages) page = totalPages;
+
+                    const start = (page - 1) * pageSize;
+                    const end = start + pageSize;
+                    const pageItems = visibleRequests.slice(start, end);
+
+                    let rows = '';
+                    pageItems.forEach((r, idx) => {
+                        const hn = escapeHtml(r.hn || '-');
+                        let phone = (typeof r.phone !== 'undefined' && r.phone !== null) ? String(r.phone).trim() : '';
+                        if (phone === '' || phone === '-' || phone.toLowerCase() === 'null' || phone.toLowerCase() === 'undefined') {
+                            phone = '<span style="background:#e0e7ef;color:#00000;padding:4px 10px;border-radius:8px;font-weight:600;font-size:13px;letter-spacing:0.5px;display:inline-block;">ไม่มีเบอร์โทร</span>';
+                        } else {
+                            phone = escapeHtml(phone);
+                        }
+                        const urgHtml = renderUrgencyLabel(r.urgency);
+                        const bedNum = r.bed_number ? escapeHtml(String(r.bed_number)) : '-';
+                        const dt = formatDateTimeLocal(r.created_at || '-');
+                        const status = (r.status || 'pending');
+
+                        let statusLabel =
+                            '<span class="status-pill status-wait"><i class="fa-solid fa-clock"></i> รอดำเนินการ</span>';
+                        if (status === 'confirmed')
+                            statusLabel =
+                                '<span class="status-pill status-confirm"><i class="fa-solid fa-user-check"></i> ยืนยัน</span>';
+                        if (status === 'done')
+                            statusLabel =
+                                '<span class="status-pill" style="background:#eef2ff;color:#2563eb;"><i class="fa-solid fa-circle-check"></i> สิ้นสุดเคสการรักษา</span>';
+
+                        const cleanHn = hn.replace(/\D/g, '');
+                        const pnameCell = escapeHtml(r.patient_name || patientNamesCache[cleanHn] || '-');
+
+                        // Determine displayed sequence number.
+                        // Prefer persisted original_queue_no (immutable history), then waiting_queue_no (can be renumbered),
+                        // then server-provided admit_seq (backwards compatibility), then fallback to computed sequence.
+                        let serverSeq = null;
+                        if (typeof r.original_queue_no !== 'undefined' && r.original_queue_no !== null && r.original_queue_no !== '') {
+                            serverSeq = parseInt(r.original_queue_no, 10);
+                        } else if (typeof r.waiting_queue_no !== 'undefined' && r.waiting_queue_no !== null && r.waiting_queue_no !== '') {
+                            serverSeq = parseInt(r.waiting_queue_no, 10);
+                        } else if (typeof r.admit_seq !== 'undefined' && r.admit_seq !== null && r.admit_seq !== '') {
+                            serverSeq = parseInt(r.admit_seq, 10);
+                        }
+                        const seqNum = (Number.isFinite(serverSeq) ? serverSeq : ((start || 0) + idx + 1));
+                        const displayQueue = 'Q-' + String(seqNum).padStart(3, '0');
+                        // waiting display (W-###) if waiting_queue_no present
+                        let waitingDisplay = '-';
+                        if (typeof r.waiting_queue_no !== 'undefined' && r.waiting_queue_no !== null && r.waiting_queue_no !== '') {
+                            if (status === 'confirmed') {
+                                waitingDisplay = '<span style="background:#e5f9f0;color:#208a4a;padding:4px 10px;border-radius:8px;font-weight:700">เข้าเตียงแล้ว</span>';
+                            } else {
+                                const wnum = parseInt(r.waiting_queue_no, 10);
+                                if (Number.isFinite(wnum)) waitingDisplay = 'W-' + String(wnum).padStart(3, '0');
+                            }
+                        }
+                        // เพิ่ม data-status attribute ที่ tr
+                        //  <td data-label="เลขคิว"><span style="display:inline-block;background:#eef2ff;color:#2563eb;padding:4px 8px;border-radius:6px;font-weight:700">${escapeHtml(displayQueue)}</span></td>
+                        rows += `
+                            <tr data-id="${r.id || ''}" data-hn="${hn}" data-status="${status}">
+                            <td data-label="คิวรอจริง">${waitingDisplay}</td>
+                            <td data-label="เลข HN"><span class="hn-badge">${hn}</span></td>
+                            <td data-label="ชื่อ-นามสกุล"><span class="patient-name" data-hn="${hn}">${pnameCell}</span></td>
+                            <td data-label="เบอร์โทร">${phone}</td>
+                            <td data-label="การนัดหมาย/Walk in">${urgHtml}</td>
+                            <td data-label="เตียงปัจจุบัน">${bedNum}</td>
+                            <td data-label="วันที่และเวลา">${dt}</td>
+                            <td data-label="สถานะ">${statusLabel}</td>
+                            <td data-label="จัดการ">
+                                <button class="more-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                            </td>
+                        </tr>`;
+                    });
+
+                    queueTbodyEl.innerHTML = rows;
+                    if (countEl) countEl.textContent = String(visibleRequests.length);
+
+                    // re-apply client-side search/status filter if available
+                    try { if (typeof window.applyQueueFilter === 'function') window.applyQueueFilter(); } catch (e) { console.warn('applyQueueFilter error', e); }
+
+                    // sync dashboard counts กับตารางที่แสดงอยู่จริง
+                    try { loadSummaryCounts(); } catch (e) { }
+
+
+                    document.querySelectorAll('.patient-name[data-hn]').forEach(async (el) => {
+                        const hnVal = (el.getAttribute('data-hn') || '').replace(/\D/g, '');
+                        if (!hnVal) { el.textContent = '-'; return; }
+
+                        if (patientNamesCache[hnVal]) {
+                            el.textContent = patientNamesCache[hnVal];
+                            return;
+                        }
+
+                        try {
+                            const r = await fetch('get_hosxp_patient_detail.php?hn=' + encodeURIComponent(hnVal));
+                            if (!r.ok) { el.textContent = '-'; return; }
+                            const d = await r.json();
+                            if (d && d.success && d.data) {
+                                const name =
+                                    (((d.data.pname || '') + ' ' + (d.data.fname || '') + ' ' + (d.data.lname || '')).trim()) ||
+                                    '-';
+                                el.textContent = name;
+                                patientNamesCache[hnVal] = name;
+                            } else {
+                                el.textContent = '-';
+                            }
+                        } catch (e) {
+                            el.textContent = '-';
+                        }
+                    });
+                    // render pager controls
+                    try {
+                        const pagerEl = document.getElementById('queuePager');
+                        if (pagerEl) {
+                            const makeBtn = (txt, p, disabled = false) => `<button class="pager-btn" data-page="${p}" ${disabled ? 'disabled' : ''} style="margin:0 4px;padding:6px 10px;border-radius:6px;border:1px solid #e2e8f0;background:${disabled ? '#f3f4f6' : '#fff'};cursor:pointer">${txt}</button>`;
+                            let pagerHtml = '';
+                            pagerHtml += makeBtn('«', page - 1, page <= 1);
+                            // show up to 5 page buttons centred
+                            const startPage = Math.max(1, page - 2);
+                            const lastPage = Math.min(totalPages, startPage + 4);
+                            for (let p = startPage; p <= lastPage; p++) {
+                                if (p === page) pagerHtml += `<button class="pager-btn active" data-page="${p}" style="margin:0 4px;padding:6px 10px;border-radius:6px;border:1px solid #0369a1;background:#0369a1;color:#fff;font-weight:700">${p}</button>`;
+                                else pagerHtml += makeBtn(p, p);
+                            }
+                            pagerHtml += makeBtn('»', page + 1, page >= totalPages);
+                            pagerHtml += `<div style="display:inline-block;margin-left:8px;color:#374151">หน้า ${page} / ${totalPages} — ทั้งหมด ${totalItems}</div>`;
+                            pagerEl.innerHTML = pagerHtml;
+                            pagerEl.querySelectorAll('.pager-btn').forEach(b => b.addEventListener('click', (ev) => {
+                                const np = parseInt(b.getAttribute('data-page') || '1', 10) || 1;
+                                sessionStorage.setItem('queue_page', String(np));
+                                try { loadQueue(); } catch (e) { console.warn('reload queue after page click failed', e); }
+                            }));
+                        }
+                    } catch (e) { console.warn('render pager failed', e); }
+                } catch (e) {
+                    console.error('loadQueue error', e);
+                    try {
+                        const tbody = document.getElementById('queueTbody');
+                        if (queueTbodyEl) queueTbodyEl.innerHTML = '<tr><td colspan="10" style="color:#ef4444;padding:12px">เกิดข้อผิดพลาดในการโหลดข้อมูล</td></tr>';
+                    } catch (_) { }
+                }
+            }
+
+            function escapeHtml(s) {
+                if (s === null || typeof s === 'undefined') return '';
+                return String(s).replace(/[&<>"']/g, (m) => ({
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#39;'
+                }[m]));
+            }
+
+            // ✅ Display "ผู้จองคิว" from public_requests.user_rh
+            // Keep these raw values unchanged
+            const BOOKER_EXCEPT_SET = new Set(['Patient', 'PLAPLAPLA@gmail.com', 'Nurse.1@gmail.com']);
+
+            function resolveBookerDisplay(rawValue, optionalDisplay) {
+                const raw = (rawValue ?? '').toString().trim();
+                const disp = (optionalDisplay ?? '').toString().trim();
+
+                if (!raw && !disp) return '-';
+
+                // if raw is in exception list -> keep raw
+                if (raw && BOOKER_EXCEPT_SET.has(raw)) return raw;
+
+                // otherwise prefer display/fullname (from API), fallback to raw
+                if (disp) return disp;
+                return raw || '-';
+            }
+
+            function formatDateTimeLocal(dt) {
+                if (!dt || dt === '-') return '-';
+                try {
+                    const d = new Date(dt);
+                    if (isNaN(d)) return dt;
+                    return d.toLocaleString('th-TH', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+                } catch (e) {
+                    return dt;
+                }
+            }
+
+
+            // ปรับ setupSearchFilter => live input + status chips
+            function setupSearchFilter() {
+                const input = document.getElementById('searchInput');
+                const btnSearch = document.getElementById('searchBtn');
+                const btnReset = document.getElementById('resetBtn');
+
+                if (!input) return;
+
+                let currentStatusFilter = 'all';
+                let timer = null;
+
+                const applyFilter = () => {
+                    const keyword = input.value.trim().toLowerCase();
+                    const rows = document.querySelectorAll('#queueTbody tr');
+
+                    rows.forEach(row => {
+                        // status filter
+                        const rowStatus = (row.getAttribute('data-status') || '').toLowerCase();
+                        const statusMatch = (currentStatusFilter === 'all') || (rowStatus === currentStatusFilter);
+
+                        if (!statusMatch) {
+                            row.style.display = 'none';
+                            return;
+                        }
+
+                        if (!keyword) {
+                            row.style.display = '';
+                            return;
+                        }
+                        const text = row.innerText.toLowerCase();
+                        row.style.display = text.includes(keyword) ? '' : 'none';
+                    });
+
+                    // update dashboard counts ตามแถวที่แสดงอยู่ (ยกเว้นยกเลิก)
+                    try { loadSummaryCounts(); } catch (e) { }
+
+                };
+
+                // live filter on input with small debounce
+                input.addEventListener('input', () => {
+                    clearTimeout(timer);
+                    timer = setTimeout(applyFilter, 180);
+                });
+
+                btnSearch?.addEventListener('click', applyFilter);
+
+                btnReset?.addEventListener('click', () => {
+                    input.value = '';
+                    currentStatusFilter = 'all';
+                    // reset chip visuals
+                    document.querySelectorAll('#statusFilters .filter-chip').forEach(el => el.classList.remove('active'));
+                    document.getElementById('filterAll')?.classList.add('active');
+                    // reset to page 1 when user clears filters
+                    sessionStorage.setItem('queue_page', '1');
+                    try { if (typeof loadQueue === 'function') loadQueue(); } catch (e) { try { applyFilter(); } catch (_) { } }
+                });
+
+                // expose applyFilter so loadQueue can re-apply client filters after reload
+                window.applyQueueFilter = applyFilter;
+
+                // status chips binding
+                document.querySelectorAll('#statusFilters .filter-chip').forEach(chip => {
+                    chip.addEventListener('click', () => {
+                        document.querySelectorAll('#statusFilters .filter-chip').forEach(el => el.classList.remove('active'));
+                        chip.classList.add('active');
+                        currentStatusFilter = (chip.getAttribute('data-status') || 'all').toLowerCase();
+                        // user changed status filter -> reset to page 1 and reload queue
+                        sessionStorage.setItem('queue_page', '1');
+                        try { if (typeof loadQueue === 'function') loadQueue(); } catch (e) { try { applyFilter(); } catch (_) { } }
+                    });
+                });
+
+                // support Enter key
+                input.addEventListener('keyup', (e) => {
+                    if (e.key === 'Enter') {
+                        clearTimeout(timer);
+                        // search triggered via Enter -> reset to first page and reload
+                        sessionStorage.setItem('queue_page', '1');
+                        try { if (typeof loadQueue === 'function') loadQueue(); } catch (e) { try { applyFilter(); } catch (_) { } }
+                    }
+                });
+            }
+
+            // เพิ่ม: สร้าง options ให้ datalist ของช่องค้นหา
+            async function populateSearchSuggestions() {
+                const dl = document.getElementById('searchSuggestions');
+                if (!dl) return;
+                try {
+                    const resp = await fetch('process.php?action=get_public_requests');
+                    if (!resp.ok) return;
+                    const j = await resp.json();
+                    if (!j || !j.success || !Array.isArray(j.requests)) return;
+                    const set = new Set();
+                    for (const r of j.requests) {
+                        const hn = (r.hn || '').replace(/\D/g, '');
+                        const name = (r.patient_name || '').trim();
+                        const phone = (r.phone || '').replace(/\D/g, '');
+                        const label = [hn, name, phone].filter(Boolean).join(' - ');
+                        if (label) set.add(label);
+                    }
+                    dl.innerHTML = '';
+                    Array.from(set).slice(0, 500).forEach(v => {
+                        const opt = document.createElement('option');
+                        opt.value = v;
+                        dl.appendChild(opt);
+                    });
+                } catch (e) {
+                    // ignore errors silently
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                loadQueue();
+                loadSummaryCounts();
+                setupSearchFilter();
+                populateSearchSuggestions();
+            });
+            setInterval(loadSummaryCounts, 10000);
+            // auto-reload queue every 20 seconds
+            setInterval(() => {
+                try { loadQueue(); } catch (e) { console.warn('auto reload loadQueue failed', e); }
+            }, 20000);
+
+            // Script 4: helper เพื่อส่งข้อมูลคำขอไปหน้า register_step2 (ใช้ sessionStorage)
+            window.openRegisterWith = async function (req) {
+                try {
+                    if (!req || !req.hn) return;
+
+                    const payload = {
+                        id: req.id || '',
+                        hn: String(req.hn || '').replace(/\D/g, ''),
+                        patient_name: req.patient_name || req.pname || req.name || '',
+                        patient_age: (typeof req.patient_age !== 'undefined' && req.patient_age !== null)
+                            ? String(req.patient_age)
+                            : '',
+                        patient_gender: req.patient_gender || '',
+                        phone: req.phone || '',
+                        created_at: req.created_at || '',
+                        status: req.status || '',
+                        urgency: (typeof req.urgency !== 'undefined' && req.urgency !== null) ? String(req.urgency) : ''
+                    };
+
+                    // ถ้า payload ยังไม่มีอายุ แต่มี HN ให้ไปดึงจาก HOSxP เติมให้
+                    if ((!payload.patient_age || payload.patient_age === '-' || payload.patient_age === '') && payload.hn) {
+                        try {
+                            const resp = await fetch('get_hosxp_patient_detail.php?hn=' + encodeURIComponent(payload.hn));
+                            if (resp && resp.ok) {
+                                const j = await resp.json();
+                                if (j && j.success && j.data) {
+                                    const d = j.data;
+                                    if (typeof d.age !== 'undefined' && d.age !== null && String(d.age).trim() !== '') {
+                                        payload.patient_age = String(d.age);
+                                    } else if (typeof d.age_y !== 'undefined' && d.age_y !== null && String(d.age_y).trim() !== '') {
+                                        payload.patient_age = String(d.age_y);
+                                    } else {
+                                        const dob = d.birthday || d.birthdate || d.BIRTH || '';
+                                        if (dob) {
+                                            try {
+                                                const bd = new Date(dob);
+                                                if (!isNaN(bd)) {
+                                                    const now = new Date();
+                                                    let calcAge = now.getFullYear() - bd.getFullYear();
+                                                    const m = now.getMonth() - bd.getMonth();
+                                                    const day = now.getDate() - bd.getDate();
+                                                    if (m < 0 || (m === 0 && day < 0)) calcAge--;
+                                                    payload.patient_age = String(Math.max(0, calcAge));
+                                                }
+                                            } catch (ee) { /* ignore */ }
+                                        }
+                                    }
+                                    if ((!payload.patient_gender || payload.patient_gender === '-') &&
+                                        (typeof d.sex !== 'undefined' || d.gender)) {
+                                        if (typeof d.sex !== 'undefined' && d.sex !== null) {
+                                            payload.patient_gender = (d.sex == 1 ? 'ชาย' : (d.sex == 2 ? 'หญิง' : ''));
+                                        } else if (d.gender) {
+                                            payload.patient_gender = String(d.gender);
+                                        }
+                                    }
+                                }
+                            }
+                        } catch (e) {
+                            console.warn('openRegisterWith: fetch hosxp detail failed', e);
+                        }
+                    }
+
+                    if (!payload.patient_age || payload.patient_age === '-') payload.patient_age = '';
+                    if (!payload.patient_gender || payload.patient_gender === '-') payload.patient_gender = '';
+
+                    // เก็บ object และ id ใน sessionStorage
+                    sessionStorage.setItem('icu_selected_request', JSON.stringify(payload));
+                    if (payload.id) {
+                        sessionStorage.setItem('icu_selected_request_id', String(payload.id));
+                    }
+                    // นำทางไปหน้าจัดการเตียง
+                    window.location.href = 'bed_reservation.html';
+                } catch (e) {
+                    console.error('openRegisterWith error', e);
+                }
+            }
+        </script>
+
+        <!-- cancellations: separate script (no HTML comments inside) -->
+        <script>
+                (function () {
+                    function authFetchLocal(url, opts) {
+                        opts = opts || {};
+                        opts.headers = opts.headers || {};
+                        const token = sessionStorage.getItem('auth_token') || '';
+                        if (token) opts.headers['Authorization'] = 'Bearer ' + token;
+                        if (!opts.credentials) opts.credentials = 'same-origin';
+                        return fetch(url, opts);
+                    }
+
+                    async function fetchCancellationHistory() {
+                        try {
+                            const resp = await authFetchLocal('process.php?action=get_cancellations');
+                            if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                            const data = await resp.json();
+                            if (!data || !data.success || !Array.isArray(data.cancellations) || data.cancellations.length === 0) {
+                                Swal.fire({ icon: 'info', title: 'ไม่มีประวัติการยกเลิก', text: 'ไม่พบรายการยกเลิก' });
+                                return;
+                            }
+
+                            let html = '<div style="text-align:left;max-height:420px;overflow:auto;padding:6px;">' +
+                                '<table style="width:100%;border-collapse:collapse;font-size:13px;">' +
+                                '<thead><tr style="border-bottom:1px solid #e8f1ff;"><th style="padding:8px;text-align:left;">วันที่</th><th style="padding:8px;text-align:left;">HN</th><th style="padding:8px;text-align:left;">ชื่อผู้ป่วย</th><th style="padding:8px;text-align:left;">เตียง</th><th style="padding:8px;text-align:left;">ผู้ยกเลิก</th><th style="padding:8px;text-align:left;">หมายเหตุ</th></tr></thead><tbody>';
+
+                            data.cancellations.forEach(c => {
+                                const dt = c.cancelled_at || c.date || '-';
+                                const hn = c.hn || '-';
+                                const name = c.patient_name || c.name || '-';
+                                const bed = c.bed_number || c.bed || '-';
+                                const by = c.cancelled_by || c.user || '-';
+                                const reason = c.reason || c.note || '-';
+                                html += `<tr style="border-bottom:1px solid #f4f8ff;">
+                                <td style="padding:8px;vertical-align:top;">${escapeHtml(dt)}</td>
+                                <td style="padding:8px;vertical-align:top;">${escapeHtml(hn)}</td>
+                                <td style="padding:8px;vertical-align:top;">${escapeHtml(name)}</td>
+                                <td style="padding:8px;vertical-align:top;">${escapeHtml(bed)}</td>
+                                <td style="padding:8px;vertical-align:top;">${escapeHtml(by)}</td>
+                                <td style="padding:8px;vertical-align:top;">${escapeHtml(reason)}</td>
+                             </tr>`;
+                            });
+
+                            html += '</tbody></table></div>';
+
+                            Swal.fire({
+                                title: 'ประวัติการยกเลิก',
+                                html: html,
+                                width: 820,
+                                confirmButtonText: 'ปิด'
+                            });
+                        } catch (e) {
+                            console.error('fetchCancellationHistory error', e);
+                            Swal.fire({ icon: 'error', title: 'ข้อผิดพลาด', text: 'ไม่สามารถโหลดประวัติการยกเลิกได้' });
+                        }
+                    }
+
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const btn = document.getElementById('viewCancelsBtn');
+                        if (btn) btn.addEventListener('click', (ev) => {
+                            ev.preventDefault();
+                            // Preserve urgency from sessionStorage when navigating
+                            let urgency = '';
+                            try {
+                                const raw = sessionStorage.getItem('icu_selected_request');
+                                if (raw) {
+                                    const obj = JSON.parse(raw);
+                                    if (obj && typeof obj.urgency !== 'undefined' && obj.urgency !== null && String(obj.urgency) !== '') {
+                                        urgency = String(obj.urgency);
+                                    }
+                                }
+                            } catch (e) { /* ignore */ }
+                            let url = 'Cancellation history.html';
+                            if (urgency) url += '?urgency=' + encodeURIComponent(urgency);
+                            window.location.href = url;
+                        });
+                    });
+
+                    // expose for manual use if needed
+                    window.fetchCancellationHistory = fetchCancellationHistory;
+                });
+            ;
+        </script>
+
+        <!-- date-panel: separate script (native date picker wiring) -->
+        <script>
+            (function () {
+                const dateBtn = document.getElementById('dateFilterBtn');
+                const panel = document.getElementById('datePanel');
+                const selDate = document.getElementById('selDate');
+                const resetBtn = document.getElementById('dateResetBtn');
+                const searchBtn = document.getElementById('dateSearchBtn');
+                const closeBtn = document.getElementById('dateCloseBtn');
+                const closeX = document.getElementById('datePanelCloseX');
+
+                if (!dateBtn || !panel || !selDate) return;
+
+                function populate() {
+                    try {
+                        // ไม่ต้องสนใจ allToggle อีกต่อไป
+                        const stored = JSON.parse(sessionStorage.getItem('icu_date_filter') || '{}') || {};
+                        const disp = document.getElementById('selDateDisplay');
+                        if (stored && stored.mode === 'single' && stored.year && stored.month && stored.day) {
+                            const mm = String(stored.month).padStart(2, '0');
+                            const dd = String(stored.day).padStart(2, '0');
+                            selDate.value = `${stored.year}-${mm}-${dd}`;
+                            if (disp) disp.textContent = new Date(selDate.value).toLocaleDateString('th-TH', { year: 'numeric', month: 'long', day: 'numeric' });
+                        } else {
+                            // default to today
+                            const t = new Date();
+                            const yyyy = t.getFullYear();
+                            const mm = String(t.getMonth() + 1).padStart(2, '0');
+                            const dd = String(t.getDate()).padStart(2, '0');
+                            selDate.value = `${yyyy}-${mm}-${dd}`;
+                            if (disp) disp.textContent = t.toLocaleDateString('th-TH', { year: 'numeric', month: 'long', day: 'numeric' });
+                        }
+                        // update display when user picks a date
+                        selDate.removeEventListener('change', selDate._listenerFn || (() => { }));
+                        const fn = () => {
+                            const d = document.getElementById('selDateDisplay');
+                            if (selDate.value && d) d.textContent = new Date(selDate.value).toLocaleDateString('th-TH', { year: 'numeric', month: 'long', day: 'numeric' });
+                            else if (d) d.textContent = 'ยังไม่ได้เลือกวันที่';
+                        };
+                        selDate._listenerFn = fn;
+                        selDate.addEventListener('change', fn);
+                    } catch (e) { /* ignore */ }
+                }
+
+                function openPanel() {
+                    populate();
+                    panel.style.display = 'block';
+                    const rect = dateBtn.getBoundingClientRect();
+                    panel.style.position = 'absolute';
+                    panel.style.top = (rect.bottom + window.scrollY + 8) + 'px';
+                    panel.style.left = Math.max(8, rect.left + window.scrollX - 280) + 'px';
+                    panel.style.zIndex = 9999;
+                    setTimeout(() => { document.addEventListener('mousedown', outsideClick); }, 20);
+                }
+
+                function applyAndRefresh(payload) {
+                    sessionStorage.setItem('icu_date_filter', JSON.stringify(payload));
+                    sessionStorage.setItem('queue_page', '1');
+                    try { if (typeof loadQueue === 'function') loadQueue(); } catch (e) { }
+                    try { if (typeof loadPublicRequests === 'function') loadPublicRequests(); } catch (e) { }
+                }
+
+                function closePanel(apply = false) {
+                    panel.style.display = 'none';
+                    document.removeEventListener('mousedown', outsideClick);
+                    if (apply) {
+                        if (selDate.value) {
+                            const parts = selDate.value.split('-');
+                            const payload = { mode: 'single', year: parts[0] || '', month: parts[1] || '', day: parts[2] || '' };
+                            applyAndRefresh(payload);
+                        } else {
+                            sessionStorage.removeItem('icu_date_filter');
+                            sessionStorage.setItem('queue_page', '1');
+                            try { if (typeof loadQueue === 'function') loadQueue(); } catch (e) { }
+                            try { if (typeof loadPublicRequests === 'function') loadPublicRequests(); } catch (e) { }
+                        }
+                    }
+                }
+
+                function outsideClick(ev) {
+                    if (!panel.contains(ev.target) && ev.target !== dateBtn) closePanel(true);
+                }
+
+                dateBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (panel.style.display === 'block') closePanel(true); else openPanel();
+                });
+
+                // Reset: ล้างค่าแต่ไม่ปิด panel
+                if (resetBtn) {
+                    resetBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        selDate.value = '';
+                        const disp = document.getElementById('selDateDisplay');
+                        if (disp) disp.textContent = 'ยังไม่ได้เลือกวันที่';
+                        sessionStorage.removeItem('icu_date_filter');
+                        sessionStorage.setItem('queue_page', '1');
+                        try { if (typeof loadQueue === 'function') loadQueue(); } catch (e) { }
+                        try { if (typeof loadPublicRequests === 'function') loadPublicRequests(); } catch (e) { }
+                    });
+                }
+
+                // "ค้นหา" => บันทึกตัวเลือก เรียกฟังก์ชันกรอง/โหลด แล้วปิด panel
+                if (searchBtn) {
+                    searchBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        if (selDate.value) {
+                            const parts = selDate.value.split('-');
+                            const payload = { mode: 'single', year: parts[0] || '', month: parts[1] || '', day: parts[2] || '' };
+                            applyAndRefresh(payload);
+                        }
+                        closePanel(false);
+                    });
+                }
+
+                // "ปิด" => ปิด panel โดยไม่บันทึก
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        closePanel(false);
+                    });
+                }
+
+                if (closeX) closeX.addEventListener('click', () => closePanel(false));
+
+                document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePanel(false); });
+            })();
+        </script>
+        <script>
+            (function () {
+                async function refreshUserDisplay() {
+                    try {
+                        const r = await fetch('get_user_info.php', { credentials: 'same-origin' });
+                        if (!r.ok) return;
+                        const j = await r.json().catch(() => null);
+                        if (!j) return;
+                        const displayName = j.name || j.fullname || j.loginname || '';
+                        const email = j.email || '';
+                        const role = j.role || '';
+                        if (displayName) sessionStorage.setItem('icu_local_user_fullname', displayName);
+                        if (email) sessionStorage.setItem('icu_local_user_email', email);
+                        if (role) sessionStorage.setItem('icu_local_user_role', role);
+                        const el = document.getElementById('currentUser');
+                        if (el) el.textContent = displayName || email || el.textContent;
+                        const sys = document.getElementById('systemStatus');
+                        if (sys && j.systemStatus) sys.textContent = j.systemStatus;
+                    } catch (e) { }
+                }
+                document.addEventListener('DOMContentLoaded', refreshUserDisplay);
+                // logout handler with confirmation
+                document.addEventListener('click', async function (ev) {
+                    if (ev.target && (ev.target.id === 'logoutBtn' || (ev.target.closest && ev.target.closest('#logoutBtn')))) {
+                        ev.preventDefault();
+                        try {
+                            const result = await Swal.fire({
+                                title: 'ยืนยันการออกจากระบบ',
+                                text: 'คุณต้องการออกจากระบบจริงหรือไม่?',
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonText: 'ใช่ ออกจากระบบ',
+                                cancelButtonText: 'ยกเลิก'
+                            });
+                            if (result && result.isConfirmed) {
+                                try {
+                                    await fetch('logout.php', { method: 'POST', credentials: 'same-origin' });
+                                } catch (e) { }
+                                sessionStorage.removeItem('icu_local_user_fullname');
+                                sessionStorage.removeItem('icu_local_user_email');
+                                sessionStorage.removeItem('icu_local_user_role');
+                                sessionStorage.removeItem('auth_token');
+                                await Swal.fire({ icon: 'success', title: 'ออกจากระบบเรียบร้อย', showConfirmButton: false, timer: 800 });
+                                location.href = 'login.html';
+                            }
+                        } catch (e) { console.error('logout confirm error', e); }
+                    }
+                });
+            })();
+        </script>
+        <script>
+            /* === Security Guard: auth check + disable back to protected pages === */
+            (function () {
+                const INDEX_PAGE = 'index.html';
+                async function checkAuth() {
+                    try {
+                        const token = sessionStorage.getItem('auth_token') || '';
+                        const headers = token ? { 'Authorization': 'Bearer ' + token } : {};
+                        const res = await fetch('get_user_info.php', { method: 'GET', headers, credentials: 'same-origin' });
+                        const json = await res.json().catch(() => null);
+                        if (!json || !json.success) {
+                            try { sessionStorage.removeItem('auth_token'); } catch (e) { }
+                            window.location.replace(INDEX_PAGE);
+                            return false;
+                        }
+                        return true;
+                    } catch (e) {
+                        window.location.replace(INDEX_PAGE);
+                        return false;
+                    }
+                }
+
+                function trapBackButton() {
+                    // Push a dummy state so back triggers popstate
+                    history.pushState({ guard: true }, '', window.location.href);
+                    window.addEventListener('popstate', function () {
+                        window.location.replace(INDEX_PAGE);
+                    });
+                }
+
+                // If page is restored from bfcache, re-check auth
+                window.addEventListener('pageshow', function (e) {
+                    if (e.persisted) checkAuth();
+                });
+
+                document.addEventListener('DOMContentLoaded', async function () {
+                    const ok = await checkAuth();
+                    if (ok) trapBackButton();
+                });
+            })();
+        </script>
+
+        </body>
+
+</html>

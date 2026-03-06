@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ระบบจองเตียงผู้ป่วย | Bed Booking Management</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="index.css" />
+
+  <script>
+    (async function () {
+      try {
+        const resp = await fetch('get_user_info.php', { credentials: 'same-origin' });
+
+        // ถ้าเรียกไม่ได้ / ไม่ใช่ 200 -> ปล่อยให้หน้า index แสดงปกติ
+        if (!resp.ok) return;
+
+        const j = await resp.json().catch(() => null);
+
+        // ถ้าไม่ได้ login -> ไม่ redirect (กัน loop)
+        if (!j || !j.success) return;
+
+        // normalize role (รองรับ super_admin / superadmin / super-admin / ช่องว่าง)
+        const roleRaw = String(j.role ?? '').trim();
+        const roleNorm = roleRaw
+          .toLowerCase()
+          .replace(/\s+/g, '_')
+          .replace(/-+/g, '_');
+
+        // route ตามสิทธิ์ (รองรับหลายชื่อ role)
+        const routeByRole = {
+          staff: 'nurse_reserve.html',
+
+          admin: 'bed_reservation.html',
+
+          super_admin: 'permissions.html',
+
+        };
+
+        if (routeByRole[roleNorm]) {
+          window.location.replace(routeByRole[roleNorm]);
+          return;
+        }
+
+        // patient/relative เท่านั้นถึงจะไป patient-reserve
+        if (roleNorm === 'patient' || roleNorm === 'relative' || roleNorm === 'public') {
+          window.location.replace('patient-reserve.html');
+          return;
+        }
+
+        // ถ้า role แปลก/ว่าง -> ไม่ redirect เพื่อไม่ให้เด้งผิดหน้า
+        // (ปล่อยให้ user เลือกจากหน้า index เอง)
+        return;
+      } catch (e) {
+        console.error('auth redirect failed', e);
+        // error ก็ปล่อยให้หน้า index แสดงปกติ
+      }
+    })();
+  </script>
+
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="card-shell">
+      <header class="header">
+        <div class="logo-circle">
+          <img src="./IC.jpg/kph_blue.png" alt="..." />
+
+        </div>
+        <h1 class="title-th">ระบบจองเตียงผู้ป่วย</h1>
+        <p class="title-en">Hospital Bed Management System</p>
+        <p class="subtitle">กรุณาเลือกรูปแบบการเข้าสู่ระบบให้ตรงกับสิทธิ์การใช้งานของคุณ เพื่อเข้าสู่หน้าจัดการข้อมูล
+        </p>
+      </header>
+
+      <main class="role-grid">
+        <a class="role-card role-patient" href="patient-reserve.html">
+          <div class="role-inner-glow"></div>
+          <div class="role-content">
+            <div class="role-icon-circle">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="role-title-th">ผู้ป่วย / ญาติ</div>
+            <div class="role-title-en">Patient & Relative Login</div>
+            <div class="role-desc">
+              สำหรับผู้ป่วยหรือญาติที่ต้องการจองเตียงห้องพิเศษคิวรอรับบริการ
+              หรือติดตามข้อมูลเบื้องต้นของการรักษาพยาบาล
+            </div>
+            <div class="role-chip">
+              <i class="fa-solid fa-id-card-alt"></i>
+              เข้าสู่ระบบด้วยหมายเลข HN หรือ เลขบัตรประชาชน
+            </div>
+          </div>
+        </a>
+
+        <a class="role-card role-nurse" href="login.html">
+          <div class="role-inner-glow"></div>
+          <div class="role-content">
+            <div class="role-icon-circle">
+              <i class="fa-solid fa-user-nurse"></i>
+            </div>
+            <div class="role-title-th">เจ้าหน้าที่ / พยาบาล</div>
+            <div class="role-title-en">Staff / Nurse Login</div>
+            <div class="role-desc">
+              สำหรับบุคลากรทางการแพทย์เพื่อจัดการคิวจองเตียง, จัดสรรห้อง,
+              และอัปเดตข้อมูลการเข้ารับบริการของผู้ป่วยในความดูแล
+            </div>
+            <div class="role-chip">
+              <i class="fa-solid fa-shield-alt"></i>
+              ใช้รหัสเจ้าหน้าที่ของโรงพยาบาลในการเข้าถึงระบบ
+            </div>
+          </div>
+        </a>
+      </main>
+
+      <footer class="footer">
+        <span>© 2024 Hospital Bed Management System - Internal Access Only</span>
+      </footer>
+    </div>
+  </div>
+</body>
+
+</html>

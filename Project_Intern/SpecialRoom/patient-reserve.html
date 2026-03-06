@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ค้นหาผู้ป่วย - ระบบจองเตียง</title>
+
+  <!-- ฟอนต์ -->
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- ไอคอน -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="patient-reserve.css">
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+  <div class="page-container">
+    <!-- ซ้าย: ข้อมูล -->
+    <section class="left-panel">
+      <div class="hospital-tag">
+        <i class="fa-solid fa-hospital"></i>
+        ระบบจองคิวห้องพิเศษโรงพยาบาลกุมภวาปี
+      </div>
+
+      <h1 class="system-title">
+        ระบบจองคิว<span> ห้องพิเศษผู้ป่วยใน </span><br />
+        ใช้งานง่าย ปลอดภัย โปร่งใส
+      </h1>
+
+      <p class="system-sub">
+        ผู้ป่วยและญาติสามารถลงทะเบียนจองคิวห้องพิเศษได้ด้วยตนเอง
+        ช่วยให้ทราบลำดับคิวและประเภทห้องที่ต้องการล่วงหน้า
+        ลดการรอคิวนาน และบริหารห้องพิเศษได้อย่าง<strong>มีประสิทธิภาพ</strong>
+      </p>
+
+      <div class="feature-card">
+        <div class="feature-row">
+          <div class="feature-icon"><i class="fa-solid fa-file-medical"></i></div>
+          <div>
+            <div class="feature-text-title">ลงทะเบียนข้อมูลผู้ป่วย</div>
+            <div class="feature-text-sub">
+              บันทึกข้อมูลเพื่อใช้ประกอบการดำเนินงานและการบริหารจัดการของโรงพยาบาล
+              ตามขั้นตอนที่กำหนด
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-row">
+          <div class="feature-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+          <div>
+            <div class="feature-text-title">ระบบดำเนินการตามขั้นตอนของโรงพยาบาล</div>
+            <div class="feature-text-sub">
+              การพิจารณาและดำเนินการเป็นไปตามแนวทางที่กำหนด
+              โดยไม่แสดงข้อมูลสถานะเตียงหรือข้อมูลลำดับคิวส่วนบุคคล
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-row">
+          <div class="feature-icon"><i class="fa-solid fa-lock"></i></div>
+          <div>
+            <div class="feature-text-title">คุ้มครองข้อมูลผู้ป่วย</div>
+            <div class="feature-text-sub">
+              ข้อมูลส่วนบุคคลและข้อมูลติดต่อได้รับการดูแลอย่างเหมาะสม
+              และใช้เฉพาะเพื่อการดำเนินงานภายในเท่านั้น
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="stats-row">
+        <div class="stats-card">
+          <div class="stats-label"><i class="fa-solid fa-server"></i> สถานะระบบ</div>
+          <div><span class="stats-value">พร้อมใช้งาน</span></div>
+        </div>
+
+        <div class="stats-card">
+          <div class="stats-label"><i class="fa-solid fa-database"></i> การบันทึกข้อมูล</div>
+          <div><span class="stats-value">ปกติ</span></div>
+        </div>
+
+        <div class="stats-card">
+          <div class="stats-label"><i class="fa-solid fa-shield-halved"></i> ความปลอดภัยข้อมูล</div>
+          <div><span class="stats-value">ตามมาตรฐาน</span></div>
+        </div>
+      </div>
+
+
+      <div class="bottom-note">
+        ระบบนี้ใช้สำหรับการจองคิวห้องพิเศษเท่านั้น การจัดสรรคิวจริงขึ้นกับดุลยพินิจของ
+        <span>ทีมแพทย์และเจ้าหน้าที่โรงพยาบาล</span>
+      </div>
+    </section>
+
+    <!-- ขวา: ฟอร์ม -->
+    <section class="right-panel">
+      <div class="back-small">
+        <a href="index.html"><i class="fa-solid fa-chevron-left"></i> กลับไปหน้าเลือกประเภทผู้ใช้งาน</a>
+      </div>
+
+      <div class="login-card">
+        <div class="card-header">
+          <div class="logo-circle"><i class="fa-solid fa-bed"></i></div>
+          <div class="card-title-th">เข้าสู่ระบบจองคิวห้องพิเศษ</div>
+          <div class="card-title-en">PRIVATE ROOM QUEUE</div>
+          <div class="card-sub">
+            กรอกข้อมูลผู้ป่วยและเบอร์โทรศัพท์เพื่อเข้าสู่ระบบ
+            และตรวจสอบ<span> ลำดับคิวห้องพิเศษของคุณ </span>
+          </div>
+        </div>
+
+        <form action="#" method="post">
+          <div class="form-group">
+            <div class="form-label">เลขบัตรประจำตัวประชาชน (CID) 13 หลักเท่านั้น</div>
+            <div class="input-wrapper">
+              <i class="fa-regular fa-id-card"></i>
+
+              <!-- CID: ตัวเลข 13 หลักเท่านั้น -->
+              <input type="text" name="patient_id" class="form-input" placeholder="กรอกเลขบัตรประชาชน 13 หลัก"
+                inputmode="numeric" maxlength="13" pattern="[0-9]{13}" required
+                oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,13)" />
+            </div>
+            <div class="hint-text">
+              กรอกเลขบัตรประชาชน (CID) เป็นตัวเลข 13 หลักเท่านั้น
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label">เบอร์โทรศัพท์ที่ใช้ลงทะเบียน</div>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-phone"></i>
+              <input type="tel" name="phone" class="form-input" placeholder="กรอกเบอร์โทรศัพท์ 10 หลักขึ้นต้นด้วย 0"
+                pattern="0[0-9]{9}" maxlength="10" inputmode="numeric" required
+                oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,10)" />
+            </div>
+            <div class="hint-text">
+              ใช้ยืนยันตัวตนและแจ้งเตือนเมื่อถึงคิวเข้าห้องพิเศษ
+            </div>
+          </div>
+
+          <button type="submit" class="login-button">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            กดเพื่อจองคิวห้องพิเศษ
+          </button>
+
+          <div class="footer-note">
+            หากยังไม่เคยแจ้งความประสงค์ขอใช้ห้องพิเศษ
+            โปรดติดต่อ<span> เคาน์เตอร์ประชาสัมพันธ์หรือเจ้าหน้าที่หอผู้ป่วยใน </span>
+          </div>
+
+
+
+          <script>
+            // Intercept submit: เช็คเงื่อนไข, ถ้าผ่าน -> บันทึกคำขอ แล้วแสดง popup "จองคิวสำเร็จ" เท่านั้น
+            (function () {
+              const form = document.querySelector('form[action="#"]');
+              if (!form) return;
+
+              form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                const hnInput = this.querySelector('[name="patient_id"]');
+                const phoneInput = this.querySelector('[name="phone"]');
+
+                // ✅ CID: บังคับเป็นตัวเลข 13 หลัก
+                let hn = (hnInput?.value || '').trim();
+                hn = hn.replace(/[^0-9]/g, '').slice(0, 13);
+                if (hnInput) hnInput.value = hn;
+
+                // phone: ตัวเลขเท่านั้น
+                let phone = (phoneInput?.value || '').trim().replace(/\D/g, '');
+
+                // Validate CID 13 หลัก
+                if (!/^\d{13}$/.test(hn)) {
+                  Swal.fire({
+                    icon: 'warning',
+                    title: 'เลขบัตรประชาชนไม่ถูกต้อง',
+                    text: 'กรุณากรอกเลขบัตรประชาชน 13 หลัก'
+                  });
+                  return;
+                }
+
+                // Validate phone: ต้องเป็นตัวเลข 10 หลักขึ้นต้นด้วย 0
+                if (!/^0\d{9}$/.test(phone)) {
+                  Swal.fire({
+                    icon: 'warning',
+                    title: 'เบอร์โทรศัพท์ไม่ถูกต้อง',
+                    text: 'กรุณากรอกเบอร์โทรศัพท์ 10 หลักขึ้นต้นด้วย 0'
+                  });
+                  return;
+                }
+
+                // ดึงชื่อ-นามสกุล และอายุจาก HOSxP โดยใช้ CID ผ่าน endpoint ใหม่ ก่อนแสดง popup
+                let patientName = '-';
+                let patientAge = '-';
+                let hasAdmission = false;
+                let serverHn = ''; // HN จาก HOSxP
+                let informtelFromHosxp = '';
+
+                try {
+                  const resp = await fetch('process.php?action=search_by_cid&cid=' + encodeURIComponent(hn));
+                  if (resp.ok) {
+                    const j = await resp.json();
+                    // ===== DEBUG: LOG FULL RESPONSE =====
+                    console.log('🔍 search_by_cid raw response:', j);
+                    if (j && j._debug_log) {
+                      console.log('📋 Backend debug log:', j._debug_log);
+                    }
+                    if (j && j._debug_an_info) {
+                      console.log('🏥 AN info:', j._debug_an_info);
+                    }
+                    // ===== END DEBUG =====
+                    if (j && j.success && j.found) {
+                      serverHn = j.hn || '';
+                      patientName = j.fullname || ((j.fname || '') + ' ' + (j.lname || '')).trim() || '-';
+                      // age: check if it exists and is numeric
+                      patientAge = (j.age && !isNaN(j.age)) ? (j.age + ' ปี') : '-';
+                      hasAdmission = !!j.has_admission;
+                      informtelFromHosxp = j.informtel || '';
+                    }
+                  }
+                } catch (e) { console.warn('search_by_cid failed', e); }
+
+                // ถ้าไม่พบ admission ให้แจ้งเตือนทันทีและหยุดกระบวนการ
+                if (!hasAdmission) {
+                  Swal.fire({
+                    icon: 'warning',
+                    title: 'ไม่พบ admission',
+                    text: 'ผู้ป่วยนี้ยังไม่มี admission (AN) ในระบบ จึงไม่สามารถจองได้ผ่านหน้านี้',
+                    confirmButtonText: 'ตกลง'
+                  });
+                  return;
+                }
+
+                // 🆕 ถ้ามี informtel ใน HOSxP ให้ถามว่าจะใช้เบอร์เดิมหรือไม่ (ก่อนแสดง popup ยืนยันข้อมูล)
+                if (informtelFromHosxp) {
+                  const normInform = (informtelFromHosxp || '').replace(/\D/g, '').slice(0, 10);
+                  if (/^0\d{9}$/.test(normInform)) {
+                    const useTel = await Swal.fire({
+                      icon: 'question',
+                      title: 'พบเบอร์โทรในระบบ',
+                      html: `ระบบพบเบอร์โทรที่ลงทะเบียนไว้: <b>${normInform}</b><br>ต้องการใช้เบอร์นี้ในการจองหรือจะกรอกเบอร์ใหม่?`,
+                      showDenyButton: true,
+                      showCancelButton: true,
+                      confirmButtonText: 'ใช้เบอร์เดิม',
+                      denyButtonText: 'ใช้เบอร์ปัจจุบัน',
+                      cancelButtonText: 'ยกเลิก'
+                    });
+                    if (useTel.isConfirmed) {
+                      phone = normInform;
+                      if (phoneInput) phoneInput.value = phone;
+                    } else if (useTel.isDismissed) {
+                      // user cancelled -> abort
+                      return;
+                    }
+                    // else: user clicked "กรอกใหม่" -> keep current phone value
+                  }
+                }
+
+                // popup ยืนยันข้อมูล (แสดงข้อมูลรวมถึงเบอร์ที่เลือกแล้ว)
+                const confirmHtml = `
+                <div style="text-align:left;font-size:16px;line-height:1.8;padding:6px 2px 2px 2px;">
+                  <div style="font-size:18px;font-weight:700;color:#2563eb;margin-bottom:8px;letter-spacing:0.5px;">
+                    <i class='fa-solid fa-user-check' style='color:#0ea5e9;margin-right:6px;'></i>ข้อมูลที่ใช้ในการจองคิว
+                  </div>
+                  <div style="margin-bottom:6px;">
+                    <span style="color:#64748b;font-weight:500;">ชื่อ-นามสกุล:</span>
+                    <span style="color:#0ea5e9;font-weight:700;font-size:16px;">${patientName}</span>
+                  </div>
+                  <div style="margin-bottom:6px;">
+                    <span style="color:#64748b;font-weight:500;">อายุ:</span>
+                    <span style="color:#0ea5e9;font-weight:700;">${patientAge}</span>
+                  </div>
+                  <div style="margin-bottom:6px;">
+                    <span style="color:#64748b;font-weight:500;">CID:</span>
+                    <span style="color:#0ea5e9;font-weight:700;">${hn}</span>
+                  </div>
+                  <div style="margin-bottom:6px;">
+                    <span style="color:#64748b;font-weight:500;">HN:</span>
+                    <span style="color:#0ea5e9;font-weight:700;">${serverHn || '-'}</span>
+                  </div>
+                  <div style="margin-bottom:2px;">
+                    <span style="color:#64748b;font-weight:500;">เบอร์โทรศัพท์:</span>
+                    <span style="color:#0ea5e9;font-weight:700;">${phone}</span>
+                  </div>
+                </div>
+              `;
+
+                const confirmResult = await Swal.fire({
+                  icon: 'question',
+                  title: '<span style="font-size:20px;font-weight:800;color:#2563eb;letter-spacing:0.5px;">โปรดยืนยันข้อมูล</span>',
+                  html: confirmHtml,
+                  showCancelButton: true,
+                  confirmButtonText: '<span style="font-size:16px;font-weight:700;letter-spacing:0.5px;">ยืนยันจองคิว</span>',
+                  cancelButtonText: '<span style="font-size:15px;">ยกเลิก</span>',
+                  customClass: {
+                    popup: 'swal2-popup-confirm-queue',
+                    confirmButton: 'swal2-confirm-queue-btn',
+                    cancelButton: 'swal2-cancel-queue-btn'
+                  }
+                });
+                if (!confirmResult.isConfirmed) return;
+
+                try {
+                  // 1) ตรวจสอบ admission อีกครั้งโดยเรียก endpoint CID (ยืนยันว่า AN ยังมีอยู่)
+                  const resp2 = await fetch('process.php?action=search_by_cid&cid=' + encodeURIComponent(hn));
+                  if (!resp2.ok) throw new Error('HTTP ' + resp2.status);
+                  const j = await resp2.json();
+
+                  if (!(j && j.success && j.found && j.has_admission)) {
+                    Swal.fire({
+                      icon: 'warning',
+                      title: 'ไม่พบ admission',
+                      text: 'ผู้ป่วยนี้ยังไม่มี admission (AN) ในระบบ จึงไม่สามารถจองได้ผ่านหน้านี้',
+                      confirmButtonText: 'ตกลง'
+                    });
+                    return;
+                  }
+
+                  // 2) ตรวจสอบว่ามีคิวที่ยังไม่ "canceled" หรือ "done" อยู่แล้วหรือไม่
+                  let hasActiveRequest = false;
+                  try {
+                    const checkResp = await fetch(
+                      'process.php?action=get_public_requests_by_hn&hn=' + encodeURIComponent(serverHn || hn)
+                    );
+                    if (checkResp.ok) {
+                      const cj = await checkResp.json();
+                      if (cj && cj.success && Array.isArray(cj.requests)) {
+                        hasActiveRequest = cj.requests.some(r => {
+                          const st = (r.status || 'pending').toLowerCase();
+                          return st === 'pending' || st === 'confirmed';
+                        });
+                      }
+                    }
+                  } catch (checkErr) {
+                    console.warn('check active request error', checkErr);
+                  }
+
+                  if (hasActiveRequest) {
+                    Swal.fire({
+                      icon: 'info',
+                      title: 'คุณมีคิวจองห้องพิเศษอยู่แล้ว',
+                      html:
+                        'ผู้ป่วยคนนี้มีคิวที่ยังอยู่ในสถานะ <b>รอดำเนินการ / ยืนยัน</b> อยู่แล้ว<br>' +
+                        'หากต้องการจองใหม่ กรุณาให้เจ้าหน้าที่เปลี่ยนสถานะคิวเดิมเป็น "<b>เสร็จสิ้น</b>" หรือ "<b>ยกเลิก</b>" ก่อน',
+                      confirmButtonText: 'ตกลง'
+                    });
+                    return;
+                  }
+
+                  // 3) ไม่มีคิว active -> บันทึกเป็น public_request
+                  let requestOk = false;
+                  let serverMsg = '';
+                  try {
+                    const postBody = new URLSearchParams({
+                      action: 'public_request',
+                      hn: serverHn || hn,
+                      phone: phone || '',
+                      user_rh: 'patient',
+                      source: 'patient-reserve',
+                      urgency: '2'
+                    });
+
+                    const postResp = await fetch('process.php', {
+                      method: 'POST',
+                      body: postBody
+                    });
+
+                    const pj = await postResp.json();
+                    if (pj && pj.success) {
+                      requestOk = true;
+                      serverMsg = pj.message || '';
+                    } else {
+                      serverMsg = pj?.message || '';
+                    }
+                  } catch (e) {
+                    console.warn('public_request failed', e);
+                  }
+
+                  if (requestOk) {
+                    Swal.fire({
+                      icon: 'success',
+                      title: 'จองคิวห้องพิเศษสำเร็จ',
+                      html:
+                        'ระบบได้บันทึกคำขอจองคิวห้องพิเศษของคุณเรียบร้อยแล้ว<br>' +
+                        (serverMsg ? `<small style="color:#6b7280">${serverMsg}</small>` : ''),
+                      confirmButtonText: 'ตกลง'
+                    }).then(() => {
+                      form.reset();
+                    });
+                  } else {
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'บันทึกคำขอไม่สำเร็จ',
+                      text: serverMsg || 'ไม่สามารถบันทึกคำขอจองคิวได้ โปรดลองใหม่หรือติดต่อเจ้าหน้าที่'
+                    });
+                  }
+                } catch (err) {
+                  console.error('check admission error', err);
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'ไม่สามารถตรวจสอบข้อมูลได้',
+                    text: 'เกิดข้อผิดพลาดขณะตรวจสอบ admission โปรดลองใหม่ภายหลัง'
+                  });
+                }
+              });
+            })();
+          </script>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    /* Back-button safety: if user is currently logged-in and arrives here via Back/Forward,
+       redirect to index.html immediately. (Does not affect normal direct access.) */
+    (function () {
+      const INDEX_PAGE = 'index.html';
+
+      function navType() {
+        try {
+          const nav = performance.getEntriesByType && performance.getEntriesByType('navigation');
+          if (nav && nav[0] && nav[0].type) return nav[0].type; // 'navigate' | 'reload' | 'back_forward'
+          if (performance && performance.navigation) {
+            return performance.navigation.type === 2 ? 'back_forward' : 'navigate';
+          }
+          return 'navigate';
+        } catch (e) {
+          return 'navigate';
+        }
+      }
+
+      async function isLoggedIn() {
+        try {
+          const res = await fetch('get_user_info.php', { credentials: 'include' });
+          const ct = (res.headers.get('content-type') || '').toLowerCase();
+          if (!ct.includes('application/json')) return false;
+          const data = await res.json();
+          return !!(data && data.success);
+        } catch (e) {
+          return false;
+        }
+      }
+
+      async function enforce() {
+        const type = navType();
+        if (type === 'back_forward') {
+          const ok = await isLoggedIn();
+          if (ok) window.location.replace(INDEX_PAGE);
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', enforce);
+
+      window.addEventListener('pageshow', function (e) {
+        if (e.persisted) enforce();
+      });
+    })();
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hospital Admin | Permissions & Dashboard</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" />
+
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- CSS แยกไฟล์ -->
+  <link rel="stylesheet" href="permissions.css" />
+  <!-- NEW: shared top navigation -->
+    <!-- <nav class="top-menu" aria-label="เมนูหลัก">
+        <div class="inner">
+            <a class="tab" href="bed_reservation.html">หน้าจองเตียง</a>
+            <a class="tab active" href="Make a reservation.html">จัดการคิว</a>
+            <a class="tab" href="Cancellation history.html">ประวัติคิว</a>
+            <a class="tab" href="permissions.html" id="permissionsTab" style="display:none;">
+                จัดการสิทธิ
+            </a>
+        </div>
+    </nav> -->
+
+
+  <script>
+    // Immediate auth check: allow only admin for this page
+    (async function enforceAdminOnly() {
+      try {
+        const resp = await fetch('get_user_info.php', { credentials: 'same-origin' });
+        const j = await resp.json().catch(() => null);
+        // handle explicit session timeout signal
+        if (j && j.timed_out) {
+          await Swal.fire({ icon: 'warning', title: 'หมดเวลาเซสชัน', text: 'เซสชันการใช้งานหมดเวลา กรุณาเข้าสู่ระบบใหม่', confirmButtonText: 'ตกลง' });
+          location.href = 'login.html';
+          return;
+        }
+        if (!j || !j.success || !j.role) {
+          await Swal.fire({ icon: 'warning', title: 'กรุณาเข้าสู่ระบบ', text: 'กรุณาเข้าสู่ระบบเพื่อเข้าถึงหน้านี้', confirmButtonText: 'ตกลง' });
+          location.href = 'login.html';
+          return;
+        }
+        const role = (j.role || '').toLowerCase();
+        if (role !== 'super_admin') {
+          await Swal.fire({ icon: 'error', title: 'ปฏิเสธการเข้าใช้งาน', text: 'คุณไม่มีสิทธิ์เข้าถึงหน้านี้', confirmButtonText: 'กลับสู่หน้าหลัก' });
+          location.href = 'login.html';
+          return;
+        }
+        // const permissionsTab = document.getElementById('permissionsTab');
+        // if (permissionsTab && role === 'super_admin') {
+        //   permissionsTab.style.display = 'inline-block';
+        // }
+      } catch (e) {
+        console.error(e);
+        await Swal.fire({ icon: 'error', title: 'เกิดข้อผิดพลาด', text: 'ไม่สามารถตรวจสอบสิทธิ์ได้', confirmButtonText: 'ไปที่หน้าเข้าสู่ระบบ' });
+        location.href = 'login.html';
+      }
+    })();
+  </script>
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+</head>
+
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- TOP NAV (ลบได้ ถ้าไม่อยากผูกกับระบบเดิม) -->
+  <!-- <nav class="top-menu" aria-label="เมนูหลัก">
+    <div class="inner">
+      <a class="tab" href="bed_reservation.html"><i class="fa-solid fa-bed"></i> หน้าจองเตียง</a>
+      <a class="tab" href="Make a reservation.html"><i class="fa-solid fa-list-check"></i> จัดการคิว</a>
+      <a class="tab" href="Cancellation history.html"><i class="fa-solid fa-clock-rotate-left"></i> ประวัติการยกเลิก</a>
+      <a class="tab active" href="permissions.html"><i class="fa-solid fa-shield-halved"></i> จัดการสิทธิ์</a>
+    </div>
+  </nav> -->
+
+  <main class="container">
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <i class="fa-solid fa-hospital-user"></i>
+        </div>
+        <div class="hero-title">
+          <div class="h1">จัดการสิทธิ์ผู้ใช้งาน</div>
+          <div class="sub">Executive Snapshot • Permissions • roles_map</div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div style="display:flex;align-items:center;gap:10px;margin-right:12px">
+          <i class="fa-solid fa-user" style="color:#000000"></i>
+          <span id="localUserDisplay" style="font-weight:700;color:#ffffff">ผู้ใช้งาน</span>
+        </div>
+        <button class="btn ghost" id="refreshBtn" type="button" title="รีเฟรชข้อมูล">
+          <i class="fa-solid fa-rotate"></i> Refresh
+        </button>
+        <button class="btn primary" id="gotoPermissionsBtn" type="button" title="ล็อคเอ้า (ออกจากระบบ)">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </div>
+    </header>
+
+    <!-- EXECUTIVE SNAPSHOT -->
+    <section class="card" id="dashboard">
+      <div class="card-head">
+        <div>
+          <div class="card-title">Executive Snapshot</div>
+        </div>
+        <div class="meta">
+          <div id="lastUpdated" class="muted">อัปเดตล่าสุด: -</div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="ic"><i class="fa-solid fa-users"></i></div>
+          <div class="info">
+            <div class="num" id="statTotal">0</div>
+            <div class="lbl">ผู้ใช้งานที่ถูกแมปสิทธิ์ทั้งหมด</div>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="ic"><i class="fa-solid fa-user-shield"></i></div>
+          <div class="info">
+            <div class="num" id="statAdmin">0</div>
+            <div class="lbl">Admin</div>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="ic"><i class="fa-solid fa-user-nurse"></i></div>
+          <div class="info">
+            <div class="num" id="statStaff">0</div>
+            <div class="lbl">Staff / เจ้าหน้าที่</div>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="ic"><i class="fa-solid fa-user-gear"></i></div>
+          <div class="info">
+            <div class="num" id="statSuper">0</div>
+            <div class="lbl">Super Admin</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hint">
+        <i class="fa-solid fa-circle-info"></i>
+        แนะนำ: ให้สิทธิ์ <b>admin/super_admin</b> เท่าที่จำเป็น (Least Privilege) เพื่อลดความเสี่ยง
+      </div>
+    </section>
+
+    <!-- PERMISSIONS -->
+    <section class="grid" id="permissionsSection">
+      <!-- TABLE -->
+      <section class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Permissions</div>
+            <div class="card-sub">รายชื่อการแมป <b>login → role</b> (CRUD)</div>
+          </div>
+
+          <div class="toolbar">
+            <div class="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input id="searchInput" placeholder="ค้นหา loginname / role …" autocomplete="off" />
+            </div>
+            <select id="roleFilter">
+              <option value="">ทุก role</option>
+              <option value="staff">staff</option>
+              <option value="admin">admin</option>
+              <option value="super_admin">super_admin</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table id="mapTable">
+            <thead>
+              <tr>
+                <th style="width:52px">#</th>
+                <th>User</th>
+                <th>Role</th>
+                <th style="text-align:right;width:240px">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="4" class="muted" style="padding:14px">กำลังโหลด…</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- FORM -->
+      <aside class="card side">
+        <div class="card-head">
+          <div>
+            <div class="card-title">เพิ่ม</div>
+            <div class="card-sub">บันทึกผู้ใช้งานใหม่เข้าระบบ</div>
+          </div>
+        </div>
+
+        <form id="mapForm" class="form">
+          <label>Loginname</label>
+          <input type="text" name="loginname" id="loginname" required placeholder="Username" autocomplete="off" />
+
+          <!-- <label style="margin-top:10px">Role</label>
+          <select name="role" id="role">
+            <option value="staff">staff</option>
+            <option value="admin">admin</option>
+            <option value="super_admin">super_admin</option>
+          </select> -->
+
+          <div class="row">
+            <button class="btn primary" type="submit">
+              <i class="fa-solid fa-floppy-disk"></i> เพิ่มผู้ใช้
+            </button>
+            <button class="btn ghost" type="button" id="clearBtn">
+              <i class="fa-solid fa-eraser"></i> ล้าง
+            </button>
+          </div>
+
+          <div class="note">
+            <div class="note-title"><i class="fa-solid fa-shield-heart"></i> ข้อแนะนำการเพิ่มผู้ใช้งาน</div>
+            <ul>
+              <li>กรอก <b>loginname</b> ให้ถูกต้องและไม่ซ้ำ</li>
+              <li>เลือกสิทธิ์ให้เหมาะสมกับหน้าที่</li>
+              <li>เพิ่มเฉพาะผู้ที่จำเป็นต้องใช้งาน</li>
+            </ul>
+          </div>
+        </form>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    // ============================================================
+    // Hospital Admin Permissions (Dashboard + CRUD) - Inline JS
+    // ============================================================
+
+    const API = "permissions_process.php";
+    const $ = (q) => document.querySelector(q);
+    let allRows = [];
+
+    function esc(s) {
+      return (s ?? "").toString().replace(/[&<>"']/g, c => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      }[c]));
+    }
+    function niceTimeTH() {
+      const d = new Date();
+      return d.toLocaleString("th-TH", { dateStyle: "medium", timeStyle: "short" });
+    }
+    async function fetchJSON(url, opt = {}) {
+      const res = await fetch(url, opt);
+      const j = await res.json().catch(() => ({ success: false, message: "ตอบกลับไม่ใช่ JSON" }));
+      return j;
+    }
+
+    function tagRole(role) {
+      const r = (role || "").toLowerCase().trim();
+      if (r === "admin") return `<span class="tag admin"><i class="fa-solid fa-user-shield"></i> admin</span>`;
+      if (r === "super_admin") return `<span class="tag super"><i class="fa-solid fa-user-gear"></i> super_admin</span>`;
+      return `<span class="tag staff"><i class="fa-solid fa-user-nurse"></i> staff</span>`;
+    }
+
+    async function alertNice(title, text, icon) {
+      if (window.Swal) {
+        await Swal.fire({ title, text, icon, confirmButtonText: "ตกลง" });
+      } else {
+        alert(title + "\\n" + text);
+      }
+    }
+
+    async function confirmNice(text) {
+      if (window.Swal) {
+        const r = await Swal.fire({
+          title: "ยืนยันการทำรายการ",
+          text,
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "ยืนยัน",
+          cancelButtonText: "ยกเลิก"
+        });
+        return !!r.isConfirmed;
+      }
+      return confirm(text);
+    }
+
+    // --------- Dashboard Stats ----------
+    async function loadStats() {
+      const j = await fetchJSON(`${API}?action=stats`);
+      const lastEl = $("#lastUpdated");
+      if (!j.success) {
+        if (lastEl) lastEl.textContent = "อัปเดตล่าสุด: - (ไม่สามารถดึงสถิติได้)";
+        $("#statTotal").textContent = "0";
+        $("#statAdmin").textContent = "0";
+        $("#statStaff").textContent = "0";
+        $("#statSuper").textContent = "0";
+        return;
+      }
+
+      const d = j.data || {};
+      $("#statTotal").textContent = Number(d.total || 0).toLocaleString("th-TH");
+      $("#statAdmin").textContent = Number(d.admin || 0).toLocaleString("th-TH");
+      $("#statStaff").textContent = Number(d.staff || 0).toLocaleString("th-TH");
+      $("#statSuper").textContent = Number(d.super_admin || 0).toLocaleString("th-TH");
+      if (lastEl) lastEl.textContent = "อัปเดตล่าสุด: " + (d.updated_at || niceTimeTH());
+    }
+
+    // --------- Table List ----------
+    async function loadList() {
+      const tbody = $("#mapTable tbody");
+      tbody.innerHTML = `<tr><td colspan="4" class="muted" style="padding:14px">กำลังโหลด…</td></tr>`;
+
+      const j = await fetchJSON(`${API}?action=list`);
+      if (!j.success) {
+        tbody.innerHTML = `<tr><td colspan="4" class="muted" style="padding:14px">${esc(j.message || "โหลดไม่สำเร็จ")}</td></tr>`;
+        return;
+      }
+
+      allRows = Array.isArray(j.data) ? j.data : [];
+      renderTable();
+    }
+
+    function renderTable() {
+      const tbody = $("#mapTable tbody");
+      const q = ($("#searchInput").value || "").trim().toLowerCase();
+      const rf = ($("#roleFilter").value || "").trim().toLowerCase();
+
+      let rows = [...allRows];
+
+      if (rf) {
+        rows = rows.filter(r => String(r.role || "").toLowerCase() === rf);
+      }
+      if (q) {
+        rows = rows.filter(r => {
+          const a = String(r.loginname || r.fullname || r.name || "").toLowerCase();
+          const b = String(r.role || "").toLowerCase();
+          return a.includes(q) || b.includes(q);
+        });
+      }
+
+      if (rows.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4" class="muted" style="padding:14px">ไม่พบข้อมูล</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = rows.map((r, idx) => {
+        const userLabel = (r.fullname || r.name || r.loginname || '').toString();
+        const loginKey = (r.loginname || r.email || '').toString();
+        return `
+        <tr>
+          <td>${idx + 1}</td>
+          <td><b>${esc(userLabel)}</b></td>
+          <td>${tagRole(r.role)}</td>
+          <td style="text-align:right">
+            <div class="actions">
+              <button class="btn-mini editBtn" data-login="${encodeURIComponent(loginKey)}" data-role="${esc(r.role)}">
+                <i class="fa-solid fa-pen"></i> แก้ไข
+              </button>
+              <button class="btn-mini danger delBtn" data-login="${encodeURIComponent(loginKey)}">
+                <i class="fa-solid fa-trash"></i> ลบ
+              </button>
+            </div>
+          </td>
+        </tr>
+      `}).join("");
+
+      attachRowActions();
+    }
+
+    function attachRowActions() {
+      document.querySelectorAll(".editBtn").forEach(btn => {
+        btn.addEventListener("click", async () => {
+          const login = decodeURIComponent(btn.dataset.login || "");
+          const role = btn.dataset.role || "";
+          // หา row เต็มจาก allRows
+          const user = allRows.find(r => (r.loginname || r.email || "").toLowerCase() === login.toLowerCase());
+          const name = user ? (user.fullname || user.name || user.loginname || login) : login;
+          // popup ด้วย SweetAlert2
+          const { value: newRole } = await Swal.fire({
+            title: `แก้ไขสิทธิ์ผู้ใช้`,
+            html: `
+              <div style='text-align:left'>
+                <b>Loginname:</b> ${login}<br>
+                <b>ชื่อ:</b> ${name}<br>
+                <b>สิทธิ์ปัจจุบัน:</b> <span style='color:#007bff'>${role}</span><br><br>
+                <label for='swal-role'>เปลี่ยนสิทธิ์:</label>
+                <select id='swal-role' class='swal2-input'>
+                  <option value='staff' ${role === 'staff' ? 'selected' : ''}>staff</option>
+                  <option value='admin' ${role === 'admin' ? 'selected' : ''}>admin</option>
+                  <option value='super_admin' ${role === 'super_admin' ? 'selected' : ''}>super_admin</option>
+                </select>
+              </div>
+            `,
+            showCancelButton: true,
+            confirmButtonText: 'บันทึก',
+            cancelButtonText: 'ยกเลิก',
+            preConfirm: () => {
+              return document.getElementById('swal-role').value;
+            }
+          });
+          if (!newRole) return;
+          // ส่ง request ไปแก้ไข role
+          const fd = new FormData();
+          fd.append('loginname', login);
+          fd.append('role', newRole);
+          fd.append('edit', '1'); // flag สำหรับ backend
+          const j = await fetchJSON(`${API}?action=save`, { method: "POST", body: fd });
+          if (j.success) {
+            await alertNice("บันทึกสำเร็จ", "แก้ไขสิทธิ์เรียบร้อย", "success");
+            await reloadAll();
+          } else {
+            await alertNice("บันทึกไม่สำเร็จ", j.message || "เกิดข้อผิดพลาด", "error");
+          }
+        });
+      });
+
+      document.querySelectorAll(".delBtn").forEach(btn => {
+        btn.addEventListener("click", async () => {
+          const login = decodeURIComponent(btn.dataset.login || "");
+          const ok = await confirmNice(`ลบสิทธิ์ของ ${login} ใช่ไหม?`);
+          if (!ok) return;
+          const fd = new FormData();
+          fd.append("loginname", login);
+          const j = await fetchJSON(`${API}?action=delete`, { method: "POST", body: fd });
+          if (j.success) {
+            await alertNice("ลบสำเร็จ", "รายการถูกลบเรียบร้อย", "success");
+            await reloadAll();
+          } else {
+            await alertNice("ลบไม่สำเร็จ", j.message || "เกิดข้อผิดพลาด", "error");
+          }
+        });
+      });
+    }
+
+    // --------- Form Submit ----------
+    $("#mapForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const loginInput = document.getElementById('loginname');
+      const login = (loginInput && loginInput.value ? loginInput.value : '').trim();
+      const role = "staff";
+
+      if (!login) {
+        await alertNice("กรอกข้อมูลไม่ครบ", "กรุณากรอก Loginname", "warning");
+        return;
+      }
+
+      // ตรวจสอบว่ามี user นี้ใน HOSxP และ account_disable
+      const checkResp = await fetch(`${API}?action=check_hosxp_user&loginname=${encodeURIComponent(login)}`);
+      const checkData = await checkResp.json().catch(() => ({ success: false, message: "ตรวจสอบไม่ได้" }));
+      console.log('DEBUG: check_hosxp_user response', checkData);
+
+      if (!checkData.success) {
+        await alertNice(
+            "ไม่สามารถเพิ่มผู้ใช้ได้",
+            checkData.message,
+            "error"
+        );
+        return;
+      }
+
+      // ปรับเงื่อนไขให้ account_disable ต้องเป็น N เท่านั้น
+      
+
+      // ตรวจสอบว่ามี user นี้อยู่แล้วหรือไม่ (ห้ามเพิ่มซ้ำ)
+      const exists = allRows.some(r => (r.loginname || r.email || '').toLowerCase() === login.toLowerCase());
+      if (exists) {
+        await alertNice("เพิ่มไม่ได้", "มีผู้ใช้นี้อยู่แล้วในระบบ", "error");
+        return;
+      }
+
+      // เพิ่มผู้ใช้ใหม่เท่านั้น
+      const fd = new FormData();
+      fd.append("loginname", login);
+      fd.append("role", "staff");
+
+      const j = await fetchJSON(`${API}?action=save`, { method: "POST", body: fd });
+
+      if (j.success) {
+        await alertNice("เพิ่มสำเร็จ", "เพิ่มผู้ใช้เรียบร้อย", "success");
+        $("#mapForm").reset();
+        await reloadAll();
+        $("#permissionsSection").scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        await alertNice("เพิ่มไม่สำเร็จ", j.message || "เกิดข้อผิดพลาด", "error");
+      }
+    });
+
+    $("#clearBtn").addEventListener("click", () => $("#mapForm").reset());
+    $("#searchInput").addEventListener("input", renderTable);
+    // Press Enter in search box -> query HOSxP directly
+    $("#searchInput").addEventListener("keydown", async (e) => {
+      if (e.key !== 'Enter') return;
+      e.preventDefault();
+      const q = (document.getElementById('searchInput').value || '').trim();
+      if (!q) {
+        // empty -> reload local list
+        await reloadAll();
+        return;
+      }
+
+      // call permissions_process.php?action=hosxp_search&q=...
+      try {
+        const res = await fetch(`permissions_process.php?action=hosxp_search&q=${encodeURIComponent(q)}`);
+        const j = await res.json();
+        if (!j || !j.success) {
+          await alertNice('ค้นหา HOSxP ล้มเหลว', j?.message || 'ไม่ได้ผลลัพธ์', 'error');
+          return;
+        }
+        const rows = Array.isArray(j.data) ? j.data : [];
+        renderHosxpResults(rows);
+      } catch (err) {
+        console.error('hosxp search error', err);
+        await alertNice('เกิดข้อผิดพลาด', 'ไม่สามารถเชื่อมต่อ HOSxP', 'error');
+      }
+    });
+    $("#roleFilter").addEventListener("change", renderTable);
+
+    $("#gotoPermissionsBtn").addEventListener("click", async () => {
+      try {
+        const confirmed = await Swal.fire({
+          title: 'Logout (ออกจากระบบ)?',
+          text: 'คุณแน่ใจว่าต้องการออกจากระบบ?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Logout',
+          cancelButtonText: 'ยกเลิก'
+        });
+        if (!confirmed.isConfirmed) return;
+
+        // try server logout
+        try {
+          const res = await fetch('logout.php', { method: 'POST', credentials: 'same-origin' });
+          // ignore response details; proceed to clear client state
+          if (res && res.ok) {
+            try { await res.json(); } catch (e) { }
+          }
+        } catch (e) {
+          // network error — still clear client-side state
+          console.warn('logout request failed', e);
+        }
+
+        // clear common sessionStorage keys used across app
+        [
+          'auth_token', 'icu_auth_token', 'icu_local_user_email', 'icu_local_user_fullname',
+          'icu_local_user_role', 'nurse_welcome_shown', 'icu_selected_request', 'icu_selected_request_id',
+          'icu_selected_hn', 'icu_selected_name', 'icu_selected_phone', 'icu_selected_status', 'icu_selected_urgency'
+        ].forEach(k => sessionStorage.removeItem(k));
+
+        await Swal.fire({ icon: 'success', title: 'ล็อคเอ้าเรียบร้อย', timer: 900, showConfirmButton: false });
+        location.href = 'login.html';
+      } catch (e) {
+        console.error(e);
+        await Swal.fire({ icon: 'error', title: 'ข้อผิดพลาด', text: 'ไม่สามารถล็อคเอ้าได้ในขณะนี้' });
+      }
+    });
+
+    $("#refreshBtn").addEventListener("click", reloadAll);
+
+    async function reloadAll() {
+      await Promise.all([loadStats(), loadList()]);
+    }
+
+    // render results from HOSxP search
+    function renderHosxpResults(rows) {
+      const tbody = $("#mapTable tbody");
+      if (!rows || rows.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4" class="muted" style="padding:14px">ไม่พบข้อมูลจาก HOSxP</td></tr>`;
+        return;
+      }
+      tbody.innerHTML = rows.map((r, idx) => {
+        const label = (r.name || r.loginname || '');
+        return `
+        <tr>
+          <td>${idx + 1}</td>
+          <td><b>${esc(label)}</b></td>
+          <td>--</td>
+          <td style="text-align:right">-</td>
+        </tr>
+      `}).join('');
+    }
+
+    // init
+    reloadAll().catch(() => { });
+
+    // Ensure HOSxP fullname/email/role are stored and displayed on this page
+    (async function showHosxpName() {
+      try {
+        const res = await fetch('get_user_info.php', { credentials: 'same-origin' });
+        if (!res.ok) return;
+        const j = await res.json().catch(() => null);
+        if (!j) return;
+        if (j.timed_out) {
+          await Swal.fire({ icon: 'warning', title: 'หมดเวลาเซสชัน', text: 'เซสชันการใช้งานหมดเวลา กรุณาเข้าสู่ระบบใหม่', confirmButtonText: 'ตกลง' });
+          location.href = 'login.html';
+          return;
+        }
+        const fullname = (j.fullname || '').trim();
+        const email = (j.email || '').trim();
+        const role = (j.role || '').trim();
+        if (fullname) sessionStorage.setItem('icu_local_user_fullname', fullname);
+        if (email) sessionStorage.setItem('icu_local_user_email', email);
+        if (role) sessionStorage.setItem('icu_local_user_role', role);
+        const el = document.getElementById('localUserDisplay');
+        if (el) {
+          // prefer fullname, then email, then role
+          el.textContent = fullname || email || role || 'ผู้ใช้งาน';
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    })();
+  </script>
+
+  <script>
+    /* === Security Guard: auth check + disable back to protected pages === */
+    (function () {
+      const INDEX_PAGE = 'index.html';
+      async function checkAuth() {
+        try {
+          const token = sessionStorage.getItem('auth_token') || '';
+          const headers = token ? { 'Authorization': 'Bearer ' + token } : {};
+          const res = await fetch('get_user_info.php', { method: 'GET', headers, credentials: 'same-origin' });
+          const json = await res.json().catch(() => null);
+          if (!json || !json.success) {
+            try { sessionStorage.removeItem('auth_token'); } catch (e) { }
+            window.location.replace(INDEX_PAGE);
+            return false;
+          }
+          return true;
+        } catch (e) {
+          window.location.replace(INDEX_PAGE);
+          return false;
+        }
+      }
+
+      function trapBackButton() {
+        if (window.__backTrapInstalled) return;
+        window.__backTrapInstalled = true;
+        // Push a dummy state so back triggers popstate
+        history.pushState({ guard: true }, '', window.location.href);
+        window.addEventListener('popstate', function () {
+          window.location.replace(INDEX_PAGE);
+        });
+      }
+      // Install back-button trap as early as possible
+      trapBackButton();
+
+
+      // If page is restored from bfcache, re-check auth
+      window.addEventListener('pageshow', function (e) {
+        if (e.persisted) checkAuth();
+      });
+
+      document.addEventListener('DOMContentLoaded', async function () {
+        const ok = await checkAuth();
+        if (ok) trapBackButton();
+      });
+    })();
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+.top-menu {
+    background: #fff;
+    border-bottom: 1px solid #e6eef6;
+    position: sticky;
+    top: 0;
+    z-index: 100000
+}
+
+.top-menu .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 8px;
+    padding: 10px 16px;
+    align-items: center
+}
+
+.top-menu .tab {
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: #475569;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid transparent
+}
+
+.top-menu .tab.active {
+    background: linear-gradient(90deg, #06b6d4, #0ea5e9);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(3, 105, 161, 0.12)
+}
+
+/* ensure page content sits below sticky nav */
+body {
+    --top-nav-height: 48px;
+}
+
+.wrapper {
+    margin-top: 8px;
+}

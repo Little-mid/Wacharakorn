@@ -1,0 +1,244 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kanit', sans-serif;
+}
+
+body {
+    background-color: #f0f7f4; /* สีพื้นหลังเขียวอ่อนมาก */
+    background-image: radial-gradient(#d1eadd 1px, transparent 1px);
+    background-size: 20px 20px; /* เพิ่ม Pattern จุดเล็กๆ ให้ดูแพง */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+}
+
+/* --- Navigation & User Info --- */
+.top-nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.user-info {
+    background: white;
+    padding: 10px 18px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(45, 157, 120, 0.1);
+    flex-grow: 1;
+    border: 1px solid #e0eee8;
+}
+
+.user-info i {
+    color: #2d9d78;
+    font-size: 1.4rem;
+}
+
+.user-info span {
+    color: #444;
+    font-weight: 500;
+}
+
+.logout-btn {
+    background-color: #fff;
+    color: #ff5e5e;
+    border: 1px solid #ffeded;
+    padding: 10px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.05);
+}
+
+.logout-btn:hover {
+    background-color: #ff5e5e;
+    color: white;
+}
+
+/* --- Main Card --- */
+.card {
+    background: white;
+    border-radius: 35px;
+    padding: 45px 35px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 74, 50, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.icon-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.green-circle {
+    background: linear-gradient(135deg, #36b38a, #2d9d78);
+    width: 90px;
+    height: 90px;
+    border-radius: 30px; /* ทรงสี่เหลี่ยมโค้งมน (Squircle) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(45, 157, 120, 0.3);
+    transform: rotate(-5deg); /* เอียงเล็กน้อยให้ดูโมเดิร์น */
+}
+
+.green-circle i {
+    color: white;
+    font-size: 2.8rem;
+    transform: rotate(5deg);
+}
+
+h1 {
+    color: #1a5c48;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #2d9d78;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.info-box {
+    background-color: #f6fbf9;
+    padding: 15px;
+    border-radius: 15px;
+    border-left: 4px solid #2d9d78;
+    margin-bottom: 30px;
+}
+
+.description {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* --- Form Elements --- */
+.input-group {
+    text-align: left;
+    margin-bottom: 22px;
+}
+
+.input-group label {
+    display: block;
+    color: #2d6a58;
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 18px;
+    color: #94b8ac;
+    transition: 0.3s;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 16px 16px 16px 50px;
+    border: 2px solid #e8f2ee;
+    border-radius: 18px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #fafdfc;
+}
+
+.input-wrapper input:focus {
+    border-color: #2d9d78;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(45, 157, 120, 0.1);
+}
+
+.input-wrapper input:focus + i {
+    color: #2d9d78;
+}
+
+.helper-text {
+    display: block;
+    color: #7fa095;
+    font-size: 0.8rem;
+    margin-top: 8px;
+    font-weight: 300;
+}
+
+/* --- Submit Button --- */
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #36b38a, #2d9d78);
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 18px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s;
+    box-shadow: 0 10px 20px rgba(45, 157, 120, 0.2);
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #2d9d78, #248263);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(45, 157, 120, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* --- Footer --- */
+.footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #6a8b7f;
+}
+
+.footer i {
+    margin-right: 5px;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    .card {
+        padding: 30px 20px;
+    }
+}

@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ระบบจัดการเตียง ห้องพิเศษ | ประหยัดเวลา รักษาชีวิต</title>
+
+    <!-- Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" />
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="register_step2.css" />
+    <link rel="stylesheet" href="bed_reservation.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function forceLogoutImmediate() {
+            try { fetch('logout.php', { method: 'POST', credentials: 'same-origin' }).catch(() => { }); } catch (e) { }
+            ['auth_token', 'icu_local_user_email', 'icu_local_user_fullname', 'icu_local_user_role', 'icu_selected_request', 'icu_selected_request_id'].forEach(k => { try { sessionStorage.removeItem(k); } catch (e) { } });
+            location.href = 'login.html';
+        }
+        // Immediate auth check: allow only admin for this page
+        (async function enforceAdminOnly() {
+            try {
+                const resp = await fetch('get_user_info.php', { credentials: 'same-origin' });
+                const j = await resp.json();
+                if (j && j.timed_out) { forceLogoutImmediate(); return; }
+                if (!j || !j.success || !j.role) {
+                    await Swal.fire({ icon: 'warning', title: 'กรุณาเข้าสู่ระบบ', text: 'กรุณาเข้าสู่ระบบเพื่อเข้าถึงหน้านี้', confirmButtonText: 'ตกลง' });
+                    location.href = 'login.html';
+                    return;
+                }
+                const role = (j.role || '').toLowerCase();
+                if (role !== 'admin' && role !== 'super_admin') {
+                    await Swal.fire({ icon: 'error', title: 'ปฏิเสธการเข้าใช้งาน', text: 'คุณไม่มีสิทธิ์เข้าถึงหน้านี้', confirmButtonText: 'กลับสู่หน้าหลัก' });
+                    location.href = 'login.html';
+                    return;
+                }
+                
+            } catch (e) {
+                console.error(e);
+                await Swal.fire({ icon: 'error', title: 'เกิดข้อผิดพลาด', text: 'ไม่สามารถตรวจสอบสิทธิ์ได้', confirmButtonText: 'ไปที่หน้าเข้าสู่ระบบ' });
+                location.href = 'login.html';
+            }
+        })();
+    </script>
+
+    <!-- Shared top-nav styles -->
+    
+
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+</head>
+
+<body>
+    <!-- NEW: shared top navigation -->
+    <nav class="top-menu" aria-label="เมนูหลัก">
+        <div class="inner">
+            <a class="tab active" href="bed_reservation.html">หน้าจองเตียง</a>
+            <a class="tab" href="Make a reservation.html">จัดการคิว</a>
+            <a class="tab" href="Cancellation history.html">ประวัติคิว</a>
+            <!-- <a class="tab" href="permissions.html" id="permissionsTab" style="display:none;">
+                จัดการสิทธิ
+            </a> -->
+        </div>
+    </nav>
+
+    <div class="wrapper">
+        <div class="card">
+            <!-- Header with Logo -->
+            <header class="card-header">
+                <div class="header-left">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <div>
+                        <h1>ระบบจัดการเตียง <span class="highlight">ห้องพิเศษ</span></h1>
+                        <p class="subtitle">บริหารจัดการแบบ Real-Time | ข้อมูลผู้ป่วยปลอดภัย</p>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <div class="status-badge status-active">
+                        <span class="pulse"></span>
+                        <span id="systemStatus">ระบบออนไลน์</span>
+                        <span class="divider-dot">•</span>
+                        <span id="currentUser">ผู้ใช้งาน</span>
+
+                        <!-- ปุ่มออกจากระบบ -->
+                        <button id="logoutBtn" class="btn-secondary" title="ออกจากระบบ" style="margin-left:10px;">
+                            <i class="fa-solid fa-right-from-bracket"></i>&nbsp;<span
+                                style="font-weight:700;font-size:12px;">ออกจากระบบ</span>
+                        </button>
+                    </div>
+                </div><!-- ✅ ปิด header-right ให้ครบ -->
+            </header>
+
+            <!-- Quick Stats Dashboard -->
+            <div class="stats-dashboard">
+                <div class="stat-item stat-total">
+                    <div class="stat-header">
+                        <span class="stat-label">เตียงทั้งหมด</span>
+                        <i class="fa-solid fa-hospital-bed"></i>
+                    </div>
+                    <div class="stat-value" id="totalBeds">--</div>
+                    <p class="stat-caption">จำนวนเตียงทั้งหมดใน ICU ชั้น 1</p>
+                </div>
+                <div class="stat-item stat-available">
+                    <div class="stat-header">
+                        <span class="stat-label">เตียงว่าง</span>
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <div class="stat-value" id="freeBeds">--</div>
+                    <p class="stat-caption">พร้อมรองรับผู้ป่วยใหม่ทันที</p>
+                </div>
+                <div class="stat-item stat-occupied">
+                    <div class="stat-header">
+                        <span class="stat-label">เตียงไม่ว่าง</span>
+                        <i class="fa-solid fa-user-injured"></i>
+                    </div>
+                    <div class="stat-value" id="occupiedBeds">--</div>
+                    <p class="stat-caption">กำลังมีผู้ป่วยใช้บริการ</p>
+                </div>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="content-wrapper">
+                <!-- Left Panel: Patient Form -->
+                <section class="form-panel">
+                    <div class="panel-title">
+                        <i class="fa-solid fa-user-injured"></i>
+                        <h2>ข้อมูลผู้ป่วย & การจองเตียง</h2>
+                    </div>
+
+                    <!-- Patient Selector -->
+                    <div class="patient-selector">
+                        <label class="selector-label">กรอกหรือเลือกหมายเลข HN ผู้ป่วย</label>
+                        <div class="selector-container">
+
+                            <!-- ช่องสำหรับกรอก HN (เฉพาะตัวเลข) -->
+                            <input id="hnInput" class="modern-select" list="patientList" inputmode="numeric"
+                                maxlength="9" placeholder="กรอกหมายเลข HN (ไม่จำเป็นต้องครบ 9 หลัก)"
+                                oninput="this.value=this.value.replace(/\D/g,'').slice(0,9)" />
+
+                            <!-- รายชื่อผู้ป่วยจากระบบ HOSxP -->
+                            <datalist id="patientList"></datalist>
+
+                            <button type="button" class="btn-new-case" id="addNewPatientBtn">
+                                <i class="fa-solid fa-plus"></i>
+                                เช็คผู้ป่วย
+                            </button>
+                        </div>
+                    </div>
+
+                    <form id="patientForm" class="patient-form">
+                        <div class="form-card">
+
+                            <!-- การ์ดข้อมูลผู้ป่วย แบบใหม่ -->
+                            <div class="patient-card">
+                                <!-- Header card -->
+                                <div class="patient-card-header">
+                                    <div class="patient-avatar">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div>
+                                        <div class="patient-card-title">ข้อมูลผู้ป่วย</div>
+                                        <div class="patient-card-sub">Patient Information</div>
+                                    </div>
+                                </div>
+
+                                <!-- Body -->
+                                <div class="patient-card-body">
+                                    <!-- HN -->
+                                    <div class="patient-field">
+                                        <label>เลข HN</label>
+                                        <div class="field-box field-box-hn">
+                                            <input id="patient_hn_display" name="patient_hn_display" type="text"
+                                                placeholder="-" readonly />
+                                        </div>
+                                    </div>
+
+                                    <!-- ชื่อ - นามสกุล -->
+                                    <div class="patient-field full">
+                                        <label>ชื่อ - นามสกุล</label>
+                                        <div class="field-box field-box-name">
+                                            <input id="patient_name" name="patient_name" type="text" placeholder="-"
+                                                readonly />
+                                        </div>
+                                    </div>
+
+                                    <!-- อายุ + เพศ -->
+                                    <div class="patient-field">
+                                        <label>อายุ</label>
+                                        <div class="field-box field-box-mini">
+                                            <input id="age" name="age" type="text" placeholder="-" readonly />
+                                        </div>
+                                    </div>
+
+                                    <div class="patient-field">
+                                        <label>เพศ</label>
+                                        <div class="field-box field-box-mini">
+                                            <input id="gender_display" type="text" class="inline-read" placeholder="-"
+                                                readonly />
+                                            <input id="gender" name="gender" type="hidden" />
+                                        </div>
+                                    </div>
+
+                                    <!-- เบอร์โทร -->
+                                    <div class="patient-field">
+                                        <label>เบอร์โทร</label>
+                                        <div class="field-box field-box-mini">
+                                            <input id="phone" name="phone" type="text" inputmode="numeric"
+                                                maxlength="10" required pattern="0\d{8,9}"
+                                                title="เบอร์ต้องขึ้นต้นด้วย 0 และมี 9-10 หลัก"
+                                                placeholder="ระบุเบอร์โทร (ขึ้นต้น 0, 9-10 หลัก)"
+                                                oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- สิทธิการรักษา -->
+                                <div class="patient-field full">
+                                    <label>สิทธิการรักษา</label>
+                                    <div class="field-box field-box-note">
+                                        <textarea id="note" name="note" readonly
+                                            placeholder="ยังไม่พบข้อมูลสิทธิ์การรักษา"></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- การนัดหมาย/Walk in -->
+                                <div class="patient-field">
+                                    <label>การนัดหมาย/Walk in</label>
+                                    <div class="field-box field-box-mini">
+                                        <select id="urgency" name="urgency" style="width:100%;padding:6px;">
+                                            <option value="1">🟢 ผู้ป่วยนัด</option>
+                                            <option value="2" selected>⚪ผู้ป่วยไม่ได้นัด</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- hidden สำหรับ backend -->
+                            <input id="disease" name="disease" type="hidden" />
+                            <input id="pain_score" name="pain_score" type="hidden" />
+                        </div>
+
+                        <div class="panel-actions" style="margin-top:12px;">
+                            <!-- เดิมมีปุ่มที่นี่ ถูกตัดออกเพราะเมนูด้านบนแทนที่การนำทาง -->
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Right Panel: Bed Grid -->
+                <section class="bed-panel">
+                    <div class="panel-title">
+                        <i class="fa-solid fa-bed-pulse"></i>
+                        <h2>แผนที่เตียงห้องพิเศษชั้น</h2>
+                    </div>
+
+                    <!-- Bed Legend -->
+                    <div class="bed-legend">
+                        <div class="legend-item legend-available">
+                            <span class="legend-indicator"></span>
+                            <span>ว่าง</span>
+                        </div>
+                        <div class="legend-item legend-occupied">
+                            <span class="legend-indicator"></span>
+                            <span>ไม่ว่าง</span>
+                        </div>
+                        <div class="legend-item legend-selected">
+                            <span class="legend-indicator"></span>
+                            <span>เลือกแล้ว</span>
+                        </div>
+                    </div>
+
+                    <!-- Bed Section -->
+                    <div class="beds-section">
+                        <div class="section-header">
+                            <i class="fa-solid fa-building-columns"></i>
+                            <h3>ห้องพิเศษชั้น (เตียง 01 - 20)</h3>
+                        </div>
+                        <div class="beds-grid" id="bedsGrid"></div>
+                    </div>
+
+                    <!-- Helper card -->
+                    <div id="selectInfo" class="helper-card-compact">
+                        <div class="hc-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                        <div class="hc-text">
+                            <div class="hc-line-1">ไม่จำเป็นต้องพิมพ์ข้อมูลเอง — กด “เช็คผู้ป่วย”
+                                เพื่อดึงข้อมูลจากระบบโรงพยาบาล</div>
+                            <div class="hc-line-2">หรือปล่อยว่างไว้แล้วเลือกเตียงเพื่อบันทึกข้อมูลพื้นฐาน</div>
+                            <!-- <div class="hc-line-3" style="margin-top:8px;font-weight:700;color:#06488a;">
+                                กรอกข้อมูลให้ครบ แล้วแตะเลือกเตียงว่าง (สีเขียว) ทางด้านขวา
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div id="resultBox" class="result-message"></div>
+
+                    <div class="submit-row">
+                        <button type="button" class="btn-primary-large" id="bookBtn">
+                            <i class="fa-solid fa-check"></i> ยืนยันการจองเตียง
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ โค้ด JS ทั้งหมด “คงเดิม” ตามที่คุณส่งมา -->
+    <script>
+        // DOM elements
+        const selectInfo = document.getElementById("selectInfo");
+        const resultBox = document.getElementById("resultBox");
+        const totalBedsEl = document.getElementById("totalBeds");
+        const freeBedsEl = document.getElementById("freeBeds");
+        const occupiedBedsEl = document.getElementById("occupiedBeds");
+        const hnInput = document.getElementById("hnInput");
+        const patientList = document.getElementById("patientList");
+        const addNewPatientBtn = document.getElementById("addNewPatientBtn");
+        const form = document.getElementById("patientForm");
+        const bookBtn = document.getElementById("bookBtn");
+
+        // track if current selected/fetched patient has an admission (an)
+        let patientHasAdmission = null; // null = unknown, true/false = known
+
+        // helper to enable/disable booking based on admission status
+        function setBookingAllowed(allowed) {
+            if (!bookBtn) return;
+            bookBtn.disabled = allowed === false;
+            bookBtn.style.opacity = allowed === false ? '0.6' : '';
+            bookBtn.style.cursor = allowed === false ? 'not-allowed' : '';
+        }
+
+        // initial state
+        setBookingAllowed(true);
+
+        // new: global helper เพื่อส่ง cookie (session) และ optional Bearer token
+        function authFetch(url, opts) {
+            opts = opts || {};
+            opts.headers = opts.headers || {};
+            const token = sessionStorage.getItem('auth_token') || '';
+            if (token) opts.headers['Authorization'] = 'Bearer ' + token;
+            if (!opts.credentials) opts.credentials = 'same-origin';
+            return fetch(url, opts);
+        }
+
+        // โหลดรายการ HN จาก HOSxP เพื่อเติม datalist
+        function loadHosxpPatients() {
+            authFetch('get_hosxp_patients.php')
+                .then(r => r.json())
+                .then(data => {
+                    if (!data || !data.success || !Array.isArray(data.patients)) return;
+                    patientList.innerHTML = '';
+                    data.patients.forEach(p => {
+                        const opt = document.createElement('option');
+                        opt.value = (p.hn || '').replace(/\D/g, '');
+                        if (p.pname || p.fname || p.lname) {
+                            opt.setAttribute('data-label', `${p.hn} - ${p.pname} ${p.fname} ${p.lname}`);
+                        }
+                        patientList.appendChild(opt);
+                    });
+                })
+                .catch(err => console.error('loadHosxpPatients error', err));
+        }
+
+        // mirror HN input into patient HN display
+        hnInput.addEventListener('input', () => {
+            const hnDisp = document.getElementById('patient_hn_display');
+            if (hnDisp) hnDisp.value = (hnInput.value || '').replace(/\D/g, '').slice(0, 9);
+        });
+
+        // Check admission by HN
+        async function checkAdmission(hn) {
+            if (!hn) return false;
+            try {
+                const res = await fetch('get_hosxp_patient_detail.php?hn=' + encodeURIComponent(hn));
+                if (!res.ok) {
+                    patientHasAdmission = false;
+                    setBookingAllowed(false);
+                    return false;
+                }
+                let d;
+                try {
+                    d = await res.json();
+                } catch (e) {
+                    console.error('Invalid JSON from admission check', e);
+                    patientHasAdmission = false;
+                    setBookingAllowed(false);
+                    return false;
+                }
+                const hasAn = !!(d && d.success && d.data &&
+                    (d.data.an !== null && typeof d.data.an !== 'undefined' && String(d.data.an).trim() !== ''));
+                patientHasAdmission = hasAn;
+                setBookingAllowed(hasAn);
+                return hasAn;
+            } catch (e) {
+                console.error('checkAdmission error', e);
+                patientHasAdmission = false;
+                setBookingAllowed(false);
+                return false;
+            }
+        }
+
+        // เช็คผู้ป่วยจาก HOSxP
+        addNewPatientBtn.addEventListener('click', async () => {
+            const raw = (hnInput.value || '').replace(/\D/g, '');
+            if (raw.length < 1) {
+                Swal.fire({ icon: 'warning', title: 'กรุณาระบุหมายเลข HN อย่างน้อย 1 หลักเพื่อค้นหา' });
+                hnInput.focus();
+                return;
+            }
+
+            try {
+                const resp = await fetch('get_hosxp_patients.php?query=' + encodeURIComponent(raw));
+                if (!resp.ok) {
+                    throw new Error('HTTP ' + resp.status);
+                }
+                const data = await resp.json();
+
+                if (!data || !data.success) {
+                    Swal.fire({ icon: 'info', title: 'ไม่พบ HN นี้', text: data?.message || 'โปรดตรวจสอบ HN' });
+                    return;
+                }
+
+                const list = data.patients || [];
+                if (list.length === 0) {
+                    Swal.fire({ icon: 'info', title: 'ไม่พบผู้ป่วย', text: 'ไม่มีรายการที่ตรงกับการค้นหา' });
+                    return;
+                }
+
+                // กรณีเจอ 1 คนตรงๆ
+                if (list.length === 1) {
+                    const p = list[0];
+                    const hnDisp = document.getElementById('patient_hn_display');
+                    const hnVal = (p.hn || '').replace(/\D/g, '');
+                    if (hnDisp) hnDisp.value = hnVal;
+
+                    document.getElementById("patient_name").value =
+                        ((p.pname || '') + ' ' + (p.fname || '') + ' ' + (p.lname || '')).trim();
+                    document.getElementById("age").value =
+                        (typeof p.age !== 'undefined' ? p.age : (p.age_y || ''));
+
+                    const gVal = (p.sex == 1 ? 'ชาย' : (p.sex == 2 ? 'หญิง' : ''));
+                    document.getElementById("gender").value = gVal;
+                    const gd = document.getElementById('gender_display');
+                    if (gd) gd.value = gVal;
+
+                    // set phone if available (hometel / informtel)
+                    try {
+                        const phoneEl = document.getElementById('phone');
+                        const phoneVal = (p.hometel || p.informtel || '');
+                        if (phoneEl) phoneEl.value = phoneVal ? String(phoneVal).replace(/\D/g, '').slice(0, 10) : '';
+                    } catch (e) { }
+
+                    (async () => {
+                        const hn = (p.hn || '').replace(/\D/g, '');
+                        let rights = (p.pttype_name || p.pttype || p.rights || '').trim();
+                        if (!rights && hn) {
+                            rights = (await fetchPatientRightsByHN(hn)).trim();
+                        }
+                        document.getElementById("note").value =
+                            rights ? ('สิทธิ์การรักษา: ' + rights) : 'ไม่พบสิทธิ์ผู้ป่วย';
+                    })();
+
+                    const admitted = await checkAdmission(hnVal);
+                    if (admitted) {
+                        Swal.fire({ icon: 'success', title: 'พบ admission ใน HOSxP', text: 'สามารถจองเตียงได้' });
+                    } else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'ไม่พบ admission ใน HOSxP',
+                            text: 'ผู้ป่วยยังไม่มี admission ใน HOSxP จึงไม่สามารถจองเตียงได้'
+                        });
+                    }
+                    resultBox.style.display = "none";
+                    return;
+                }
+
+                // กรณีเจอหลายคน ให้เลือก
+                let rowsHtml = '<div style="text-align:left;max-height:320px;overflow:auto;padding:6px">';
+                list.forEach((p, idx) => {
+                    const name = (((p.pname || '') + ' ' + (p.fname || '') + ' ' + (p.lname || '')).trim()) || '-';
+                    const age = (typeof p.age !== 'undefined' ? p.age : (p.age_y || '-'));
+                    rowsHtml += `<div class="patient-row" data-idx="${idx}"
+                                style="padding:8px 6px;border-bottom:1px solid #eee;cursor:pointer">
+                        <div style="font-weight:700">${p.hn || ''} — ${name}</div>
+                        <div style="font-size:13px;color:#555">
+                          อายุ: ${age} · เพศ: ${(p.sex == 1 ? 'ชาย' : (p.sex == 2 ? 'หญิง' : '-'))}
+                          · PDx: ${p.pdx || '-'}
+                        </div>
+                    </div>`;
+                });
+                rowsHtml += '</div>';
+
+                await Swal.fire({
+                    title: 'เลือกผู้ป่วยจากผลการค้นหา',
+                    html: rowsHtml,
+                    showCancelButton: true,
+                    showConfirmButton: false,
+                    width: 700,
+                    didOpen: () => {
+                        document.querySelectorAll('.patient-row').forEach(el => {
+                            el.addEventListener('click', (ev) => {
+                                const idx = parseInt(el.getAttribute('data-idx'), 10);
+                                const p = list[idx];
+
+                                const hnDisp2 = document.getElementById('patient_hn_display');
+                                const hnVal2 = (p.hn || '').replace(/\D/g, '');
+                                if (hnDisp2) hnDisp2.value = hnVal2;
+
+                                document.getElementById("patient_name").value =
+                                    ((p.pname || '') + ' ' + (p.fname || '') + ' ' + (p.lname || '')).trim();
+                                document.getElementById("age").value =
+                                    (typeof p.age !== 'undefined' ? p.age : (p.age_y || ''));
+
+                                const gVal2 = (p.sex == 1 ? 'ชาย' : (p.sex == 2 ? 'หญิง' : ''));
+                                document.getElementById("gender").value = gVal2;
+                                const gd2 = document.getElementById('gender_display');
+                                if (gd2) gd2.value = gVal2;
+
+                                // set phone
+                                try {
+                                    const phoneEl = document.getElementById('phone');
+                                    const phoneVal = (p.hometel || p.informtel || '');
+                                    if (phoneEl) phoneEl.value = phoneVal ? String(phoneVal).replace(/\D/g, '').slice(0, 10) : '';
+                                } catch (e) { }
+
+                                (async () => {
+                                    const hn = (p.hn || '').replace(/\D/g, '') || (hnInput.value || '').replace(/\D/g, '');
+                                    let rights = (p.pttype_name || p.pttype || p.rights || '').trim();
+                                    if (!rights && hn) {
+                                        rights = (await fetchPatientRightsByHN(hn)).trim();
+                                    }
+                                    document.getElementById("note").value =
+                                        rights ? ('สิทธิ์การรักษา: ' + rights) : 'ไม่พบสิทธิ์ผู้ป่วย';
+                                })();
+
+                                (async () => {
+                                    const admitted2 = await checkAdmission(hnVal2);
+                                    if (admitted2) {
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'พบ admission ใน HOSxP',
+                                            text: 'สามารถจองเตียงได้',
+                                            timer: 1200,
+                                            showConfirmButton: false
+                                        });
+                                    } else {
+                                        Swal.fire({
+                                            icon: 'warning',
+                                            title: 'ไม่พบ admission ใน HOSxP',
+                                            text: 'ไม่สามารถจองเตียงได้',
+                                            timer: 1500
+                                        });
+                                    }
+                                })();
+
+                                Swal.close();
+                            });
+                        });
+                    }
+                });
+            } catch (err) {
+                console.error('check HN error', err);
+                Swal.fire({ icon: 'error', title: 'ข้อผิดพลาด', text: 'ไม่สามารถเรียกข้อมูลจากเซิร์ฟเวอร์' });
+            }
+        });
+
+        // ดึงข้อมูลผู้ใช้งานจาก Session
+        function loadUserInfo() {
+            function authFetch(url, opts) {
+                opts = opts || {};
+                opts.headers = opts.headers || {};
+                const token = sessionStorage.getItem('auth_token') || '';
+                if (token) opts.headers['Authorization'] = 'Bearer ' + token;
+                return fetch(url, opts);
+            }
+            const localFull = sessionStorage.getItem('icu_local_user_fullname') || '';
+            const localEmail = sessionStorage.getItem('icu_local_user_email') || '';
+            authFetch('get_user_info.php', { credentials: 'same-origin' })
+                .then(r => r.json())
+                .then(j => {
+                    const curEl = document.getElementById('currentUser');
+                    const sysEl = document.getElementById('systemStatus');
+                    if (!j || !j.success) {
+                        if (localFull && curEl) { curEl.textContent = localFull; }
+                        if (sysEl) sysEl.textContent = 'ออนไลน์';
+                        return;
+                    }
+                    // allow both admin and super_admin
+                    const roleNowCheck = (j.role || sessionStorage.getItem('icu_local_user_role') || '').toLowerCase();
+                    if (!['admin', 'super_admin'].includes(roleNowCheck)) {
+                        window.location.href = 'login.html';
+                        return;
+                    }
+
+                    // persist fullname/email/role locally for quick display
+                    try {
+                        const preferred = j.name || j.fullname || j.loginname || '';
+                        if (preferred) sessionStorage.setItem('icu_local_user_fullname', preferred);
+                        if (j.email) sessionStorage.setItem('icu_local_user_email', j.email);
+                        if (j.role) sessionStorage.setItem('icu_local_user_role', j.role);
+                    } catch (e) { }
+
+                    const displayName = j.name || j.fullname || j.loginname || localFull || j.email || (curEl ? curEl.textContent : 'ผู้ใช้งาน');
+                    if (curEl) curEl.textContent = displayName;
+                    if (sysEl) sysEl.textContent = 'ออนไลน์';
+                })
+                .catch(() => {
+                    const curEl = document.getElementById('currentUser');
+                    const sysEl = document.getElementById('systemStatus');
+                    if (localFull && curEl) curEl.textContent = localFull;
+                    if (sysEl) sysEl.textContent = 'ออนไลน์';
+                });
+        }
+
+        // ดึงข้อมูลสถานะระบบจากฐานข้อมูล
+        function loadSystemStatus() {
+            authFetch('get_system_status.php')
+                .then(response => {
+                    if (!response.ok) throw new Error('HTTP error, status = ' + response.status);
+                    return response.text();
+                })
+                .then(text => {
+                    try {
+                        const data = JSON.parse(text);
+                        if (data.success) {
+                            totalBedsEl.textContent = data.totalBeds;
+                            freeBedsEl.textContent = data.availableBeds;
+                            occupiedBedsEl.textContent = data.occupiedBeds;
+                            document.getElementById('systemStatus').textContent = data.systemStatus;
+                        } else {
+                            console.error('API Error:', data.message);
+                            setDefaultStats();
+                        }
+                    } catch (e) {
+                        console.error('JSON Parse Error:', e, 'Response:', text);
+                        setDefaultStats();
+                    }
+                })
+                .catch(error => {
+                    console.error('Fetch Error:', error);
+                    setDefaultStats();
+                });
+        }
+
+        function setDefaultStats() {
+            totalBedsEl.textContent = '20';
+            freeBedsEl.textContent = '--';
+            occupiedBedsEl.textContent = '--';
+        }
+
+        // Bed grid
+        const bedsGrid = document.getElementById("bedsGrid");
+        let beds = [];
+        let selectedBed = null;
+
+        function renderBeds(bedList) {
+            bedsGrid.innerHTML = '';
+            bedList.forEach(b => {
+                const i = parseInt(b.bed_number, 10);
+                const statusClass = (b.status === 'occupied') ? 'bed-occupied' : 'bed-available';
+                const iconClass = (b.status === 'occupied') ? 'fa-user-injured' : 'fa-bed-pulse';
+                const labelText = (b.status === 'occupied') ? 'ไม่ว่าง (Occupied)' : 'ว่าง (Available)';
+
+                const bedBox = document.createElement("div");
+                bedBox.className = "bed-item " + statusClass;
+                bedBox.setAttribute("data-bed", i);
+                bedBox.innerHTML = `
+                    <div class="bed-content">
+                        <span class="bed-number">BED ${String(i).padStart(2, "0")}</span>
+                        <i class="bed-icon fa-solid ${iconClass}"></i>
+                        <span class="bed-label">${labelText}</span>
+                    </div>
+                `;
+                bedsGrid.appendChild(bedBox);
+            });
+
+            bindBedEvents();
+            updateBedStats();
+        }
+
+        function loadBeds() {
+            authFetch('process.php')
+                .then(resp => {
+                    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                    return resp.text();
+                })
+                .then(text => {
+                    try {
+                        const data = JSON.parse(text);
+                        if (data.success && Array.isArray(data.beds)) {
+                            renderBeds(data.beds);
+                        } else {
+                            console.error('Invalid beds response', data);
+                        }
+                    } catch (e) {
+                        console.error('JSON Parse Error loading beds:', e, 'text:', text);
+                    }
+                })
+                .catch(err => {
+                    console.error('Load beds error:', err);
+                });
+        }
+
+        // ดึงสิทธิ์การรักษาโดย HN
+        async function fetchPatientRightsByHN(hn) {
+            if (!hn) return '';
+            try {
+                const resp = await authFetch('process.php?action=get_pttype&hn=' + encodeURIComponent(hn));
+                if (!resp.ok) return '';
+                const txt = await resp.text();
+                try {
+                    const d = JSON.parse(txt);
+                    if (d && d.success) {
+                        return d.pttype_name || d.pttype || d.rights || '';
+                    }
+                } catch (e) {
+                    console.error('parse rights response', e, txt);
+                }
+            } catch (e) {
+                console.error('fetchPatientRightsByHN error', e);
+            }
+            return '';
+        }
+
+        // edit state
+        let editBooking = { bed: null, patientId: null };
+
+        function bindBedEvents() {
+            beds = document.querySelectorAll(".bed-item");
+            beds.forEach((bed) => {
+                bed.addEventListener("click", () => {
+                    const bedNum = bed.getAttribute("data-bed");
+
+                    // ถ้า HN ถูกโหลดแล้วแต่ไม่มี admission ให้บล็อกการเลือกเตียง
+                    const hnDisplayEl = document.getElementById('patient_hn_display');
+                    const hnValCheck = hnDisplayEl ? (hnDisplayEl.value || '').replace(/\D/g, '') : '';
+                    if (hnValCheck && patientHasAdmission === false) {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'ไม่อนุญาต',
+                            text: 'ผู้ป่วยยังไม่มี admission จึงไม่สามารถเลือกเตียงได้'
+                        });
+                        return;
+                    }
+
+                    // กรณีเตียงไม่ว่าง
+                    if (bed.classList.contains("bed-occupied")) {
+                        const fd = new FormData();
+                        fd.append('action', 'get_booking');
+                        fd.append('bed_number', bedNum);
+
+                        authFetch('process.php', { method: 'POST', body: fd })
+                            .then(r => r.text())
+                            .then(text => {
+                                try {
+                                    const d = JSON.parse(text);
+                                    if (d.success && d.data) {
+                                        const raw = Array.isArray(d.data) ? d.data[0] : d.data;
+
+                                        const hnDigits = (raw?.hn ? String(raw.hn) : '').replace(/\D/g, '');
+                                        const hn9 = hnDigits ? hnDigits.slice(-9).padStart(9, '0') : '';
+
+                                        const patientName = raw.patient_name || raw.name || '';
+                                        const ageVal = (typeof raw.age !== 'undefined' && raw.age !== null) ? raw.age : (raw.patient_age || '');
+                                        const genderVal = raw.gender || raw.patient_gender || '';
+                                        const noteVal = raw.note || raw.detail || raw.remark || '';
+
+                                        const formatThaiDateTime = (v) => {
+                                            if (!v) return '-';
+                                            const s = String(v).trim();
+                                            const iso = s.includes('T') ? s : s.replace(' ', 'T');
+                                            const d = new Date(iso);
+                                            if (isNaN(d)) return s;
+                                            return d.toLocaleString('th-TH', {
+                                                year: 'numeric',
+                                                month: '2-digit',
+                                                day: '2-digit',
+                                                hour: '2-digit',
+                                                minute: '2-digit'
+                                            });
+                                        };
+
+                                        const bedInRaw = raw.bed_in_at || raw.booking_date || raw.created_at || raw.created || raw.admit_at || raw.bed_in || '';
+                                        const bedInAt = formatThaiDateTime(bedInRaw);
+
+                                        Swal.fire({
+                                            title: 'ข้อมูลผู้ป่วยบนเตียง',
+                                            html: `
+                                                <div style="text-align:left;font-size:15px;">
+                                                    <div style="margin-bottom:8px;"><strong>เตียง:</strong> ${bedNum}</div>
+                                                    <div style="margin-bottom:8px;"><strong>HN:</strong> ${hn9 || '-'}</div>
+                                                    <div style="margin-bottom:8px;"><strong>ชื่อ-นามสกุล:</strong> ${patientName || '-'}</div>
+                                                    <div style="margin-bottom:8px;"><strong>อายุ:</strong> ${ageVal || '-'}</div>
+                                                    <div style="margin-bottom:8px;"><strong>เพศ:</strong> ${genderVal || '-'}</div>
+                                                    <div style="margin-bottom:8px;"><strong>เวลาเข้าเตียง:</strong> ${bedInAt}</div>
+                                                    <div style="margin-bottom:8px;"><strong>สิทธิ์การรักษา:</strong> ${noteVal || '-'}</div>
+                                                </div>
+                                            `,
+                                            icon: 'info',
+                                            confirmButtonText: 'ปิด'
+                                        });
+                                    } else {
+                                        Swal.fire({
+                                            icon: 'info',
+                                            title: 'ข้อมูลผู้ป่วยบนเตียง',
+                                            text: 'ไม่พบข้อมูลผู้ป่วยบนเตียงนี้',
+                                            confirmButtonText: 'ปิด'
+                                        });
+                                    }
+                                } catch (e) {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'ข้อผิดพลาด',
+                                        text: 'เซิร์ฟเวอร์ตอบกลับไม่ถูกต้อง'
+                                    });
+                                }
+                            })
+                            .catch(() =>
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'ข้อผิดพลาด',
+                                    text: 'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์'
+                                })
+                            );
+                        return;
+                    }
+
+                    // กรณีเตียงว่าง -> เลือกเตียง
+                    beds.forEach((b) => b.classList.remove("bed-selected"));
+                    bed.classList.add("bed-selected");
+                    selectedBed = bedNum;
+
+                    editBooking.bed = null;
+                    editBooking.patientId = null;
+
+                    selectInfo.className = "helper-card-compact helper-selected";
+                    selectInfo.innerHTML =
+                        '<div class="hc-icon"><i class="fa-solid fa-check-circle"></i></div>' +
+                        '<div class="hc-text">' +
+                        '<div class="hc-line-1" style="font-weight:700;color:#0b6b3e">เลือกเตียงที่ ' +
+                        selectedBed +
+                        ' แล้ว</div>' +
+                        '<div class="hc-line-2">ตรวจสอบข้อมูลผู้ป่วยและกด "ยืนยันการจองเตียง"</div></div>';
+
+                    resultBox.style.display = "none";
+                });
+            });
+        }
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            loadUserInfo();
+            loadSystemStatus();
+            loadBeds();
+            loadHosxpPatients();
+            loadFromPublicRequest();
+            setInterval(loadHosxpPatients, 60000);
+
+            // เมื่อผู้ใช้กดปุ่ม Back ของเบราว์เซอร์ ให้ไปหน้า Login page.html
+            try {
+                history.pushState(null, '', location.href);
+                window.addEventListener('popstate', function () {
+                    window.location.href = 'Login page.html';
+                });
+            } catch (e) { }
+
+            // manage button: redirect based on role
+            (function () {
+                function authFetch(url, opts) {
+                    opts = opts || {};
+                    opts.headers = opts.headers || {};
+                    const token = sessionStorage.getItem('auth_token') || '';
+                    if (token) opts.headers['Authorization'] = 'Bearer ' + token;
+                    return fetch(url, opts);
+                }
+                const btn = document.getElementById('manageBedsBtn');
+                if (btn) {
+                    btn.addEventListener('click', async (ev) => {
+                        ev.preventDefault();
+                        try {
+                            const r = await authFetch('get_user_info.php', { credentials: 'same-origin' });
+                            if (!r.ok) { window.location.href = 'login.html'; return; }
+                            const j = await r.json();
+                            const roleNow = (j.role || sessionStorage.getItem('icu_local_user_role') || '').toLowerCase();
+                            if (['admin', 'super_admin'].includes(roleNow)) {
+                                window.location.href = 'Make a reservation.html';
+                            } else if (roleNow === 'staff') {
+                                window.location.href = 'nurse_reserve.html';
+                            } else {
+                                window.location.href = 'login.html';
+                            }
+                        } catch (e) {
+                            window.location.href = 'login.html';
+                        }
+                    });
+                }
+            })();
+        });
+
+        // Periodic refresh
+        setInterval(() => {
+            loadUserInfo();
+            loadSystemStatus();
+            loadBeds();
+        }, 10000);
+
+        function updateBedStats() {
+            const total = 20;
+            const occupied = document.querySelectorAll(".bed-item.bed-occupied").length;
+            const free = total - occupied;
+
+            totalBedsEl.textContent = total;
+            freeBedsEl.textContent = free;
+            occupiedBedsEl.textContent = occupied;
+        }
+
+        // ส่งจองเตียง / แก้ไข
+        function submitBookingForm(fd) {
+            const reqId = sessionStorage.getItem("icu_selected_request_id") || '';
+            if (reqId) {
+                fd.append('public_request_id', reqId);
+            }
+
+            const isEdit = !!editBooking.patientId;
+            if (isEdit) {
+                fd.append('action', 'update');
+                fd.append('patient_id', editBooking.patientId);
+            }
+
+            Swal.fire({
+                title: 'กำลังบันทึก...',
+                allowOutsideClick: false,
+                didOpen: () => Swal.showLoading(),
+            });
+
+            authFetch('process.php', { method: 'POST', body: fd })
+                .then(response => {
+                    if (!response.ok) throw new Error('HTTP error, status = ' + response.status);
+                    return response.text();
+                })
+                .then(text => {
+                    try {
+                        const data = JSON.parse(text);
+                        if (data.success) {
+                            resultBox.innerHTML =
+                                '<i class="fa-solid fa-circle-check"></i><span>' +
+                                (isEdit ? '✓ แก้ไขข้อมูลเรียบร้อย' : '✓ จองเตียงสำเร็จ') +
+                                '</span>';
+                            resultBox.classList.add("result-success");
+                            resultBox.style.display = "flex";
+
+                            Swal.fire({
+                                icon: 'success',
+                                title: isEdit ? 'แก้ไขข้อมูลสำเร็จ' : 'จองเตียงสำเร็จ',
+                                text: data.message || '',
+                                confirmButtonText: 'ตกลง',
+                                confirmButtonColor: '#1fd1a1'
+                            });
+                            if (data.success) {
+                                resultBox.innerHTML =
+                                    '<i class="fa-solid fa-circle-check"></i><span>' +
+                                    (isEdit ? '✓ แก้ไขข้อมูลเรียบร้อย' : '✓ จองเตียงสำเร็จ') +
+                                    '</span>';
+                                resultBox.classList.add("result-success");
+                                resultBox.style.display = "flex";
+
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: isEdit ? 'แก้ไขข้อมูลสำเร็จ' : 'จองเตียงสำเร็จ',
+                                    text: data.message || '',
+                                    confirmButtonText: 'ตกลง',
+                                    confirmButtonColor: '#1fd1a1'
+                                });
+
+                                // ⭐ เก็บข้อมูลผู้ป่วยไว้ใช้ในหน้า Make a reservation.html ⭐
+                                try {
+                                    const hnField = document.getElementById('patient_hn_display');
+                                    const nameField = document.getElementById('patient_name');
+                                    const phoneField = document.getElementById('phone');
+                                    const ageField = document.getElementById('age');
+                                    const genderField = document.getElementById('gender_display');
+                                    const rightsField = document.getElementById('note');
+                                    const urgencyEl = document.getElementById('urgency');
+
+                                    const hnVal = hnField ? (hnField.value || '').replace(/\D/g, '') : '';
+                                    const nameVal = nameField ? (nameField.value || '') : '';
+                                    const phoneVal = phoneField ? (phoneField.value || '') : '';
+                                    const ageVal = ageField ? (ageField.value || '') : '';
+                                    const genderVal = genderField ? (genderField.value || '') : '';
+                                    const rightsVal = rightsField ? (rightsField.value || '') : '';
+                                    const urgVal = urgencyEl ? (urgencyEl.value || '4') : '4';
+
+                                    if (hnVal) {
+                                        sessionStorage.setItem('icu_selected_hn', hnVal);
+                                        sessionStorage.setItem('icu_selected_name', nameVal || '-');
+                                        sessionStorage.setItem('icu_selected_phone', phoneVal || '-');
+                                        sessionStorage.setItem('icu_selected_age', ageVal || '-');
+                                        sessionStorage.setItem('icu_selected_gender', genderVal || '-');
+                                        sessionStorage.setItem('icu_selected_rights', rightsVal || '-');
+                                        sessionStorage.setItem('icu_selected_urgency', urgVal || '4');
+                                    }
+                                } catch (e) {
+                                    console.warn('store selected patient to sessionStorage failed', e);
+                                }
+
+                                onBookingSuccess();
+                                editBooking.bed = null;
+                                editBooking.patientId = null;
+                            }
+
+                            onBookingSuccess();
+                            editBooking.bed = null;
+                            editBooking.patientId = null;
+                        } else {
+                            resultBox.innerHTML =
+                                '<i class="fa-solid fa-circle-xmark"></i><span>' +
+                                (data.message || 'เกิดข้อผิดพลาด') + '</span>';
+                            resultBox.classList.add("result-error");
+                            resultBox.style.display = "flex";
+
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'เกิดข้อผิดพลาด',
+                                text: data.message || 'ไม่สามารถดำเนินการได้',
+                                confirmButtonText: 'ตกลง',
+                                confirmButtonColor: '#ff5252'
+                            });
+                        }
+                    } catch (e) {
+                        console.error('JSON Parse Error:', e);
+                        console.error('Response text:', text);
+                        resultBox.innerHTML =
+                            '<i class="fa-solid fa-circle-xmark"></i><span>เกิดข้อผิดพลาดในการประมวลผลข้อมูล</span>';
+                        resultBox.classList.add("result-error");
+                        resultBox.style.display = "flex";
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'เกิดข้อผิดพลาด',
+                            text: 'เซิร์ฟเวอร์ส่งคืนข้อมูลที่ไม่ถูกต้อง'
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Fetch Error:', error);
+                    resultBox.innerHTML =
+                        '<i class="fa-solid fa-circle-xmark"></i><span>เกิดข้อผิดพลาดในการเชื่อมต่อ</span>';
+                    resultBox.classList.add("result-error");
+                    resultBox.style.display = "flex";
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'เกิดข้อผิดพลาด',
+                        text: 'ไม่สามารถเชื่อมต่อกับระบบได้'
+                    });
+                });
+        }
+
+        // ปุ่มยืนยันการจองเตียง
+        bookBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            resultBox.style.display = "none";
+            resultBox.className = "result-message";
+
+            let patientName = document.getElementById("patient_name").value.trim();
+            let ageStr = document.getElementById("age").value.trim();
+            let gender = document.getElementById("gender").value.trim();
+
+            const phoneRaw = (document.getElementById('phone') ? document.getElementById('phone').value : '').replace(/\D/g, '');
+            if (!phoneRaw || phoneRaw.length < 9 || phoneRaw.length > 10) {
+                resultBox.innerHTML =
+                    '<i class="fa-solid fa-circle-xmark"></i><span>กรุณาระบุเบอร์โทรให้ถูกต้อง (9-10 หลัก)</span>';
+                resultBox.classList.add("result-error");
+                resultBox.style.display = "flex";
+                return;
+            }
+            if (!phoneRaw.startsWith('0')) {
+                resultBox.innerHTML =
+                    '<i class="fa-solid fa-circle-xmark"></i><span>เบอร์โทรต้องขึ้นต้นด้วยตัวเลข 0</span>';
+                resultBox.classList.add("result-error");
+                resultBox.style.display = "flex";
+                return;
+            }
+
+            if (!patientName || patientName === 'ยังไม่ได้กรอกข้อมูล') {
+                resultBox.innerHTML =
+                    '<i class="fa-solid fa-circle-xmark"></i><span>กรุณากรอกชื่อ-นามสกุลผู้ป่วยก่อนจองเตียง</span>';
+                resultBox.classList.add("result-error");
+                resultBox.style.display = "flex";
+                return;
+            }
+
+            if (!ageStr || isNaN(parseInt(ageStr, 10)) || parseInt(ageStr, 10) <= 0) {
+                resultBox.innerHTML =
+                    '<i class="fa-solid fa-circle-xmark"></i><span>กรุณาระบุอายุผู้ป่วยให้ถูกต้องก่อนจองเตียง</span>';
+                resultBox.classList.add("result-error");
+                resultBox.style.display = "flex";
+                return;
+            }
+            const age = parseInt(ageStr, 10);
+
+            if (!gender) {
+                resultBox.innerHTML =
+                    '<i class="fa-solid fa-circle-xmark"></i><span>กรุณาเลือกเพศผู้ป่วยก่อนจองเตียง</span>';
+                resultBox.classList.add("result-error");
+                resultBox.style.display = "flex";
+                return;
+            }
+
+            const hnDisplayNow = document.getElementById('patient_hn_display');
+            const hnNow = hnDisplayNow ? (hnDisplayNow.value || '').replace(/\D/g, '') : '';
+
+            if (!hnNow) {
+                resultBox.innerHTML =
+                    '<i class="fa-solid fa-circle-xmark"></i><span>กรุณาระบุ HN และดึงข้อมูลผู้ป่วยก่อนจองเตียง</span>';
+                resultBox.classList.add("result-error");
+                resultBox.style.display = "flex";
+                return;
+            }
+
+            if (typeof patientHasAdmission !== 'undefined' && hnNow && patientHasAdmission === false) {
+                resultBox.innerHTML =
+                    '<i class="fa-solid fa-circle-xmark"></i><span>ผู้ป่วย HN นี้ยังไม่มีข้อมูลแอดมิชชันในระบบ ไม่สามารถจองเตียงได้</span>';
+                resultBox.classList.add("result-error");
+                resultBox.style.display = "flex";
+                return;
+            }
+
+            if (!selectedBed) {
+                resultBox.innerHTML =
+                    '<i class="fa-solid fa-circle-xmark"></i><span>กรุณาเลือกเตียงว่างก่อนยืนยัน</span>';
+                resultBox.classList.add("result-error");
+                resultBox.style.display = "flex";
+                return;
+            }
+
+            const chosenBed = document.querySelector('.bed-item[data-bed="' + selectedBed + '"]');
+            if (!chosenBed || chosenBed.classList.contains("bed-occupied")) {
+                resultBox.innerHTML =
+                    '<i class="fa-solid fa-circle-xmark"></i><span>เตียงที่เลือกไม่ว่างแล้ว กรุณาเลือกใหม่</span>';
+                resultBox.classList.add("result-error");
+                resultBox.style.display = "flex";
+                document.querySelectorAll('.bed-item').forEach((b) => b.classList.remove("bed-selected"));
+                selectedBed = null;
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('patient_name', patientName);
+            formData.append('age', age);
+            formData.append('gender', gender);
+            formData.append('note', document.getElementById("note").value);
+            formData.append('bed_number', selectedBed);
+
+            // attach urgency
+            try {
+                const urgEl = document.getElementById('urgency');
+                const urgVal = urgEl ? String(urgEl.value) : '4';
+                formData.append('urgency', urgVal);
+            } catch (e) { }
+
+            try {
+                const rawReq = sessionStorage.getItem('icu_selected_request');
+                if (rawReq) {
+                    const req = JSON.parse(rawReq);
+                    if (req && req.id) formData.append('public_request_id', req.id);
+                    if (req && req.hn) formData.append('hn', String(req.hn).replace(/\D/g, ''));
+                    if (req && req.phone) formData.append('phone', req.phone);
+                }
+            } catch (e) {
+                console.warn('cannot parse icu_selected_request', e);
+            }
+
+            (function () {
+                const hnField = document.getElementById('patient_hn_display');
+                const hnValNow = hnField ? (hnField.value || '').replace(/\D/g, '') : '';
+                if (hnValNow) formData.append('hn', hnValNow);
+                formData.append('phone', phoneRaw);
+            })();
+
+            submitBookingForm(formData);
+        });
+
+        function onBookingSuccess() {
+            loadBeds();
+            loadSystemStatus();
+            selectedBed = null;
+            setTimeout(() => {
+                form.reset();
+                document.querySelectorAll('.bed-item').forEach((b) => b.classList.remove("bed-selected"));
+                if (hnInput) hnInput.value = "";
+                resultBox.style.display = "none";
+
+                selectInfo.className = "helper-card-compact";
+                selectInfo.innerHTML =
+                    '<div class="hc-icon"><i class="fa-solid fa-lightbulb"></i></div>' +
+                    '<div class="hc-text">' +
+                    '<div class="hc-line-1">ไม่จำเป็นต้องพิมพ์ข้อมูลเอง — กด “เช็คผู้ป่วย” เพื่อดึงข้อมูลจากระบบโรงพยาบาล</div>' +
+                    '<div class="hc-line-2">หรือปล่อยว่างไว้แล้วเลือกเตียงเพื่อบันทึกข้อมูลพื้นฐาน</div>' +
+                    '<div class="hc-line-3" style="margin-top:8px;font-weight:700;color:#06488a;">กรอกข้อมูลให้ครบ แล้วแตะเลือกเตียงว่าง (สีเขียว) ทางด้านขวา</div>' +
+                    '</div>';
+
+                const note = document.getElementById('note');
+                if (note) note.value = '';
+                const gd4 = document.getElementById('gender_display');
+                if (gd4) gd4.value = '';
+                const hnDisp3 = document.getElementById('patient_hn_display');
+                if (hnDisp3) hnDisp3.value = '';
+
+                patientHasAdmission = null;
+                setBookingAllowed(true);
+
+                sessionStorage.removeItem('icu_selected_request_id');
+
+                setTimeout(() => {
+                    window.location.href = "Make a reservation.html";
+                }, 1200);
+            }, 800);
+        }
+
+        // ปรับ badge "คนจองคิว & จัดการเตียง"
+        async function updateManageBadge() {
+            try {
+                const s = await authFetch('get_system_status.php');
+                if (s.ok) {
+                    const j = await s.json();
+                    if (j && j.success) {
+                        const occupied = parseInt(j.occupiedBeds || 0, 10);
+                        const total = parseInt(j.totalBeds || 20, 10);
+                        const badge = document.getElementById('manageBadge');
+                        if (!badge) return;
+                        if (occupied >= total && total > 0) {
+                            badge.textContent = 'เต็ม';
+                            badge.classList.add('badge-full');
+                            badge.setAttribute('title', `เตียงเต็ม (${occupied}/${total})`);
+                        } else {
+                            badge.textContent = occupied > 0 ? occupied : '0';
+                            badge.classList.remove('badge-full');
+                            badge.setAttribute('title', `เตียงที่ถูกจอง: ${occupied} / ${total}`);
+                        }
+                        return;
+                    }
+                }
+            } catch (e) {
+                console.warn('updateManageBadge (system) failed', e);
+            }
+
+            try {
+                const r = await authFetch('process.php');
+                if (!r.ok) return;
+                const d = await r.json();
+                if (d && d.success && Array.isArray(d.beds)) {
+                    const occ = d.beds.filter(b => b.status === 'occupied').length;
+                    const total = d.totalBeds || 20;
+                    const badge = document.getElementById('manageBadge');
+                    if (!badge) return;
+                    if (occ >= total && total > 0) {
+                        badge.textContent = 'เต็ม';
+                        badge.classList.add('badge-full');
+                        badge.setAttribute('title', `เตียงเต็ม (${occ}/${total})`);
+                    } else {
+                        badge.textContent = occ > 0 ? occ : '0';
+                        badge.classList.remove('badge-full');
+                        badge.setAttribute('title', `เตียงที่ถูกจอง: ${occ} / ${total}`);
+                    }
+                }
+            } catch (e) {
+                console.warn('updateManageBadge (fallback) failed', e);
+            }
+        }
+
+        updateManageBadge();
+        setInterval(updateManageBadge, 10000);
+
+        // ====== Helper: คำนวณอายุจากข้อมูล HOSxP ======
+        function computeAgeFromHosxpData(d) {
+            if (!d) return null;
+            const tryVal = v => (typeof v !== 'undefined' && v !== null && String(v).trim() !== '')
+                ? String(v).trim()
+                : null;
+
+            let v = tryVal(d.age) || tryVal(d.age_y) || tryVal(d.AGE) || tryVal(d.AGE_Y);
+            if (v) {
+                const n = parseInt(v, 10);
+                if (!isNaN(n) && n >= 0) return n;
+            }
+
+            const dobKeys = ['birthday', 'birthdate', 'BIRTH', 'dob', 'bdate'];
+            for (const k of dobKeys) {
+                if (d[k]) {
+                    let s = String(d[k]).trim();
+                    let bd = null;
+                    const m8 = s.match(/^(\d{4})(\d{2})(\d{2})$/);
+                    if (m8) {
+                        bd = new Date(Number(m8[1]), Number(m8[2]) - 1, Number(m8[3]));
+                    } else {
+                        const iso = s.replace(/\//g, '-').replace(/\s+/g, '');
+                        bd = new Date(iso);
+                        if (isNaN(bd)) {
+                            const m = s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
+                            if (m) {
+                                const dd = parseInt(m[1], 10);
+                                const mm = parseInt(m[2], 10) - 1;
+                                const yyyy = parseInt(m[3], 10);
+                                bd = new Date(yyyy, mm, dd);
+                            }
+                        }
+                    }
+                    if (bd && !isNaN(bd)) {
+                        const now = new Date();
+                        let age = now.getFullYear() - bd.getFullYear();
+                        const mm = now.getMonth() - bd.getMonth();
+                        const ddiff = now.getDate() - bd.getDate();
+                        if (mm < 0 || (mm === 0 && ddiff < 0)) age--;
+                        if (!isNaN(age) && age >= 0) return age;
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        // โหลดข้อมูลจากหน้า Make a reservation (sessionStorage)
+        async function loadFromPublicRequest() {
+            try {
+                const raw = sessionStorage.getItem('icu_selected_request');
+                if (!raw) return;
+
+                let req = null;
+                try { req = JSON.parse(raw); } catch (e) { req = null; }
+                if (!req || !req.hn) {
+                    sessionStorage.removeItem('icu_selected_request');
+                    return;
+                }
+
+                const hnVal = String(req.hn || '').replace(/\D/g, '');
+                const hnDisp = document.getElementById('patient_hn_display');
+                if (hnDisp) hnDisp.value = hnVal;
+
+                let nameToSet = (req.patient_name && String(req.patient_name).trim())
+                    ? String(req.patient_name).trim()
+                    : '';
+                let ageToSet = (typeof req.patient_age !== 'undefined' && req.patient_age !== null && req.patient_age !== '')
+                    ? String(req.patient_age)
+                    : '';
+                let genderToSet = (typeof req.patient_gender !== 'undefined' && req.patient_gender)
+                    ? String(req.patient_gender)
+                    : '';
+                let noteToSet = (req.note && String(req.note).trim())
+                    ? String(req.note).trim()
+                    : '';
+
+                let phoneToSet = (req.phone || req.patient_phone || '').toString().trim();
+
+                if ((!ageToSet || ageToSet === '-' || ageToSet === '') && noteToSet) {
+                    const mAge = noteToSet.match(/อายุ:\s*([0-9]+)/);
+                    if (mAge && mAge[1]) ageToSet = mAge[1];
+                }
+                if ((!genderToSet || genderToSet === '-' || genderToSet === '') && noteToSet) {
+                    const mGen = noteToSet.match(/เพศ:\s*([^\s|]+)/);
+                    if (mGen && mGen[1]) genderToSet = mGen[1];
+                }
+
+                let hosxp = null;
+                if (hnVal) {
+                    try {
+                        const resp = await fetch('get_hosxp_patient_detail.php?hn=' + encodeURIComponent(hnVal));
+                        if (resp && resp.ok) {
+                            const j = await resp.json();
+                            if (j && j.success && j.data) hosxp = j.data;
+                        }
+                    } catch (e) {
+                        console.warn('loadFromPublicRequest: fetch HOSxP failed', e);
+                    }
+                }
+
+                if (hosxp) {
+                    if (!nameToSet || nameToSet === '-' || nameToSet.trim() === '') {
+                        const hname = (((hosxp.pname || '') + ' ' + (hosxp.fname || '') + ' ' + (hosxp.lname || '')).trim());
+                        if (hname) nameToSet = hname;
+                    }
+
+                    if (!ageToSet || ageToSet === '-' || ageToSet === '') {
+                        const computed = computeAgeFromHosxpData(hosxp);
+                        if (computed !== null) {
+                            ageToSet = String(computed);
+                        } else {
+                            if (typeof hosxp.age !== 'undefined' && hosxp.age !== null && String(hosxp.age).trim() !== '') {
+                                ageToSet = String(hosxp.age);
+                            } else if (typeof hosxp.age_y !== 'undefined' && hosxp.age_y !== null && String(hosxp.age_y).trim() !== '') {
+                                ageToSet = String(hosxp.age_y);
+                            }
+                        }
+                    }
+
+                    if (!genderToSet || genderToSet === '-' || genderToSet === '') {
+                        if (typeof hosxp.sex !== 'undefined' && hosxp.sex !== null) {
+                            genderToSet = (hosxp.sex == 1 ? 'ชาย' : (hosxp.sex == 2 ? 'หญิง' : ''));
+                        } else if (hosxp.gender) {
+                            genderToSet = String(hosxp.gender);
+                        }
+                    }
+
+                    if (!noteToSet || noteToSet === '' || noteToSet.toLowerCase().includes('ตามข้อมูล')) {
+                        if (hosxp.pttype_name || hosxp.pttype) {
+                            noteToSet = 'สิทธิ์การรักษา: ' + (hosxp.pttype_name || hosxp.pttype || '');
+                        }
+                    }
+
+                    if ((!phoneToSet || phoneToSet === '') && (hosxp.hometel || hosxp.informtel)) {
+                        phoneToSet = hosxp.hometel || hosxp.informtel || '';
+                    }
+                }
+
+                const needRights = (!noteToSet || noteToSet === '' || noteToSet.toLowerCase().includes('ตามข้อมูล'));
+                if (needRights && hnVal) {
+                    try {
+                        const r = await fetch('process.php?action=get_pttype&hn=' + encodeURIComponent(hnVal));
+                        if (r && r.ok) {
+                            const pj = await r.json();
+                            if (pj && pj.success && pj.pttype_name) {
+                                noteToSet = 'สิทธิ์การรักษา: ' + pj.pttype_name;
+                            }
+                        }
+                    } catch (e) {
+                        console.warn('loadFromPublicRequest: fetch pttype failed', e);
+                    }
+                }
+
+                if (!nameToSet) nameToSet = 'ยังไม่ได้กรอกข้อมูล';
+                if (ageToSet === '' || ageToSet === null) ageToSet = '-';
+                if (!genderToSet || genderToSet === '') genderToSet = '-';
+                if (!noteToSet) noteToSet = 'ไม่พบสิทธิ์ผู้ป่วย';
+                if (!phoneToSet) phoneToSet = '';
+
+                const nameEl = document.getElementById('patient_name');
+                if (nameEl) nameEl.value = nameToSet;
+
+                const ageEl = document.getElementById('age');
+                if (ageEl) ageEl.value = ageToSet;
+
+                const gd = document.getElementById('gender_display');
+                if (gd) gd.value = genderToSet;
+
+                const gHidden = document.getElementById('gender');
+                if (gHidden) gHidden.value = (genderToSet === '-' ? '' : genderToSet);
+
+                const noteEl = document.getElementById('note');
+                if (noteEl) noteEl.value = noteToSet;
+
+                try {
+                    const phoneEl = document.getElementById('phone');
+                    if (phoneEl) phoneEl.value = phoneToSet ? String(phoneToSet).replace(/\D/g, '').slice(0, 10) : '';
+                } catch (e) { }
+
+                selectInfo.className = "helper-card-compact helper-selected";
+                selectInfo.innerHTML =
+                    '<div class="hc-icon"><i class="fa-solid fa-arrow-right-to-bracket"></i></div>' +
+                    '<div class="hc-text">' +
+                    '<div class="hc-line-1" style="font-weight:700;color:#0b63c5">โหลดข้อมูลจากคำขอภายนอก</div>' +
+                    '<div class="hc-line-2">HN: ' + hnVal + ' · ' + (nameToSet || '-') +
+                    ' · อายุ: ' + (ageToSet || '-') +
+                    ' · เพศ: ' + (genderToSet || '-') + '</div></div>';
+
+                checkAdmission(hnVal).catch(() => { });
+
+                if (req.id) {
+                    sessionStorage.setItem('icu_selected_request_id', String(req.id));
+                }
+
+                try {
+                    const rawUrg = (typeof req.urgency !== 'undefined' && req.urgency !== null) ? String(req.urgency) : null;
+                    if (rawUrg !== null) {
+                        const ue = document.getElementById('urgency');
+                        if (ue) ue.value = (rawUrg === '1' ? '1' : '2');
+                    }
+                } catch (e) { }
+
+                sessionStorage.removeItem('icu_selected_request');
+            } catch (e) {
+                console.error('loadFromPublicRequest error', e);
+            }
+        }
+
+        // ====== เพิ่มฟังก์ชันแสดง popup ยืนยันสิ้นสุดเคสการรักษา ======
+        function escapeHtml(s) {
+            if (s === null || typeof s === 'undefined') return '';
+            return String(s).replace(/[&<>"']/g, (m) => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            }[m]));
+        }
+
+        async function showEndCaseConfirm() {
+            console.log('🔍 showEndCaseConfirm called!');
+            const reqId = sessionStorage.getItem('icu_endcase_request_id');
+            const hn = sessionStorage.getItem('icu_endcase_hn') || '';
+            const patientName = sessionStorage.getItem('icu_endcase_patient_name') || '';
+            const bedNumber = sessionStorage.getItem('icu_endcase_bed_number') || '';
+
+            console.log('📦 sessionStorage values:', { reqId, hn, patientName, bedNumber });
+
+            const result = await Swal.fire({
+                title: 'ยืนยันจำหน่ายออกจากเตียง',
+                html: `
+                    <div style="text-align: left; font-size: 14px; line-height: 1.8;">
+                        <p><strong>HN:</strong> ${escapeHtml(hn)}</p>
+                        <p><strong>ชื่อผู้ป่วย:</strong> ${escapeHtml(patientName)}</p>
+                        <p><strong>เตียงที่:</strong> ${escapeHtml(bedNumber)}</p>
+                        <p style="margin-top: 16px; color: #666; font-size: 13px;">ต้องการสิ้นสุดเคสนี้หรือไม่?</p>
+                    </div>
+                `,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'ยืนยัน',
+                cancelButtonText: 'ยกเลิก'
+            });
+
+            if (!result.isConfirmed) return;
+
+            // ✅ แค่ update status done เท่านั้น
+            if (reqId) {
+                const body = new URLSearchParams({
+                    action: 'manage_request',
+                    id: reqId,
+                    status: 'done'
+                });
+                await authFetch('process.php', { method: 'POST', body });
+            }
+
+            Swal.fire({
+                icon: 'success',
+                title: 'สิ้นสุดเคสเรียบร้อย'
+            }).then(() => {
+                sessionStorage.removeItem('icu_endcase_request_id');
+                window.location.href = 'bed_reservation.html';
+            });
+        }
+
+
+        // เรียก popup ถ้ามี endcase=1 ใน query string
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('endcase') === '1' && sessionStorage.getItem('icu_endcase_request_id')) {
+                showEndCaseConfirm();
+            }
+        });
+
+        // Logout handler
+        document.getElementById('logoutBtn').addEventListener('click', async () => {
+            const r = await Swal.fire({
+                title: 'ออกจากระบบ?',
+                text: 'คุณแน่ใจว่าต้องการออกจากระบบหรือไม่?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'ออกจากระบบ',
+                cancelButtonText: 'ยกเลิก'
+            });
+            if (!r.isConfirmed) return;
+            try {
+                const token = sessionStorage.getItem('auth_token') || '';
+                const resp = await fetch('logout.php', { method: 'POST', credentials: 'same-origin', headers: token ? { 'Authorization': 'Bearer ' + token } : {} });
+                const data = await resp.json();
+                if (data && data.success) {
+                    Swal.fire({ icon: 'success', title: 'ออกจากระบบเรียบร้อย', timer: 1000, showConfirmButton: false });
+                    sessionStorage.removeItem('icu_local_user_email');
+                    sessionStorage.removeItem('icu_local_user_fullname');
+                    sessionStorage.removeItem('icu_local_user_role');
+                    sessionStorage.removeItem('icu_selected_request');
+                    sessionStorage.removeItem('icu_selected_request_id');
+                    sessionStorage.removeItem('auth_token');
+                    setTimeout(() => { window.location.href = 'login.html'; }, 900);
+                } else {
+                    Swal.fire({ icon: 'error', title: 'เกิดข้อผิดพลาด', text: data?.message || 'ไม่สามารถออกจากระบบได้' });
+                }
+            } catch (e) {
+                console.error('logout error', e);
+                Swal.fire({ icon: 'error', title: 'ข้อผิดพลาด', text: 'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์' });
+            }
+        });
+    </script>
+
+    <script>
+        /* === Security Guard: auth check + disable back to protected pages === */
+        (function () {
+            const INDEX_PAGE = 'index.html';
+            async function checkAuth() {
+                try {
+                    const token = sessionStorage.getItem('auth_token') || '';
+                    const headers = token ? { 'Authorization': 'Bearer ' + token } : {};
+                    const res = await fetch('get_user_info.php', { method: 'GET', headers, credentials: 'same-origin' });
+                    const json = await res.json().catch(() => null);
+                    if (!json || !json.success) {
+                        try { sessionStorage.removeItem('auth_token'); } catch (e) { }
+                        window.location.replace(INDEX_PAGE);
+                        return false;
+                    }
+                    return true;
+                } catch (e) {
+                    window.location.replace(INDEX_PAGE);
+                    return false;
+                }
+            }
+
+            function trapBackButton() {
+                history.pushState({ guard: true }, '', window.location.href);
+                window.addEventListener('popstate', function () {
+                    window.location.replace(INDEX_PAGE);
+                });
+            }
+
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) checkAuth();
+            });
+
+            document.addEventListener('DOMContentLoaded', async function () {
+                const ok = await checkAuth();
+                if (ok) trapBackButton();
+            });
+        })();
+    </script>
+</body>
+
+</html>

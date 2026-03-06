@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจองคิวห้องพิเศษ - Hospital Room Booking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="nurse_reserve.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <script>
+        // Immediate auth check: allow only admin for this page
+        (async function enforceAdminOnly() {
+            try {
+                const resp = await fetch('get_user_info.php', { credentials: 'same-origin' });
+                const j = await resp.json().catch(() => null);
+                // handle explicit session timeout signal
+                if (j && j.timed_out) {
+                    await Swal.fire({ icon: 'warning', title: 'หมดเวลาเซสชัน', text: 'เซสชันการใช้งานหมดเวลา กรุณาเข้าสู่ระบบใหม่', confirmButtonText: 'ตกลง' });
+                    location.href = 'login.html';
+                    return;
+                };
+            } catch (e) {
+                console.error(e);
+                await Swal.fire({ icon: 'error', title: 'เกิดข้อผิดพลาด', text: 'ไม่สามารถตรวจสอบสิทธิ์ได้', confirmButtonText: 'ไปที่หน้าเข้าสู่ระบบ' });
+                location.href = 'login.html';
+            }
+        })();
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="top-nav">
+            <div class="user-profile">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="currentUser">ผู้ใช้งาน</span>
+                </div>
+                <button class="logout-btn" type="button">
+                    <i class="fas fa-sign-out-alt"></i> ออกจากระบบ
+                </button>
+            </div>
+        </header>
+
+        <main class="card">
+            <div class="icon-header">
+                <div class="green-circle">
+                    <i class="fas fa-bed-pulse"></i>
+                </div>
+            </div>
+
+            <h1>จองคิวห้องพิเศษ</h1>
+            <p class="subtitle">PRIVATE ROOM RESERVATION</p>
+
+            <div class="info-box">
+                <p class="description">
+                    <strong>ระบุข้อมูลเพื่อตรวจสอบสิทธิ์</strong><br>
+                    ระบบจะแสดงลำดับคิวปัจจุบันและประวัติการจองของคุณ
+                </p>
+            </div>
+
+            <form class="booking-form">
+                <div class="input-group">
+                    <label><i class="fas fa-id-card-alt"></i> รหัสผู้ป่วย (HN) หรือเลขบัตรประชาชน</label>
+                    <div class="input-wrapper">
+                        <i class="far fa-user"></i>
+                        <input id="hnField" type="text" placeholder="ระบุ HN (สูงสุด 9 หลัก) หรือเลขบัตรประชาชน"
+                            maxlength="9" inputmode="numeric" required
+                            oninput="this.value=this.value.replace(/\\D/g,'').slice(0,9)">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fas fa-mobile-screen-button"></i> เบอร์โทรศัพท์ที่ลงทะเบียน</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-phone-alt"></i>
+                        <input type="tel" placeholder="08X-XXX-XXXX" maxlength="10" required>
+                    </div>
+                    <small class="helper-text">* ระบบจะส่ง SMS แจ้งเตือนเมื่อใกล้ถึงคิวของคุณ</small>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    ตรวจสอบข้อมูลผู้ป่วย <i class="fas fa-arrow-right-long"></i>
+                </button>
+            </form>
+        </main>
+
+        <footer class="footer">
+            <p><i class="fas fa-headset"></i> พบปัญหาการใช้งาน? ติดต่อแผนกประชาสัมพันธ์ โทร. 1234</p>
+        </footer>
+    </div>
+
+    <script>
+        (function () {
+            function forceLogoutImmediate() {
+                try { fetch('logout.php', { method: 'POST', credentials: 'same-origin' }).catch(() => { }); } catch (e) { }
+                ['auth_token', 'icu_local_user_email', 'icu_local_user_fullname', 'icu_local_user_role', 'icu_selected_request', 'icu_selected_request_id'].forEach(k => { try { sessionStorage.removeItem(k); } catch (e) { } });
+                location.href = 'login.html';
+            }
+            // helper for token auth-aware fetch
+            function authFetch(url, opts) {
+                opts = opts || {};
+                opts.headers = opts.headers || {};
+                // ensure credentials by default so cookies/session work alongside token
+                if (!opts.credentials) opts.credentials = 'same-origin';
+                const token = sessionStorage.getItem('auth_token') || '';
+                if (token) opts.headers['Authorization'] = 'Bearer ' + token;
+                return fetch(url, opts);
+            }
+
+            // populate header user and show one-time welcome for nurse
+            async function loadUserInfo() {
+                const localEmail = sessionStorage.getItem('icu_local_user_email') || '';
+                const localFull = sessionStorage.getItem('icu_local_user_fullname') || '';
+                try {
+                    const r = await authFetch('get_user_info.php', { credentials: 'same-origin' });
+                    if (!r.ok) {
+                        // if server not available but we have local info, use it
+                        if (localFull) {
+                            const el = document.getElementById('currentUser');
+                            if (el) el.textContent = localFull;
+                        }
+                        return;
+                    }
+                    const j = await r.json();
+                    if (j && j.timed_out) { forceLogoutImmediate(); return; }
+                    // allow staff OR super_admin for this nurse_reserve page
+                    const roleNow = (j.role || sessionStorage.getItem('icu_local_user_role') || '').toLowerCase();
+                    if (role !== 'staff' && role !== 'super_admin') {
+                        window.location.href = 'login.html';
+                        return;
+                    }
+                    // if we have a local email (tab identity) and it differs from server, do NOT override UI automatically
+                    const serverEmail = j.email || '';
+                    const serverFull = j.fullname || '';
+                    const el = document.getElementById('currentUser');
+                    if (localEmail) {
+                        // keep local display; if server reports unauthenticated, redirect
+                        if (!j.success) {
+                            window.location.href = 'login.html';
+                            return;
+                        }
+                        if (el) el.textContent = localFull || serverFull || 'ผู้ใช้งาน';
+                        // show welcome if server requests it and we haven't shown before
+                        if (j.show_welcome && !sessionStorage.getItem('nurse_welcome_shown')) {
+                            try {
+                                await Swal.fire({ icon: 'success', title: 'ยินดีต้อนรับ', text: 'ยินดีต้อนรับ ' + (serverFull || localFull || 'ผู้ใช้งาน'), confirmButtonText: 'ตกลง' });
+                            } catch (e) { /* ignore */ }
+                            sessionStorage.setItem('nurse_welcome_shown', '1');
+                        }
+                    } else {
+                        // no local identity -> adopt server identity
+                        if (j.success) {
+                            if (el) el.textContent = serverFull || 'ผู้ใช้งาน';
+                            // store locally for this tab
+                            sessionStorage.setItem('icu_local_user_email', serverEmail || '');
+                            sessionStorage.setItem('icu_local_user_fullname', serverFull || '');
+                            sessionStorage.setItem('icu_local_user_role', j.role || '');
+                            // show welcome if server requests it (or default when first time)
+                            if (j.show_welcome && !sessionStorage.getItem('nurse_welcome_shown')) {
+                                try {
+                                    await Swal.fire({ icon: 'success', title: 'ยินดีต้อนรับ', text: 'ยินดีต้อนรับ ' + (serverFull || 'ผู้ใช้งาน'), confirmButtonText: 'ตกลง' });
+                                } catch (e) { /* ignore */ }
+                                sessionStorage.setItem('nurse_welcome_shown', '1');
+                            }
+                        } else {
+                            window.location.href = 'login.html';
+                        }
+                    }
+                } catch (e) {
+                    if (localFull) {
+                        const el = document.getElementById('currentUser');
+                        if (el) el.textContent = localFull;
+                    }
+                }
+            }
+
+            // check for existing public requests by HN; returns true if there is any active request
+            async function hasActivePublicRequests(hn) {
+                if (!hn) return false;
+                try {
+                    const resp = await fetch('process.php?action=get_public_requests_by_hn&hn=' + encodeURIComponent(hn));
+                    if (!resp.ok) return false;
+                    const j = await resp.json();
+                    if (!j || !j.success || !Array.isArray(j.requests)) return false;
+                    // consider 'done' and 'canceled' as closed; any other status blocks booking
+                    const active = j.requests.some(r => {
+                        const st = String(r.status || '').toLowerCase();
+                        return !(st === 'done' || st === 'canceled');
+                    });
+                    return active;
+                } catch (e) {
+                    console.warn('hasActivePublicRequests error', e);
+                    return false;
+                }
+            }
+
+            // intercept logout button to call logout.php
+            const logoutBtn = document.querySelector('.logout-btn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', async (ev) => {
+                    ev.preventDefault();
+                    const c = await Swal.fire({
+                        icon: 'warning',
+                        title: 'ออกจากระบบ?',
+                        text: 'คุณแน่ใจว่าต้องการออกจากระบบหรือไม่?',
+                        showCancelButton: true,
+                        confirmButtonText: 'ออกจากระบบ',
+                        cancelButtonText: 'ยกเลิก'
+                    });
+                    if (!c.isConfirmed) return;
+                    try {
+                        const res = await authFetch('logout.php', { method: 'POST', credentials: 'same-origin' });
+                        const j = await (res.ok ? res.json() : Promise.resolve({ success: false }));
+                        if (j && j.success) {
+                            await Swal.fire({ icon: 'success', title: 'ออกจากระบบแล้ว', timer: 900, showConfirmButton: false });
+                            // clear local per-tab identity and other icu session items
+                            sessionStorage.removeItem('nurse_welcome_shown');
+                            sessionStorage.removeItem('icu_local_user_email');
+                            sessionStorage.removeItem('icu_local_user_fullname');
+                            sessionStorage.removeItem('icu_local_user_role');
+                            sessionStorage.removeItem('icu_selected_request');
+                            sessionStorage.removeItem('icu_selected_request_id');
+                            sessionStorage.removeItem('icu_endcase_request_id');
+                            sessionStorage.removeItem('auth_token');
+                            window.location.href = 'login.html';
+                        } else {
+                            await Swal.fire({ icon: 'error', title: 'ไม่สามารถออกจากระบบได้', text: j?.message || '' });
+                        }
+                    } catch (e) {
+                        console.error('logout error', e);
+                        await Swal.fire({ icon: 'error', title: 'ข้อผิดพลาด', text: 'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์' });
+                    }
+                });
+            }
+
+            // form submit handling: use SweetAlert, allow partial HN, confirm when AN exists
+            const form = document.querySelector('.booking-form');
+            if (form) {
+                form.addEventListener('submit', async function (ev) {
+                    ev.preventDefault();
+
+                    const hnInput = this.querySelector('#hnField') || this.querySelector('input[name="hn"]');
+                    const phoneInput = this.querySelector('input[type="tel"]') || this.querySelector('input[name="phone"]');
+
+                    const hn = (hnInput?.value || '').trim().replace(/\D/g, '');
+                    let phone = (phoneInput?.value || '').trim().replace(/\D/g, '');
+
+                    // HN: require at least 1 digit
+                    if (!hn) {
+                        await Swal.fire({ icon: 'warning', title: 'กรุณากรอก HN', text: 'กรุณาระบุ HN หรือเลขบัตรประชาชนอย่างน้อย 1 หลัก' });
+                        hnInput?.focus();
+                        return;
+                    }
+
+                    // Phone: require 10 digits starting with 0
+                    if (!/^0\d{9}$/.test(phone)) {
+                        await Swal.fire({ icon: 'warning', title: 'เบอร์โทรไม่ถูกต้อง', text: 'กรุณากรอกเบอร์โทรศัพท์ 10 หลัก ขึ้นต้นด้วย 0' });
+                        phoneInput?.focus();
+                        return;
+                    }
+
+                    // Check for existing public requests for this HN - block if any active request exists
+                    const hasActive = await hasActivePublicRequests(hn);
+                    if (hasActive) {
+                        await Swal.fire({
+                            icon: 'warning',
+                            title: 'ไม่สามารถส่งคำขอได้',
+                            html: 'ผู้ป่วย HN นี้มีคำขอคิวที่ยังรอดำเนินการ/ยืนยันอยู่<br>กรุณาตรวจสอบสถานะคำขอก่อนสร้างคำขอใหม่'
+                        });
+                        return;
+                    }
+
+                    // fetch HOSxP detail and check admission (AN)
+                    let hosxp = null;
+                    try {
+                        const resp = await fetch('get_hosxp_patient_detail.php?hn=' + encodeURIComponent(hn));
+                        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                        const pj = await resp.json();
+                        if (pj && pj.success && pj.data) hosxp = pj.data;
+                    } catch (e) {
+                        console.warn('fetch hosxp failed', e);
+                        await Swal.fire({ icon: 'error', title: 'ไม่สามารถตรวจสอบ HOSxP', text: 'เกิดข้อผิดพลาดขณะเชื่อมต่อ HOSxP โปรดลองใหม่' });
+                        return;
+                    }
+
+                    const hasAn = !!(hosxp && hosxp.an && String(hosxp.an).trim() !== '');
+                    if (!hasAn) {
+                        await Swal.fire({
+                            icon: 'warning',
+                            title: 'ไม่พบ admission',
+                            text: 'ผู้ป่วยนี้ยังไม่มี admission (AN) ในระบบ จึงไม่สามารถจองได้'
+                        });
+                        return;
+                    }
+
+                    // build patient info for confirmation popup
+                    const patientName = hosxp ? (((hosxp.pname || '') + ' ' + (hosxp.fname || '') + ' ' + (hosxp.lname || '')).trim()) : '';
+                    const patientAge = hosxp && (hosxp.age || hosxp.age_y) ? (hosxp.age || hosxp.age_y) : '';
+                    const patientPhone = hosxp && (hosxp.hometel || hosxp.informtel) ? String(hosxp.hometel || hosxp.informtel).replace(/\D/g, '').slice(0, 10) : phone;
+
+                    const confirmHtml = `
+                    <div style="text-align:left">
+                      <div style="font-weight:700;margin-bottom:8px;color:#0b63c5;">ยืนยันข้อมูลผู้ป่วยก่อนส่งคำขอ</div>
+                      <div style="font-size:14px;color:#213547">
+                        <div><strong>HN:</strong> ${hn}</div>
+                        <div><strong>ชื่อ-นามสกุล:</strong> ${patientName || '-'}</div>
+                        <div><strong>อายุ:</strong> ${patientAge || '-'}</div>
+                        <div><strong>เบอร์โทร:</strong> ${patientPhone || '-'}</div>
+                      </div>
+                    </div>
+                `;
+
+                    const conf = await Swal.fire({
+                        icon: 'question',
+                        title: 'ยืนยันการส่งคำขอจองคิว',
+                        html: confirmHtml,
+                        showCancelButton: true,
+                        confirmButtonText: 'ยืนยันจองคิว',
+                        cancelButtonText: 'ยกเลิก',
+                        width: 520
+                    });
+
+                    if (!conf.isConfirmed) return;
+
+                    // send public_request with urgency=1 to mark as "🟢 ผู้ป่วยนัด"
+                    try {
+                        Swal.fire({ title: 'กำลังส่งคำขอ...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
+                        const body = new URLSearchParams({ action: 'public_request', hn: hn, phone: phone, source: 'nurse-reserve', urgency: '1' });
+                        // include operator identity from this tab if available
+                        const operatorEmail = sessionStorage.getItem('icu_local_user_email') || '';
+                        if (operatorEmail) body.append('user_rh', operatorEmail);
+                        const post = await authFetch('process.php', { method: 'POST', body });
+                        const pj2 = await post.json();
+                        Swal.close();
+
+                        if (pj2 && pj2.success) {
+                            // เก็บเฉพาะข้อมูลผู้ป่วย (ไม่เก็บข้อมูลผู้ใช้พยาบาล)
+                            try {
+                                sessionStorage.setItem('icu_selected_hn', String(hn || ''));
+                                sessionStorage.setItem('icu_selected_name', String(patientName || ''));
+                                sessionStorage.setItem('icu_selected_phone', String(patientPhone || phone || ''));
+                                sessionStorage.setItem('icu_selected_age', String(patientAge || ''));
+                                sessionStorage.setItem('icu_selected_gender', String(hosxp ? (hosxp.sex == 1 ? 'ชาย' : (hosxp.sex == 2 ? 'หญิง' : '')) : ''));
+                                const operatorEmail = sessionStorage.getItem('icu_local_user_email') || '';
+                                const short = { id: pj2.id || pj2.request_id || '', hn: hn, created_at: pj2.created_at || new Date().toISOString(), status: '🟢 ผู้ป่วยนัด', operator_email: operatorEmail };
+                                sessionStorage.setItem('icu_selected_request', JSON.stringify(short));
+                                // store separate status and urgency for Make a reservation.html
+                                sessionStorage.setItem('icu_selected_status', '🟢 ผู้ป่วยนัด');
+                                sessionStorage.setItem('icu_selected_urgency', '1');
+                            } catch (e) { console.warn('save patient data to sessionStorage failed', e); }
+
+                            // แสดงแจ้งเตือนสำเร็จและค้างที่หน้าเดิม
+                            await Swal.fire({ icon: 'success', title: 'ส่งคำขอเรียบร้อย', text: pj2.message || 'ระบบได้รับคำขอของคุณแล้ว' });
+                            // (ไม่รีไดเร็ก) — ผู้ใช้งานยังคงอยู่ที่หน้านี้
+                        } else {
+                            await Swal.fire({ icon: 'error', title: 'ไม่สามารถส่งคำขอได้', text: pj2?.message || '' });
+                        }
+                    } catch (e) {
+                        console.error('send public_request error', e);
+                        await Swal.fire({ icon: 'error', title: 'ข้อผิดพลาด', text: 'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์' });
+                    }
+                });
+            }
+
+            // load user info on the first pass only
+            if (!sessionStorage.getItem('nurse_welcome_shown')) {
+                loadUserInfo();
+            }
+        })();
+    </script>
+    <script>
+        /* === Security Guard: auth check + disable back to protected pages === */
+        (function () {
+            const INDEX_PAGE = 'index.html';
+            async function checkAuth() {
+                try {
+                    const token = sessionStorage.getItem('auth_token') || '';
+                    const headers = token ? { 'Authorization': 'Bearer ' + token } : {};
+                    const res = await fetch('get_user_info.php', { method: 'GET', headers, credentials: 'same-origin' });
+                    const json = await res.json().catch(() => null);
+                    if (!json || !json.success) {
+                        try { sessionStorage.removeItem('auth_token'); } catch (e) { }
+                        window.location.replace(INDEX_PAGE);
+                        return false;
+                    }
+                    return true;
+                } catch (e) {
+                    window.location.replace(INDEX_PAGE);
+                    return false;
+                }
+            }
+
+            function trapBackButton() {
+                // Push a dummy state so back triggers popstate
+                history.pushState({ guard: true }, '', window.location.href);
+                window.addEventListener('popstate', function () {
+                    window.location.replace(INDEX_PAGE);
+                });
+            }
+
+            // If page is restored from bfcache, re-check auth
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) checkAuth();
+            });
+
+            document.addEventListener('DOMContentLoaded', async function () {
+                const ok = await checkAuth();
+                if (ok) trapBackButton();
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

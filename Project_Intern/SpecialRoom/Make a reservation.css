@@ -1,0 +1,1720 @@
+/**************************************
+         *  DESIGN TOKENS – HOSPITAL THEME
+         **************************************/
+:root {
+    --primary: #0ea5e9;
+    /* Medical Cyan */
+    --primary-dark: #0369a1;
+    /* Deep Medical Blue */
+    --primary-soft: #e0f2fe;
+    /* Soft Light Blue */
+    --accent: #22c55e;
+    /* Green for success */
+    --danger: #ef4444;
+    /* Red for cancel */
+    --warning: #fbbf24;
+    /* Yellow for pending */
+    --bg: #e5f0ff;
+    /* Page background */
+    --card: #ffffff;
+
+    --text-main: #0b2447;
+    --text-soft: #7a8ba8;
+    --text-mute: #9ca3af;
+
+    --shadow-soft: 0 20px 45px rgba(15, 23, 42, 0.16);
+    --shadow-light: 0 10px 26px rgba(15, 23, 42, 0.08);
+
+    --radius-lg: 22px;
+    --radius-xl: 30px;
+    --radius-pill: 999px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Kanit", sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.18), transparent 55%),
+        linear-gradient(135deg, #e5f0ff 0%, #eff6ff 45%, #e0f7ff 100%);
+    color: var(--text-main);
+    padding: 24px;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.6) 0, transparent 55%),
+        radial-gradient(circle at 80% 100%, rgba(191, 219, 254, 0.7) 0, transparent 55%);
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.wrapper {
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+/****************************************
+         * TOP HEADER – GLASS HOSPITAL PANEL
+         ****************************************/
+.header-card {
+    background: linear-gradient(115deg, #0ea5e9 0%, #2563eb 40%, #38bdf8 100%);
+    border-radius: var(--radius-xl);
+    padding: 26px 32px 22px;
+    box-shadow: var(--shadow-soft);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-card::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.7), transparent 65%);
+    top: -80px;
+    right: -60px;
+    opacity: 0.4;
+}
+
+.header-left {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.header-icon {
+    width: 74px;
+    height: 74px;
+    border-radius: 26px;
+    background:
+        radial-gradient(circle at 30% 20%, #ffffff 0%, rgba(255, 255, 255, 0.06) 60%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.header-icon i {
+    text-shadow: 0 4px 12px rgba(15, 23, 42, 0.45);
+}
+
+.header-title {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* ===== Capsule status: ออนไลน์ • ชื่อ • ออกจากระบบ (แบบในรูป) ===== */
+.header-right .status-badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px 6px 12px;
+    border-radius: 999px;
+
+    background: linear-gradient(180deg, #f8fdff 0%, #eaf6ff 100%);
+    border: 1px solid rgba(14, 165, 233, 0.28);
+    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.08);
+
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* แถบโค้งซ้าย */
+.header-right .status-badge::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #06b6d4, #0ea5e9);
+}
+
+/* จุดสถานะ (แทน pulse เดิม) */
+.header-right .status-badge .pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #0ea5e9;
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.14);
+    margin-left: 6px;
+    animation: icu-pulse 1.6s ease-in-out infinite;
+}
+
+/* ข้อความ */
+.header-right .status-text {
+    font-weight: 800;
+    color: #0b5bd3;
+    letter-spacing: 0.1px;
+    font-size: 13px;
+}
+
+.header-right .user-text {
+    font-weight: 800;
+    color: #334155;
+    max-width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.header-right .divider-dot {
+    color: #94a3b8;
+    margin: 0 2px;
+}
+
+/* ปุ่ม Logout แบบ pill (ชมพู-ส้ม) */
+.header-right .logout-pill {
+    margin-left: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 0;
+    cursor: pointer;
+
+    color: #fff;
+    font-weight: 800;
+    font-size: 13px;
+
+    background: linear-gradient(90deg, #ff5c90, #ffc06a);
+    box-shadow: 0 8px 18px rgba(255, 98, 145, 0.16);
+    transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
+
+.header-right .logout-ic {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.header-right .logout-pill:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 42px rgba(255, 98, 145, 0.28);
+    filter: saturate(1.05);
+}
+
+/* ==============================
+   Header Status Capsule (เหมือนรูป)
+   ใช้กับ HTML เดิมของคุณได้เลย:
+   .status-badge .pulse #systemStatus .divider-dot #currentUser #logoutBtn.btn-secondary
+   ============================== */
+
+.header-right .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 999px;
+
+    background: #fff;
+    border: 1px solid rgba(14, 165, 233, .45);
+    /* ขอบฟ้า */
+    box-shadow: 0 8px 20px rgba(2, 132, 199, .12);
+}
+
+/* ทำให้ "ระบบออนไลน์" กลายเป็นชิปด้านซ้ายเหมือนรูป */
+.header-right .status-badge #systemStatus {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
+
+    background: linear-gradient(180deg, #e9f7ff 0%, #dff2ff 100%);
+    color: #0b63c5;
+    font-weight: 800;
+    letter-spacing: .1px;
+    border: 1px solid rgba(14, 165, 233, .2);
+    font-size: 13px;
+}
+
+/* จุดออนไลน์ */
+.header-right .status-badge .pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #0ea5e9;
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, .14);
+    animation: icu-pulse 1.6s ease-in-out infinite;
+}
+
+/* ตัวคั่นจุด */
+.header-right .status-badge .divider-dot {
+    color: #94a3b8;
+    margin: 0 2px;
+    font-weight: 900;
+}
+
+/* ชื่อผู้ใช้งาน */
+.header-right .status-badge #currentUser {
+    color: #475569;
+    font-weight: 800;
+    max-width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ปุ่มออกจากระบบ — ไล่สีชมพู/ส้มเหมือนรูป */
+.header-right .status-badge #logoutBtn.btn-secondary {
+    margin-left: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: none !important;
+
+    background: linear-gradient(90deg, #ff4f8f 0%, #ffb86b 100%);
+    color: #fff;
+    font-weight: 800;
+    font-size: 13px;
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(255, 79, 143, .18);
+    transition: transform .14s ease, box-shadow .14s ease, filter .14s ease;
+}
+
+.header-right .status-badge #logoutBtn.btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 18px 44px rgba(255, 79, 143, .32);
+    filter: saturate(1.06);
+}
+
+/* วงกลมไอคอนในปุ่ม */
+.header-right .status-badge #logoutBtn.btn-secondary i {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, .22);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12);
+    font-size: 13px;
+}
+
+/* ยกเลิกสไตล์ inline ที่ติดมาใน HTML (ถ้ามี) */
+.header-right .status-badge #logoutBtn.btn-secondary span {
+    font-size: 13px !important;
+    font-weight: 900 !important;
+}
+
+/* Responsive */
+@media (max-width:520px) {
+    .header-right .status-badge {
+        gap: 8px;
+        padding: 6px 8px;
+    }
+
+    .header-right .status-badge #systemStatus {
+        padding: 6px 10px;
+    }
+
+    .header-right .status-badge #currentUser {
+        max-width: 120px;
+        font-size: 13px;
+    }
+
+    .header-right .status-badge #logoutBtn.btn-secondary {
+        padding: 6px 10px;
+        gap: 8px;
+    }
+
+    .header-right .status-badge #logoutBtn.btn-secondary i {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+/* pulse animation */
+@keyframes icu-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.35);
+        opacity: .7;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* มือถือ: ย่อให้พอดี */
+@media (max-width: 520px) {
+    .header-right .status-badge {
+        padding: 8px 10px 8px 16px;
+        gap: 10px;
+    }
+
+    .header-right .user-text {
+        max-width: 160px;
+    }
+
+    .header-right .logout-pill {
+        padding: 8px 12px;
+        gap: 8px;
+        margin-left: 10px;
+    }
+
+    .header-right .logout-ic {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* pulse keyframes (ของคุณมีแล้วใช้ได้ ถ้าไม่มีใส่ไว้) */
+@keyframes icu-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1
+    }
+
+    50% {
+        transform: scale(1.35);
+        opacity: .7
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1
+    }
+}
+
+.header-title h1 {
+    font-size: 24px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-tag {
+    font-size: 13px;
+    padding: 5px 12px;
+    border-radius: var(--radius-pill);
+    background: rgba(15, 23, 42, 0.25);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.header-tag i {
+    font-size: 12px;
+}
+
+.header-sub {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.header-sub small {
+    font-size: 11px;
+    opacity: 0.92;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.header-sub small i {
+    font-size: 12px;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.online-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
+    border-radius: var(--radius-pill);
+    background: rgba(15, 23, 42, 0.35);
+    font-size: 12px;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.online-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.35);
+}
+
+.header-bottom {
+    margin-top: 10px;
+    font-size: 11px;
+    opacity: 0.9;
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.header-bottom span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/****************************************
+         * SUMMARY CARDS – STATUS OVERVIEW
+         ****************************************/
+.summary-row {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.summary-card {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: var(--radius-lg);
+    padding: 16px 18px 14px;
+    box-shadow: var(--shadow-light);
+    border: 1px solid #e4ecff;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.summary-card::after {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    right: -30px;
+    top: -36px;
+    background: radial-gradient(circle, rgba(148, 163, 184, 0.08), transparent 60%);
+}
+
+.summary-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text-soft);
+    margin-bottom: 6px;
+}
+
+.summary-top span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.summary-bullet {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+
+.summary-bullet.green {
+    background: #22c55e;
+}
+
+.summary-bullet.blue {
+    background: #2563eb;
+}
+
+.summary-bullet.red {
+    background: #f97373;
+}
+
+.summary-icon {
+    font-size: 18px;
+    color: #9ca3af;
+}
+
+.summary-value {
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.summary-caption {
+    font-size: 12px;
+    color: var(--text-soft);
+}
+
+.summary-card:nth-child(1) {
+    border: 2px solid #fbbf24;
+    box-shadow: 0 6px 20px #fbbf2428;
+}
+
+.summary-card:nth-child(2) {
+    border: 2px solid #22c55e;
+    box-shadow: 0 6px 20px #22c55e28;
+}
+
+.summary-card:nth-child(3) {
+    border: 2px solid #2563eb;
+    box-shadow: 0 6px 20px #2563eb28;
+}
+
+/****************************************
+         * SEARCH AREA
+         ****************************************/
+.search-card {
+    margin-top: 18px;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: var(--radius-lg);
+    padding: 14px 20px 12px;
+    border: 1px solid #e0ebff;
+    box-shadow: 0 12px 30px rgba(148, 163, 184, 0.25);
+}
+
+.search-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.search-hint {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    border: 1px dashed rgba(2, 132, 199, 0.35);
+    background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.search-hint .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(14, 165, 233, 0.12);
+    border: 1px solid rgba(14, 165, 233, 0.25);
+    color: #0369a1;
+    font-weight: 900;
+    letter-spacing: 0.2px;
+}
+
+.search-hint code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-weight: 900;
+    font-size: 12px;
+    padding: 3px 6px;
+    border-radius: 8px;
+    background: #0b63c512;
+    border: 1px solid #0b63c526;
+    color: #0b63c5;
+}
+
+.search-hint .muted {
+    color: #64748b;
+    font-weight: 800;
+}
+
+
+.search-input-wrap {
+    flex: 1;
+    min-width: 260px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: var(--radius-pill);
+    background: #f4f7ff;
+    border: 1px solid #d6e3ff;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+.search-input-wrap i {
+    color: #9aa5c5;
+    font-size: 14px;
+}
+
+.search-input-wrap input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 13px;
+    color: var(--text-main);
+}
+
+.search-input-wrap input::placeholder {
+    color: var(--text-mute);
+}
+
+.search-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 15px;
+    border: 1px solid #d6e3ff;
+    background: #ffffff;
+    box-shadow: var(--shadow-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.18s ease;
+}
+
+.search-btn i {
+    color: #7b8dac;
+}
+
+.search-btn:hover {
+    background: #eef3ff;
+    transform: translateY(-1px) scale(1.03);
+    box-shadow: 0 10px 26px rgba(148, 163, 184, 0.4);
+}
+
+/* NEW: Styles for the "ประวัติการยกเลิก" button */
+.view-cancels-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #0b63c5;
+    border: 1px solid #cfe8ff;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(11, 99, 197, 0.08);
+    transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
+}
+
+.view-cancels-btn i {
+    font-size: 14px;
+    color: #0b63c5;
+}
+
+.view-cancels-btn span {
+    line-height: 1;
+}
+
+.view-cancels-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(11, 99, 197, 0.12);
+    background: linear-gradient(180deg, #fff, #f6fbff);
+}
+
+/* responsive: shrink label on very small screens */
+@media (max-width: 480px) {
+    .view-cancels-btn span {
+        display: none;
+    }
+}
+
+/****************************************
+         * QUEUE TABLE CARD
+         ****************************************/
+.queue-card {
+    margin-top: 18px;
+    background: rgba(255, 255, 255, 0.99);
+    border-radius: var(--radius-lg);
+    border: 1px solid #e3edff;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+}
+
+.queue-header {
+    padding: 12px 20px;
+    background: linear-gradient(to right, #f5f7ff, #ebf3ff);
+    border-bottom: 1px solid #dde7ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.queue-header-left {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.queue-header-left i {
+    color: #3b82f6;
+}
+
+.queue-header-right {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+    border: 1px solid #bfdbfe;
+}
+
+.queue-header-right i {
+    font-size: 12px;
+}
+
+.queue-card table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+thead {
+    background: #f4f7ff;
+}
+
+th {
+    padding: 11px 20px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #94a3b8;
+    text-align: left;
+    border-bottom: 1px solid #e1e8ff;
+}
+
+tbody tr:nth-child(even) {
+    background: #f9fbff;
+}
+
+tbody tr:hover {
+    background: #eef4ff;
+}
+
+td {
+    padding: 13px 20px;
+    border-bottom: 1px solid #edf2ff;
+    color: var(--text-main);
+}
+
+td:nth-child(2) {
+    font-weight: 500;
+}
+
+.hn-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    background: #e0edff;
+    color: #1d4ed8;
+    font-weight: 700;
+    font-size: 12px;
+    border: 1px solid #c3dbff;
+}
+
+/****************************************
+         * STATUS PILL
+         ****************************************/
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-pill i {
+    font-size: 12px;
+}
+
+.status-wait {
+    background: #fff7eb;
+    color: #b45309;
+}
+
+.status-confirm {
+    background: #e5f9f0;
+    color: #15803d;
+}
+
+.status-pill:not(.status-wait):not(.status-confirm) {
+    background: #eef2ff;
+    color: #1e3a8a;
+}
+
+.more-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 14px;
+    border: none;
+    background: #edf3ff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(148, 163, 184, 0.4);
+    transition: 0.16s ease;
+}
+
+.more-btn i {
+    color: #64748b;
+}
+
+.more-btn:hover {
+    background: #e0ecff;
+    transform: translateY(-1px) scale(1.05);
+}
+
+/****************************************
+         * PATIENT PANEL & PUBLIC REQUEST LIST
+         ****************************************/
+#patientPanel {
+    margin: 10px 0 12px;
+    padding: 12px 16px;
+    border-radius: 16px;
+    border: 1px solid #e0f2fe;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    box-shadow: 0 10px 24px rgba(148, 163, 184, 0.25);
+}
+
+#publicRequestsListTable table {
+    margin-top: 10px;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e0e7ff;
+    box-shadow: 0 10px 30px rgba(148, 163, 184, 0.25);
+}
+
+#publicRequestsListTable th {
+    background: #eff4ff;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+}
+
+#publicRequestsListTable td {
+    font-size: 13px;
+    padding: 8px 10px;
+}
+
+#publicRequestsListTable tr:nth-child(even) {
+    background: #f9fbff;
+}
+
+/****************************************
+         * FLOATING BACK BUTTON
+         ****************************************/
+.btn-back-fixed {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 9999;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.98);
+    color: var(--primary-dark);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.22);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 13px;
+    transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+    backdrop-filter: blur(8px);
+}
+
+.btn-back-fixed i {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.55);
+}
+
+.btn-back-fixed:hover {
+    transform: translateY(-4px);
+    background: #f9fbff;
+    box-shadow: 0 22px 40px rgba(15, 23, 42, 0.3);
+}
+
+/****************************************
+         * SWEETALERT BUTTON STYLE (ใน popup)
+         ****************************************/
+.sw-action-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 6px;
+}
+
+.sw-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
+}
+
+.sw-btn-row {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.sw-mini-btn {
+    flex: 1;
+    padding: 9px 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    background: #f9fafb;
+    font-size: 12px;
+    transition: 0.12s ease;
+}
+
+.sw-mini-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(148, 163, 184, 0.4);
+}
+
+.sw-mini-confirm {
+    background: linear-gradient(90deg, #10b981, #059669);
+    color: #fff;
+    border: none;
+}
+
+.sw-mini-done {
+    background: linear-gradient(90deg, #2563eb, #1d4ed8);
+    color: #fff;
+    border: none;
+}
+
+.sw-mini-cancel {
+    background: linear-gradient(90deg, #ef4444, #b91c1c);
+    color: #fff;
+    border: none;
+}
+
+.sw-mini-pending {
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+    color: #fff;
+    border: none;
+}
+
+.sw-input {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid #dbe3f5;
+    margin-top: 6px;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.sw-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.3);
+}
+
+/* Date input / today button minimal styling + invalid state */
+.date-input {
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid #d6e3ff;
+    background: #fff;
+    font-size: 13px;
+    outline: none;
+    transition: box-shadow .12s ease, border-color .12s ease;
+}
+
+.date-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 6px 18px rgba(14, 165, 233, 0.12);
+}
+
+.date-input.invalid {
+    border-color: var(--danger);
+    box-shadow: 0 6px 18px rgba(239, 68, 68, 0.12);
+}
+
+/* today button tiny style (in case global styles not applied) */
+.today-btn {
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid #cfe8ff;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform .08s ease, box-shadow .12s ease;
+}
+
+.today-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(11, 99, 197, 0.06);
+}
+
+/****************************************
+         * RESPONSIVE
+         ****************************************/
+@media (max-width: 1024px) {
+    body {
+        padding: 16px;
+    }
+
+    .header-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 18px 16px;
+    }
+
+    .header-right {
+        align-items: flex-start;
+    }
+
+    .summary-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .summary-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .queue-card {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 720px;
+    }
+
+    .btn-back-fixed span {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .summary-row {
+        grid-template-columns: 1fr;
+    }
+
+    .header-card {
+        border-radius: 22px;
+    }
+}
+
+/* ...existing code... */
+
+.date-panel {
+    width: 420px;
+    background: #fff;
+    border: 1px solid #e6eefc;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+    overflow: hidden;
+    z-index: 9999;
+}
+
+/* inner elements */
+.date-panel .sw-input,
+.date-panel select {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #dbeafe;
+    background: #fff;
+    font-size: 13px;
+    outline: none;
+}
+
+.date-panel .sw-input:focus,
+.date-panel select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 6px 18px rgba(14, 165, 233, 0.08);
+}
+
+/* header and actions */
+.date-panel .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 8px;
+}
+
+/* Date panel action buttons styling tweaks */
+.date-panel div[style*="justify-content:flex-end"] {
+    /* target action row */
+    gap: 10px;
+    align-items: center;
+}
+
+/* primary (ค้นหา) */
+#dateSearchBtn.sw-btn-primary,
+#dateSearchBtn {
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    border: none;
+    box-shadow: 0 10px 24px rgba(14, 165, 233, 0.12);
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Date panel enhanced styles */
+.date-panel {
+    width: 360px;
+    border-radius: 12px;
+    overflow: visible;
+    background: #fff;
+    border: 1px solid #e6eef6;
+}
+
+.date-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-bottom: 1px solid #f1f8ff;
+    background: linear-gradient(180deg, #f8fdff, #ffffff);
+}
+
+.date-panel-title {
+    font-weight: 800;
+    color: #053e62;
+    font-size: 15px
+}
+
+.date-panel-close {
+    background: none;
+    border: 0;
+    font-size: 20px;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 6px 8px;
+    border-radius: 6px
+}
+
+.date-panel-body {
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.date-row {
+    display: flex;
+    gap: 12px;
+    align-items: center
+}
+
+.date-input-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%
+}
+
+.date-input {
+    padding: 8px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #f9fafb;
+    color: #053e62;
+    font-size: 14px
+}
+
+.date-display {
+    font-size: 13px;
+    color: #475569;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #f8fafc;
+    border: 1px solid #eef6ff
+}
+
+.toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px
+}
+
+.toggle-legend {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #0f172a
+}
+
+.toggle-legend input {
+    transform: scale(1.02)
+}
+
+.toggle-hint {
+    font-size: 12px;
+    color: #64748b
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end
+}
+
+.actions .sw-mini-btn {
+    padding: 8px 12px;
+    border-radius: 10px
+}
+
+.actions .sw-btn-primary {
+    padding: 8px 14px;
+    border-radius: 10px
+}
+
+@media (max-width:420px) {
+    .date-panel {
+        width: calc(100% - 24px);
+        left: 12px !important
+    }
+
+    .date-panel-body {
+        padding: 12px
+    }
+}
+
+/* secondary (ปิด) */
+#dateCloseBtn.sw-mini-btn,
+#dateCloseBtn {
+    background: #fff;
+    color: #374151;
+    border: 1px solid #e2e8f0;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* on hover */
+#dateSearchBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(14, 165, 233, 0.14);
+}
+
+#dateCloseBtn:hover {
+    background: #f8fafc;
+    transform: translateY(-1px);
+}
+
+/* small screen: full width buttons stacked */
+@media (max-width:420px) {
+    .date-panel div[style*="justify-content:flex-end"] {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    #dateResetBtn,
+    #dateSearchBtn,
+    #dateCloseBtn {
+        width: 100%;
+    }
+}
+
+/* Header status badge styles (match register_step2) */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid rgba(14, 165, 233, 0.06);
+    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.04);
+    color: #0f172a;
+    font-weight: 600
+}
+
+.status-badge .pulse {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #06b6d4, #0ea5e9);
+    box-shadow: 0 6px 18px rgba(6, 182, 212, 0.08);
+    display: inline-block
+}
+
+.status-badge.status-active {
+    border-left: 4px solid #06b6d4
+}
+
+.divider-dot {
+    color: #9ca3af;
+    margin: 0 6px
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid #e6eef6;
+    background: #fff;
+    color: #0f172a;
+    cursor: pointer;
+    font-weight: 700
+}
+
+.btn-secondary i {
+    opacity: 0.9
+}
+
+@keyframes icu-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1
+    }
+
+    50% {
+        transform: scale(1.35);
+        opacity: 0.7
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1
+    }
+}
+
+.status-badge .pulse {
+    animation: icu-pulse 1.6s ease-in-out infinite
+}
+
+/* Unified header capsule sizing — tuned for clarity and balance
+     - target height ~40px, compact readable fonts, clear separator
+     - left accent bar narrower and tucked, smaller pulse, compact logout */
+.status-capsule,
+.status-badge,
+.header-right .status-badge,
+.header-right .status-capsule {
+    --capsule-height: 0px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    min-height: var(--capsule-height);
+    border-radius: 999px;
+    font-size: 13px;
+    line-height: 1;
+    background: linear-gradient(180deg, #ffffff, #fbfdff);
+    border: 1px solid rgba(14, 165, 233, 0.12);
+    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.05);
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.status-capsule::before,
+.status-badge::before {
+    content: "";
+    display: block;
+    width: 5px;
+    height: var(--capsule-height);
+    border-radius: 999px;
+    background: linear-gradient(180deg, #06b6d4, #0ea5e9);
+    margin-left: -5px
+}
+
+.status-capsule .status-dot,
+.status-badge .pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%
+}
+
+.status-text {
+    color: #0b63c5;
+    font-weight: 800;
+    font-size: 13px
+}
+
+.user-text {
+    color: #334155;
+    font-weight: 700;
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.status-sep,
+.divider-dot {
+    margin: 0 8px;
+    color: #94a3b8
+}
+
+.status-capsule .logout-pill,
+.header-right .logout-pill,
+.status-badge #logoutBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(90deg, #ff6f93, #ffb76b);
+    color: #fff;
+    font-weight: 800;
+    box-shadow: 0 8px 24px rgba(255, 111, 147, 0.12);
+}
+
+.status-capsule .logout-pill .logout-ic,
+.status-badge #logoutBtn i {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    display: grid;
+    place-items: center
+}
+
+.status-capsule .logout-pill:hover,
+.status-badge #logoutBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 32px rgba(255, 111, 147, 0.16)
+}
+
+@media (max-width:520px) {
+
+    .status-capsule,
+    .status-badge {
+        padding: 6px 8px;
+        font-size: 12px;
+        gap: 8px;
+        min-height: 32px
+    }
+
+    .user-text {
+        max-width: 110px
+    }
+
+    .status-capsule::before,
+    .status-badge::before {
+        height: 32px;
+        width: 5px;
+        margin-left: -5px
+    }
+
+    .status-capsule .logout-pill,
+    .status-badge #logoutBtn {
+        padding: 6px 8px
+    }
+}
+
+.top-menu {
+    background: #fff;
+    border-bottom: 1px solid #e6eef6;
+    position: sticky;
+    top: 0;
+    z-index: 10000
+}
+
+.top-menu .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 8px;
+    padding: 10px 16px;
+    align-items: center
+}
+
+.top-menu .tab {
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: #475569;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid transparent
+}
+
+.top-menu .tab.active {
+    background: linear-gradient(90deg, #06b6d4, #0ea5e9);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(3, 105, 161, 0.12)
+}
+
+.wrapper {
+    margin-top: 8px;
+}
+
+.filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background: #fff;
+    color: #374151;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.filter-chip.active {
+    background: #0369a1;
+    color: #fff;
+    border-color: #0369a1;
+}
+
+.filter-chip+.filter-chip {
+    margin-left: 8px;
+}
+
+/* NEW: styles for date panel */
+.date-panel {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.date-panel select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    background: #f9fafb;
+    color: #374151;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.date-panel label {
+    font-size: 13px;
+    color: #475569;
+}
+
+.date-panel .sw-btn-primary {
+    background: #0369a1;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.date-panel .sw-mini-btn {
+    background: #f9fafb;
+    color: #0369a1;
+    border: 1px solid #dbeafe;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.date-panel .sw-mini-btn:hover {
+    background: #e6f6ff;
+}
+
+.date-panel .status-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.date-panel .status-wait {
+    background: #f3f4f6;
+    color: #9ca3af;
+}
+
+.date-panel .status-confirm {
+    background: #e5f9f0;
+    color: #34d399;
+}
+
+.date-panel .status-done {
+    background: #eef2ff;
+    color: #2563eb;
+}
+
+.date-panel .status-canceled {
+    background: #fff1f2;
+    color: #b91c1c;
+}
