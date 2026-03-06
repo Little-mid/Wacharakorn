@@ -1,11 +1,18 @@
 <div align="center">
+
+<!-- banner wave -->
 <picture>
   <source media="(prefers-color-scheme: light)"
-    srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Wacharakorn%20Krueanet&fontSize=46&fontColor=ffffff&fontAlignY=38&desc=Computer%20Science%20%E2%80%A2%20KU%20Sakon%20Nakhon&descSize=15&descAlignY=56&descColor=#333366"/>
+    srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=160&section=header"/>
   <source media="(prefers-color-scheme: dark)"
-    srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Wacharakorn%20Krueanet&fontSize=46&fontColor=ffffff&fontAlignY=38&desc=Computer%20Science%20%E2%80%A2%20KU%20Sakon%20Nakhon&descSize=15&descAlignY=56&descColor=aaaaaa"/>
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Wacharakorn%20Krueanet&fontSize=46&fontColor=ffffff&fontAlignY=38&desc=Computer%20Science%20%E2%80%A2%20KU%20Sakon%20Nakhon&descSize=15&descAlignY=56&descColor=aaaaaa" width="100%"/>
+    srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=160&section=header"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=160&section=header" width="100%"/>
 </picture>
+
+<!-- ชื่อ + subtitle แยกต่างหาก แสดงได้ทุกธีม -->
+<h1>Wacharakorn Krueanet</h1>
+<p><b>Computer Science</b> · KU Chalermphrakiat Sakon Nakhon Province Campus</p>
+
 </div>
 
 <br/>
