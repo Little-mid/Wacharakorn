@@ -90,33 +90,18 @@ const wacharakorn = {
 
 ---
 
-### 📈 &nbsp;GitHub Stats
+### 📈 &nbsp;GitHub Activity
 
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)"
-    srcset="https://github-readme-stats.vercel.app/api?username=Little-mid&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=8b949e&count_private=true"/>
-  <source media="(prefers-color-scheme: light)"
-    srcset="https://github-readme-stats.vercel.app/api?username=Little-mid&show_icons=true&theme=default&hide_border=true&bg_color=ffffff&title_color=0969da&icon_color=0969da&text_color=57606a&count_private=true"/>
-  <img height="155" src="https://github-readme-stats.vercel.app/api?username=Little-mid&show_icons=true&theme=github_dark&hide_border=true&count_private=true"/>
-</picture>
-
-&nbsp;
-
-<picture>
-  <source media="(prefers-color-scheme: dark)"
-    srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=Little-mid&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=8b949e"/>
-  <source media="(prefers-color-scheme: light)"
-    srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=Little-mid&layout=compact&theme=default&hide_border=true&bg_color=ffffff&title_color=0969da&text_color=57606a"/>
-  <img height="155" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Little-mid&layout=compact&theme=github_dark&hide_border=true"/>
-</picture>
+[![wacharakorn](https://img.shields.io/badge/GitHub-Little--mid-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Little-mid)
+[![Repos](https://img.shields.io/badge/Repos-Public-0969da?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Little-mid?tab=repositories)
 
 </div>
 
 <div align="center">
 
-![Profile Views](https://komarev.com/ghpvc/?username=Little-mid&color=0969da&style=flat-square&label=Profile+Views)
+![Profile Views](https://komarev.com/ghpvc/?username=Little-mid&color=0969da&style=for-the-badge&label=Profile+Views)
 
 </div>
 ---
