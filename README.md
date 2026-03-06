@@ -59,15 +59,6 @@ const wacharakorn = {
 
 ---
 
-### 🏆 &nbsp;Certifications & Training
-
-| | |
-|---|---|
-| 🤖 **KUSE AI Hackathon 2025** | Kasetsart University |
-| AI Image Processing · AI NLP by Python Library | 4 July 2025 (4 ก.ค. 2568) |
-
----
-
 ### 🛠️ &nbsp;Tech Stack
 
 **Languages**
@@ -102,9 +93,15 @@ const wacharakorn = {
 ### 📈 &nbsp;GitHub Stats
 
 <div align="center">
-<img height="155" src="https://github-readme-stats.vercel.app/api?username=Little-mid&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=8b949e&count_private=true"/>
-&nbsp;
-<img height="155" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Little-mid&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=8b949e"/>
+
+[![GitHub Streak](https://streak-stats.demolab.com?user=Little-mid&theme=github-dark&hide_border=true&background=0d1117&stroke=58a6ff&ring=58a6ff&fire=ff6b35&currStreakLabel=58a6ff)](https://git.io/streak-stats)
+
+</div>
+
+<div align="center">
+
+![Profile Views](https://komarev.com/ghpvc/?username=Little-mid&color=58a6ff&style=flat-square&label=Profile+Views)
+
 </div>
 
 ---
