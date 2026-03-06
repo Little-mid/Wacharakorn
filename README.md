@@ -105,7 +105,7 @@ const wacharakorn = {
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat&logo=mysql&logoColor=white)
-![React Native](https://img.shields.io/badge/React_Native-20232A?style=flat&logo=react&logoColor=61DAFB)
+![React Native](https://img.shields.io/badge/React_Native-087ea4?style=flat&logo=react&logoColor=white)
 
 **Tools & Platforms**
 
@@ -119,10 +119,10 @@ const wacharakorn = {
 **AI Tools**
 
 ![ChatGPT](https://img.shields.io/badge/ChatGPT-74aa9c?style=flat&logo=openai&logoColor=white)
-![Copilot](https://img.shields.io/badge/Copilot-000000?style=flat&logo=github&logoColor=white)
+![Copilot](https://img.shields.io/badge/Copilot-30363d?style=flat&logo=github&logoColor=white)
 ![Gemini](https://img.shields.io/badge/Gemini-8E75B2?style=flat&logo=google&logoColor=white)
 ![Claude](https://img.shields.io/badge/Claude-D4A373?style=flat&logo=anthropic&logoColor=white)
-![v0](https://img.shields.io/badge/v0-000000?style=flat&logo=vercel&logoColor=white)
+![v0](https://img.shields.io/badge/v0-333333?style=flat&logo=vercel&logoColor=white)
 ![Lovable](https://img.shields.io/badge/Lovable-FF6B6B?style=flat&logoColor=white)
 
 ---
@@ -131,7 +131,7 @@ const wacharakorn = {
 
 <div align="center">
 
-[![GitHub](https://img.shields.io/badge/GitHub-Little--mid-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Little-mid)
+[![GitHub](https://img.shields.io/badge/GitHub-Little--mid-24292e?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Little-mid)
 &nbsp;
 ![Profile Views](https://komarev.com/ghpvc/?username=Little-mid&color=grey&style=for-the-badge&label=Profile+Views)
 
