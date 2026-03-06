@@ -59,6 +59,15 @@ const wacharakorn = {
 
 ---
 
+### 🏆 &nbsp;Certifications & Training
+
+| | |
+|---|---|
+| 🤖 **KUSE AI Hackathon 2025** | Kasetsart University |
+| AI Image Processing · AI NLP by Python Library | 4 July 2025 (4 ก.ค. 2568) |
+
+---
+
 ### 🛠️ &nbsp;Tech Stack
 
 **Languages**
