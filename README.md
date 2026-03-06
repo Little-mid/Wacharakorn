@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://capsule-render.vercel.app/api?type=venom&color=0:0f2027,50:203a43,100:2c5364&height=220&section=header&text=Wacharakorn%20Krueanet&fontSize=46&fontColor=ffffff&fontAlignY=40&desc=Computer%20Science%20%E2%80%A2%20KU%20Kamphaeng%20Saen&descSize=15&descAlignY=62&descColor=aaaaaa" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=venom&color=0:0f2027,50:203a43,100:2c5364&height=220&section=header&text=Wacharakorn%20Krueanet&fontSize=46&fontColor=ffffff&fontAlignY=40&desc=Computer%20Science%20%E2%80%A2%20KU%20Sakon%20Nakhon&descSize=15&descAlignY=62&descColor=aaaaaa" width="100%"/>
 </div>
 
 <br/>
@@ -21,7 +21,7 @@ const wacharakorn = {
   name    : "Wacharakorn Krueanet",
   age     : 22,
   degree  : "B.Sc. Computer Science",
-  school  : "Kasetsart University — chalermphrakiat sakon nakhon province campus",
+  school  : "Kasetsart University — Chalermphrakiat Sakon Nakhon Province Campus",
   faculty : "Faculty of Science and Engineering",
   intern  : "Kumphawapi Hospital · Web Developer · 4 months",
   contact : "wacharakorn8247@gmail.com",
