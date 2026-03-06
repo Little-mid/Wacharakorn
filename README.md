@@ -1,12 +1,24 @@
 <div align="center">
-<img src="https://capsule-render.vercel.app/api?type=venom&color=0:0f2027,50:203a43,100:2c5364&height=220&section=header&text=Wacharakorn%20Krueanet&fontSize=46&fontColor=ffffff&fontAlignY=40&desc=Computer%20Science%20%E2%80%A2%20KU%20Sakon%20Nakhon&descSize=15&descAlignY=62&descColor=aaaaaa" width="100%"/>
+<picture>
+  <source media="(prefers-color-scheme: light)"
+    srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Wacharakorn%20Krueanet&fontSize=46&fontColor=ffffff&fontAlignY=38&desc=Computer%20Science%20%E2%80%A2%20KU%20Sakon%20Nakhon&descSize=15&descAlignY=56&descColor=ffffffcc"/>
+  <source media="(prefers-color-scheme: dark)"
+    srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Wacharakorn%20Krueanet&fontSize=46&fontColor=ffffff&fontAlignY=38&desc=Computer%20Science%20%E2%80%A2%20KU%20Sakon%20Nakhon&descSize=15&descAlignY=56&descColor=aaaaaa"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Wacharakorn%20Krueanet&fontSize=46&fontColor=ffffff&fontAlignY=38&desc=Computer%20Science%20%E2%80%A2%20KU%20Sakon%20Nakhon&descSize=15&descAlignY=56&descColor=aaaaaa" width="100%"/>
+</picture>
 </div>
 
 <br/>
 
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=1000&color=58A6FF&center=true&vCenter=true&width=500&lines=Frontend+Developer+%F0%9F%92%BB;Line+Chatbot+%7C+PHP+%7C+Firebase;Learning+%26+Building+every+day+%F0%9F%9A%80)](https://git.io/typing-svg)
+<picture>
+  <source media="(prefers-color-scheme: light)"
+    srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=1000&color=0969DA&center=true&vCenter=true&width=500&lines=Frontend+Developer+%F0%9F%92%BB;Line+Chatbot+%7C+PHP+%7C+Firebase;Learning+%26+Building+every+day+%F0%9F%9A%80"/>
+  <source media="(prefers-color-scheme: dark)"
+    srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=1000&color=58A6FF&center=true&vCenter=true&width=500&lines=Frontend+Developer+%F0%9F%92%BB;Line+Chatbot+%7C+PHP+%7C+Firebase;Learning+%26+Building+every+day+%F0%9F%9A%80"/>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=1000&color=58A6FF&center=true&vCenter=true&width=500&lines=Frontend+Developer+%F0%9F%92%BB;Line+Chatbot+%7C+PHP+%7C+Firebase;Learning+%26+Building+every+day+%F0%9F%9A%80"/>
+</picture>
 
 </div>
 
@@ -43,7 +55,7 @@ const wacharakorn = {
 
 `Dialogflow` `Firebase` `Line API` `PyThaiNLP` `Python`
 
-[![Watch Demo](https://img.shields.io/badge/▶_Watch_Demo-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/nnUOeEZTiS4)
+[![Watch Demo](https://img.shields.io/badge/▶_Watch_Demo-FF0000?style=flat&logo=youtube&logoColor=white)](https://youtu.be/nnUOeEZTiS4)
 
 </td>
 <td width="50%" valign="top">
@@ -64,16 +76,18 @@ const wacharakorn = {
 
 <table>
 <tr>
-<td width="60" align="center">🤖</td>
+<td width="60" align="center">🎖️</td>
 <td>
 
-**KUSE AI Hackathon 2025**
+**KUSE AI Hackathon 2025** — Certificate of Completion
 
-ผู้ให้การอบรม : **มหาวิทยาลัยเกษตรศาสตร์** (Kasetsart University)
+🏫 ผู้ออกใบรับรอง : **Faculty of Science and Engineering, Kasetsart University**
 
-รายละเอียด : AI Image Processing · AI NLP by Python Library
+👨‍💼 ลงนามโดย : Asst.Prof.Supalak Sathiracheewin · Asst.Prof.Samonporn Suttibak
 
-📅 ผ่านการอบรม : **4 กรกฎาคม 2568** (4 July 2025)
+📚 รายละเอียด : AI Image Processing · AI NLP by Python Library
+
+📅 วันที่เข้าร่วม : **26–28 June 2025** (26–28 มิถุนายน 2568)
 
 </td>
 </tr>
@@ -85,31 +99,31 @@ const wacharakorn = {
 
 **Languages**
 
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
-![React Native](https://img.shields.io/badge/React_Native-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat&logo=mysql&logoColor=white)
+![React Native](https://img.shields.io/badge/React_Native-20232A?style=flat&logo=react&logoColor=61DAFB)
 
 **Tools & Platforms**
 
-![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)
-![Dialogflow](https://img.shields.io/badge/Dialogflow-FF9800?style=flat-square&logo=dialogflow&logoColor=white)
-![Line](https://img.shields.io/badge/Line_API-00C300?style=flat-square&logo=line&logoColor=white)
-![XAMPP](https://img.shields.io/badge/XAMPP-FB7A24?style=flat-square&logo=xampp&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
-![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=firebase&logoColor=black)
+![Dialogflow](https://img.shields.io/badge/Dialogflow-FF9800?style=flat&logo=dialogflow&logoColor=white)
+![Line](https://img.shields.io/badge/Line_API-00C300?style=flat&logo=line&logoColor=white)
+![XAMPP](https://img.shields.io/badge/XAMPP-FB7A24?style=flat&logo=xampp&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=flat&logo=visualstudiocode&logoColor=white)
 
 **AI Tools**
 
-![ChatGPT](https://img.shields.io/badge/ChatGPT-74aa9c?style=flat-square&logo=openai&logoColor=white)
-![Copilot](https://img.shields.io/badge/Copilot-000000?style=flat-square&logo=github&logoColor=white)
-![Gemini](https://img.shields.io/badge/Gemini-8E75B2?style=flat-square&logo=google&logoColor=white)
-![Claude](https://img.shields.io/badge/Claude-D4A373?style=flat-square&logo=anthropic&logoColor=white)
-![v0](https://img.shields.io/badge/v0-000000?style=flat-square&logo=vercel&logoColor=white)
-![Lovable](https://img.shields.io/badge/Lovable-FF6B6B?style=flat-square&logoColor=white)
+![ChatGPT](https://img.shields.io/badge/ChatGPT-74aa9c?style=flat&logo=openai&logoColor=white)
+![Copilot](https://img.shields.io/badge/Copilot-000000?style=flat&logo=github&logoColor=white)
+![Gemini](https://img.shields.io/badge/Gemini-8E75B2?style=flat&logo=google&logoColor=white)
+![Claude](https://img.shields.io/badge/Claude-D4A373?style=flat&logo=anthropic&logoColor=white)
+![v0](https://img.shields.io/badge/v0-000000?style=flat&logo=vercel&logoColor=white)
+![Lovable](https://img.shields.io/badge/Lovable-FF6B6B?style=flat&logoColor=white)
 
 ---
 
@@ -119,7 +133,7 @@ const wacharakorn = {
 
 [![GitHub](https://img.shields.io/badge/GitHub-Little--mid-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Little-mid)
 &nbsp;
-![Profile Views](https://komarev.com/ghpvc/?username=Little-mid&color=0969da&style=for-the-badge&label=Profile+Views)
+![Profile Views](https://komarev.com/ghpvc/?username=Little-mid&color=grey&style=for-the-badge&label=Profile+Views)
 
 </div>
 
@@ -142,5 +156,11 @@ const wacharakorn = {
 <br/>
 
 <div align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2c5364,100:0f2027&height=80&section=footer" width="100%"/>
+<picture>
+  <source media="(prefers-color-scheme: light)"
+    srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=80&section=footer"/>
+  <source media="(prefers-color-scheme: dark)"
+    srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=80&section=footer"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=80&section=footer" width="100%"/>
+</picture>
 </div>
