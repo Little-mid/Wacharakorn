@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://capsule-render.vercel.app/api?type=venom&color=0:0f2027,50:203a43,100:2c5364&height=220&section=header&text=Wacharakorn%20Krueanet&fontSize=46&fontColor=ffffff&fontAlignY=40&desc=Computer%20Science%20%E2%80%A2%20KU%20Sakon%20Nakhon&descSize=15&descAlignY=62&descColor=aaaaaa" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=220&section=header&text=Wacharakorn%20Krueanet&fontSize=46&fontColor=ffffff&fontAlignY=40&desc=Computer%20Science%20%E2%80%A2%20KU%20Sakon%20Nakhon&descSize=15&descAlignY=62&descColor=aaaaaa" width="100%"/>
 </div>
 
 <br/>
@@ -94,16 +94,27 @@ const wacharakorn = {
 
 <div align="center">
 
-[![GitHub Streak](https://streak-stats.demolab.com?user=Little-mid&theme=github-dark&hide_border=true&background=0d1117&stroke=58a6ff&ring=58a6ff&fire=ff6b35&currStreakLabel=58a6ff)](https://git.io/streak-stats)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=Little-mid&theme=github-dark&hide_border=true&background=0d1117&stroke=58a6ff&ring=58a6ff&fire=ff6b35&currStreakLabel=58a6ff"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=Little-mid&theme=default&hide_border=true&background=ffffff&stroke=0969da&ring=0969da&fire=e85d00&currStreakLabel=0969da"/>
+  <img height="155" src="https://streak-stats.demolab.com?user=Little-mid&theme=github-dark&hide_border=true"/>
+</picture>
+
+&nbsp;
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=Little-mid&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=8b949e"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=Little-mid&layout=compact&theme=default&hide_border=true&bg_color=ffffff&title_color=0969da&text_color=57606a"/>
+  <img height="155" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Little-mid&layout=compact&theme=github_dark&hide_border=true"/>
+</picture>
 
 </div>
 
 <div align="center">
 
-![Profile Views](https://komarev.com/ghpvc/?username=Little-mid&color=58a6ff&style=flat-square&label=Profile+Views)
+![Profile Views](https://komarev.com/ghpvc/?username=Little-mid&color=0969da&style=flat-square&label=Profile+Views)
 
 </div>
-
 ---
 
 ### 📬 &nbsp;Contact
@@ -123,5 +134,5 @@ const wacharakorn = {
 <br/>
 
 <div align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2c5364,100:0f2027&height=80&section=footer" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=80&section=footer" width="100%"/>
 </div>
