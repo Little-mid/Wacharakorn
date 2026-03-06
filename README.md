@@ -1,72 +1,65 @@
 <div align="center">
+<img src="https://capsule-render.vercel.app/api?type=venom&color=0:0f2027,50:203a43,100:2c5364&height=220&section=header&text=Wacharakorn%20Krueanet&fontSize=46&fontColor=ffffff&fontAlignY=40&desc=Computer%20Science%20%E2%80%A2%20KU%20Kamphaeng%20Saen&descSize=15&descAlignY=62&descColor=aaaaaa" width="100%"/>
+</div>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=FF6B35&height=200&section=header&text=Wacharakorn%20Krueanet&fontSize=42&fontColor=fff&fontAlignY=38&desc=Computer%20Science%20%7C%20KU%20Kamphaeng%20Saen&descAlignY=58&descSize=16" width="100%"/>
+<br/>
+
+<div align="center">
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=1000&color=58A6FF&center=true&vCenter=true&width=500&lines=Frontend+Developer+%F0%9F%92%BB;Line+Chatbot+%7C+PHP+%7C+Firebase;Learning+%26+Building+every+day+%F0%9F%9A%80)](https://git.io/typing-svg)
 
 </div>
 
+<br/>
+
 ---
 
-## 👋 About Me
+### 👤 &nbsp;About
 
-```yaml
-Name     : Wacharakorn Krueanet (วัชรากร เครือเนตร)
-Age      : 22
-Status   : Student @ Kasetsart University Kamphaeng Saen Campus
-Faculty  : Faculty of Science and Engineering
-Major    : Computer Science
-Intern   : Kumphawapi Hospital  ·  4 months  ·  Web Developer
+```ts
+const wacharakorn = {
+  name    : "Wacharakorn Krueanet",
+  age     : 22,
+  degree  : "B.Sc. Computer Science",
+  school  : "Kasetsart University — Kamphaeng Saen Campus",
+  faculty : "Faculty of Science and Engineering",
+  intern  : "Kumphawapi Hospital · Web Developer · 4 months",
+  contact : "wacharakorn8247@gmail.com",
+};
 ```
 
 ---
 
-## 🎓 Education
+### 🗂️ &nbsp;Projects
 
-| | |
-|---|---|
-| 🏫 **Kasetsart University** Kamphaeng Saen Campus | Faculty of Science and Engineering |
-| 📚 **B.Sc. Computer Science** | Expected graduation **2026 (2569)** |
+<table>
+<tr>
+<td width="50%" valign="top">
 
----
+**🤖 Line Chatbot** &nbsp;`Senior Project`
 
-## 💼 Projects
+แชทบอทแนะนำหลักสูตร CS ผ่าน Line OA วิเคราะห์ภาษาไทยด้วย PyThaiNLP + Dialogflow เก็บข้อมูลบน Firebase
 
-### 1 · Line Chatbot — Senior Project
-> แชทบอทแนะนำหลักสูตรในภาควิชาวิทยาการคอมพิวเตอร์ผ่าน Line Official Account
+`Dialogflow` `Firebase` `Line API` `PyThaiNLP` `Python`
 
-| Stack | Role |
-|---|---|
-| Dialogflow · Line Messaging API · Firebase | AI Intent Design |
-| PyThaiNLP · Line OA · Line Dev Console | NLP + Backend |
+[![Watch Demo](https://img.shields.io/badge/▶_Watch_Demo-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/nnUOeEZTiS4)
 
-```
-📌 ประมวลผลภาษาไทยด้วย PyThaiNLP → Dialogflow → ตอบกลับผ่าน Line OA
-📌 เก็บข้อมูลหลักสูตรและประวัติสนทนาด้วย Firebase Realtime Database
-```
+</td>
+<td width="50%" valign="top">
 
-**🎬 Demo คลิปแนะนำการใช้งาน**
+**🏥 Hospital Room Booking** &nbsp;`Co-op Project`
 
-[![LINE Chatbot Demo](https://img.youtube.com/vi/nnUOeEZTiS4/maxresdefault.jpg)](https://youtu.be/nnUOeEZTiS4)
+ระบบจองห้องพิเศษ รพ.กุมภวาปี พัฒนาร่วม 2 คน ทดสอบบน Localhost รองรับ Admin จัดการห้องและการจอง
 
----
+`HTML/CSS` `JavaScript` `PHP` `MySQL` `XAMPP`
 
-### 2 · ระบบจองห้องพิเศษ — Cooperative Education Project
-> ระบบจัดการและจองห้องพิเศษสำหรับโรงพยาบาลกุมภวาปี พัฒนาร่วมกับเพื่อน 1 คน
-
-| Stack | Detail |
-|---|---|
-| HTML / CSS / JavaScript | Frontend |
-| PHP / MySQL / phpMyAdmin | Backend + Database |
-| XAMPP | Local Server (Localhost) |
-
-```
-📌 ทดสอบระบบผ่าน Localhost ด้วย XAMPP
-📌 รองรับการค้นหา จอง และจัดการห้องพักโดย Admin
-📌 พัฒนาร่วมกัน 2 คน ระหว่างฝึกสหกิจ 4 เดือน
-```
+</td>
+</tr>
+</table>
 
 ---
 
-## 🛠️ Tech Stack
+### 🛠️ &nbsp;Tech Stack
 
 **Languages**
 
@@ -83,12 +76,13 @@ Intern   : Kumphawapi Hospital  ·  4 months  ·  Web Developer
 ![Dialogflow](https://img.shields.io/badge/Dialogflow-FF9800?style=flat-square&logo=dialogflow&logoColor=white)
 ![Line](https://img.shields.io/badge/Line_API-00C300?style=flat-square&logo=line&logoColor=white)
 ![XAMPP](https://img.shields.io/badge/XAMPP-FB7A24?style=flat-square&logo=xampp&logoColor=white)
-![phpMyAdmin](https://img.shields.io/badge/phpMyAdmin-6C78AF?style=flat-square&logo=phpmyadmin&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white)
 
-**AI Tools I Use**
+**AI Tools**
 
 ![ChatGPT](https://img.shields.io/badge/ChatGPT-74aa9c?style=flat-square&logo=openai&logoColor=white)
-![GitHub Copilot](https://img.shields.io/badge/Copilot-000000?style=flat-square&logo=github&logoColor=white)
+![Copilot](https://img.shields.io/badge/Copilot-000000?style=flat-square&logo=github&logoColor=white)
 ![Gemini](https://img.shields.io/badge/Gemini-8E75B2?style=flat-square&logo=google&logoColor=white)
 ![Claude](https://img.shields.io/badge/Claude-D4A373?style=flat-square&logo=anthropic&logoColor=white)
 ![v0](https://img.shields.io/badge/v0-000000?style=flat-square&logo=vercel&logoColor=white)
@@ -96,32 +90,32 @@ Intern   : Kumphawapi Hospital  ·  4 months  ·  Web Developer
 
 ---
 
-## 📊 GitHub Stats
+### 📈 &nbsp;GitHub Stats
 
 <div align="center">
-
-<img height="160" src="https://github-readme-stats.vercel.app/api?username=wacharakorn-krueanet&show_icons=true&theme=tokyonight&hide_border=true&count_private=true"/>
-<img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=wacharakorn-krueanet&layout=compact&theme=tokyonight&hide_border=true"/>
-
+<img height="155" src="https://github-readme-stats.vercel.app/api?username=wacharakorn-krueanet&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=8b949e&count_private=true"/>
+&nbsp;
+<img height="155" src="https://github-readme-stats.vercel.app/api/top-langs/?username=wacharakorn-krueanet&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=8b949e"/>
 </div>
 
 ---
 
-## 📬 Contact
+### 📬 &nbsp;Contact
 
 <div align="center">
 
-[![Email](https://img.shields.io/badge/Email-wacharakorn8247@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:wacharakorn8247@gmail.com)
-[![Tel](https://img.shields.io/badge/Tel-063--720--2916-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](tel:0637202916)
-[![Facebook](https://img.shields.io/badge/Facebook-Wacharakorn_Krueanet-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/Wacharakorn.Krueanet)
-[![Instagram](https://img.shields.io/badge/Instagram-Wacharakorn__g-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/Wacharakorn_g)
+[![Email](https://img.shields.io/badge/wacharakorn8247@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:wacharakorn8247@gmail.com)
+&nbsp;
+[![Tel](https://img.shields.io/badge/063--720--2916-25D366?style=for-the-badge&logo=phone&logoColor=white)](tel:0637202916)
+
+[![Facebook](https://img.shields.io/badge/Wacharakorn_Krueanet-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/Wacharakorn.Krueanet)
+&nbsp;
+[![Instagram](https://img.shields.io/badge/Wacharakorn__g-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/Wacharakorn_g)
 
 </div>
 
----
+<br/>
 
 <div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=FF6B35&height=100&section=footer" width="100%"/>
-
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2c5364,100:0f2027&height=80&section=footer" width="100%"/>
 </div>
