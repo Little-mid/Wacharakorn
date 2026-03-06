@@ -1,0 +1,9 @@
+{
+  "id": "7f019977-121a-4087-bdc6-4fc17a351a61",
+  "name": "year",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}
