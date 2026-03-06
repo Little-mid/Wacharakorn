@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=220&section=header&text=Wacharakorn%20Krueanet&fontSize=46&fontColor=ffffff&fontAlignY=40&desc=Computer%20Science%20%E2%80%A2%20KU%20Sakon%20Nakhon&descSize=15&descAlignY=62&descColor=aaaaaa" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=venom&color=0:0f2027,50:203a43,100:2c5364&height=220&section=header&text=Wacharakorn%20Krueanet&fontSize=46&fontColor=ffffff&fontAlignY=40&desc=Computer%20Science%20%E2%80%A2%20KU%20Sakon%20Nakhon&descSize=15&descAlignY=62&descColor=aaaaaa" width="100%"/>
 </div>
 
 <br/>
@@ -23,6 +23,7 @@ const wacharakorn = {
   degree  : "B.Sc. Computer Science",
   school  : "Kasetsart University — Chalermphrakiat Sakon Nakhon Province Campus",
   faculty : "Faculty of Science and Engineering",
+  skills  : ["React Native (studied)", "AI Image Processing", "NLP"],
   intern  : "Kumphawapi Hospital · Web Developer · 4 months",
   contact : "wacharakorn8247@gmail.com",
 };
@@ -59,6 +60,27 @@ const wacharakorn = {
 
 ---
 
+### 🏆 &nbsp;Certifications & Training
+
+<table>
+<tr>
+<td width="60" align="center">🤖</td>
+<td>
+
+**KUSE AI Hackathon 2025**
+
+ผู้ให้การอบรม : **มหาวิทยาลัยเกษตรศาสตร์** (Kasetsart University)
+
+รายละเอียด : AI Image Processing · AI NLP by Python Library
+
+📅 ผ่านการอบรม : **4 กรกฎาคม 2568** (4 July 2025)
+
+</td>
+</tr>
+</table>
+
+---
+
 ### 🛠️ &nbsp;Tech Stack
 
 **Languages**
@@ -69,6 +91,7 @@ const wacharakorn = {
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![React Native](https://img.shields.io/badge/React_Native-20232A?style=flat-square&logo=react&logoColor=61DAFB)
 
 **Tools & Platforms**
 
@@ -94,16 +117,12 @@ const wacharakorn = {
 
 <div align="center">
 
-[![wacharakorn](https://img.shields.io/badge/GitHub-Little--mid-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Little-mid)
-[![Repos](https://img.shields.io/badge/Repos-Public-0969da?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Little-mid?tab=repositories)
-
-</div>
-
-<div align="center">
-
+[![GitHub](https://img.shields.io/badge/GitHub-Little--mid-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Little-mid)
+&nbsp;
 ![Profile Views](https://komarev.com/ghpvc/?username=Little-mid&color=0969da&style=for-the-badge&label=Profile+Views)
 
 </div>
+
 ---
 
 ### 📬 &nbsp;Contact
@@ -123,5 +142,5 @@ const wacharakorn = {
 <br/>
 
 <div align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=80&section=footer" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2c5364,100:0f2027&height=80&section=footer" width="100%"/>
 </div>
