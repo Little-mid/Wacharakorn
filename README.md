@@ -93,9 +93,9 @@ const wacharakorn = {
 ### 📈 &nbsp;GitHub Stats
 
 <div align="center">
-<img height="155" src="https://github-readme-stats.vercel.app/api?username=wacharakorn-krueanet&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=8b949e&count_private=true"/>
+<img height="155" src="https://github-readme-stats.vercel.app/api?username=Little-mid&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=8b949e&count_private=true"/>
 &nbsp;
-<img height="155" src="https://github-readme-stats.vercel.app/api/top-langs/?username=wacharakorn-krueanet&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=8b949e"/>
+<img height="155" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Little-mid&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=8b949e"/>
 </div>
 
 ---
