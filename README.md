@@ -43,7 +43,7 @@ const wacharakorn = {
   school  : "Kasetsart University — Chalermphrakiat Sakon Nakhon Province Campus",
   faculty : "Faculty of Science and Engineering",
   skills  : ["React Native (studied)", "AI Image Processing", "NLP"],
-  intern  : "Kumphawapi Hospital · IT Support & Web Developer · 4 months",
+  intern  : "Kumphawapi Hospital · Web Developer · 4 months",
   contact : "wacharakorn8247@gmail.com",
 };
 ```
@@ -106,31 +106,31 @@ const wacharakorn = {
 
 **Languages**
 
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat&logo=mysql&logoColor=white)
-![React Native](https://img.shields.io/badge/React_Native-087ea4?style=flat&logo=react&logoColor=white)
+[![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)](https://www.php.net)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org)
+[![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat&logo=mysql&logoColor=white)](https://www.mysql.com)
+[![React Native](https://img.shields.io/badge/React_Native-087ea4?style=flat&logo=react&logoColor=white)](https://reactnative.dev)
 
 **Tools & Platforms**
 
-![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=firebase&logoColor=black)
-![Dialogflow](https://img.shields.io/badge/Dialogflow-FF9800?style=flat&logo=dialogflow&logoColor=white)
-![Line](https://img.shields.io/badge/Line_API-00C300?style=flat&logo=line&logoColor=white)
-![XAMPP](https://img.shields.io/badge/XAMPP-FB7A24?style=flat&logo=xampp&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
-![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=flat&logo=visualstudiocode&logoColor=white)
+[![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=firebase&logoColor=black)](https://firebase.google.com)
+[![Dialogflow](https://img.shields.io/badge/Dialogflow-FF9800?style=flat&logo=dialogflow&logoColor=white)](https://dialogflow.cloud.google.com)
+[![Line](https://img.shields.io/badge/Line_API-00C300?style=flat&logo=line&logoColor=white)](https://developers.line.biz)
+[![XAMPP](https://img.shields.io/badge/XAMPP-FB7A24?style=flat&logo=xampp&logoColor=white)](https://www.apachefriends.org)
+[![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)](https://git-scm.com)
+[![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=flat&logo=visualstudiocode&logoColor=white)](https://code.visualstudio.com)
 
 **AI Tools**
 
-![ChatGPT](https://img.shields.io/badge/ChatGPT-74aa9c?style=flat&logo=openai&logoColor=white)
-![Copilot](https://img.shields.io/badge/Copilot-30363d?style=flat&logo=github&logoColor=white)
-![Gemini](https://img.shields.io/badge/Gemini-8E75B2?style=flat&logo=google&logoColor=white)
-![Claude](https://img.shields.io/badge/Claude-D4A373?style=flat&logo=anthropic&logoColor=white)
-![v0](https://img.shields.io/badge/v0-333333?style=flat&logo=vercel&logoColor=white)
-![Lovable](https://img.shields.io/badge/Lovable-FF6B6B?style=flat&logoColor=white)
+[![ChatGPT](https://img.shields.io/badge/ChatGPT-74aa9c?style=flat&logo=openai&logoColor=white)](https://chatgpt.com)
+[![Copilot](https://img.shields.io/badge/Copilot-30363d?style=flat&logo=github&logoColor=white)](https://github.com/features/copilot)
+[![Gemini](https://img.shields.io/badge/Gemini-8E75B2?style=flat&logo=google&logoColor=white)](https://gemini.google.com)
+[![Claude](https://img.shields.io/badge/Claude-D4A373?style=flat&logo=anthropic&logoColor=white)](https://claude.ai)
+[![v0](https://img.shields.io/badge/v0-333333?style=flat&logo=vercel&logoColor=white)](https://v0.dev)
+[![Lovable](https://img.shields.io/badge/Lovable-FF6B6B?style=flat&logoColor=white)](https://lovable.dev)
 
 ---
 
