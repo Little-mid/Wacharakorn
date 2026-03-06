@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wacharakorn - Web Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Sarabun:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="resume_Style.css">
+
+
+</head>
+
+<body>
+
+  <div id="prog"></div>
+
+  <nav>
+    <a class="nav-logo" href="#">Wacharakorn Krueanet</a>
+    <div class="navlinks" id="navlinks">
+      <a class="nl on" href="#about">About</a>
+      <a class="nl" href="#skills">Skills</a>
+      <a class="nl" href="#experience">Experience</a>
+      <a class="nl" href="#work">Work</a>
+      <div class="nind" id="nind"></div>
+    </div>
+    <div class="nav-right">
+      <button class="btn-theme" id="themeBtn" aria-label="Toggle theme">
+        <svg class="ico-moon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+        </svg>
+        <svg class="ico-sun" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+      </button>
+      <a class="btn-cta" href="javascript:void(0)" onclick="scrollTopAndHighlight()">
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <line x1="22" y1="2" x2="11" y2="13" />
+          <polygon points="22 2 15 22 11 13 2 9 22 2" />
+        </svg>
+        <span>Contact</span>
+      </a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-l">
+      <div class="badge"><span class="bdot"></span>Available for hire</div>
+      <h1>Frontend<br>Developer<span class="dot"> .</span><br><em>Fresh Graduate</em></h1>
+      <p class="hero-desc">ชอบสร้างเว็บและ app ที่ใช้งานจริง ด้วย <strong>HTML, PHP, JavaScript, Python</strong> และ
+        React Native พร้อมนำ <strong>AI tools</strong> เร่งทุก workflow</p>
+      <div class="chips">
+        <a class="chip" href="tel:+66637202916">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path
+              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.28-.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+          </svg>
+          063-720-2916
+        </a>
+        <a class="chip" href="mailto:wacharakorn8247@gmail.com">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          wacharakorn8247@gmail.com
+        </a>
+        <a class="chip" href="https://github.com/" target="_blank" rel="noopener">
+          <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+      <a class="btn-hero" href="#about" id="heroBtn">ดูผลงาน <svg width="14" height="14" fill="none"
+          stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg></a>
+    </div>
+    <div class="hero-r">
+      <div class="pcard" id="pcard">
+        <div class="pc-photo">
+          <img id="avImg" class="av-img" src="./asset/Profile_Image/S__21970949.jpg" alt="Profile">
+          <div class="av-ph" id="avPh">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            <span>Profile Photo</span>
+          </div>
+          <div class="pc-grad"></div>
+          <div class="pc-overlay-text">
+            <div class="pname">วัชรากร เครือเนตร</div>
+            <div class="prole">Frontend Developer</div>
+          </div>
+        </div>
+        <div class="pdiv"></div>
+        <div class="pmeta">
+          <div class="prow"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+              <path d="M6 12v5c3 3 9 3 12 0v-5" />
+            </svg><span><strong>Kasetsart University</strong><br>Computer Science</span></div>
+          <div class="prow"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24">
+              <rect x="2" y="7" width="20" height="14" rx="2" />
+              <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+            </svg><span><strong>Kumphawapi Hospital</strong><br>Web Dev Intern · 4 เดือน</span></div>
+          <div class="prow"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg><span>Udon Thani, Thailand</span></div>
+          <div class="prow"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg><span>จบการศึกษา <strong>2569</strong></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="about">
+    <div class="wrap">
+      <div class="shead fs"><span class="snum">01</span>
+        <h2 class="stitle">About</h2>
+        <div class="srule"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-body fs">
+          <p>นักศึกษา<strong>วิทยาการคอมพิวเตอร์</strong> ม.เกษตรศาสตร์ ที่ชอบทำเว็บและ app ตั้งแต่ปี 2 เขียนได้ทั้ง
+            HTML, CSS, JavaScript, PHP, SQL, Python และ React Native</p>
+          <p>ผ่านการฝึกงาน <strong>4 เดือน</strong> ที่โรงพยาบาลกุมภวาปี พัฒนาระบบจองห้องพิเศษจริง และนำ <strong>AI
+              tools</strong> (ChatGPT, Gemini, Claude, Copilot, Lovable, v0) มาช่วยในกระบวนการพัฒนาทุกขั้นตอน</p>
+          <p>โปรเจกต์จบ: <strong>Line Chatbot ภาษาไทย</strong> ผสาน Dialogflow + PyThaiNLP + Firebase —
+            เชื่อว่าเครื่องมือที่ดีและโค้ดที่ดูแลได้ต้องไปด้วยกันเสมอ</p>
+        </div>
+        <div class="stats fs">
+          <div class="scard">
+            <div class="snum2" data-to="2">2</div>
+            <div class="slbl">โปรเจกต์หลัก</div>
+          </div>
+          <div class="scard">
+            <div class="snum2" data-to="2569">2569</div>
+            <div class="slbl">จบการศึกษา</div>
+          </div>
+          <div class="scard">
+            <div class="snum2" data-to="4">4</div>
+            <div class="slbl">เดือน ฝึกงาน</div>
+          </div>
+          <!-- <div class="scard">
+            <div class="snum2">&#8734;</div>
+            <div class="slbl">ความตั้งใจ</div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="skills">
+    <div class="wrap">
+      <div class="shead fs"><span class="snum">02</span>
+        <h2 class="stitle">Skills</h2>
+        <div class="srule"></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card fs">
+          <div class="sklbl">Languages</div>
+          <div class="pills"><span class="pill">HTML</span><span class="pill">CSS</span><span
+              class="pill">JavaScript</span><span class="pill">PHP</span><span class="pill">SQL</span><span
+              class="pill">Python</span></div>
+        </div>
+        <div class="skill-card fs">
+          <div class="sklbl">Frameworks &amp; Libraries</div>
+          <div class="pills"><span class="pill">React Native</span><span class="pill">PyThaiNLP</span></div>
+        </div>
+        <div class="skill-card fs">
+          <div class="sklbl">Tools &amp; Platforms</div>
+          <div class="pills"><span class="pill">Git &amp; GitHub</span><span class="pill">XAMPP</span><span
+              class="pill">phpMyAdmin</span><span class="pill">Firebase</span><span class="pill">Dialogflow</span><span
+              class="pill">Line OA</span></div>
+        </div>
+        <div class="skill-card fs">
+          <div class="sklbl">AI Tools</div>
+          <div class="pills"><span class="pill">ChatGPT</span><span class="pill">Gemini</span><span
+              class="pill">Claude</span><span class="pill">GitHub Copilot</span><span class="pill">Lovable</span><span
+              class="pill">v0</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="experience">
+    <div class="wrap">
+      <div class="shead fs"><span class="snum">03</span>
+        <h2 class="stitle">Experience &amp; Education</h2>
+        <div class="srule"></div>
+      </div>
+      <div class="timeline">
+        <div class="tli fs">
+          <div class="tldate">2568 (4 เดือน)<br><span class="tltag" style="color:var(--acc)">Intern</span></div>
+          <div class="tlbody">
+            <div class="tldot"></div>
+            <div class="tltitle">IT Support & Web Developer Intern</div>
+            <div class="tlorg">โรงพยาบาลกุมภวาปี &middot; อุดรธานี</div>
+            <div class="tldesc">พัฒนาระบบจองห้องพิเศษภายในโรงพยาบาล ด้วย HTML, CSS, JavaScript, PHP, SQL และ phpMyAdmin
+              บน XAMPP พร้อมนำ AI tools (GPT, Copilot, Claude) มาช่วยเร่งการพัฒนา</div>
+          </div>
+        </div>
+        <div class="tli fs">
+          <div class="tldate">2565 &ndash; 2569<br><span class="tltag" style="color:var(--muted)">B.Sc.</span></div>
+          <div class="tlbody">
+            <div class="tldot"></div>
+            <div class="tltitle">B.Sc. Computer Science</div>
+            <div class="tlorg">Kasetsart University &middot; Faculty of Science &amp; Engineering</div>
+            <div class="tldesc">ศึกษา Data Structure, Algorithms, Web Development, Database Systems และ Software
+              Engineering เน้นโปรเจกต์จริงและนำ AI มาประยุกต์ใช้ในทุกวิชา</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="work">
+    <div class="wrap">
+      <div class="shead fs"><span class="snum">04</span>
+        <h2 class="stitle">Work</h2>
+        <div class="srule"></div>
+      </div>
+      <div class="work-grid" id="wgrid">
+        <div class="wcard fs" onclick="openWpop(0)">
+          <div class="wthumb" style="background-image:url('./asset/Project_Intern_Image/Capture5.PNG');
+                            background-size:cover;
+                            background-position:center;">
+          </div>
+          <div class="wbody">
+            <div class="wname">ระบบจองห้องพิเศษ รพ.</div>
+            <div class="wdesc">ระบบจองห้องพิเศษสำหรับโรงพยาบาลกุมภวาปี รองรับการค้นหา จอง และจัดการห้อง พัฒนาช่วงฝึกงาน
+            </div>
+            <div class="wtags"><span class="wtag">HTML/CSS</span><span class="wtag">JavaScript</span><span
+                class="wtag">PHP</span><span class="wtag">SQL</span><span class="wtag">XAMPP</span></div>
+            <!-- <div class="wlinks"><a class="wlink" href="#">Demo</a><a class="wlink" href="#">GitHub</a></div> -->
+          </div>
+        </div>
+        <div class="wcard fs" onclick="openWpop(1)">
+          <div class="wthumb" style="background-image:url('./asset/Senior_Project_Image/LINE_logo.svg.png');
+                            background-size:cover;
+                            background-position:center;">
+          </div>
+          <div class="wbody">
+            <div class="wname">Line Chatbot &mdash; โปรเจกต์จบ</div>
+            <div class="wdesc">Chatbot ภาษาไทยผ่าน Line OA ใช้ Dialogflow ประมวลผลภาษา, PyThaiNLP วิเคราะห์ข้อความ และ
+              Firebase เก็บข้อมูล</div>
+            <div class="wtags"><span class="wtag">Dialogflow</span><span class="wtag">Firebase</span><span
+                class="wtag">Line OA</span><span class="wtag">PyThaiNLP</span><span class="wtag">Python</span></div>
+            <!-- <div class="wlinks"><a class="wlink" href="#">Demo</a><a class="wlink" href="#">GitHub</a></div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="feyrow"><span class="feydot"></span>
+      <div class="fey">Open to opportunities</div><span class="feydot"></span>
+    </div>
+    <div class="fhead">Let's build something<br><em>great together</em></div>
+    <div class="fsub">กำลังมองหาตำแหน่ง Fontend Developer แบบเต็มเวลา<br>พร้อมเริ่มงานได้ทันที</div>
+    <div class="fdiv"></div>
+    <div class="fbottom">
+      <span class="fcopy">© 2569 วัชรากร เครือเนตร</span>
+      <span class="fbdot"></span>
+      <span class="fcopy">Fontend Developer · Fresh Graduate</span>
+      <span class="fbdot"></span>
+      <span class="fcopy">Kasetsart University</span>
+    </div>
+  </footer>
+
+  <div class="modal-bg" id="mbg">
+    <div class="modal-box">
+      <div class="modal-hd">
+        <div class="modal-t">Add New Project</div><button class="modal-x" onclick="closeModal()"><svg width="13"
+            height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg></button>
+      </div>
+      <div class="fg"><label>Project Name</label><input id="pT" placeholder="e.g. Hospital Booking System"></div>
+      <div class="fg"><label>Description</label><textarea id="pD" placeholder="Brief description..."></textarea></div>
+      <div class="fg"><label>Tech Stack (comma separated)</label><input id="pS" placeholder="PHP, SQL, JavaScript">
+      </div>
+      <div class="fg"><label>Demo Link</label><input id="pU" placeholder="https://..."></div>
+      <div class="fg"><label>GitHub Link</label><input id="pG" placeholder="https://github.com/..."></div>
+      <div class="mbtns"><button class="btn-can" onclick="closeModal()">Cancel</button><button class="btn-ok"
+          onclick="addProj()">Add Project</button></div>
+    </div>
+  </div>
+
+  <button class="fab" id="fab" onclick="scrollToTop()" aria-label="Back to top">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
+  </button>
+  <div class="toast" id="toast"></div>
+  <!-- mob-fabs -->
+  <div class="mob-fabs">
+    <button class="mfab mfab-theme" id="mobFabTheme" aria-label="สลับโหมด">
+      <svg class="ico-moon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24">
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+      </svg>
+      <svg class="ico-sun" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="5" />
+        <line x1="12" y1="1" x2="12" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="23" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        <line x1="1" y1="12" x2="3" y2="12" />
+        <line x1="21" y1="12" x2="23" y2="12" />
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+      </svg>
+      โหมด
+    </button>
+    <button class="mfab mfab-contact" onclick="scrollTopAndHighlight()">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <line x1="22" y1="2" x2="11" y2="13" />
+        <polygon points="22 2 15 22 11 13 2 9 22 2" />
+      </svg>
+      Contact
+    </button>
+  </div>
+
+  <!-- pcard popup -->
+  <div class="pcpop-bg" id="pcpopBg">
+    <div class="pcpop">
+      <button class="pcpop-close" id="pcpopClose">&#x2715;</button>
+      <div class="pcpop-av">
+        <img id="pcpopImg" src="./asset/Profile_Image/S__21970949.jpg" alt="Profile">
+        <svg id="pcpopPh" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5"
+          viewBox="0 0 24 24">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg>
+      </div>
+      <div class="pcpop-name">วัชรากร เครือเนตร</div>
+      <div class="pcpop-role">Fontend Developer · Fresh Graduate</div>
+      <div class="pcpop-div"></div>
+      <div class="pcpop-rows">
+        <div class="pcpop-row"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+          </svg><span><strong>Kasetsart University</strong><br>B.Sc. Computer Science · 2565–2569</span></div>
+        <div class="pcpop-row"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <rect x="2" y="7" width="20" height="14" rx="2" />
+            <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+          </svg><span><strong>Kumphawapi Hospital</strong><br>Web Dev Intern · 4 เดือน (2568)</span></div>
+        <div class="pcpop-row"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg><span>Udon Thani, Thailand</span></div>
+        <div class="pcpop-row"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path
+              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.28-.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+          </svg><span><a href="tel:+66637202916">063-720-2916</a></span></div>
+        <div class="pcpop-row"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg><span><a href="mailto:wacharakorn8247@gmail.com">wacharakorn8247@gmail.com</a></span></div>
+        <div class="pcpop-row"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+          </svg><span><a href="https://github.com/" target="_blank" rel="noopener">github.com/somchai</a></span></div>
+      </div>
+      <div class="pcpop-actions">
+        <a class="pcpop-btn pcpop-btn-call" href="tel:+66812345678"><svg width="14" height="14" fill="none"
+            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path
+              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.28-.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+          </svg>โทร</a>
+        <a class="pcpop-btn pcpop-btn-mail" href="mailto:wacharakorn8247@gmail.com"><svg width="14" height="14"
+            fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>ส่งอีเมล</a>
+      </div>
+    </div>
+  </div>
+  <div class="wpop-bg" id="wpopBg">
+    <div class="wpop">
+      <button class="wpop-close" id="wpopClose" aria-label="ปิด">
+        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round">
+          <line x1="1" y1="1" x2="10" y2="10" />
+          <line x1="10" y1="1" x2="1" y2="10" />
+        </svg>
+      </button>
+
+      <!-- main viewer -->
+      <div class="wpop-main">
+        <div class="wpop-slides" id="wpopSlides"></div>
+        <button class="wpop-arr wpop-arr-l" id="wpopArrL" aria-label="ก่อนหน้า">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+            viewBox="0 0 24 24">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <button class="wpop-arr wpop-arr-r" id="wpopArrR" aria-label="ถัดไป">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+            viewBox="0 0 24 24">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+        <div class="wpop-counter" id="wpopCounter">1 / 4</div>
+      </div>
+
+      <!-- thumbnail strip -->
+      <div class="wpop-thumbs" id="wpopThumbs"></div>
+
+      <!-- per-slide caption -->
+      <div class="wpop-caption">
+        <div class="wpop-cap-num" id="wpopCapNum">ภาพที่ 1</div>
+        <div class="wpop-cap-title" id="wpopCapTitle"></div>
+        <div class="wpop-cap-desc" id="wpopCapDesc"></div>
+      </div>
+
+      <!-- project info -->
+      <div class="wpop-meta">
+        <div class="wpop-meta-row">
+          <span class="wpop-badge" id="wpopBadge"></span>
+        </div>
+        <div class="wpop-name" id="wpopName"></div>
+        <div class="wpop-divider"></div>
+        <div class="wpop-tags" id="wpopTags"></div>
+      </div>
+    </div>
+  </div>
+  <script src="resume_Script.js"></script>
+</body>
+
+</html>
