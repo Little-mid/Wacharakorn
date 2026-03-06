@@ -154,7 +154,7 @@ const wacharakorn = {
 &nbsp;
 [![Tel](https://img.shields.io/badge/063--720--2916-25D366?style=for-the-badge&logo=phone&logoColor=white)](tel:0637202916)
 
-[![Facebook](https://img.shields.io/badge/Wacharakorn_Krueanet-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/Wacharakorn.Krueanet)
+[![Facebook](https://img.shields.io/badge/Wacharakorn_Krueanet-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/WacharakornKrueanet)
 &nbsp;
 [![Instagram](https://img.shields.io/badge/Wacharakorn__g-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/Wacharakorn_g)
 
