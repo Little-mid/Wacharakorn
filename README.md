@@ -150,6 +150,8 @@ const wacharakorn = {
 
 <div align="center">
 
+[![Resume](https://img.shields.io/badge/Resume_Website-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://little-mid.github.io/wacharakorn/Resume_website/index.html)
+
 [![Email](https://img.shields.io/badge/wacharakorn8247@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:wacharakorn8247@gmail.com)
 &nbsp;
 [![Tel](https://img.shields.io/badge/063--720--2916-25D366?style=for-the-badge&logo=phone&logoColor=white)](tel:0637202916)
